@@ -7,6 +7,7 @@ import { ComoFuncionaComponent } from './pages/como-funciona/como-funciona.compo
 import { FooterComponent } from './pages/footer/footer.component';
 import { ServiciosComponent } from './pages/servicios/servicios.component';
 import { HeaderComponent } from './pages/header/header.component';
+import { FormularioContactoComponent } from './pages/formulario-contacto/formulario-contacto.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { HeaderComponent } from './pages/header/header.component';
     ComoFuncionaComponent,
     FooterComponent,
     ServiciosComponent,
-    HeaderComponent
+    HeaderComponent,
+    FormularioContactoComponent
   ],
   imports: [
     BrowserModule,
