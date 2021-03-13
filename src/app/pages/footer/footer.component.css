@@ -5,6 +5,10 @@ footer{
     flex-direction: row;
     justify-content: space-between;
     font-family: 'Poppins', sans-serif;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
 }
 
 #enlaces{
@@ -24,3 +28,5 @@ a{
     text-decoration: none;
     color: #f1f1f2;
 }
+
+

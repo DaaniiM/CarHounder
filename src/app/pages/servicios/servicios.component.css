@@ -1,0 +1,44 @@
+
+
+
+#comoFunciona{
+    background-image: url("/../../assets/img/fotoFondos/servicioFoto.png");
+    position: relative;
+    height: 900px; 
+    width: 100%;
+    background-position: center;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    background-color: #F1F1F2;
+}
+
+/* h1{
+    color: #F1F1F2;
+    padding-top: 50px;
+} */
+
+.contenido{
+    background-color: #F1F1F2;
+    /* margin: 50px; */
+    align-items: center;
+    text-align: center;
+}
+
+img{
+    height: 50px;
+}
+
+.titulo{
+    width: 200px;
+}
+
+.separacion{
+    height: 80px;
+}
+
+h5 {
+    text-align: left;
+    padding: 0px 80px 0px 80px;
+}
+
+
