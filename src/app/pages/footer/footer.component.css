@@ -5,6 +5,9 @@ footer{
     flex-direction: row;
     justify-content: space-between;
     font-family: 'Poppins', sans-serif;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 #enlaces{
