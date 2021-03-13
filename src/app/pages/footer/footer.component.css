@@ -1,0 +1,26 @@
+footer{
+    background-color: #8D9CAC;
+    color: #f1f1f2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: 'Poppins', sans-serif;
+}
+
+#enlaces{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 500px;
+    font-weight: bold;
+}
+
+img{
+    width: 110px;
+    height: 30px;
+}
+
+a{
+    text-decoration: none;
+    color: #f1f1f2;
+}
