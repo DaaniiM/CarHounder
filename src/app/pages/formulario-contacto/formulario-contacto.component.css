@@ -76,3 +76,25 @@ button{
     height: 380px;
 
 }
+
+textarea{
+
+    resize: none;
+    height: 150px;
+}
+
+@media screen and (min-height: 1020px){
+
+    #all{
+        
+        height: 1366px;
+    }
+
+    form{
+
+        height: 1000px;
+        width: 800px;
+        
+
+    }
+}
