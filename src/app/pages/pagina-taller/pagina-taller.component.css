@@ -73,6 +73,17 @@ img{
 .card{
 
     margin-top: 110px;
-    min-height: 700px
+    min-height: 700px;
+    background-color: #F1F1F2;
+
+}
+
+
+@media screen and (min-height: 1020px){
+
+    #imagenFondo{
+        
+        height: 1366px;
+    }
 
 }
