@@ -117,3 +117,28 @@ p{
     width: 10px;
     height: 300px;
 }
+
+@media screen and (max-width: 1030px){
+    img{
+        margin-right: 30px;
+        width: 150px;
+    }
+}
+
+@media screen and (max-width: 720px){
+    img{
+        margin-right: 30px;
+        width: 120px;
+    }
+
+    .column{
+        
+    }
+}
+
+@media screen and (max-width: 650px){
+    img{
+        margin-right: 30px;
+        width: 120px;
+    }
+}
