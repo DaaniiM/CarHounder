@@ -3,30 +3,38 @@
     background-image: url("src/assets/img/fotoFondos/sobnosfondo.png");
     background-position: center;
     position:relative;
-    height: 920px; 
-    width: auto;
+    height: 100%; 
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    background-color: #F1F1F2;
+
+}
+
+#formulario{
+
+    display: flex;
     justify-content: center;
 
 }
 
 form{
 
-    display: flex;
     flex-direction: column;
     font-family: 'Poppins', sans-serif;
     color: #F1F1F2;
     font-weight: bold;
     padding: 30px;
+    align-items: center;
 
 }
-
+/* 
 #mensaje{
 
     height: 300px;
-}
+
+} */
 
 button{
 
@@ -43,5 +51,11 @@ button{
 	color: white;
 	width: 270px;
     background-color: #0466c8;
+
+}
+
+.separacion{
+
+    height: 80px;
 
 }

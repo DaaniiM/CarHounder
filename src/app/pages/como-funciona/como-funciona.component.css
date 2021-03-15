@@ -11,7 +11,6 @@
 
 h1{
     color: #F1F1F2;
-    padding-top: 50px;
 }
 
 .contenido{
@@ -23,10 +22,6 @@ h1{
 
 img{
     height: 50px;
-}
-
-.titulo{
-    width: 200px;
 }
 
 .separacion{

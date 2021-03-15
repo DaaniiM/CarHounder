@@ -18,7 +18,7 @@ import { SobreNosotosComponent } from './pages/sobre-nosotos/sobre-nosotos.compo
     ServiciosComponent,
     HeaderComponent,
     FormularioContactoComponent,
-    SobreNosotosComponent
+    SobreNosotosComponent,
   ],
   imports: [
     BrowserModule,

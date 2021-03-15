@@ -1,10 +1,8 @@
 
-
-
-#comoFunciona{
+#servicios{
     background-image: url("/../../assets/img/fotoFondos/servicioFoto.png");
     position: relative;
-    height: 900px; 
+    height: 100%; 
     width: 100%;
     background-position: center;
     text-align: center;
@@ -12,31 +10,22 @@
     background-color: #F1F1F2;
 }
 
-/* h1{
-    color: #F1F1F2;
-    padding-top: 50px;
-} */
 
 .contenido{
     background-color: #F1F1F2;
-    /* margin: 50px; */
     align-items: center;
     text-align: center;
 }
 
 img{
-    height: 50px;
-}
-
-.titulo{
-    width: 200px;
+    height: 25px;
 }
 
 .separacion{
     height: 80px;
 }
 
-h5 {
+p {
     text-align: left;
     padding: 0px 80px 0px 80px;
 }
