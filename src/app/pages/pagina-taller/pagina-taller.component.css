@@ -1,0 +1,78 @@
+
+
+#imagenFondo{
+
+    background-image: url("src/assets/img/fotoFondos/busquedatallerfondo.png");
+    background-position: center center;
+    position:relative;
+    height: auto;
+    width: 100%;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Poppins', sans-serif;
+
+
+}
+
+
+#all{
+/* 
+    background-image: url("src/assets/img/fotoFondos/sobnosfondo.png");
+    background-position: center;
+    position:relative; */
+    width: 100%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 100px;
+
+
+    
+
+}
+
+
+button{
+
+    border-radius: 10px;
+	display: block;
+	position: relative;
+	padding: 10px 0;
+	margin: 25px auto;
+    font-family: 'Poppins', sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-align: center;
+	color: white;
+	width: 150px;
+    height: 40px;
+    background-color: #0466c8;
+
+}
+
+#botonInfo{
+
+    display: flex;
+    flex-direction: row;
+
+}
+
+img{
+
+    height: 300px;
+    width: 1400px;
+    position:relative;
+    background-position: center center;
+
+}
+
+
+.card{
+
+    margin-top: 110px;
+    min-height: 700px
+
+}
