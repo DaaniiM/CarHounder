@@ -1,4 +1,7 @@
 
+
+
+
 <div id="imagenFondo">
 
     <app-header></app-header>
@@ -18,11 +21,11 @@
             <p class="card-text"> 
                 Cambio de aceite - 30€<br>
                 Revisión completa - 20€
-
+            
             <h5 class="card-title">Ofertas</h5>
             <p class="card-text"> 
                 Cambio de aceite + Revisión pre-ITV - 50€<br>
-                Cambio de aceite + Revisión Completa - 40€
+                Cambio de aceite + Revisión Completa - 40€<br>
                 Cambio de aceite + Revisión pre-ITV - 50€<br>
                 Cambio de aceite + Revisión pre-ITV - 50€<br>
                 Cambio de aceite + Revisión pre-ITV - 50€<br>
@@ -35,9 +38,13 @@
 
           <div id="botonInfo">
 
+
+            <app-modal-citas></app-modal-citas>
+
             <button type="submit" class="btn btn-primary">Chat</button>
 
-            <button type="submit" class="btn btn-primary">Pedir Cita</button>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#iniciarSesion">Pedir Cita</button>
+
 
             </div>
 

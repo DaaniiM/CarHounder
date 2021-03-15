@@ -10,6 +10,7 @@ import { HeaderComponent } from './pages/header/header.component';
 import { FormularioContactoComponent } from './pages/formulario-contacto/formulario-contacto.component';
 import { SobreNosotrosComponent } from './pages/sobre-nosotros/sobre-nosotros.component';
 import { PaginaTallerComponent } from './pages/pagina-taller/pagina-taller.component';
+import { ModalCitasComponent } from './pages/modal-citas/modal-citas.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { PaginaTallerComponent } from './pages/pagina-taller/pagina-taller.compo
     FormularioContactoComponent,
     SobreNosotrosComponent,
     PaginaTallerComponent,
+    ModalCitasComponent,
   ],
   imports: [
     BrowserModule,
