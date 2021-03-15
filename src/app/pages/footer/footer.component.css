@@ -30,3 +30,16 @@ a{
 }
 
 
+@media screen and (max-width: 750px){
+
+    footer{
+
+        font-size: xx-small;
+    }
+
+    img{
+        width: 55px;
+        height: 15px;
+    }
+
+}
