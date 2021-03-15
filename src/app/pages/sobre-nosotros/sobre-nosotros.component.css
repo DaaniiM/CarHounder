@@ -13,11 +13,12 @@
     background-position: center center;
     background-attachment: fixed;
     background-size: cover;
-    height: 875px;
+    height: 100%;
     width: 100%;
     display: flex;
+    position: fixed;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
     font-family: 'Poppins', sans-serif;;
 }
@@ -110,3 +111,31 @@ p{
 /* p{
     padding: 50px;
 } */
+
+.separacion{
+
+    width: 10px;
+    height: 300px;
+}
+
+@media screen and (max-width: 1030px){
+    img{
+        margin-right: 30px;
+        width: 150px;
+    }
+}
+
+@media screen and (max-width: 720px){
+    img{
+        margin-right: 30px;
+        width: 120px;
+    }
+
+}
+
+@media screen and (max-width: 650px){
+    img{
+        margin-right: 30px;
+        width: 120px;
+    }
+}
