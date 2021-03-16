@@ -1,19 +1,16 @@
 #comoFunciona{
-    background-image: url("src/assets/img/fotoFondos/comofuncionafondo.png");
-    position: relative;
-    height: 100%; 
-    width: 100%;
+    background-image: url("src/assets/img/fotoFondos/sobnosfondo.png");
     background-position: center;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-    background-color: #F1F1F2;
+    position:relative;
+    height: 100%;
+    width: 100%;
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
+    background-color: #F1F1F2;
 }
 
 h1{
-    padding-top: 100px;
     color: #F1F1F2;
 }
 
@@ -29,5 +26,5 @@ img{
 }
 
 .separacion{
-    height: 50px;
+    height: 80px;
 }

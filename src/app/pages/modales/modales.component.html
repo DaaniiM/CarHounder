@@ -1,0 +1,179 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">    
+<div class="modales">
+    <!-- Modal Registro-->
+    <div class="modal fade" id="registro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Regístrate</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col text-center p-3">
+                            <img src="../../assets/img/iconos/man-with-car.png" alt="" data-toggle="modal" data-target="#registroCliente">
+                            <h5 data-toggle="modal" data-target="#registroCliente">Si buscas taller</h5>
+                        </div>
+                        <div class="col text-center p-3">
+                            <img src="../../assets/img/iconos/automobile-with-wrench.png" data-toggle="modal" data-target="#registroTaller">
+                            <h5 data-toggle="modal" data-target="#registroTaller">Si eres taller</h5>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <!-- Modal -->
+                        <div class="modal fade" id="registroTaller" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Regístrate</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                          <label>Email</label>
+                                          <input type="email" class="form-control" id="emailTaller" aria-describedby="emailHelp" placeholder="Introduzca email">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Nombre</label>
+                                            <input class="form-control" type="text" placeholder="Introduzca nombre">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>CIF</label>
+                                            <input class="form-control" type="text" placeholder="Introduzca CIF">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Dirección</label>
+                                            <input class="form-control" type="text" placeholder="Introduzca dirección">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Código postal</label>
+                                            <input class="form-control" type="number" placeholder="Introduzca código postal">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Ciudad</label>
+                                            <input class="form-control" type="text" placeholder="Introduzca ciudad">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Provincia</label>
+                                            <input class="form-control" type="text" placeholder="Introduzca provincia">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Teléfono</label>
+                                            <input class="form-control" type="number" placeholder="Introduzca teléfono">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Contraseña</label>
+                                            <input type="password" class="form-control" id="contTaller1" placeholder="Introduzca contraseña">
+                                          </div>
+                                          <div class="form-group">
+                                            <label>Repita la contraseña</label>
+                                            <input type="password" class="form-control" id="contTaller2" placeholder="Repita la contraseña">
+                                          </div>
+                                        <div class="form-group">
+                                            <label>Foto perfil</label>
+                                            <input class="form-control" type="text" placeholder="Introduzca foto perfil">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn boton1">Registrarse</button>
+                                            <button type="button" class="btn boton2" data-dismiss="modal">Cerrar</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                         <!-- Modal -->
+                        <div class="modal fade" id="registroCliente" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Regístrate</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                          <label>Email</label>
+                                          <input type="email" class="form-control" id="emailCliente" aria-describedby="emailHelp" placeholder="Introduzca email">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Nombre</label>
+                                            <input class="form-control" type="text" placeholder="Introduzca nombre">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Apellidos</label>
+                                            <input class="form-control" type="text" placeholder="Introduzca apellidos">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Teléfono</label>
+                                            <input class="form-control" type="number" placeholder="Introduzca teléfono">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Contraseña</label>
+                                            <input type="password" class="form-control" id="contCliente1" placeholder="Introduzca contraseña">
+                                          </div>
+                                          <div class="form-group">
+                                            <label>Repita la contraseña</label>
+                                            <input type="password" class="form-control" id="contCiente2" placeholder="Repita la contraseña">
+                                          </div>
+                                        <div class="form-group">
+                                            <label>Foto perfil</label>
+                                            <input class="form-control" type="text" placeholder="Introduzca foto perfil">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn boton1">Registrarse</button>
+                                            <button type="button" class="btn boton2" data-dismiss="modal">Cerrar</button>
+                                        </div>
+                                      </form>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn boton2" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- Modal Inicio Sesión-->
+    <div class="modal fade" id="iniciarSesion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Iniciar sesión</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                      <label>Email</label>
+                      <input type="email" class="form-control" id="emailInicio" aria-describedby="emailHelp" placeholder="Introduzca su email">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Contraseña</label>
+                      <input type="password" class="form-control" id="contInicio" placeholder="Introduzca su contraseña">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn boton1">Iniciar sesión</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
