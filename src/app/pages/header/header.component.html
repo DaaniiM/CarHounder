@@ -1,7 +1,23 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">    
 <nav class="navbar">
     <div class="text-center p-3">
-        <img src="../../assets/img/Logo/normal resolucion/carhounderLogo.png">
+        <img src="../../assets/img/Logo/normal resolucion/carhounderLogo.png" id="logo1">
+        <img src="../../assets/img/Logo/normal resolucion/carhounderLogoC.png" id="logo2">
     </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default "
+                data-toggle="dropdown" id="desp">
+                <img src="../../assets/img/iconos/lista.png" id="desplegable"><span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-right" role="menu" id="menu">
+            <li><a routerLink="">Mi Perfil</a></li>
+            <li><a routerLink="">Mis Citas</a></li>
+            <li><a routerLink="" >Servicios</a></li>
+            <li><a routerLink="">Cómo funciona</a></li>
+            <!-- <li><a routerLink="" data-toggle="modal" data-target="#registro">Regístrate</a></li>
+            <li><a routerLink="" data-toggle="modal" data-target="#iniciarSesion">Iniciar sesión</a></li> -->
+        </ul>
+      </div>
     <div id="enlaces" class="text-center p-3">
         <div>
             <a routerLink="">Servicios</a>
@@ -9,14 +25,24 @@
         <div>
             <a routerLink="">Cómo funciona</a>
         </div>
-        <div>
-            <a routerLink="">Regístrate</a>
+        <!-- <div>
+            <a routerLink="" data-toggle="modal" data-target="#registro">Regístrate</a>
         </div>
         <div>
-            <a routerLink="">Iniciar sesión</a>
-        </div>
-        <!-- <div *ngIf="si ha iniciado sesion">
-            <img src="iagen de perfil"><a routerLink="" >Perfirl</a>
+            <a routerLink="" data-toggle="modal" data-target="#iniciarSesion">Iniciar sesión</a>
         </div> -->
+        <!-- *ngIf="iniciarSesion == true" -->
+        <div >
+            <img src="../../assets/img/iconos/fotoPerfil.jpg" id="fotoPerfil"
+            data-toggle="dropdown" ><a routerLink=""
+            data-toggle="dropdown" > Nombre </a>
+            <ul class="dropdown-menu dropdown-menu-right" role="menu" id="menuPerfil">
+                <li><a routerLink="">Mi Perfil</a></li>
+                <li><a routerLink="">Mis Citas</a></li>
+            </ul>
+        </div>
     </div>
 </nav>
+<div class="col">
+<app-modales></app-modales>
+</div>
