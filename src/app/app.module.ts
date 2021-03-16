@@ -12,6 +12,8 @@ import { SobreNosotrosComponent } from './pages/sobre-nosotros/sobre-nosotros.co
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { ModalesComponent } from './pages/modales/modales.component';
 import { ChatComponent } from './pages/chat/chat.component';
+import { PerfilesComponent } from './pages/perfiles/perfiles.component';
+import { CitasComponent } from './pages/citas/citas.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { ChatComponent } from './pages/chat/chat.component';
     LandingPageComponent,
     ModalesComponent,
     ChatComponent,
+    PerfilesComponent,
+    CitasComponent,
   ],
   imports: [
     BrowserModule,
