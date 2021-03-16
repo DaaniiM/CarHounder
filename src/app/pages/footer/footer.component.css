@@ -37,13 +37,9 @@ a:hover{
     color: #33415C;
 }
 
+
 @media screen and (max-width: 750px){
 
-<<<<<<< HEAD
-@media screen and (max-width: 750px){
-
-=======
->>>>>>> 7ea8f9e240c0c6fda4e320ed2f3a63defda9bf58
     footer{
 
         font-size: xx-small;
@@ -54,8 +50,4 @@ a:hover{
         height: 15px;
     }
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 7ea8f9e240c0c6fda4e320ed2f3a63defda9bf58
