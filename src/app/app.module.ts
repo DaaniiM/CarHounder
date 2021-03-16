@@ -9,12 +9,9 @@ import { ServiciosComponent } from './pages/servicios/servicios.component';
 import { HeaderComponent } from './pages/header/header.component';
 import { FormularioContactoComponent } from './pages/formulario-contacto/formulario-contacto.component';
 import { SobreNosotrosComponent } from './pages/sobre-nosotros/sobre-nosotros.component';
-<<<<<<< HEAD
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
-=======
 import { ModalesComponent } from './pages/modales/modales.component';
 import { ChatComponent } from './pages/chat/chat.component';
->>>>>>> AJCT
 
 @NgModule({
   declarations: [
@@ -25,12 +22,9 @@ import { ChatComponent } from './pages/chat/chat.component';
     HeaderComponent,
     FormularioContactoComponent,
     SobreNosotrosComponent,
-<<<<<<< HEAD
     LandingPageComponent,
-=======
     ModalesComponent,
     ChatComponent,
->>>>>>> AJCT
   ],
   imports: [
     BrowserModule,
