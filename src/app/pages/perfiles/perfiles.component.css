@@ -1,0 +1,387 @@
+.fondo{
+    background-image: url("src/assets/img/fotoFondos/perfusuari.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+    height: 875px;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.bloque{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding-top: 20px;
+    /* border: 1px solid; */
+}
+
+.cuadro{
+    background-color: #F1F1F2;
+    text-align: center;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    width: 650px;
+    border-radius: 10px;
+}
+
+form{
+    text-align: start;
+}
+
+label{
+    font-weight: 500;
+    font-size: 17px;
+}
+
+input{
+    margin-bottom: 10px;
+    background-color: #ffffff;
+}
+
+h2{
+    padding-bottom: 20px;
+    padding-top: 20px;
+    font-weight: 700;
+}
+
+h3{
+    padding-bottom: 15px;
+}
+
+.info{
+    display:flex;
+    flex-direction: row;
+    align-items: flex-start;
+    /* border: 1px solid; */
+}
+
+.info1 {
+    flex-direction: column;
+    width: 30%;
+    padding-left: 10px;
+    /* border: 1px solid; */
+}
+
+.info2{
+    width: 70%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-left: 10px;
+    /* border: 1px solid red;     */
+}
+
+.info2 b{
+    font-weight: 600;
+    font-size: 23px;
+}
+
+.info2 p{
+    font-weight: 300;
+    font-size: 20px;
+}
+
+.info1 img{
+    width:100px
+}
+
+.btnEdit{
+    color:white;
+    background-color: #0466C8;
+    margin-top: 10px;
+}
+
+.check1{
+    padding-top: 6px;
+}
+
+textarea{
+    resize: none;
+    height: 150px;
+}
+
+/* @media screen and (max-width: 1140px){
+    .cuadro{
+        background-color: aliceblue;
+        width:50%;
+        height: 400px;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 942px){
+    .cuadro{
+        background-color: aliceblue;
+        width:60%;
+        height: 400px;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 758px){
+    .cuadro{
+        background-color: aliceblue;
+        width:70%;
+        height: 400px;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 648px){
+    .cuadro{
+        background-color: aliceblue;
+        width:75%;
+        height: 400px;
+        text-align: center;
+    }
+
+    .info2 b{
+        font-weight: 600;
+        font-size: 20px;
+    }
+    
+    .info2 p{
+        font-weight: 300;
+        font-size: 17px;
+    }
+} */
+
+@media screen and (max-height: 1024px){
+    .fondo{
+        background-image: url("src/assets/img/fotoFondos/perfusuari.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;
+        position: relative;
+        height: 1024px;
+        width: 100%;
+        font-family: 'Poppins', sans-serif;
+    }
+}
+
+@media screen and (max-height: 1366px){
+    .fondo{
+        background-image: url("src/assets/img/fotoFondos/perfusuari.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;
+        position: relative;
+        height: 1366px;
+        width: 100%;
+        font-family: 'Poppins', sans-serif;
+    }
+}
+
+@media screen and (max-width: 655px){
+    .cuadro{
+        background-color: #F1F1F2;
+        text-align: center;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        width: 600px;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .cuadro{
+        background-color: #F1F1F2;
+        text-align: center;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        width: 570px;
+    }
+}
+
+@media screen and (max-width: 573px){
+    .cuadro{
+        background-color: #F1F1F2;
+        text-align: center;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        width: 520px;
+    }
+
+    .fondo{
+        background-image: url("src/assets/img/fotoFondos/perfusuari.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;
+        position: relative;
+        height: 1500px;
+        width: 100%;
+        font-family: 'Poppins', sans-serif;
+    }
+}
+
+@media screen and (max-width: 520px){
+    .cuadro{
+        background-color: #F1F1F2;
+        text-align: center;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        width: 460px;
+    }
+}
+
+@media screen and (max-width: 485px){
+
+    .fondo{
+        background-image: url("src/assets/img/fotoFondos/perfusuari.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;
+        position: relative;
+        height: 1550px;
+        width: 100%;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .cuadro{
+        background-color: #F1F1F2;
+        text-align: center;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        width: 410px;
+    }
+
+    .info1 img{
+        width:80px
+    }
+}
+
+@media screen and (max-width: 460px){
+
+    .fondo{
+        background-image: url("src/assets/img/fotoFondos/perfusuari.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;
+        position: relative;
+        height: 1550px;
+        width: 100%;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .cuadro{
+        background-color: #F1F1F2;
+        text-align: center;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        width: 400px;
+    }
+
+    .info1 img{
+        width:80px
+    }
+
+    label{
+        font-weight: 500;
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 425px){
+
+    .fondo{
+        background-image: url("src/assets/img/fotoFondos/perfusuari.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;
+        position: relative;
+        height: 1550px;
+        width: 100%;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .cuadro{
+        background-color: #F1F1F2;
+        text-align: center;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        width: 380px;
+    }
+
+    .info1 img{
+        width:80px
+    }
+
+    label{
+        font-weight: 500;
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 390px){
+
+    .fondo{
+        background-image: url("src/assets/img/fotoFondos/perfusuari.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;
+        position: relative;
+        height: 1550px;
+        width: 100%;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .cuadro{
+        background-color: #F1F1F2;
+        text-align: center;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        width: 370px;
+    }
+
+    .info1 img{
+        width:80px
+    }
+
+    label{
+        font-weight: 500;
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 380px){
+
+    .fondo{
+        background-image: url("src/assets/img/fotoFondos/perfusuari.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;
+        position: relative;
+        height: 1550px;
+        width: 100%;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .cuadro{
+        background-color: #F1F1F2;
+        text-align: center;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        width: 350px;
+    }
+
+    .info1 img{
+        width:80px
+    }
+
+    label{
+        font-weight: 500;
+        font-size: 15px;
+    }
+}
+

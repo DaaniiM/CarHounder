@@ -9,6 +9,7 @@ import { ServiciosComponent } from './pages/servicios/servicios.component';
 import { HeaderComponent } from './pages/header/header.component';
 import { FormularioContactoComponent } from './pages/formulario-contacto/formulario-contacto.component';
 import { SobreNosotrosComponent } from './pages/sobre-nosotros/sobre-nosotros.component';
+import { PerfilesComponent } from './pages/perfiles/perfiles.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { SobreNosotrosComponent } from './pages/sobre-nosotros/sobre-nosotros.co
     HeaderComponent,
     FormularioContactoComponent,
     SobreNosotrosComponent,
+    PerfilesComponent,
   ],
   imports: [
     BrowserModule,
