@@ -1,14 +1,30 @@
-#all{
+#imagenFondo{
 
     background-image: url("src/assets/img/fotoFondos/sobnosfondo.png");
-    background-position: center;
+    background-position: center center;
     position:relative;
-    height: 100%; 
+    height: 100%;
     width: 100%;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+
+}
+
+
+#all{
+/* 
+    background-image: url("src/assets/img/fotoFondos/sobnosfondo.png");
+    background-position: center;
+    position:relative; */
+    height: 960px; 
+    width: 100%; 
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #F1F1F2;
+
+    
 
 }
 
@@ -31,9 +47,7 @@ form{
 }
 /* 
 #mensaje{
-
     height: 300px;
-
 } */
 
 button{
@@ -56,6 +70,6 @@ button{
 
 .separacion{
 
-    height: 80px;
+    height: 380px;
 
 }

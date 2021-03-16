@@ -9,6 +9,8 @@ import { ServiciosComponent } from './pages/servicios/servicios.component';
 import { HeaderComponent } from './pages/header/header.component';
 import { FormularioContactoComponent } from './pages/formulario-contacto/formulario-contacto.component';
 import { SobreNosotrosComponent } from './pages/sobre-nosotros/sobre-nosotros.component';
+import { ModalesComponent } from './pages/modales/modales.component';
+import { ChatComponent } from './pages/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { SobreNosotrosComponent } from './pages/sobre-nosotros/sobre-nosotros.co
     HeaderComponent,
     FormularioContactoComponent,
     SobreNosotrosComponent,
+    ModalesComponent,
+    ChatComponent,
   ],
   imports: [
     BrowserModule,
