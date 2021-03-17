@@ -16,6 +16,7 @@ import { ModalesComponent } from './pages/modales/modales.component';
 import { ChatComponent } from './pages/chat/chat.component';
 import { PerfilesComponent } from './pages/perfiles/perfiles.component';
 import { CitasComponent } from './pages/citas/citas.component';
+import { ModalCitasTallerComponent } from './pages/modal-citas-taller/modal-citas-taller.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { CitasComponent } from './pages/citas/citas.component';
     ChatComponent,
     PerfilesComponent,
     CitasComponent,
+    ModalCitasTallerComponent,
   ],
   imports: [
     BrowserModule,
