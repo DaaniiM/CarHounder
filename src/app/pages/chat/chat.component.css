@@ -1,6 +1,6 @@
-#comoFunciona{
+#imagenFondo{
     background-image: url("src/assets/img/fotoFondos/sobnosfondo.png");
-    background-position: center;
+    background-position: center center;
     position:relative;
     height: 100%;
     width: 100%;
@@ -8,23 +8,88 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-color: #F1F1F2;
-}
-
-h1{
-    color: #F1F1F2;
-}
-
-.contenido{
-    background-color: #F1F1F2;
-    margin: 50px;
-    align-items: center;
-    text-align: center;  
-}
-
-img{
-    height: 50px;
+    color: #f1f1f2;
+    font-family: 'Poppins', sans-serif;
 }
 
 .separacion{
-    height: 80px;
+    height: 150px;
+}
+
+.sep{
+    height: 100px;
+}
+
+img{
+   
+    width: 330px;
+    height: 90px;
+}
+
+a{
+    text-decoration: none;
+    color: #f1f1f2;
+}
+
+.titulo{
+    text-align: center;
+}
+
+.mensajes{
+    align-content: center;
+    align-items: center;
+    background-color: #F1F1F2;
+    height: 300px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#listado{
+    width: 250px;
+}
+
+textarea{
+    background-color: #F1F1F2;
+    resize: none;
+}
+
+#boton{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end; 
+}
+
+.chats{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.boton1{
+    background-color: #0466c8;
+    color: #F1F1F2;
+}
+
+@media screen and (max-width: 580px){
+
+    .row{
+        flex-direction: column;
+    }
+
+}
+
+@media screen and (max-width: 780px){
+
+    #logo{
+        display: none;
+    }
+
+}
+
+@media screen and (min-height: 1020px){
+
+    #imagenFondo{
+        height: 1366px;
+    }
+
 }

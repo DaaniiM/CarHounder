@@ -32,3 +32,16 @@ img:hover{
 h5:hover{
     cursor: pointer;
 }
+
+input:focus{
+    background-color: #F1F1F2;
+}
+
+textarea:focus{
+    background-color: #F1F1F2;
+}
+
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+  }

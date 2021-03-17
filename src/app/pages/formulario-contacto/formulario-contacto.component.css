@@ -8,7 +8,7 @@
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
-
+    color: #F1F1F2;
 
 }
 
@@ -22,7 +22,8 @@
     width: 100%; 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    padding-top: 130px;
+    /* justify-content: center; */
 
     
 
@@ -43,6 +44,7 @@ form{
     font-weight: bold;
     padding: 30px;
     align-items: center;
+    width: 500px;
 
 }
 /* 
@@ -63,7 +65,7 @@ button{
 	text-transform: uppercase;
 	text-align: center;
 	color: white;
-	width: 270px;
+	width: 250px;
     background-color: #0466c8;
 
 }
@@ -72,6 +74,10 @@ button{
 
     height: 380px;
 
+}
+
+h1{
+    text-align: center;
 }
 
 textarea{

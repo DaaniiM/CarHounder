@@ -4,10 +4,13 @@
     position: relative;
     height: 100%; 
     width: 100%;
-    background-position: center;
+    background-position: center center;
     text-align: center;
     font-family: 'Poppins', sans-serif;
     background-color: #F1F1F2;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 
@@ -22,7 +25,7 @@ img{
 }
 
 .separacion{
-    height: 80px;
+    height: 120px;
 }
 
 p {
@@ -31,3 +34,22 @@ p {
 }
 
 
+
+@media screen and (min-height: 1366px){
+
+    #sevicios{
+
+        height: 1366px;
+        
+    }
+    .separacion{
+        height: 398px;
+    }
+
+}
+
+@media screen and (max-width: 340px){
+    h1{
+        font-size: 20px;
+    }
+}

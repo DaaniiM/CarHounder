@@ -1,40 +1,39 @@
-<div id="comoFunciona">
+<div id="imagenFondo">
     <app-header></app-header>
+    <div class="sep">
+    </div>
     <div class="container">
-        <h1> Cómo funciona </h1>
+        <div class="titulo">
+            <div class="col">
+                <h1>Mensajería <img src="../../assets/img/Logo/normal resolucion/carhounderLogo.png" id="logo"></h1>
+            </div>
+        </div>
     </div>
     <div class="container">
         <div class="row">
-            <div class="col contenido">
-                <h2>
-                   <img src="../../assets/img/iconos/automobile-with-wrench.png">     Si eres taller...
-                </h2>
-                <br>
-                <h5>
-                    - Registra tu taller.  <br> <br>
-                    - Ofrece tus servicios y ofertas. <br> <br>
-                    - Otén tu agenda Carhounder. <br> <br>
-                    - Organiza tus citas. <br> <br>
-                    - Aumenta tus clientes.
-                </h5>
-                <br>
+            <div  id="listado">
+                <div class="chats">
+                    <a>Talleres Eustaquio e hijos</a> <br>
+                    <a>Megareparaciones</a> <br>
+                    <a>Lo arreglamos S.A.</a> <br>
+                </div>
             </div>
-            <div class="col contenido">
-                <br>
-                <h2>
-                    <img src="../../assets/img/iconos/man-with-car.png">     Si buscas taller...
-                </h2>
-                <br>
-                <h5>
-                    - Regístrate como cliente. <br> <br>
-                    - Filtra por tus preferencias. <br> <br>
-                    - Pide cita o contacta con el taller. <br> <br>
-                    - Repara tu vehículo. <br> <br>
-                    - Deja tu valoración. <br> <br>
-                </h5>
-                <br>
+            <div class="col">
+                <div >
+                    <textarea class="form-control" id="mensajes" readonly="readonly" rows="8"></textarea>
+                </div>
+                <form >
+                    <div class="mb-3">
+                        <label for="mensaje" class="form-label">Mensaje</label>
+                        <textarea class="form-control" id="mensaje"></textarea>
+                      </div>
+                      <div id="boton">
+                        <button type="submit" class="btn boton1">Enviar</button>
+                      </div>
+                </form>
             </div>
         </div>
+        
     </div>
     <div class="separacion">
     </div>

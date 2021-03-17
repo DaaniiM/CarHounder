@@ -7,7 +7,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  public isHidden: boolean;
+  public noHidden: boolean;
+
+  constructor() {
+
+    this.isHidden = true;
+    this.noHidden = false;
+
+   }
+
+  public mostrarEsconder(){
+    if(this.isHidden == false){
+      this.isHidden = true;
+      this.noHidden = false;
+    }
+    else{
+      this.isHidden = false;
+      this.noHidden = true;
+    }
+  }
 
   ngOnInit(): void {
   }

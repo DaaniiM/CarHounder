@@ -31,3 +31,12 @@ img{
 .separacion{
     height: 50px;
 }
+
+@media screen and (min-height: 1020px){
+
+    #comoFunciona{
+
+        height: 1366px;
+    }
+
+}
