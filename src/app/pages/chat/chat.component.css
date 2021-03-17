@@ -60,7 +60,7 @@
 
 #listado{
     height: 294px;
-	width: 200px;
+	width: 300px;
 	border: 1px solid #ddd;
 	background: #f1f1f2;
 	overflow-y: scroll;
@@ -80,11 +80,6 @@ h5{
     display: flex;
     flex-direction: row;
     justify-content: flex-end; 
-}
-
-.chat{
-    padding-top: 10px;
-    padding-bottom: 10px;
 }
 
 .boton1{
