@@ -53,14 +53,38 @@ form{
     text-align: start;
 }
 
+.form-check-input:hover{
+    border-color: #0466C8;
+    border-width: 2px;
+}
+
+.form-check-input{
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+.form-check-label{
+    margin-top: 4px;
+}
+
 #ofertas{
     height: 150px;
 }
 
-label{
+.col-form-label{
     font-weight: 500;
-    font-size: 17px;
 }
+/* 
+.form-check-label{
+    font-size: 17px;
+    margin-top: 4px;
+}
+
+.form-check-input{
+    width: 22px;
+    height: 22px;
+} */
 
 input{
     margin-bottom: 10px;
@@ -111,7 +135,7 @@ h3{
 } */
 
 .imagenPerfil img{
-    width:100px;
+    width:120px;
 }
 
 .btnEdit{
@@ -137,7 +161,7 @@ textarea{
     position: relative;
     overflow: hidden;
     margin-top: 10px;
-    background-color: #0466C8;
+    background:none;
     color: #F1F1F2;
 }
 
@@ -156,6 +180,12 @@ textarea{
     background: white;
     cursor: inherit;
     display: block;
+}
+
+@media screen and (max-width: 992px){
+    .imagenPerfil img{
+        width:100px;
+    }
 }
 
 /* @media screen and (max-width: 1140px){
