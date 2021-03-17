@@ -10,21 +10,78 @@
         </div>
     </div>
     <div class="container">
+        <div class="">
+            <button type="button" class="btn boton1 btn-block" data-toggle="modal" data-target="#exampleModal" id="botonContactos">
+                Conversaciones
+              </button>
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Conversaciones</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="chat">
+                            <img src="../../assets/img/iconos/fotoPerfil.jpg" class="foto"> <a class="a"> Talleres Eustaquio e hijos </a> <br>
+                        </div>
+                        <div class="chat">
+                            <img src="../../assets/img/iconos/fotoPerfil.jpg" class="foto"> <a class="a"> Manuel Gómez </a> <br>
+                        </div>
+                        <div class="chat">
+                            <img src="../../assets/img/iconos/fotoPerfil.jpg" class="foto"> <a class="a"> Perico el de los palotes </a> <br>
+                        </div>
+                        <div class="chat">
+                            <img src="../../assets/img/iconos/fotoPerfil.jpg" class="foto"> <a class="a"> Pedro </a> <br>
+                        </div>
+                        <div class="chat">
+                            <img src="../../assets/img/iconos/fotoPerfil.jpg" class="foto"> <a class="a"> Dani </a> <br>
+                        </div>
+                        <div class="chat">
+                            <img src="../../assets/img/iconos/fotoPerfil.jpg" class="foto"> <a class="a"> Antonio </a> <br>
+                        </div>
+                        <div class="chat">
+                            <img src="../../assets/img/iconos/fotoPerfil.jpg" class="foto"> <a class="a"> Alex</a> <br>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
         <div class="row">
-            <div  id="listado">
-                <div class="chats">
-                    <a>Talleres Eustaquio e hijos</a> <br>
-                    <a>Megareparaciones</a> <br>
-                    <a>Lo arreglamos S.A.</a> <br>
+            <div  id="listado" class="form-control">
+                <div class="chat">
+                    <img src="../../assets/img/iconos/fotoPerfil.jpg" class="foto"> <a class="a"> Talleres Eustaquio e hijos </a> <br>
+                </div>
+                <div class="chat">
+                    <img src="../../assets/img/iconos/fotoPerfil.jpg" class="foto"> <a class="a"> Manuel Gómez </a> <br>
+                </div>
+                <div class="chat">
+                    <img src="../../assets/img/iconos/fotoPerfil.jpg" class="foto"> <a class="a"> Perico el de los palotes </a> <br>
+                </div>
+                <div class="chat">
+                    <img src="../../assets/img/iconos/fotoPerfil.jpg" class="foto"> <a class="a"> Pedro </a> <br>
+                </div>
+                <div class="chat">
+                    <img src="../../assets/img/iconos/fotoPerfil.jpg" class="foto"> <a class="a"> Dani </a> <br>
+                </div>
+                <div class="chat">
+                    <img src="../../assets/img/iconos/fotoPerfil.jpg" class="foto"> <a class="a"> Antonio </a> <br>
+                </div>
+                <div class="chat">
+                    <img src="../../assets/img/iconos/fotoPerfil.jpg" class="foto"> <a class="a"> Alex</a> <br>
                 </div>
             </div>
             <div class="col">
-                <div >
-                    <textarea class="form-control" id="mensajes" readonly="readonly" rows="8"></textarea>
+                <div>
+                    <div class="form-control" id="mensajes"></div>
                 </div>
                 <form >
                     <div class="mb-3">
-                        <label for="mensaje" class="form-label">Mensaje</label>
+                        <label for="mensaje" class="form-label" >Mensaje</label>
                         <textarea class="form-control" id="mensaje"></textarea>
                       </div>
                       <div id="boton">

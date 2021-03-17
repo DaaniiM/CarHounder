@@ -20,38 +20,60 @@
     height: 100px;
 }
 
-img{
+#logo{
    
     width: 330px;
     height: 90px;
 }
 
-a{
+.a{
     text-decoration: none;
-    color: #f1f1f2;
+    color: #001233;
+}
+
+.a:hover{
+    cursor: pointer;
+    color:#001233;
+    text-decoration: none;
+}
+
+.desplegable:hover{
+    cursor: pointer;
 }
 
 .titulo{
     text-align: center;
 }
 
-.mensajes{
-    align-content: center;
-    align-items: center;
+#mensajes{
+   
     background-color: #F1F1F2;
-    height: 300px;
-    text-align: center;
+    height: 200px;
+    border: 1px solid #f1f1f2;
+	background: #f1f1f2;
+	overflow-y: scroll;
     padding-top: 10px;
     padding-bottom: 10px;
+    resize: none;
+    color: #001233;
 }
 
 #listado{
-    width: 250px;
+    height: 294px;
+	width: 200px;
+	border: 1px solid #ddd;
+	background: #f1f1f2;
+	overflow-y: scroll;
 }
 
 textarea{
     background-color: #F1F1F2;
     resize: none;
+    color: #001233;
+}
+
+h5{
+    color: #001233;
 }
 
 #boton{
@@ -60,7 +82,7 @@ textarea{
     justify-content: flex-end; 
 }
 
-.chats{
+.chat{
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -70,10 +92,28 @@ textarea{
     color: #F1F1F2;
 }
 
+.foto{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+#botonContactos{
+    display: none;
+    margin-bottom: 20px;
+}
+
 @media screen and (max-width: 580px){
 
     .row{
         flex-direction: column;
+    }
+
+    #listado{
+        display: none;
+    }
+    #botonContactos{
+        display: block;
     }
 
 }
