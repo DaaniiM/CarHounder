@@ -103,6 +103,10 @@ h5{
     margin-bottom: 20px;
 }
 
+.a{
+    padding-left: 10px;
+}
+
 @media screen and (max-width: 580px){
 
     .row{
@@ -126,10 +130,46 @@ h5{
 
 }
 
+@media screen and (min-height: 810px){
+
+    #imagenFondo{
+        height: 812px;
+    }
+
+}
+
+@media screen and (min-height: 820px){
+
+    #imagenFondo{
+        height: 823px;
+    }
+
+}
+
 @media screen and (min-height: 1020px){
 
     #imagenFondo{
+        height: 1024px;
+    }
+    #listado{
+        height: 694px;
+    }
+    #mensajes{
+        height: 600px;
+    }
+
+}
+
+@media screen and (min-height: 1360px){
+
+    #imagenFondo{
         height: 1366px;
+    }
+    #listado{
+        height: 994px;
+    }
+    #mensajes{
+        height: 900px;
     }
 
 }

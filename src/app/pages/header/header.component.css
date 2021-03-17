@@ -50,12 +50,34 @@ a{
     color: #f1f1f2;
 }
 
+.a{
+    text-decoration: none;
+    color: #f1f1f2;
+}
+
 a:link, a:visited, a:active {
+    text-decoration: none;
+}
+
+.a:link, .a:visited, .a:active {
     text-decoration: none;
 }
 
 a:hover{
     color: #001233;
+}
+
+.a:hover{
+    color: #001233;
+    cursor: pointer;
+}
+
+#logo1:hover{
+    cursor: pointer;
+}
+
+#logo2:hover{
+    cursor: pointer;
 }
 
 button:hover{
