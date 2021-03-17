@@ -10,8 +10,8 @@
                 <img src="../../assets/img/iconos/lista.png" id="desplegable"><span class="caret"></span>
         </button>
         <ul class="dropdown-menu dropdown-menu-right" role="menu" id="menu">
-            <li [hidden] = "isHidden"><a class="a" routerLink="">Mi Perfil</a></li>
-            <li [hidden] = "isHidden"><a class="a" routerLink="">Mis Citas</a></li> 
+            <li [hidden] = "isHidden"><a class="a" routerLink="/perfilUsuario">Mi Perfil</a></li>
+            <li [hidden] = "isHidden"><a class="a" routerLink="/citas">Mis Citas</a></li> 
             <li [hidden] = "isHidden"><a class="a" routerLink="/chat">Mis Mensajes</a></li>
             <li><a class="a" routerLink="/servicios" >Servicios</a></li>
             <li><a class="a" routerLink="/comoFunciona">Cómo funciona</a></li>
@@ -36,15 +36,15 @@
         <!-- *ngIf="iniciarSesion == true" -->
         <div [hidden] = "isHidden">
             <img src="../../assets/img/iconos/fotoPerfil.jpg" id="fotoPerfil"
-            data-toggle="dropdown" ><a routerLink=""
+            data-toggle="dropdown" ><a class="a"
             data-toggle="dropdown" > Nombre </a>
             <ul class="dropdown-menu dropdown-menu-right" role="menu" id="menuPerfil">
-                <li><a class="a" routerLink="">Mi Perfil</a></li>
-                <li><a class="a" routerLink="">Mis Citas</a></li>
+                <li><a class="a" routerLink="/perfilTaller">Mi Perfil</a></li>
+                <li><a class="a" routerLink="/citas">Mis Citas</a></li>
                 <li><a class="a" routerLink="/chat">Mis Mensajes</a></li>
                 <li><a class="a" on-click="mostrarEsconder()">Cerrar sesión</a></li>
             </ul>
-        </div> -->
+        </div>
     </div>
 </nav>
 <div class="col">
