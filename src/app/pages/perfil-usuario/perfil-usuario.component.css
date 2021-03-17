@@ -1,0 +1,131 @@
+.fondo{
+    background-image: url("src/assets/img/fotoFondos/perfusuari.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    position: absolute;
+    justify-content: center;
+    height:100%;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    overflow: auto;
+}
+
+span{
+    border-radius: 50%;
+    background-color: #f1f1f2;
+}
+
+h1{
+    text-align: center;
+    color: #F1F1F2;
+}
+
+.container{
+    margin-top: 140px;
+    margin-bottom: 80px;
+    /* border: 1px solid; */
+}
+
+.caja{
+    background-color: #F1F1F2;
+}
+
+form{
+    text-align: start;
+}
+
+.form-check-input:hover{
+    border-color: #0466C8;
+    border-width: 3px;
+}
+
+.form-check-input{
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+.form-check-label{
+    margin-top: 4px;
+}
+
+#ofertas{
+    height: 150px;
+}
+
+.col-form-label{
+    font-weight: 500;
+}
+
+
+input{
+    margin-bottom: 10px;
+    background-color: #ffffff;
+}
+
+h2{
+    padding-bottom: 20px;
+    padding-top: 20px;
+    font-weight: 700;
+}
+
+h3{
+    padding-bottom: 15px;
+}
+
+.imagenPerfil img{
+    width:120px;
+}
+
+.btnEdit{
+    color:white;
+    background-color: #0466C8;
+    margin-top: 10px;
+    width: 180px
+}
+
+.check1{
+    padding-top: 6px;
+}
+
+textarea{
+    resize: none;
+    height: 150px;
+}
+
+.btnDel{
+    margin-bottom: 10px;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+    margin-top: 10px;
+    background:none;
+    color: #F1F1F2;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 10px;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 50px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+@media screen and (max-width: 992px){
+    .imagenPerfil img{
+        width:100px;
+    }
+}

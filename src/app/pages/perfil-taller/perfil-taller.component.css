@@ -4,19 +4,35 @@
     background-position: center center;
     background-attachment: fixed;
     background-size: cover;
-    position: relative;
-    height: 875px;
+    position: absolute;
+    justify-content: center;
+    height:100%;
     width: 100%;
     font-family: 'Poppins', sans-serif;
+    overflow: auto;
 }
 
-.bloque{
+h1{
+    text-align: center;
+    color: #F1F1F2;
+}
+
+.container{
+    margin-top: 140px;
+    margin-bottom: 80px;
+    /* border: 1px solid; */
+}
+
+/* .bloque{
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding-top: 20px;
-    /* border: 1px solid; */
+    padding-top: 150px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 80px;
+    border: 1px solid;
 }
 
 .cuadro{
@@ -26,16 +42,49 @@
     padding-bottom: 20px;
     width: 650px;
     border-radius: 10px;
+    border: 1px solid;
+} */
+
+.caja{
+    background-color: #F1F1F2;
 }
 
 form{
     text-align: start;
 }
 
-label{
-    font-weight: 500;
-    font-size: 17px;
+.form-check-input:hover{
+    border-color: #0466C8;
+    border-width: 2px;
 }
+
+.form-check-input{
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+.form-check-label{
+    margin-top: 4px;
+}
+
+#ofertas{
+    height: 150px;
+}
+
+.col-form-label{
+    font-weight: 500;
+}
+/* 
+.form-check-label{
+    font-size: 17px;
+    margin-top: 4px;
+}
+
+.form-check-input{
+    width: 22px;
+    height: 22px;
+} */
 
 input{
     margin-bottom: 10px;
@@ -52,18 +101,18 @@ h3{
     padding-bottom: 15px;
 }
 
-.info{
+/* .info{
     display:flex;
     flex-direction: row;
     align-items: flex-start;
-    /* border: 1px solid; */
+    border: 1px solid;
 }
 
 .info1 {
     flex-direction: column;
     width: 30%;
     padding-left: 10px;
-    /* border: 1px solid; */
+    border: 1px solid;
 }
 
 .info2{
@@ -72,7 +121,7 @@ h3{
     justify-content: center;
     text-align: center;
     padding-left: 10px;
-    /* border: 1px solid red;     */
+    border: 1px solid red;    
 }
 
 .info2 b{
@@ -83,10 +132,10 @@ h3{
 .info2 p{
     font-weight: 300;
     font-size: 20px;
-}
+} */
 
-.info1 img{
-    width:100px
+.imagenPerfil img{
+    width:120px;
 }
 
 .btnEdit{
@@ -102,6 +151,41 @@ h3{
 textarea{
     resize: none;
     height: 150px;
+}
+
+.btnDel{
+    margin-bottom: 10px;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+    margin-top: 10px;
+    background:none;
+    color: #F1F1F2;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 10px;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 50px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+@media screen and (max-width: 992px){
+    .imagenPerfil img{
+        width:100px;
+    }
 }
 
 /* @media screen and (max-width: 1140px){
@@ -150,7 +234,7 @@ textarea{
     }
 } */
 
-@media screen and (max-height: 1024px){
+/* @media screen and (max-height: 1024px){
     .fondo{
         background-image: url("src/assets/img/fotoFondos/perfusuari.png");
         background-repeat: no-repeat;
@@ -179,16 +263,55 @@ textarea{
 }
 
 @media screen and (max-width: 655px){
-    .cuadro{
-        background-color: #F1F1F2;
-        text-align: center;
-        padding-right: 20px;
-        padding-bottom: 20px;
-        width: 600px;
+    .fondo{
+        background-image: url("src/assets/img/fotoFondos/perfusuari.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;
+        position: relative;
+        height: 1600px;
+        width: 100%;
+        font-family: 'Poppins', sans-serif;
     }
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 481px){
+    .fondo{
+        background-image: url("src/assets/img/fotoFondos/perfusuari.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;
+        position: relative;
+        height: 1650px;
+        width: 100%;
+        font-family: 'Poppins', sans-serif;
+    }
+} */
+
+@media screen and (max-width: 411px){
+    
+    .info1 img{
+        width:80px;
+    }
+}
+
+@media screen and (max-width: 374px){
+    
+    .info1 img{
+        width:75px;
+    }
+}
+
+@media screen and (max-width: 313px){
+    
+    .info1 img{
+        width:75px;
+    }
+}
+
+/* @media screen and (max-width: 600px){
     .cuadro{
         background-color: #F1F1F2;
         text-align: center;
@@ -383,5 +506,5 @@ textarea{
         font-weight: 500;
         font-size: 15px;
     }
-}
+} */
 

@@ -14,9 +14,11 @@ import { ModalCitasComponent } from './pages/modal-citas/modal-citas.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { ModalesComponent } from './pages/modales/modales.component';
 import { ChatComponent } from './pages/chat/chat.component';
-import { PerfilesComponent } from './pages/perfiles/perfiles.component';
+import { PerfilTallerComponent } from './pages/perfil-taller/perfil-taller.component';
 import { CitasComponent } from './pages/citas/citas.component';
 import { ResultadoBusquedaComponent } from './pages/resultado-busqueda/resultado-busqueda.component';
+import { ModalCitasTallerComponent } from './pages/modal-citas-taller/modal-citas-taller.component';
+import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.component';
 
 @NgModule({
   declarations: [
@@ -32,9 +34,11 @@ import { ResultadoBusquedaComponent } from './pages/resultado-busqueda/resultado
     LandingPageComponent,
     ModalesComponent,
     ChatComponent,
-    PerfilesComponent,
+    PerfilTallerComponent,
     CitasComponent,
-    ResultadoBusquedaComponent
+    ResultadoBusquedaComponent,
+    ModalCitasTallerComponent,
+    PerfilUsuarioComponent,
   ],
   imports: [
     BrowserModule,
