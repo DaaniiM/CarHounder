@@ -35,7 +35,21 @@
 }
 
 
-#botonFiltros{
+
+#demo{
+
+  color: #16181b;
+  text-decoration: none;
+  background-color: #F1F1F2;
+  position: absolute;
+  /* width: 500px; */
+  padding: 20px;
+  z-index: 100;
+
+   
+}
+
+.botonFiltros{
     background-color: #0466c8;
     color: #F1F1F2;
     width: 650px;
