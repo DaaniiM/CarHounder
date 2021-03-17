@@ -94,6 +94,20 @@ label{
 
 }
 
+@media screen and (max-width: 460px){
+    .btnEdit2{
+        font-size: 15px;
+        margin-left: 10px;
+    }
+}
+
+@media screen and (max-width: 427px){
+    .btnEdit2{
+        font-size: 14px;
+        margin-left: 10px;
+    }
+}
+
 /* .bloque{
     display: flex;
     flex-direction: column;

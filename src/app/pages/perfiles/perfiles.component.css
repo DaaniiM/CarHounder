@@ -4,13 +4,26 @@
     background-position: center center;
     background-attachment: fixed;
     background-size: cover;
-    position: relative;
-    height: 1400px;
+    position: absolute;
+    justify-content: center;
+    height:100%;
     width: 100%;
     font-family: 'Poppins', sans-serif;
+    overflow: auto;
 }
 
-.bloque{
+h1{
+    text-align: center;
+    color: #F1F1F2;
+}
+
+.container{
+    margin-top: 140px;
+    margin-bottom: 80px;
+    /* border: 1px solid; */
+}
+
+/* .bloque{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -18,7 +31,8 @@
     padding-top: 150px;
     padding-left: 20px;
     padding-right: 20px;
-    /* border: 1px solid; */
+    margin-bottom: 80px;
+    border: 1px solid;
 }
 
 .cuadro{
@@ -29,6 +43,10 @@
     width: 650px;
     border-radius: 10px;
     border: 1px solid;
+} */
+
+.caja{
+    background-color: #F1F1F2;
 }
 
 form{
@@ -59,18 +77,18 @@ h3{
     padding-bottom: 15px;
 }
 
-.info{
+/* .info{
     display:flex;
     flex-direction: row;
     align-items: flex-start;
-    /* border: 1px solid; */
+    border: 1px solid;
 }
 
 .info1 {
     flex-direction: column;
     width: 30%;
     padding-left: 10px;
-    /* border: 1px solid; */
+    border: 1px solid;
 }
 
 .info2{
@@ -79,7 +97,7 @@ h3{
     justify-content: center;
     text-align: center;
     padding-left: 10px;
-    /* border: 1px solid red;     */
+    border: 1px solid red;    
 }
 
 .info2 b{
@@ -90,9 +108,9 @@ h3{
 .info2 p{
     font-weight: 300;
     font-size: 20px;
-}
+} */
 
-.info1 img{
+.imagenPerfil img{
     width:100px;
 }
 
@@ -109,6 +127,10 @@ h3{
 textarea{
     resize: none;
     height: 150px;
+}
+
+.btnDel{
+    margin-bottom: 10px;
 }
 
 .btn-file {
@@ -182,7 +204,7 @@ textarea{
     }
 } */
 
-@media screen and (max-height: 1024px){
+/* @media screen and (max-height: 1024px){
     .fondo{
         background-image: url("src/assets/img/fotoFondos/perfusuari.png");
         background-repeat: no-repeat;
@@ -236,57 +258,24 @@ textarea{
         width: 100%;
         font-family: 'Poppins', sans-serif;
     }
-}
+} */
 
 @media screen and (max-width: 411px){
-    .fondo{
-        background-image: url("src/assets/img/fotoFondos/perfusuari.png");
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-attachment: fixed;
-        background-size: cover;
-        position: relative;
-        height: 1700px;
-        width: 100%;
-        font-family: 'Poppins', sans-serif;
-    }
-
+    
     .info1 img{
         width:80px;
     }
 }
 
 @media screen and (max-width: 374px){
-    .fondo{
-        background-image: url("src/assets/img/fotoFondos/perfusuari.png");
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-attachment: fixed;
-        background-size: cover;
-        position: relative;
-        height: 1750px;
-        width: 100%;
-        font-family: 'Poppins', sans-serif;
-    }
-
+    
     .info1 img{
         width:75px;
     }
 }
 
 @media screen and (max-width: 313px){
-    .fondo{
-        background-image: url("src/assets/img/fotoFondos/perfusuari.png");
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-attachment: fixed;
-        background-size: cover;
-        position: relative;
-        height: 1850px;
-        width: 100%;
-        font-family: 'Poppins', sans-serif;
-    }
-
+    
     .info1 img{
         width:75px;
     }
