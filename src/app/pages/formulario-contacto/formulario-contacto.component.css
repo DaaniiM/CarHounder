@@ -52,6 +52,8 @@ form{
     height: 300px;
 } */
 
+
+
 button{
 
     border-radius: 10px;
@@ -65,7 +67,7 @@ button{
 	text-transform: uppercase;
 	text-align: center;
 	color: white;
-	width: 250px;
+	width: 180px;
     background-color: #0466c8;
 
 }
@@ -83,7 +85,7 @@ h1{
 textarea{
 
     resize: none;
-    height: 150px;
+
 }
 
 @media screen and (min-height: 1020px){
