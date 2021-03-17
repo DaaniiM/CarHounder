@@ -5,21 +5,21 @@
           <form>
               <div class="mb-3">
                   <label for="nombre" class="form-label">Nombre</label>
-                  <input type="text" class="form-control" id="nombre">
+                  <input type="text" class="form-control" id="nombre" required>
                 </div>
               <div class="mb-3">
                 <label for="correo" class="form-label">Correo Electrónico</label>
-                <input type="email" class="form-control" id="correo" aria-describedby="emailHelp">
+                <input type="email" class="form-control" id="correo" aria-describedby="emailHelp" required>
               </div>
               <div class="mb-3">
                 <label for="asunto" class="form-label">Asunto</label>
-                <input type="text" class="form-control" id="asunto">
+                <input type="text" class="form-control" id="asunto" required>
               </div>
               <div class="mb-3">
                   <label for="mensaje" class="form-label">Mensaje</label>
-                  <textarea class="form-control" id="mensaje"></textarea>
+                  <textarea class="form-control" id="mensaje" rows = "10" required></textarea >
                 </div>
-              <button type="submit" class="btn btn-primary">Enviar</button>
+              <button type="submit" class="btn">Enviar</button>
             </form>
         </div>
   </div>
