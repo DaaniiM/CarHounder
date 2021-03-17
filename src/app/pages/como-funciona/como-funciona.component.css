@@ -1,6 +1,6 @@
 #comoFunciona{
     background-image: url("src/assets/img/fotoFondos/comofuncionafondo.png");
-    position: relative;
+    position: absolute;
     height: 100%; 
     width: 100%;
     background-position: center;

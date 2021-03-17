@@ -1,7 +1,7 @@
 #imagenFondo{
     background-image: url("src/assets/img/fotoFondos/sobnosfondo.png");
     background-position: center center;
-    position:relative;
+    position:absolute;
     height: 100%;
     width: 100%;
     background-attachment: fixed;
@@ -13,7 +13,7 @@
 }
 
 .separacion{
-    height: 150px;
+    height: 140px;
 }
 
 .sep{
