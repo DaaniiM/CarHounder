@@ -10,7 +10,7 @@
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
-    overflow: scroll;
+    overflow: auto;
 }
 
 h1{

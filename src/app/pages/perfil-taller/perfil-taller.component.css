@@ -20,30 +20,8 @@ h1{
 .container{
     padding-top: 140px;
     padding-bottom: 80px;
-    /* border: 1px solid; */
 }
 
-/* .bloque{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding-top: 150px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-bottom: 80px;
-    border: 1px solid;
-}
-
-.cuadro{
-    background-color: #F1F1F2;
-    text-align: center;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    width: 650px;
-    border-radius: 10px;
-    border: 1px solid;
-} */
 
 .caja{
     background-color: #F1F1F2;
@@ -75,16 +53,6 @@ form{
 .col-form-label{
     font-weight: 500;
 }
-/* 
-.form-check-label{
-    font-size: 17px;
-    margin-top: 4px;
-}
-
-.form-check-input{
-    width: 22px;
-    height: 22px;
-} */
 
 input{
     margin-bottom: 10px;
@@ -101,38 +69,6 @@ h3{
     padding-bottom: 15px;
 }
 
-/* .info{
-    display:flex;
-    flex-direction: row;
-    align-items: flex-start;
-    border: 1px solid;
-}
-
-.info1 {
-    flex-direction: column;
-    width: 30%;
-    padding-left: 10px;
-    border: 1px solid;
-}
-
-.info2{
-    width: 70%;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding-left: 10px;
-    border: 1px solid red;    
-}
-
-.info2 b{
-    font-weight: 600;
-    font-size: 23px;
-}
-
-.info2 p{
-    font-weight: 300;
-    font-size: 20px;
-} */
 
 .imagenPerfil img{
     width:120px;
@@ -143,6 +79,12 @@ h3{
     background-color: #0466C8;
     margin-top: 10px;
 }
+
+.btnEdit1{
+    color:white;
+    background-color: #0466C8;
+}
+
 
 .check1{
     padding-top: 6px;
@@ -188,114 +130,12 @@ textarea{
     }
 }
 
-/* @media screen and (max-width: 1140px){
-    .cuadro{
-        background-color: aliceblue;
-        width:50%;
-        height: 400px;
-        text-align: center;
-    }
-}
-
-@media screen and (max-width: 942px){
-    .cuadro{
-        background-color: aliceblue;
-        width:60%;
-        height: 400px;
-        text-align: center;
-    }
-}
-
-@media screen and (max-width: 758px){
-    .cuadro{
-        background-color: aliceblue;
-        width:70%;
-        height: 400px;
-        text-align: center;
-    }
-}
-
-@media screen and (max-width: 648px){
-    .cuadro{
-        background-color: aliceblue;
-        width:75%;
-        height: 400px;
-        text-align: center;
-    }
-
-    .info2 b{
-        font-weight: 600;
-        font-size: 20px;
-    }
-    
-    .info2 p{
-        font-weight: 300;
-        font-size: 17px;
-    }
-} */
-
-/* @media screen and (max-height: 1024px){
-    .fondo{
-        background-image: url("src/assets/img/fotoFondos/perfusuari.png");
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-attachment: fixed;
-        background-size: cover;
-        position: relative;
-        height: 1024px;
-        width: 100%;
-        font-family: 'Poppins', sans-serif;
-    }
-}
-
-@media screen and (max-height: 1366px){
-    .fondo{
-        background-image: url("src/assets/img/fotoFondos/perfusuari.png");
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-attachment: fixed;
-        background-size: cover;
-        position: relative;
-        height: 1366px;
-        width: 100%;
-        font-family: 'Poppins', sans-serif;
-    }
-}
-
-@media screen and (max-width: 655px){
-    .fondo{
-        background-image: url("src/assets/img/fotoFondos/perfusuari.png");
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-attachment: fixed;
-        background-size: cover;
-        position: relative;
-        height: 1600px;
-        width: 100%;
-        font-family: 'Poppins', sans-serif;
-    }
-}
-
-@media screen and (max-width: 481px){
-    .fondo{
-        background-image: url("src/assets/img/fotoFondos/perfusuari.png");
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-attachment: fixed;
-        background-size: cover;
-        position: relative;
-        height: 1650px;
-        width: 100%;
-        font-family: 'Poppins', sans-serif;
-    }
-} */
 
 @media screen and (max-width: 803px){
     
     .container{
         padding-top: 140px;
         padding-bottom: 130px;
-        /* border: 1px solid; */
     }
 }
 
@@ -319,201 +159,3 @@ textarea{
         width:75px;
     }
 }
-
-/* @media screen and (max-width: 600px){
-    .cuadro{
-        background-color: #F1F1F2;
-        text-align: center;
-        padding-right: 20px;
-        padding-bottom: 20px;
-        width: 570px;
-    }
-}
-
-@media screen and (max-width: 573px){
-    .cuadro{
-        background-color: #F1F1F2;
-        text-align: center;
-        padding-right: 20px;
-        padding-bottom: 20px;
-        width: 520px;
-    }
-
-    .fondo{
-        background-image: url("src/assets/img/fotoFondos/perfusuari.png");
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-attachment: fixed;
-        background-size: cover;
-        position: relative;
-        height: 1500px;
-        width: 100%;
-        font-family: 'Poppins', sans-serif;
-    }
-}
-
-@media screen and (max-width: 520px){
-    .cuadro{
-        background-color: #F1F1F2;
-        text-align: center;
-        padding-right: 20px;
-        padding-bottom: 20px;
-        width: 460px;
-    }
-}
-
-@media screen and (max-width: 485px){
-
-    .fondo{
-        background-image: url("src/assets/img/fotoFondos/perfusuari.png");
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-attachment: fixed;
-        background-size: cover;
-        position: relative;
-        height: 1550px;
-        width: 100%;
-        font-family: 'Poppins', sans-serif;
-    }
-
-    .cuadro{
-        background-color: #F1F1F2;
-        text-align: center;
-        padding-right: 20px;
-        padding-bottom: 20px;
-        width: 410px;
-    }
-
-    .info1 img{
-        width:80px
-    }
-}
-
-@media screen and (max-width: 460px){
-
-    .fondo{
-        background-image: url("src/assets/img/fotoFondos/perfusuari.png");
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-attachment: fixed;
-        background-size: cover;
-        position: relative;
-        height: 1550px;
-        width: 100%;
-        font-family: 'Poppins', sans-serif;
-    }
-
-    .cuadro{
-        background-color: #F1F1F2;
-        text-align: center;
-        padding-right: 20px;
-        padding-bottom: 20px;
-        width: 400px;
-    }
-
-    .info1 img{
-        width:80px
-    }
-
-    label{
-        font-weight: 500;
-        font-size: 15px;
-    }
-}
-
-@media screen and (max-width: 425px){
-
-    .fondo{
-        background-image: url("src/assets/img/fotoFondos/perfusuari.png");
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-attachment: fixed;
-        background-size: cover;
-        position: relative;
-        height: 1550px;
-        width: 100%;
-        font-family: 'Poppins', sans-serif;
-    }
-
-    .cuadro{
-        background-color: #F1F1F2;
-        text-align: center;
-        padding-right: 20px;
-        padding-bottom: 20px;
-        width: 380px;
-    }
-
-    .info1 img{
-        width:80px
-    }
-
-    label{
-        font-weight: 500;
-        font-size: 15px;
-    }
-}
-
-@media screen and (max-width: 390px){
-
-    .fondo{
-        background-image: url("src/assets/img/fotoFondos/perfusuari.png");
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-attachment: fixed;
-        background-size: cover;
-        position: relative;
-        height: 1550px;
-        width: 100%;
-        font-family: 'Poppins', sans-serif;
-    }
-
-    .cuadro{
-        background-color: #F1F1F2;
-        text-align: center;
-        padding-right: 20px;
-        padding-bottom: 20px;
-        width: 370px;
-    }
-
-    .info1 img{
-        width:80px
-    }
-
-    label{
-        font-weight: 500;
-        font-size: 15px;
-    }
-}
-
-@media screen and (max-width: 380px){
-
-    .fondo{
-        background-image: url("src/assets/img/fotoFondos/perfusuari.png");
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-attachment: fixed;
-        background-size: cover;
-        position: relative;
-        height: 1550px;
-        width: 100%;
-        font-family: 'Poppins', sans-serif;
-    }
-
-    .cuadro{
-        background-color: #F1F1F2;
-        text-align: center;
-        padding-right: 20px;
-        padding-bottom: 20px;
-        width: 350px;
-    }
-
-    .info1 img{
-        width:80px
-    }
-
-    label{
-        font-weight: 500;
-        font-size: 15px;
-    }
-} */
-

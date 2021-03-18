@@ -10,7 +10,7 @@
     background-color: #F1F1F2;
     color: #f1f1f2;
     font-family: 'Poppins', sans-serif;
-    overflow: scroll;
+    overflow: auto;
 }
 
 .separacion{

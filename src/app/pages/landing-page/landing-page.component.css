@@ -77,13 +77,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 
  
 button {
-     /* margin-left: 50px; */
-    /* border-radius: 10px;
-    width: 100px;
-    height: 60px;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 10px; */
+
     display                : block;
     position       : relative;
     padding        : 10px 0;
@@ -184,7 +178,7 @@ h1 {
 .iconos2{
     width: 75px;
     height: 75px;
-    /* margin-top: 20px; */
+
 
     margin-bottom: 14px;
 }
@@ -267,29 +261,6 @@ ul {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='grey' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
 }
 
-/* .carousel-control-prev-icon,
-.carousel-control-next-icon {
-  height: 100px;
-  width: 100px;
-  outline: black;
-  background-size: 100%, 100%;
-  border-radius: 50%;
-  border: 1px solid black;
-  background-image: none;
-}
-
-.carousel-control-next-icon:after
-{
-  content: '>';
-  font-size: 55px;
-  color: red;
-}
-
-.carousel-control-prev-icon:after {
-  content: '<';
-  font-size: 55px;
-  color: red;
-} */
 
 
 
@@ -330,7 +301,6 @@ ul {
    .iconos2{
     width: 40px;
     height: 40px;
-    /* margin-top: 0px; */
     margin-bottom: 1px;
 
 

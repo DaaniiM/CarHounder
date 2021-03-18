@@ -25,7 +25,6 @@ h1{
 .container{
     padding-top: 140px;
     padding-bottom: 80px;
-    /* border: 1px solid; */
 }
 
 .caja{
@@ -86,6 +85,12 @@ h3{
     margin-top: 10px;
     width: 180px
 }
+
+.btnEdit1{
+    color:white;
+    background-color: #0466C8;
+}
+
 
 .check1{
     padding-top: 6px;

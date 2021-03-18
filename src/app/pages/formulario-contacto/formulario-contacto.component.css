@@ -9,22 +9,20 @@
     background-size: cover;
     background-repeat: no-repeat;
     color: #F1F1F2;
-    overflow: scroll;
+    overflow: auto;
 
 }
 
 
 #all{
-/* 
-    background-image: url("src/assets/img/fotoFondos/sobnosfondo.png");
-    background-position: center;
-    position:relative; */
+
     height: 960px; 
     width: 100%; 
     display: flex;
     flex-direction: column;
     padding-top: 130px;
-    /* justify-content: center; */
+
+ 
 
     
 
@@ -34,6 +32,7 @@
 
     display: flex;
     justify-content: center;
+    padding-bottom: 50px;
 
 }
 
@@ -48,10 +47,6 @@ form{
     width: 500px;
 
 }
-/* 
-#mensaje{
-    height: 300px;
-} */
 
 
 
@@ -60,7 +55,7 @@ button{
     border-radius: 10px;
 	display: block;
 	position: relative;
-	padding: 10px 0;
+	padding: 10px 0px;
 	margin: 25px auto;
     font-family: 'Poppins', sans-serif;
 	font-size: 20px;

@@ -20,7 +20,6 @@ h1{
 .container{
     padding-top: 140px;
     padding-bottom: 80px;
-    /* border: 1px solid; */
 }
 
 p{
@@ -76,8 +75,6 @@ label{
     border-right-color: #e4e1e1;
     border-right-style:solid;
     border-right-width: 1px;
-    /* border: solid 1px; */
-    /* vertical-align: middle; */
 }
 
 
@@ -109,61 +106,3 @@ label{
     }
 }
 
-/* .bloque{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding-top: 150px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border: 1px solid;
-} */
-
-/* .card{
-    width: 100%;
-} */
-
-
-/* .container{
-    margin-top: 150px;
-    background: none;
-    align-items: center;
-    border-radius: 5px;
-    padding-top:10px;
-    margin-top: 10px;
-    width: 700px;
-    border: 1px solid
-} */
-/* 
-.col-sm-3{
-    padding-top: 10px;
-}
-
-.vertical{
-    border: red 2px;
-} */
-
-/* p{
-    font-weight: 600;
-}
-
-.info1{
-    margin-top: 20px;
-    width: 80%;
-    font-weight: 500;
-    border: solid 1px;
-}
-
-.info2{
-    width: 20%;
-    border: solid 1px;
-}
-
-h2{
-    color: #F1F1F2;
-    font-weight: bold;
-    padding: 20px;
-}
- */

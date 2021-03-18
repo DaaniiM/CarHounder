@@ -10,7 +10,25 @@
                 <input type="file"><img src="assets/img/fotoFondos/usuario.png">
               </span>
               <br>
-              <button type="button" class="btnDel btn btn-danger btn-sm">Eliminar perfil</button>
+              <button type="button" class="btnDel btn btn-danger btn-sm" data-toggle="modal"
+                data-target="#perfilTallerEliminar">Eliminar perfil</button>
+              <div class="modal fade" id="perfilTallerEliminar" tabindex="-1" role="dialog" aria-labelledby="perfilTallerEliminar"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">¿Estás seguro?</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btnEdit1" data-dismiss="modal">No</button>
+                      <button type="button" class="btn btn-danger">Eliminar Perfil</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="col-md-9 mt-3">
               <div class="d-flex flex-column align-items-flex-start">
