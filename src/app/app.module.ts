@@ -19,6 +19,7 @@ import { CitasComponent } from './pages/citas/citas.component';
 import { ResultadoBusquedaComponent } from './pages/resultado-busqueda/resultado-busqueda.component';
 import { ModalCitasTallerComponent } from './pages/modal-citas-taller/modal-citas-taller.component';
 import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.component';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.co
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CarouselModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
