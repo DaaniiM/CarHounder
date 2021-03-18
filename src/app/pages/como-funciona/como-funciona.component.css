@@ -56,3 +56,8 @@ img{
     }
 
 }
+@media screen and (min-width: 1025px){
+    #servicios{
+        height: 1036px;
+    }
+}
