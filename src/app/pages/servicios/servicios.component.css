@@ -1,7 +1,7 @@
 
 #servicios{
     background-image: url("/../../assets/img/fotoFondos/servicioFoto.png");
-    position: absolute;
+    position: relative;
     height: 100%; 
     width: 100%;
     background-position: center center;
@@ -51,5 +51,11 @@ p {
 @media screen and (max-width: 340px){
     h1{
         font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 1025px){
+    #servicios{
+        height: 1036px;
     }
 }

@@ -1,6 +1,6 @@
 #comoFunciona{
     background-image: url("src/assets/img/fotoFondos/comofuncionafondo.png");
-    position: absolute;
+    position: relative;
     height: 100%; 
     width: 100%;
     background-position: center;
@@ -30,6 +30,22 @@ img{
 
 .separacion{
     height: 50px;
+}
+
+@media screen and (min-width: 320px){
+
+    #imagenFondo{
+        height: 650px;
+    }
+
+}
+
+@media screen and (min-width: 410px){
+
+    #imagenFondo{
+        height: 700px;
+    }
+
 }
 
 @media screen and (min-height: 1020px){
