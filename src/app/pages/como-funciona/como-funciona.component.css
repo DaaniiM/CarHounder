@@ -1,6 +1,6 @@
 #comoFunciona{
     background-image: url("src/assets/img/fotoFondos/comofuncionafondo.png");
-    position: relative;
+    position: absolute;
     height: 100%; 
     width: 100%;
     background-position: center;
@@ -10,6 +10,7 @@
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
+    overflow: scroll;
 }
 
 h1{
@@ -57,7 +58,7 @@ img{
 
 }
 @media screen and (min-width: 1025px){
-    #servicios{
-        height: 1036px;
+    #comoFunciona{
+        height: 980px;
     }
 }

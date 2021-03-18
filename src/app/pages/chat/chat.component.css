@@ -10,6 +10,7 @@
     background-color: #F1F1F2;
     color: #f1f1f2;
     font-family: 'Poppins', sans-serif;
+    overflow: scroll;
 }
 
 .separacion{
@@ -191,7 +192,8 @@ h5{
 }
 
 @media screen and (min-width: 1025px){
-    #servicios{
-        height: 1036px;
+    
+    #imagenFondo{
+        height: 980px;
     }
 }
