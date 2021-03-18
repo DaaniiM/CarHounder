@@ -20,7 +20,8 @@
     flex-direction: column;
     /* align-items: center; */
     justify-content: center;
-    font-family: 'Poppins', sans-serif;;
+    overflow: auto;
+    font-family: 'Poppins', sans-serif;
 }
 
 .bloque{
@@ -28,7 +29,8 @@
     flex-direction: column;
     align-items: center;
     /* justify-content: space-between; */
-    padding-top: 150px;
+    padding-top: 140px;
+    padding-bottom: 80px;
     width: 100%;
     /* border: 1px solid; */
 }
@@ -113,12 +115,6 @@ p{
 /* p{
     padding: 50px;
 } */
-
-.separacion{
-
-    width: 10px;
-    height: 300px;
-}
 
 @media screen and (max-width: 1030px){
     img{

@@ -14,7 +14,6 @@
 }
 
 
-
 #filtroResponsive{
     position: absolute;
     /* z-index: 100; */
@@ -25,17 +24,54 @@
 
 #parteAbajo {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-evenly;
-    align-items: center;
+    /* align-items: center; */
     padding: 100px 0px 0px 0px;
     margin-bottom: 250px;
-    
+    margin-top: 100px;
+    font-family: 'Poppins', sans-serif;
+    /* height: 2000px; */
+   
+}
+
+#filtros{
+
+    width: 1010px;
+    background-color: #F1F1F2;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.accordion{
+
+    width: 400px;
+    padding-top: 18px;
+}
+
+#filtrosAll{
+
+    margin-top: -40px;
+}
+
+#demo{
+
+  color: #16181b;
+  text-decoration: none;
+  background-color: #F1F1F2;
+  position: absolute;
+  /* width: 500px; */
+  padding: 20px;
+  z-index: 100;
+
    
 }
 
 
-#botonFiltros{
+.botonFiltros{
     background-color: #0466c8;
     color: #F1F1F2;
     width: 650px;
@@ -130,6 +166,12 @@ h2 {
 
 }
 
+h3{
+
+    color: #F1F1F2;
+    font-family: 'Poppins', sans-serif;
+
+}
 
 .ec-stars-wrapper:hover a {
 	color: #0466C8;
@@ -151,15 +193,29 @@ h2 {
 
 
 /* Media Query */
+@media only screen and (max-width: 1500px) {
 
+    #parteAbajo {
+
+        flex-direction: column;
+        align-items: center;
+    }
+    
+
+}
 
 @media only screen and (max-width: 1370px) {
 
     .talleres {
         width: 800px;
         height: 20px;
-   
        
+    }
+
+    .accordion{
+
+        width: 352px;
+        
     }
 
     

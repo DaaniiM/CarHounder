@@ -18,8 +18,8 @@ h1{
 }
 
 .container{
-    margin-top: 140px;
-    margin-bottom: 80px;
+    padding-top: 140px;
+    padding-bottom: 80px;
     /* border: 1px solid; */
 }
 
@@ -31,10 +31,6 @@ p{
 span{
     padding-left:15px;
     font-weight: 300;
-}
-
-.col-md-7 p{
-    font-weight: 400;
 }
 
 label{
@@ -87,9 +83,14 @@ label{
 
 
 
-@media screen and (max-width: 750px){
-    .col-md-3{
+@media screen and (max-width: 767px){
+    .col-md-10{
         border-right-style: none;
+    }
+
+    .container{
+        padding-top: 140px;
+        padding-bottom: 100px;
     }
 
 }
