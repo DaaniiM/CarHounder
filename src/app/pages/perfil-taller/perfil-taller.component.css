@@ -18,8 +18,8 @@ h1{
 }
 
 .container{
-    margin-top: 140px;
-    margin-bottom: 80px;
+    padding-top: 140px;
+    padding-bottom: 80px;
     /* border: 1px solid; */
 }
 
@@ -289,6 +289,15 @@ textarea{
         font-family: 'Poppins', sans-serif;
     }
 } */
+
+@media screen and (max-width: 803px){
+    
+    .container{
+        padding-top: 140px;
+        padding-bottom: 130px;
+        /* border: 1px solid; */
+    }
+}
 
 @media screen and (max-width: 411px){
     
