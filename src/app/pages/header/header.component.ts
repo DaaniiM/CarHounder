@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -11,6 +12,7 @@ export class HeaderComponent implements OnInit {
   public noHidden: boolean;
 
   constructor() {
+    
 
     this.isHidden = true;
     this.noHidden = false;
@@ -27,6 +29,8 @@ export class HeaderComponent implements OnInit {
       this.noHidden = true;
     }
   }
+
+
 
   ngOnInit(): void {
   }

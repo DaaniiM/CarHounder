@@ -104,23 +104,23 @@
                                     <form>
                                         <div class="form-group">
                                           <label>Email</label>
-                                          <input type="email" class="form-control" id="emailCliente" aria-describedby="emailHelp" placeholder="Introduzca email" required>
+                                          <input #email type="email" class="form-control" id="emailCliente" aria-describedby="emailHelp" placeholder="Introduzca email"  required>
                                         </div>
                                         <div class="form-group">
                                             <label>Nombre</label>
-                                            <input class="form-control" type="text" placeholder="Introduzca nombre" required>
+                                            <input #nombre class="form-control" type="text" placeholder="Introduzca nombre" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Apellidos</label>
-                                            <input class="form-control" type="text" placeholder="Introduzca apellidos" required>
+                                            <input #apellidos class="form-control" type="text" placeholder="Introduzca apellidos" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Teléfono</label>
-                                            <input class="form-control" type="number" placeholder="Introduzca teléfono" required> 
+                                            <input #telefono class="form-control" type="number" placeholder="Introduzca teléfono" required> 
                                         </div>
                                         <div class="form-group">
                                             <label>Contraseña</label>
-                                            <input type="password" class="form-control" id="contCliente1" placeholder="Introduzca contraseña" required>
+                                            <input #password type="password" class="form-control" id="contCliente1" placeholder="Introduzca contraseña" required>
                                           </div>
                                           <div class="form-group">
                                             <label>Repita la contraseña</label>
@@ -128,10 +128,10 @@
                                           </div>
                                         <div class="form-group">
                                             <label>Foto perfil</label>
-                                            <input class="form-control" type="file" placeholder="Introduzca foto perfil" >
+                                            <input #foto class="form-control" type="file" placeholder="Introduzca foto perfil" >
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="submit" class="btn boton1">Registrarse</button>
+                                            <button type="submit" class="btn boton1" on-click="agregarUsuario(email.value,password.value,nombre.value,apellidos.value,telefono.value,foto.value)" >Registrarse</button>
                                             <button type="button" class="btn boton2" data-dismiss="modal">Cerrar</button>
                                         </div>
                                       </form>
