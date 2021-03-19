@@ -9,6 +9,7 @@ import { Usuario } from '../modules/usuario';
 export class CarApiService {
 
   private urlRegistroUsuario="http://localhost:300/registrar/usuario";
+  private urlRegistroTaller="http://localhost:300/registrar/taller";
 
 
   constructor(private http:HttpClient) { }
@@ -24,7 +25,7 @@ export class CarApiService {
   
   public registrarTaller(taller:Taller) {
 
-    return this.http.post(this.urlRegistroUsuario,taller)
+    return this.http.post(this.urlRegistroTaller,taller)
 
   }
 
