@@ -1,10 +1,10 @@
 const express = require ('express');
 const app = express();
 
-app.use(express.static(__dirname + '/CarHounder/carhounder'));
+app.use(express.static(__dirname + '/dist/carhounder'));
 app.get('/*',function(req,res){
 
-    res.sendFile("index.html",{root:__dirname + '/CarHounder/carhounder/'});
+    res.sendFile("index.html",{root:__dirname + '/dist/carhounder/'});
 
 });
 
