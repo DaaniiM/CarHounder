@@ -166,6 +166,20 @@ h5{
 @media screen and (min-height: 900px){
 
     #imagenFondo{
+        height: 1020px;
+    }
+    #listado{
+        height: 594px;
+    }
+    #mensajes{
+        height: 500px;
+    }
+
+}
+
+@media screen and (min-height: 1020px){
+
+    #imagenFondo{
         height: 1024px;
     }
     #listado{
