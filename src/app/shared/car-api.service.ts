@@ -8,8 +8,7 @@ import { Usuario } from '../modules/usuario';
 })
 export class CarApiService {
 
-  private urlRegistroUsuario="http://localhost:300/registrar/usuario";
-  private urlRegistroTaller="http://localhost:300/registrar/taller";
+  private url="http://localhost:300";
 
 
   constructor(private http:HttpClient) { }
@@ -18,14 +17,14 @@ export class CarApiService {
 
   public registrarCliente(cliente:Usuario) {
 
-    return this.http.post(this.urlRegistroUsuario,cliente)
+    return this.http.post(this.url + "/registrar/usuario" ,cliente)
 
   }
 
   
   public registrarTaller(taller:Taller) {
 
-    return this.http.post(this.urlRegistroTaller,taller)
+    return this.http.post(this.url + "/registrar/taller",taller)
 
   }
 
