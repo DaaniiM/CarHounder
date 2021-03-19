@@ -9,7 +9,7 @@ import { Usuario } from '../modules/usuario';
 export class CarApiService {
 
   private url="https://api-rest-carhounder.herokuapp.com";
-  private url1 = "https://api-rest-carhounder.herokuapp.com//talleres?cp=" ;
+  private url1 = "https://api-rest-carhounder.herokuapp.com/talleres?cp=" ;
 
   public codigoPostal:number; //variable de busqueda
   public talleres:Taller[];
