@@ -8,8 +8,8 @@ import { Usuario } from '../modules/usuario';
 })
 export class CarApiService {
 
-  private url="http://localhost:300";
-  private url1 = "http://localhost:300/talleres?cp=" ;
+  private url="https://api-rest-carhounder.herokuapp.com";
+  private url1 = "https://api-rest-carhounder.herokuapp.com//talleres?cp=" ;
 
   public codigoPostal:number; //variable de busqueda
   public talleres:Taller[];
