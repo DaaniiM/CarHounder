@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Taller } from 'src/app/modules/taller';
+import { LandingPageComponent } from '../landing-page/landing-page.component';
+import { CarApiService } from '../../shared/car-api.service';
 
 @Component({
   selector: 'app-resultado-busqueda',
@@ -7,7 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultadoBusquedaComponent implements OnInit {
 
-  constructor() { }
+  public talleres:Taller[];
+
+
+  constructor(private carapi:CarApiService) { 
+    this.talleres = carapi.talleres
+  }
+
+  
 
   ngOnInit(): void {
   }

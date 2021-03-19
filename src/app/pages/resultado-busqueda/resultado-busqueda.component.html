@@ -168,86 +168,92 @@
             </div>
            
             
-            <div class="talleres">
+            <div *ngIf="talleres.length != 0"  class="talleres">
                
-                <div  class="fichaTaller row p-2 bg-white border rounded mt-2">
-                    <div id="imagenTaller" class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image " src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXtns3uxSl_j5Wzqk2aFH_FsmAXgzj-sAk4g&usqp=CAU"></div>
-                    <div id="imagenTaller" class="col-md-6 mt-1">
-                        <h4>Taller TotalMotor</h4>
-                        <div>
-                            <p class="caracteristicas">
-                                Ciudad: Albacete. <br>
-                                Dirección: Avenida de la Constitución 42.
-                            </p>
-                        </div>
-                        <div class="servicios">
-                            <h5>Servicios:</h5>
-                            <p class="serviciosIconos" >
-                                <img class="icono" src="/../../assets/img/iconos/clutch.png" alt=""> 
-                                <img class="icono" src="/../../assets/img/iconos/frenos.png" alt=""> 
-                                <img class="icono" src="/../../assets/img/iconos/tire.png" alt=""> 
-                                <img class="icono" src="/../../assets/img/iconos/puerta-de-coche.png" alt=""> 
-                                <img class="icono" src="/../../assets/img/iconos/car-repair.png" alt=""> 
-                            </p>
-                        </div>
-                    </div>
-                    <div class="align-items-center align-content-center col-md-3 border-left mt-1">
-                        <div id="valoraciones" > 
-                            <div class="d-flex flex-row align-items-center">
-                                <h4 class="mr-1">Valoración</h4><span class="strike-text"></span>
-                            </div>
+               
+                    <div *ngFor="let taller of talleres" class="fichaTaller row p-2 bg-white border rounded mt-2">
+                        <div id="imagenTaller" class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image " src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXtns3uxSl_j5Wzqk2aFH_FsmAXgzj-sAk4g&usqp=CAU"></div>
+                        <div id="imagenTaller" class="col-md-6 mt-1">
+                            <h4>{{taller.nombre}}</h4>
                             <div>
-                                <input  type="text" class="numberValue" id="servicios" readonly value="5">
+                                <p class="caracteristicas">
+                                    {{taller.direccion}}<br>
+                                    {{taller.ciudad}}
+                                </p>
                             </div>
-                            <div class="ec-stars-wrapper">
-                                <a href="" data-value="1" data-toggle="modal"
-                                data-target="#votacion" title="Votar con 1 estrellas">&#9733;</a>
-                                <a href="" data-value="2" data-toggle="modal"
-                                data-target="#votacion" title="Votar con 2 estrellas">&#9733;</a>
-                                <a href="" data-value="3" data-toggle="modal"
-                                data-target="#votacion" title="Votar con 3 estrellas">&#9733;</a>
-                                <a href="" data-value="4" data-toggle="modal"
-                                data-target="#votacion" title="Votar con 4 estrellas">&#9733;</a>
-                                <a href="" data-value="5" data-toggle="modal"
-                                data-target="#votacion" title="Votar con 5 estrellas">&#9733;</a>
-                                <div class="modal fade" id="votacion" tabindex="-1" role="dialog" aria-labelledby="votacion"
-                                aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h5 class="modal-title" id="exampleModalLabel">Añade un comentario</h5>
-                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                      </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form>
-                                            <div class="mb-3">
-                                                <label for="mensaje" class="form-label">Mensaje</label>
-                                                <textarea class="form-control" id="mensaje" rows = "10"></textarea >
-                                            </div>
-                                            <div class="modal-footer">
-                                            <button type="submit" class="btn btnEdit1">Añadir comentario</button>
-                                        </div>
-                                        </form>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
+                            <div class="servicios">
+                                <h5>Servicios:</h5>
+                                <p class="serviciosIconos" >
+                                    <img class="icono" src="/../../assets/img/iconos/clutch.png" alt=""> 
+                                    <img class="icono" src="/../../assets/img/iconos/frenos.png" alt=""> 
+                                    <img class="icono" src="/../../assets/img/iconos/tire.png" alt=""> 
+                                    <img class="icono" src="/../../assets/img/iconos/puerta-de-coche.png" alt=""> 
+                                    <img class="icono" src="/../../assets/img/iconos/car-repair.png" alt=""> 
+                                </p>
                             </div>
                         </div>
-                        <div class="d-flex flex-column mt-2 ">
-                            <button id="botonTaller" routerLink="/paginaTaller" class="btn btn-primary btn-sm" type="button">Mas detalles</button>
-                            <button id="botonTaller"  routerLink="/chat" class="btn btn-outline-primary btn-sm mt-2" type="button">Chat</button>
-                            <button id="botonFavoritos" class="btn btn-outline-primary btn-sm mt-2" type="button">Añadir a favoritos</button>
+                        <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                            <div id="valoraciones" > 
+                                <div class="d-flex flex-row align-items-center">
+                                    <h4 class="mr-1">Valoración</h4><span class="strike-text"></span>
+                                </div>
+                                <div>
+                                    <input  type="text" class="numberValue" id="servicios" readonly value="5">
+                                </div>
+                                <div class="ec-stars-wrapper">
+                                    <a href="" data-value="1" data-toggle="modal"
+                                    data-target="#votacion" title="Votar con 1 estrellas">&#9733;</a>
+                                    <a href="" data-value="2" data-toggle="modal"
+                                    data-target="#votacion" title="Votar con 2 estrellas">&#9733;</a>
+                                    <a href="" data-value="3" data-toggle="modal"
+                                    data-target="#votacion" title="Votar con 3 estrellas">&#9733;</a>
+                                    <a href="" data-value="4" data-toggle="modal"
+                                    data-target="#votacion" title="Votar con 4 estrellas">&#9733;</a>
+                                    <a href="" data-value="5" data-toggle="modal"
+                                    data-target="#votacion" title="Votar con 5 estrellas">&#9733;</a>
+                                    <div class="modal fade" id="votacion" tabindex="-1" role="dialog" aria-labelledby="votacion"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Añade un comentario</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form>
+                                                <div class="mb-3">
+                                                    <label for="mensaje" class="form-label">Mensaje</label>
+                                                    <textarea class="form-control" id="mensaje" rows = "10"></textarea >
+                                                </div>
+                                                <div class="modal-footer">
+                                                <button type="submit" class="btn btnEdit1">Añadir comentario</button>
+                                            </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-column mt-2 ">
+                                <button id="botonTaller" routerLink="/paginaTaller" class="btn btn-primary btn-sm" type="button">Mas detalles</button>
+                                <button id="botonTaller"  routerLink="/chat" class="btn btn-outline-primary btn-sm mt-2" type="button">Chat</button>
+                                <button id="botonFavoritos" class="btn btn-outline-primary btn-sm mt-2" type="button">Añadir a favoritos</button>
+                            </div>
                         </div>
                     </div>
-                </div>
+
+                
                 <br>
                 <br>
                 <br>
                 <br>
                 <br>
+            </div>
+            <div *ngIf="talleres.length == 0 " >
+                <h1 id="fraseSinTaller" > Lo sentimos, no se han encontrado talleres en su zona. </h1>
             </div>
             
         </div>

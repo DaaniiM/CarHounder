@@ -9,9 +9,14 @@ import { Usuario } from '../modules/usuario';
 export class CarApiService {
 
   private url="http://localhost:300";
+  private url1 = "http://localhost:300/talleres?cp=" ;
+
+  public codigoPostal:number; //variable de busqueda
+  public talleres:Taller[];
 
 
   constructor(private http:HttpClient) { }
+  
 
 
 
@@ -26,6 +31,22 @@ export class CarApiService {
 
     return this.http.post(this.url + "/registrar/taller",taller)
 
+    
+
   }
+
+  public buscarTalleres(cp:number) {
+    console.log(this.talleres)
+    console.log(cp)
+
+    if(cp != 0 ) {
+      return this.http.get(this.url1 + cp);
+    } else {
+      return this.http.get(this.url + "/talleres");
+    }
+    
+  }
+
+  
 
 }
