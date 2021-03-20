@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Servicio } from '../modules/servicio';
 import { Taller } from '../modules/taller';
 import { Usuario } from '../modules/usuario';
 
@@ -10,9 +11,12 @@ export class CarApiService {
 
   private url="https://api-rest-carhounder.herokuapp.com";
   private url1 = "https://api-rest-carhounder.herokuapp.com/talleres?cp=" ;
+  private url2= "https://api-rest-carhounder.herokuapp.com/servicios?id=" ;
 
-  public codigoPostal:number; //variable de busqueda
+  
   public talleres:Taller[];
+  public servicios:any[];
+  
 
 
   constructor(private http:HttpClient) { }
@@ -47,6 +51,10 @@ export class CarApiService {
     
   }
 
-  
+  public buscarServicios(id:any) {
+
+    return this.http.get(this.url2 + id);
+
+  }
 
 }

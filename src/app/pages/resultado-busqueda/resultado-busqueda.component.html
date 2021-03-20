@@ -181,14 +181,15 @@
                                     {{taller.ciudad}}
                                 </p>
                             </div>
-                            <div class="servicios">
+                            <div *ngIf="detallesServicios(taller.id)" class="servicios">
                                 <h5>Servicios:</h5>
-                                <p class="serviciosIconos" >
-                                    <img class="icono" src="/../../assets/img/iconos/clutch.png" alt=""> 
-                                    <img class="icono" src="/../../assets/img/iconos/frenos.png" alt=""> 
+                                <p *ngFor="let servicio of servicios" class="serviciosIconos" >
+                                    <img class="icono" src="{{servicio.icono}}" alt=""> 
+                                    {{servicio.descripcion}}
+                                    <!-- <img class="icono" src="/../../assets/img/iconos/frenos.png" alt=""> 
                                     <img class="icono" src="/../../assets/img/iconos/tire.png" alt=""> 
                                     <img class="icono" src="/../../assets/img/iconos/puerta-de-coche.png" alt=""> 
-                                    <img class="icono" src="/../../assets/img/iconos/car-repair.png" alt=""> 
+                                    <img class="icono" src="/../../assets/img/iconos/car-repair.png" alt="">  -->
                                 </p>
                             </div>
                         </div>

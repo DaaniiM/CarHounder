@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Taller } from 'src/app/modules/taller';
-import { LandingPageComponent } from '../landing-page/landing-page.component';
 import { CarApiService } from '../../shared/car-api.service';
+import { Router } from '@angular/router';
+import { Servicio } from 'src/app/modules/servicio';
+import { compileNgModule } from '@angular/compiler';
 
 @Component({
   selector: 'app-resultado-busqueda',
@@ -10,11 +12,27 @@ import { CarApiService } from '../../shared/car-api.service';
 })
 export class ResultadoBusquedaComponent implements OnInit {
 
+  public servicios: Servicio[];
   public talleres:Taller[];
 
 
-  constructor(private carapi:CarApiService) { 
-    this.talleres = carapi.talleres
+  constructor(private carApiService:CarApiService, private _router: Router) { 
+    this.talleres = carApiService.talleres
+  }
+
+
+
+  public detallesServicios(id:number) {
+  
+    
+    this.carApiService.buscarServicios(Number(id)).subscribe((data:Servicio[]) => {
+      this.servicios=data
+      
+      console.log(this.servicios[0].descripcion)
+    })
+
+    
+
   }
 
   
