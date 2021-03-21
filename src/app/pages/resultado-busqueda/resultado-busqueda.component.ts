@@ -14,10 +14,12 @@ export class ResultadoBusquedaComponent implements OnInit {
 
   public servicios: any[];
   public talleres:Taller[];
+  public taller: Taller;
 
 
   constructor(private carApiService:CarApiService, private _router: Router) { 
-    this.talleres = carApiService.talleres
+    this.talleres = carApiService.talleres;
+    this.taller = carApiService.taller;
   }
 
 
@@ -35,6 +37,18 @@ export class ResultadoBusquedaComponent implements OnInit {
 
   }
 
+  
+  public detallesTaller(id:number) {
+  
+    
+    this.carApiService.detallesTaller(id).subscribe((data:any) => {
+      this.carApiService.taller=data[0]
+      this._router.navigate(['/paginaTaller']);
+    })
+
+    
+
+  }
   
 
   ngOnInit(): void {

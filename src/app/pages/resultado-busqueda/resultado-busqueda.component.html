@@ -184,14 +184,9 @@
                             <h5>Servicios:</h5>
                             <div id="iconosService">
                             <div *ngFor="let servicio of servicios">
-
                             <div *ngIf = "servicio.id_taller == taller.id_taller">
                                 <p  class="serviciosIconos" >
                                     <img class="icono" src="{{servicio.icono}}" title="{{servicio.descripcion}}"> 
-                                    <!-- <img class="icono" src="/../../assets/img/iconos/frenos.png" alt=""> 
-                                    <img class="icono" src="/../../assets/img/iconos/tire.png" alt=""> 
-                                    <img class="icono" src="/../../assets/img/iconos/puerta-de-coche.png" alt=""> 
-                                    <img class="icono" src="/../../assets/img/iconos/car-repair.png" alt="">  -->
                                 </p>
                             </div>
                         </div>
@@ -243,7 +238,7 @@
                                 </div>
                             </div>
                             <div class="d-flex flex-column mt-2 ">
-                                <button id="botonTaller" routerLink="/paginaTaller" class="btn btn-primary btn-sm" type="button">Mas detalles</button>
+                                <button id="botonTaller" on-click="detallesTaller(taller.id_taller)" class="btn btn-primary btn-sm" type="button">Mas detalles</button>
                                 <button id="botonTaller"  routerLink="/chat" class="btn btn-outline-primary btn-sm mt-2" type="button">Chat</button>
                                 <button id="botonFavoritos" class="btn btn-outline-primary btn-sm mt-2" type="button">Añadir a favoritos</button>
                             </div>

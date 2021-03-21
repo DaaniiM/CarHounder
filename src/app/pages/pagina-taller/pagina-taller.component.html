@@ -10,30 +10,36 @@
 
       <div class="container">
         <div id= "frontal"class="card h-100">
-          <img src="assets/img/fotoFondos/sobnosfondo.png" class="card-img-top img-fluid" alt="...">
+          <img src="{{taller.foto}}" class="card-img-top img-fluid" alt="...">
           <div class="card-body">
             <h5 class="card-title">Información</h5>
             <p class="card-text">
-                Talleres FastCar, su taller de confianza al alcance de cualquiera.<br>
-                C/Almogavers, N/30, Barcelona 08420</p>
+                {{taller.nombre}}<br>
+                {{taller.direccion}} - {{taller.cp}} {{taller.ciudad}} - {{taller.provincia}}<br>
+                {{taller.telefono}}<br>
+                {{taller.email}}
+                </p>
 
             <h5 class="card-title">Servicios</h5>
             <p class="card-text"> 
-                Cambio de aceite - 30€<br>
-                Revisión completa - 20€
+              <div *ngFor="let servicio of servicios">
+
+                <div *ngIf = "servicio.id_taller == taller.id_taller">
+                    <p  class="serviciosIconos" >
+                        <img class="icono" src="{{servicio.icono}}" title="{{servicio.descripcion}}"> {{servicio.descripcion}}
+                    </p>
+                </div>
+            </div>
             
             <h5 class="card-title">Ofertas</h5>
-            <p class="card-text"> 
-                Cambio de aceite + Revisión pre-ITV - 50€<br>
-                Cambio de aceite + Revisión Completa - 40€<br>
-                Cambio de aceite + Revisión pre-ITV - 50€<br>
-                Cambio de aceite + Revisión pre-ITV - 50€<br>
-                Cambio de aceite + Revisión pre-ITV - 50€<br>
-                Cambio de aceite + Revisión pre-ITV - 50€<br>
-                Cambio de aceite + Revisión pre-ITV - 50€<br>
-                Cambio de aceite + Revisión pre-ITV - 50€<br>
-                Cambio de aceite + Revisión pre-ITV - 50€<br>
-                Cambio de aceite + Revisión pre-ITV - 50€
+            <p class="card-text">
+
+              {{oferta.oferta}}
+
+            </p>
+
+
+
           </div>
 
           <div id="botonInfo">

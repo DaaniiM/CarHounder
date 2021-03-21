@@ -12,13 +12,19 @@ export class CarApiService {
   private url="https://api-rest-carhounder.herokuapp.com";
   private url1 = "https://api-rest-carhounder.herokuapp.com/talleres?cp=" ;
   private url2= "https://api-rest-carhounder.herokuapp.com/servicios?id=" ;
+  private url3 = "https://api-rest-carhounder.herokuapp.com/talleresDetalles?id=" ;  
+  private url4 = "httpS:///api-rest-carhounder.herokuapp.com/oferta?id=" ;
+
 
   // private url="http://localhost:300";
   // private url1 = "http://localhost:300/talleres?cp=" ;
   // private url2= "http://localhost:300/servicios" ;
+  // private url3 = "http://localhost:300/talleresDetalles?id=" ;
+  // private url4 = "http://localhost:300/oferta?id=" ;
   
   public talleres:Taller[];
   public servicios:any[];
+  public taller: Taller;
   
 
 
@@ -58,6 +64,17 @@ export class CarApiService {
 
     return this.http.get(this.url2);
 
+  }
+
+  public detallesTaller(id:number){
+
+    return this.http.get(this.url3 + id);
+
+  }
+
+  public oferta(id:number){
+
+    return this.http.get(this.url4 + id)
   }
 
 }

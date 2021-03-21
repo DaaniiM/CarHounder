@@ -40,7 +40,14 @@
     
         
     
-    }
+}
+
+.icono {
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+
+}
 
 
 button{

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Oferta } from 'src/app/modules/oferta';
+import { Taller } from 'src/app/modules/taller';
+import { CarApiService } from 'src/app/shared/car-api.service';
 
 @Component({
   selector: 'app-pagina-taller',
@@ -7,9 +10,45 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaginaTallerComponent implements OnInit {
 
-  constructor() { }
+  public taller:Taller;
+  public servicios: any[];
+  public oferta: Oferta;
+
+  constructor(public carApiService:CarApiService) {
+
+    this.taller = carApiService.taller
+   }
+
+   public detallesServicios() {
+  
+    
+    this.carApiService.buscarServicios().subscribe((data:any[]) => {
+      this.servicios=data
+      
+      console.log(this.servicios)
+    })
+
+    
+
+  }
+
+  public ofertas(id:number){
+
+    this.carApiService.oferta(id).subscribe((data:any[]) => {
+      this.oferta=data[0]
+      
+      console.log(this.oferta)
+    })
+
+  }
+
 
   ngOnInit(): void {
+
+    this.detallesServicios()
+
+    this.ofertas(this.taller.id_taller)
+  
   }
 
 }
