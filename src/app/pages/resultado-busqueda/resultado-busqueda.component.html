@@ -181,17 +181,21 @@
                                     {{taller.ciudad}}
                                 </p>
                             </div>
-                            <div *ngIf="detallesServicios(taller.id)" class="servicios">
-                                <h5>Servicios:</h5>
-                                <p *ngFor="let servicio of servicios" class="serviciosIconos" >
-                                    <img class="icono" src="{{servicio.icono}}" alt=""> 
-                                    {{servicio.descripcion}}
+                            <h5>Servicios:</h5>
+                            <div id="iconosService">
+                            <div *ngFor="let servicio of servicios">
+
+                            <div *ngIf = "servicio.id_taller == taller.id_taller">
+                                <p  class="serviciosIconos" >
+                                    <img class="icono" src="{{servicio.icono}}" title="{{servicio.descripcion}}"> 
                                     <!-- <img class="icono" src="/../../assets/img/iconos/frenos.png" alt=""> 
                                     <img class="icono" src="/../../assets/img/iconos/tire.png" alt=""> 
                                     <img class="icono" src="/../../assets/img/iconos/puerta-de-coche.png" alt=""> 
                                     <img class="icono" src="/../../assets/img/iconos/car-repair.png" alt="">  -->
                                 </p>
                             </div>
+                        </div>
+                    </div>
                         </div>
                         <div class="align-items-center align-content-center col-md-3 border-left mt-1">
                             <div id="valoraciones" > 

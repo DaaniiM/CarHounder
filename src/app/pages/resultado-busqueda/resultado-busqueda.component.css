@@ -21,6 +21,11 @@
     
 }
 
+#iconosService{
+
+    display: flex;
+    flex-direction: row;
+}
 #parteAbajo {
     display: flex;
     flex-direction: row;

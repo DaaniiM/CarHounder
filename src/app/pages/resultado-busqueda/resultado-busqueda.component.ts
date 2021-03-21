@@ -12,7 +12,7 @@ import { compileNgModule } from '@angular/compiler';
 })
 export class ResultadoBusquedaComponent implements OnInit {
 
-  public servicios: Servicio[];
+  public servicios: any[];
   public talleres:Taller[];
 
 
@@ -22,13 +22,13 @@ export class ResultadoBusquedaComponent implements OnInit {
 
 
 
-  public detallesServicios(id:number) {
+  public detallesServicios() {
   
     
-    this.carApiService.buscarServicios(Number(id)).subscribe((data:Servicio[]) => {
+    this.carApiService.buscarServicios().subscribe((data:any[]) => {
       this.servicios=data
       
-      console.log(this.servicios[0].descripcion)
+      console.log(this.servicios)
     })
 
     
@@ -38,6 +38,8 @@ export class ResultadoBusquedaComponent implements OnInit {
   
 
   ngOnInit(): void {
+
+    this.detallesServicios()
   }
 
 }

@@ -9,10 +9,13 @@ import { Usuario } from '../modules/usuario';
 })
 export class CarApiService {
 
-  private url="https://api-rest-carhounder.herokuapp.com";
-  private url1 = "https://api-rest-carhounder.herokuapp.com/talleres?cp=" ;
-  private url2= "https://api-rest-carhounder.herokuapp.com/servicios?id=" ;
+  // private url="https://api-rest-carhounder.herokuapp.com";
+  // private url1 = "https://api-rest-carhounder.herokuapp.com/talleres?cp=" ;
+  // private url2= "https://api-rest-carhounder.herokuapp.com/servicios?id=" ;
 
+  private url="http://localhost:300";
+  private url1 = "http://localhost:300/talleres?cp=" ;
+  private url2= "http://localhost:300/servicios" ;
   
   public talleres:Taller[];
   public servicios:any[];
@@ -51,9 +54,9 @@ export class CarApiService {
     
   }
 
-  public buscarServicios(id:any) {
+  public buscarServicios() {
 
-    return this.http.get(this.url2 + id);
+    return this.http.get(this.url2);
 
   }
 
