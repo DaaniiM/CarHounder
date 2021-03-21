@@ -32,12 +32,21 @@
             </div>
             
             <h5 class="card-title">Ofertas</h5>
+            <div *ngIf = "oferta != null">
             <p class="card-text">
 
               {{oferta.oferta}}
 
             </p>
+          </div>
 
+          <div *ngIf = "oferta == null">
+            <p class="card-text">
+
+              <h5>No hay ofertas disponibles</h5>
+
+            
+          </div>
 
 
           </div>
