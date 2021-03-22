@@ -4,22 +4,26 @@
         <img src="../../assets/img/Logo/normal resolucion/carhounderLogo.png" id="logo1" routerLink="">
         <img src="../../assets/img/Logo/normal resolucion/carhounderLogoC.png" id="logo2" routerLink=""> 
     </div>
+
+<!-- Responsive  -->
     <div class="btn-group">
         <button type="button" class="btn btn-default "
                 data-toggle="dropdown" id="desp">
                 <img src="../../assets/img/iconos/lista.png" id="desplegable"><span class="caret"></span>
         </button>
         <ul class="dropdown-menu dropdown-menu-right" role="menu" id="menu">
-            <li [hidden] = "isHidden"><a class="a" routerLink="/perfilUsuario">Mi Perfil</a></li>
-            <li [hidden] = "isHidden"><a class="a" routerLink="/citas">Mis Citas</a></li> 
-            <li [hidden] = "isHidden"><a class="a" routerLink="/chat">Mis Mensajes</a></li>
+            <li><a class="a" routerLink="/perfilUsuario">Mi Perfil</a></li>
+            <li ><a class="a" routerLink="/citas">Mis Citas</a></li> 
+            <li><a class="a" routerLink="/chat">Mis Mensajes</a></li>
             <li><a class="a" routerLink="/servicios" >Servicios</a></li>
             <li><a class="a" routerLink="/comoFunciona">Cómo funciona</a></li>
-            <li [hidden] = "isHidden"><a class="a" on-click="mostrarEsconder()">Cerrar sesión</a></li>
-            <li [hidden] = "noHidden"><a class="a" data-toggle="modal" data-target="#registro">Regístrate</a></li>
-            <li ><a class="a" data-toggle="modal" data-target="#iniciarSesion" [hidden] = "noHidden" on-click="mostrarEsconder()">Iniciar sesión</a></li>
+            <li ><a class="a" on-click="mostrarEsconder()">Cerrar sesión</a></li>
+            <li ><a class="a" data-toggle="modal" data-target="#registro">Regístrate</a></li>
+            <li ><a class="a" data-toggle="modal" data-target="#iniciarSesion">Iniciar sesión</a></li>
         </ul>
     </div>
+
+    <!-- Sin Responsive -->
     <div id="enlaces" class="text-center p-3">
         <div>
             <a class="a" routerLink="/servicios">Servicios</a>
@@ -27,14 +31,17 @@
         <div>
             <a class="a" routerLink="/comoFunciona">Cómo funciona</a>
         </div>
-        <div [hidden] = "noHidden">
+        <div>
             <a class="a" class="a" data-toggle="modal" data-target="#registro">Regístrate</a>
         </div>
-        <div [hidden] = "noHidden">
-            <a class="a" data-toggle="modal" data-target="#iniciarSesion" on-click="mostrarEsconder()">Iniciar sesión</a>
+        <div>
+            <a class="a" data-toggle="modal" data-target="#iniciarSesion">Iniciar sesión</a>
         </div>
         <!-- *ngIf="iniciarSesion == true" -->
-        <div [hidden] = "isHidden">
+
+        <!-- Cuando has iniciado sesion  -->
+
+        <div>
             <img src="../../assets/img/iconos/fotoPerfil.jpg" id="fotoPerfil"
             data-toggle="dropdown" ><a class="a"
             data-toggle="dropdown" > Nombre </a>
