@@ -37,50 +37,50 @@
                                     <form>
                                         <div class="form-group">
                                           <label>Email</label>
-                                          <input #email type="email" class="form-control" id="emailTaller" aria-describedby="emailHelp" required placeholder="Introduzca email">
+                                          <input #email1 type="email" class="form-control" id="emailTaller" aria-describedby="emailHelp" required placeholder="Introduzca email">
                                         </div>
                                         <div class="form-group">
                                             <label>Nombre</label>
-                                            <input #nombre class="form-control" type="text" placeholder="Introduzca nombre" required>
+                                            <input #nombre1 class="form-control" type="text" placeholder="Introduzca nombre" required>
                                         </div>
                                         <div class="form-group">
                                             <label>CIF</label>
-                                            <input #cif class="form-control" type="text" placeholder="Introduzca CIF" required>
+                                            <input #cif1 class="form-control" type="text" placeholder="Introduzca CIF" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Dirección</label>
-                                            <input #direccion class="form-control" type="text" placeholder="Introduzca dirección" required>
+                                            <input #direccion1 class="form-control" type="text" placeholder="Introduzca dirección" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Código postal</label>
-                                            <input #cp class="form-control" type="number" placeholder="Introduzca código postal" required>
+                                            <input #cp1 class="form-control" type="number" placeholder="Introduzca código postal" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Ciudad</label>
-                                            <input #ciudad class="form-control" type="text" placeholder="Introduzca ciudad" required>
+                                            <input #ciudad1 class="form-control" type="text" placeholder="Introduzca ciudad" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Provincia</label>
-                                            <input #provincia class="form-control" type="text" placeholder="Introduzca provincia" required>
+                                            <input #provincia1 class="form-control" type="text" placeholder="Introduzca provincia" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Teléfono</label>
-                                            <input #telefono class="form-control" type="number" placeholder="Introduzca teléfono" required>
+                                            <input #telefono1 class="form-control" type="number" placeholder="Introduzca teléfono" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Contraseña</label>
-                                            <input #password type="password" class="form-control" id="contTaller1" placeholder="Introduzca contraseña" required>
+                                            <input #password1 type="password" class="form-control" id="contTaller1" placeholder="Introduzca contraseña" required>
                                           </div>
                                           <div class="form-group">
                                             <label>Repita la contraseña</label>
-                                            <input #password1 type="password" class="form-control" id="contTaller2" placeholder="Repita la contraseña" required>
+                                            <input  type="password" class="form-control" id="contTaller2" placeholder="Repita la contraseña" required>
                                           </div>
                                         <div class="form-group">
                                             <label>Foto perfil</label>
-                                            <input #foto class="form-control" type="file" placeholder="Introduzca foto perfil">
+                                            <input #foto1 class="form-control" type="file" placeholder="Introduzca foto perfil">
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="submit" class="btn boton1" on-click="agregarTaller(email.value,password.value,nombre.value,cif.value,direccion.value,cp.value,ciudad.value,provincia.value,telefono.value,foto.value)">Registrarse</button>
+                                            <button type="submit" class="btn boton1" on-click="agregarTaller(email1.value,password1.value,nombre1.value,cif1.value,direccion1.value,cp1.value,ciudad1.value,provincia1.value,telefono1.value,foto1.value)">Registrarse</button>
                                             <button type="button" class="btn boton2" data-dismiss="modal">Cerrar</button>
                                         </div>
                                     </form>
