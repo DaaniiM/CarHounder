@@ -12,14 +12,23 @@
                 <img src="../../assets/img/iconos/lista.png" id="desplegable"><span class="caret"></span>
         </button>
         <ul class="dropdown-menu dropdown-menu-right" role="menu" id="menu">
-            <li><a class="a" routerLink="/perfilUsuario">Mi Perfil</a></li>
-            <li ><a class="a" routerLink="/citas">Mis Citas</a></li> 
-            <li><a class="a" routerLink="/chat">Mis Mensajes</a></li>
+            <div *ngIf = "apiService.login != undefined">
+
+                <li><a class="a" routerLink="/perfilUsuario">Mi Perfil</a></li>
+                <li ><a class="a" routerLink="/citas">Mis Citas</a></li> 
+                <li><a class="a" routerLink="/chat">Mis Mensajes</a></li>
+            </div>
             <li><a class="a" routerLink="/servicios" >Servicios</a></li>
             <li><a class="a" routerLink="/comoFunciona">Cómo funciona</a></li>
-            <li ><a class="a" on-click="mostrarEsconder()">Cerrar sesión</a></li>
-            <li ><a class="a" data-toggle="modal" data-target="#registro">Regístrate</a></li>
-            <li ><a class="a" data-toggle="modal" data-target="#iniciarSesion">Iniciar sesión</a></li>
+            <div *ngIf = "apiService.login != undefined">
+                <li ><a class="a"  on-click= "cerrarSesion()">Cerrar sesión</a></li>
+            </div>
+            <div  *ngIf = "apiService.login == undefined">
+                <li ><a class="a" data-toggle="modal" data-target="#registro">Regístrate</a></li>
+            </div>
+            <div  *ngIf = "apiService.login == undefined">
+                <li ><a class="a" data-toggle="modal" data-target="#iniciarSesion">Iniciar sesión</a></li>
+            </div>
         </ul>
     </div>
 
@@ -31,25 +40,37 @@
         <div>
             <a class="a" routerLink="/comoFunciona">Cómo funciona</a>
         </div>
-        <div>
-            <a class="a" class="a" data-toggle="modal" data-target="#registro">Regístrate</a>
+
+        <div  *ngIf = "apiService.login == undefined">
+            <a class="a" data-toggle="modal" data-target="#registro">Regístrate</a>
         </div>
-        <div>
+        <div  *ngIf = "apiService.login == undefined">
             <a class="a" data-toggle="modal" data-target="#iniciarSesion">Iniciar sesión</a>
         </div>
-        <!-- *ngIf="iniciarSesion == true" -->
 
         <!-- Cuando has iniciado sesion  -->
 
-        <div>
-            <img src="../../assets/img/iconos/fotoPerfil.jpg" id="fotoPerfil"
+        <div *ngIf = "apiService.login != undefined && apiService.login.rol == 'cliente' ">
+            <img src="{{apiService.clienteLogin.foto}}" id="fotoPerfil"
             data-toggle="dropdown" ><a class="a"
-            data-toggle="dropdown" > Nombre </a>
+            data-toggle="dropdown" >{{apiService.clienteLogin.nombre}}</a>
+            <ul class="dropdown-menu dropdown-menu-right" role="menu" id="menuPerfil">
+                <li><a class="a" routerLink="/perfilUsuario">Mi Perfil</a></li>
+                <li><a class="a" routerLink="/citas">Mis Citas</a></li>
+                <li><a class="a" routerLink="/chat">Mis Mensajes</a></li>
+                <li><a class="a"  on-click= "cerrarSesion()">Cerrar sesión</a></li>
+            </ul>
+        </div>
+
+        <div *ngIf = "apiService.login != undefined && apiService.login.rol == 'taller' ">
+            <img src="{{apiService.tallerLogin.foto}}" id="fotoPerfil"
+            data-toggle="dropdown" ><a class="a"
+            data-toggle="dropdown" >{{apiService.tallerLogin.nombre}}</a>
             <ul class="dropdown-menu dropdown-menu-right" role="menu" id="menuPerfil">
                 <li><a class="a" routerLink="/perfilTaller">Mi Perfil</a></li>
                 <li><a class="a" routerLink="/citas">Mis Citas</a></li>
                 <li><a class="a" routerLink="/chat">Mis Mensajes</a></li>
-                <li><a class="a" on-click="mostrarEsconder()">Cerrar sesión</a></li>
+                <li><a class="a"  on-click= "cerrarSesion()">Cerrar sesión</a></li>
             </ul>
         </div>
     </div>

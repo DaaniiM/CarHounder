@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Login } from 'src/app/modules/login';
+import { CarApiService } from 'src/app/shared/car-api.service';
 
 
 @Component({
@@ -8,31 +11,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  public isHidden: boolean;
-  public noHidden: boolean;
+  // public isHidden: boolean;
+  // public noHidden: boolean;
 
-  constructor() {
+  constructor(public apiService:CarApiService,private _router: Router) {
     
 
-    this.isHidden = true;
-    this.noHidden = false;
+    // this.isHidden = true;
+    // this.noHidden = false;
 
    }
 
-  public mostrarEsconder(){
-    if(this.isHidden == false){
-      this.isHidden = true;
-      this.noHidden = false;
-    }
-    else{
-      this.isHidden = false;
-      this.noHidden = true;
-    }
-  }
+   public cerrarSesion(){
+
+    this.apiService.login = undefined;
+    this._router.navigate(['']);
+   }
+  // public mostrarEsconder(){
+  //   if(this.isHidden == false){
+  //     this.isHidden = true;
+  //     this.noHidden = false;
+  //   }
+  //   else{
+  //     this.isHidden = false;
+  //     this.noHidden = true;
+  //   }
+  // }
 
 
 
   ngOnInit(): void {
+
+  console.log(this.apiService.login)
+
+  
   }
 
 }

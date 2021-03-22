@@ -162,14 +162,14 @@
                 <form>
                     <div class="form-group">
                       <label>Email</label>
-                      <input type="email" class="form-control" id="emailInicio" aria-describedby="emailHelp" placeholder="Introduzca su email" required>
+                      <input #email2 type="email" class="form-control" id="emailInicio" aria-describedby="emailHelp" placeholder="Introduzca su email" required>
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">Contraseña</label>
-                      <input type="password" class="form-control" id="contInicio" placeholder="Introduzca su contraseña" required>
+                      <input #password2 type="password" class="form-control" id="contInicio" placeholder="Introduzca su contraseña" required>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn boton1" >Iniciar sesión</button>
+                        <button type="button" class="btn boton1" on-click="loguearPagina(email2.value,password2.value)" data-dismiss="modal" >Iniciar sesión</button>
                     </div>
                 </form>
             </div>

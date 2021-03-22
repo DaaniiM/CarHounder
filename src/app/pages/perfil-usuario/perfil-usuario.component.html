@@ -7,7 +7,7 @@
                 <div class="row mt-3">
                     <div class="col-md-3 imagenPerfil d-flex flex-column align-items-center mt-3">
                         <span class="btn btn-file">
-                            <input type="file"><img src="assets/img/fotoFondos/usuario.png">
+                            <input type="file"><img src="{{apiService.clienteLogin.foto}}">
                         </span>
                         <br>
                         <button type="button" class="btnDel btn btn-danger btn-sm" data-toggle="modal"
@@ -24,7 +24,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btnEdit1" data-dismiss="modal">No</button>
-                                        <button type="button" class="btn btn-danger">Eliminar Perfil</button>
+                                        <button type="submit" class="btn btn-danger" data-dismiss="modal" on-click = "eliminarCliente()">Eliminar Perfil</button>
                                     </div>
                                 </div>
                             </div>
@@ -36,25 +36,31 @@
                                 <div class="form-group row">
                                     <label class="col col-form-label">Nombre</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" value="Yonamotor">
+                                        <input class="form-control" value="{{apiService.clienteLogin.nombre}}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col col-form-label">Dirección</label>
+                                    <label class="col col-form-label">Apellidos</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" value="Calle Prueba de la Nueva, 12">
+                                        <input class="form-control" value="{{apiService.clienteLogin.apellidos}}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col col-form-label">Email</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" value="yonamotor@gmail.com">
+                                        <input class="form-control"  value="{{apiService.clienteLogin.email}}" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col col-form-label">Teléfono</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" value="914567867">
+                                        <input class="form-control" value="{{apiService.clienteLogin.telefono}}">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col col-form-label">Contraseña</label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control" type="password" value="{{apiService.clienteLogin.password}}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -68,12 +74,14 @@
                                         <p>Taller 1</p>
                                     </div>
                                 </div>
+
+                                <div class="d-flex flex-column align-items-center">
+                                    <button type="button" class="btnEdit btn btn-sm mb-3">Modificar perfil</button>
+                                </div>
                             </form>
 
                         </div>
-                        <div class="d-flex flex-column align-items-center">
-                            <button type="submit" class="btnEdit btn btn-sm mb-3">Modificar perfil</button>
-                        </div>
+
 
                     </div>
                 </div>
