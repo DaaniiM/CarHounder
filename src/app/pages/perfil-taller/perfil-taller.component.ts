@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Login } from 'src/app/modules/login';
+import { Taller } from 'src/app/modules/taller';
 import { CarApiService } from 'src/app/shared/car-api.service';
 
 @Component({
@@ -35,10 +37,39 @@ export class PerfilTallerComponent implements OnInit {
         console.log("Error al intentar eliminar el taller")
       }
     })
-    
-
 
    }
+
+   public editarTaller(email:string, password: string, nombre:string, cif:string, direccion:string, cp:any, ciudad:string, provincia:string, telefono:any, foto:string){
+
+  
+    this.apiService.editarTaller(new Taller(this.apiService.tallerLogin.id_taller, email, password, nombre, cif, direccion, Number(cp), ciudad, provincia,Number(telefono), foto)).subscribe((data:any) =>{
+      if(data!="-1"){
+
+        
+
+        this.apiService.editarLogin(new Login(email, password)).subscribe((data1) =>{
+          if(data1){
+            console.log(data1);
+          }
+          else{
+            console.log("Error al intentar modificar el taller");
+          }
+        })
+
+        console.log(data)
+        
+      }else{
+        console.log("Error al intentar modificar el taller");
+      }
+    })
+
+   }
+
+
+ 
+
+  
 
   ngOnInit(): void {
   }

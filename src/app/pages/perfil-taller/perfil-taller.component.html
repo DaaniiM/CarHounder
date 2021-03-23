@@ -7,7 +7,7 @@
           <div class="row mt-3">
             <div class="col-md-3 imagenPerfil d-flex flex-column align-items-center mt-3">
               <span class="btn btn-file">
-                <input type="file"><img src="{{apiService.tallerLogin.foto}}">
+                <input type="file" #foto ><img  src="{{apiService.tallerLogin.foto}}">
               </span>
               <br>
               <button type="button" class="btnDel btn btn-danger btn-sm" data-toggle="modal"
@@ -36,55 +36,61 @@
                   <div class="form-group row">
                     <label class="col col-form-label">Taller</label>
                     <div class="col-sm-9">
-                      <input class="form-control" value="{{apiService.tallerLogin.nombre}}">
+                      <input class="form-control" #nombre value="{{apiService.tallerLogin.nombre}}">
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label class="col col-form-label">Dirección</label>
+                    <label class="col col-form-label" >Dirección</label>
                     <div class="col-sm-9">
-                      <input class="form-control" value="{{apiService.tallerLogin.direccion}}">
+                      <input class="form-control" #direccion value="{{apiService.tallerLogin.direccion}}">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col col-form-label">Ciudad</label>
                     <div class="col-sm-9">
-                      <input class="form-control" value="{{apiService.tallerLogin.ciudad}}">
+                      <input class="form-control" #ciudad value="{{apiService.tallerLogin.ciudad}}">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col col-form-label">Codigo Postal</label>
                     <div class="col-sm-9">
-                      <input class="form-control" value="{{apiService.tallerLogin.cp}}">
+                      <input class="form-control" #cp value="{{apiService.tallerLogin.cp}}">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col col-form-label">Provincia</label>
                     <div class="col-sm-9">
-                      <input class="form-control" value="{{apiService.tallerLogin.provincia}}">
+                      <input class="form-control" #provincia value="{{apiService.tallerLogin.provincia}}">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col col-form-label">NIF/CIF</label>
                     <div class="col-sm-9">
-                      <input class="form-control" value="{{apiService.tallerLogin.cif}}">
+                      <input class="form-control" #cif value="{{apiService.tallerLogin.cif}}">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col col-form-label">Email</label>
                     <div class="col-sm-9">
-                      <input class="form-control" value="{{apiService.tallerLogin.email}}" readonly>
+                      <input class="form-control" #email value="{{apiService.tallerLogin.email}}" readonly>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col col-form-label">Contraseña</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" type="password" #password value="{{apiService.tallerLogin.password}}">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col col-form-label">Teléfono</label>
                     <div class="col-sm-9">
-                      <input class="form-control" value="{{apiService.tallerLogin.telefono}}">
+                      <input class="form-control" #telefono value="{{apiService.tallerLogin.telefono}}">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col col-form-label">Ofertas</label>
                     <div class="col-sm-9">
-                      <textarea class="form-control" id="ofertas" value=""></textarea>
+                      <textarea class="form-control" id="ofertas" #ofertas value=""></textarea>
                     </div>
                   </div>
                   <div class="form-group row">
@@ -178,7 +184,7 @@
                     </div>
                   </div>
                   <div class="d-flex flex-column align-items-center">
-                    <button type="button" class="btnEdit btn btn-sm mb-3">Modificar perfil</button>
+                    <button type="button" class="btnEdit btn btn-sm mb-3" on-click="editarTaller(email.value, password.value, nombre.value, cif.value, direccion.value, cp.value, ciudad.value, provincia.value, telefono.value, foto.src)">Modificar perfil</button>
                 </div>
 
                 </form>

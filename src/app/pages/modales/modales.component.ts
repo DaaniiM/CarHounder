@@ -31,7 +31,7 @@ export class ModalesComponent implements OnInit {
       console.log("Error al insertar el usuario")
   })
 
-  this.apiService.registrarLogin(new Login(0,email,password,"cliente")).subscribe((data1:any) =>{
+  this.apiService.registrarLogin(new Login(email,password,"cliente")).subscribe((data1:any) =>{
     console.log(data1);
     if(data1!="-1")
       console.log("Se anadio el login " + data1);
@@ -68,7 +68,7 @@ public agregarTaller(email:string, password:string, nombre:string, cif:string, d
       console.log("Error al insertar el taller")
   })
 
-  this.apiService.registrarLogin(new Login(0,email,password,"taller")).subscribe((data1:any) =>{
+  this.apiService.registrarLogin(new Login(email,password,"taller")).subscribe((data1:any) =>{
     console.log(data1);
     if(data1!="-1")
       console.log("Se anadio el login " + data1);
@@ -85,7 +85,7 @@ public agregarTaller(email:string, password:string, nombre:string, cif:string, d
 
 public loguearPagina(email:string,password:string){
 
-  this.apiService.loguearse(new Login(0,email,password,"")).subscribe((data:any) =>{
+  this.apiService.loguearse(new Login(email,password,"")).subscribe((data:any) =>{
     if(data!="-1" && data.length != 0){
       console.log(data);
       this.apiService.login = data[0];
