@@ -21,6 +21,9 @@ export class CarApiService {
   // private url10 = "https://api-rest-carhounder.herokuapp.com/borrarTaller?id=";
   // private url11 = "https://api-rest-carhounder.herokuapp.com/borrarCliente?id=";
   // private url12 = "https://api-rest-carhounder.herokuapp.com/borrarLogin?email=";
+  // private url13 = "https://api-rest-carhounder.herokuapp.com/cliente";
+  // private url14 = "https://api-rest-carhounder.herokuapp.com/taller";
+  // private url15 = "https://api-rest-carhounder.herokuapp.com/login";
 
 
   private url="http://localhost:300";
