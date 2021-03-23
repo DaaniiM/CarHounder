@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Login } from 'src/app/modules/login';
+import { Usuario } from 'src/app/modules/usuario';
 import { CarApiService } from 'src/app/shared/car-api.service';
 
 @Component({
@@ -42,6 +44,34 @@ export class PerfilUsuarioComponent implements OnInit {
 
 
    }
+
+   public editarCliente(email:string, password: string, nombre:string,apellidos:string, telefono:any, foto:string){
+
+  
+    this.apiService.editarCliente(new Usuario(this.apiService.clienteLogin.id_cliente, email, password, nombre, apellidos,Number(telefono), foto)).subscribe((data:any) =>{
+      console.log(this.apiService.clienteLogin)
+      if(data!="-1"){
+
+        this.apiService.clienteLogin = new Usuario(this.apiService.clienteLogin.id_cliente, email, password, nombre, apellidos,Number(telefono), foto);
+
+        this.apiService.editarLogin(new Login(email, password)).subscribe((data1) =>{
+          if(data1){
+            console.log(data1);
+          }
+          else{
+            console.log("Error al intentar modificar el taller");
+          }
+        })
+
+        console.log(data)
+        
+      }else{
+        console.log("Error al intentar modificar el taller");
+      }
+    })
+
+   }
+
 
 
   ngOnInit(): void {

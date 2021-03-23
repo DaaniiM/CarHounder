@@ -7,7 +7,7 @@
                 <div class="row mt-3">
                     <div class="col-md-3 imagenPerfil d-flex flex-column align-items-center mt-3">
                         <span class="btn btn-file">
-                            <input type="file"><img src="{{apiService.clienteLogin.foto}}">
+                            <input type="file"><img #foto src="{{apiService.clienteLogin.foto}}">
                         </span>
                         <br>
                         <button type="button" class="btnDel btn btn-danger btn-sm" data-toggle="modal"
@@ -34,33 +34,33 @@
                         <div class="d-flex flex-column align-items-flex-start">
                             <form>
                                 <div class="form-group row">
-                                    <label class="col col-form-label">Nombre</label>
+                                    <label class="col col-form-label" >Nombre</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" value="{{apiService.clienteLogin.nombre}}">
+                                        <input class="form-control" value="{{apiService.clienteLogin.nombre}}" #nombre>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col col-form-label">Apellidos</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" value="{{apiService.clienteLogin.apellidos}}">
+                                        <input class="form-control" value="{{apiService.clienteLogin.apellidos}}" #apellidos>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col col-form-label">Email</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control"  value="{{apiService.clienteLogin.email}}" readonly>
+                                        <input class="form-control"  value="{{apiService.clienteLogin.email}}" readonly #email>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col col-form-label">Teléfono</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" value="{{apiService.clienteLogin.telefono}}">
+                                        <input class="form-control" value="{{apiService.clienteLogin.telefono}}" #telefono>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col col-form-label">Contraseña</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="password" value="{{apiService.clienteLogin.password}}">
+                                        <input class="form-control" type="password" value="{{apiService.clienteLogin.password}}" #password>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -76,7 +76,7 @@
                                 </div>
 
                                 <div class="d-flex flex-column align-items-center">
-                                    <button type="button" class="btnEdit btn btn-sm mb-3">Modificar perfil</button>
+                                    <button type="button" class="btnEdit btn btn-sm mb-3" on-click="editarCliente(email.value, password.value, nombre.value, apellidos.value, telefono.value, foto.src)">Modificar perfil</button>
                                 </div>
                             </form>
 

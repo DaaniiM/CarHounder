@@ -46,7 +46,7 @@ export class PerfilTallerComponent implements OnInit {
     this.apiService.editarTaller(new Taller(this.apiService.tallerLogin.id_taller, email, password, nombre, cif, direccion, Number(cp), ciudad, provincia,Number(telefono), foto)).subscribe((data:any) =>{
       if(data!="-1"){
 
-        
+        this.apiService.tallerLogin = new Taller(this.apiService.tallerLogin.id_taller, email, password, nombre, cif, direccion, Number(cp), ciudad, provincia,Number(telefono), foto);
 
         this.apiService.editarLogin(new Login(email, password)).subscribe((data1) =>{
           if(data1){
