@@ -48,6 +48,7 @@ export class CarApiService {
   private url18 = "http://localhost:300/citas";
   private url21 = "http://localhost:300/citas?id="
   private url25 = "http://localhost:300/citas?id_taller="
+  private url26 = "http://localhost:300/citas/servicios"
 
 
   public talleres:Taller[];
@@ -58,6 +59,7 @@ export class CarApiService {
   public clienteLogin:any;
   public tipoUsuario:String;
   public cita:Cita;
+  
   
 
 
@@ -182,6 +184,13 @@ export class CarApiService {
   public borrarCita(id_taller:number, id_cliente:number, id_reservas:number){
 
     return this.http.delete(this.url25 + id_taller + "&id_cliente=" + id_cliente + "&id_reservas=" + id_reservas)
+  }
+
+  public citasServicios(Aservicios:string){
+    console.log(Aservicios);
+    console.log("Prueba string");
+    
+    return this.http.post(this.url26, Aservicios)
   }
 
 }

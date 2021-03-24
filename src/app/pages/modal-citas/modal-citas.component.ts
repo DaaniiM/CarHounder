@@ -11,40 +11,71 @@ import { CarApiService } from 'src/app/shared/car-api.service';
 export class ModalCitasComponent implements OnInit {
 
   public cita: Cita;
-  public taller:Taller;
-  public servicios:any[];
-  
-  constructor(private carApiService:CarApiService) { 
+  public taller: Taller;
+  public servicios: any[];
+  public serviciosCitas: string[];
+  public AServicios: string;
 
-    this.taller = carApiService.taller
+  constructor(private carApiService: CarApiService) {
+
+    this.taller = carApiService.taller;
+    this.serviciosCitas = [];
+    this.AServicios;
   }
 
   public detallesServicios() {
-  
-    
-    this.carApiService.buscarServicios().subscribe((data:any[]) => {
-      this.servicios=data
-      
+
+
+    this.carApiService.buscarServicios().subscribe((data: any[]) => {
+      this.servicios = data
+
       console.log(this.servicios)
     })
 
-    
+
 
   }
 
-  public pedirCita(fecha:string, hora:string){
+  public pedirCita(fecha: string, hora: string) {
     console.log(this.carApiService.taller)
     console.log(this.carApiService.clienteLogin)
 
-    this.carApiService.pedirCita(new Cita(fecha, hora, this.carApiService.taller.id_taller, this.carApiService.clienteLogin.id_cliente)).subscribe((data:any) => {
-      if (data != "-1"){
+    this.carApiService.pedirCita(new Cita(fecha, hora, this.carApiService.taller.id_taller, this.carApiService.clienteLogin.id_cliente)).subscribe((data: any) => {
+      if (data != "-1") {
         console.log(data)
         alert("Error al pedir la cita");
       }
-      else{
+      else {
         console.log(data)
         alert("Cita reservada con éxito");
       }
+    })
+  }
+
+  public anyadirServicio(servicio: string, idHtml: string) {
+    var checkBox = document.getElementById(idHtml) as HTMLInputElement;
+
+    if (checkBox.checked == true) {
+      console.log(servicio)
+      this.serviciosCitas.push(servicio);
+      console.log(this.serviciosCitas);
+
+    }
+    else {
+      console.log(servicio, this.serviciosCitas.indexOf(servicio))
+      this.serviciosCitas.splice(this.serviciosCitas.indexOf(servicio), 1);
+      console.log(this.serviciosCitas);
+
+    }
+  }
+
+  public pasarString() {
+
+    this.AServicios = this.serviciosCitas.toString();
+    console.log(this.AServicios, typeof this.AServicios)
+
+    this.carApiService.citasServicios(this.AServicios).subscribe((data: any) => {
+      console.log(data)
     })
   }
 

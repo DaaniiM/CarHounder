@@ -45,11 +45,11 @@
                 <br>
                 <div class="form-group">
                     Servicios
-                    <div *ngFor="let servicio of servicios">
+                    <div *ngFor="let servicio of servicios; let i = index">
 
                         <div *ngIf = "servicio.id_taller == taller.id_taller">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="aceite">
+                                <input class="form-check-input" type="checkbox" on-click="anyadirServicio(servicio.descripcion,'i')" value="i" id="i">
                                 <label class="form-check-label" for="aceite">
                                     {{servicio.descripcion}}
                                 </label>
@@ -144,7 +144,7 @@
                   </div>
 
                 <div class="modal-footer text-align-center">
-                <button type="button" class="btn boton1"  on-click="pedirCita(fecha.value, hora.value)" data-dismiss="modal">Confirmar cita</button>
+                <button type="button" class="btn boton1"  on-click="pedirCita(fecha.value, hora.value); pasarString()" data-dismiss="modal">Confirmar cita</button>
                 </div>
             </form>
         </div>
