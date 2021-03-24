@@ -31,16 +31,34 @@ export class ModalCitasComponent implements OnInit {
 
       console.log(this.servicios)
     })
+  }
 
+  public anyadirServicio(servicio: string, idHtml: string) {
+    var checkBox = document.getElementById(idHtml) as HTMLInputElement;
+    console.log(idHtml)
 
+    if (checkBox.checked == true) {
+      console.log(servicio)
+      this.serviciosCitas.push(" " + servicio);
+      console.log(this.serviciosCitas);
 
+    }
+    else {
+      console.log(servicio, this.serviciosCitas.indexOf(" " + servicio));
+      this.serviciosCitas.splice(this.serviciosCitas.indexOf(" " + servicio), 1);
+      console.log(this.serviciosCitas);
+
+    }
   }
 
   public pedirCita(fecha: string, hora: string) {
     console.log(this.carApiService.taller)
-    console.log(this.carApiService.clienteLogin)
+    console.log(this.carApiService.clienteLogin);
 
-    this.carApiService.pedirCita(new Cita(fecha, hora, this.carApiService.taller.id_taller, this.carApiService.clienteLogin.id_cliente)).subscribe((data: any) => {
+    this.AServicios = this.serviciosCitas.toString();
+    console.log(this.AServicios, typeof this.AServicios)
+
+    this.carApiService.pedirCita(new Cita(this.AServicios, fecha, hora, this.carApiService.taller.id_taller, this.carApiService.clienteLogin.id_cliente)).subscribe((data: any) => {
       if (data != "-1") {
         console.log(data)
         alert("Error al pedir la cita");
@@ -52,32 +70,17 @@ export class ModalCitasComponent implements OnInit {
     })
   }
 
-  public anyadirServicio(servicio: string, idHtml: string) {
-    var checkBox = document.getElementById(idHtml) as HTMLInputElement;
+  
 
-    if (checkBox.checked == true) {
-      console.log(servicio)
-      this.serviciosCitas.push(servicio);
-      console.log(this.serviciosCitas);
+  // public pasarString() {
 
-    }
-    else {
-      console.log(servicio, this.serviciosCitas.indexOf(servicio))
-      this.serviciosCitas.splice(this.serviciosCitas.indexOf(servicio), 1);
-      console.log(this.serviciosCitas);
+  //   this.AServicios = this.serviciosCitas.toString();
+  //   console.log(this.AServicios, typeof this.AServicios)
 
-    }
-  }
-
-  public pasarString() {
-
-    this.AServicios = this.serviciosCitas.toString();
-    console.log(this.AServicios, typeof this.AServicios)
-
-    this.carApiService.citasServicios(this.AServicios).subscribe((data: any) => {
-      console.log(data)
-    })
-  }
+  //   this.carApiService.citasServicios(this.AServicios).subscribe((data: any) => {
+  //     console.log(data)
+  //   })
+  // }
 
   ngOnInit(): void {
     this.detallesServicios()

@@ -186,11 +186,4 @@ export class CarApiService {
     return this.http.delete(this.url25 + id_taller + "&id_cliente=" + id_cliente + "&id_reservas=" + id_reservas)
   }
 
-  public citasServicios(Aservicios:string){
-    console.log(Aservicios);
-    console.log("Prueba string");
-    
-    return this.http.post(this.url26, Aservicios)
-  }
-
 }

@@ -49,9 +49,9 @@
 
                         <div *ngIf = "servicio.id_taller == taller.id_taller">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" on-click="anyadirServicio(servicio.descripcion,'i')" value="i" id="i">
+                                <input class="form-check-input" type="checkbox" on-click="anyadirServicio(servicio.descripcion, prueba.value)" value={{i}} id={{i}} #prueba>
                                 <label class="form-check-label" for="aceite">
-                                    {{servicio.descripcion}}
+                                    {{servicio.descripcion}} {{prueba.value}} {{prueba.id}}
                                 </label>
                             </div>
                         </div>
@@ -144,7 +144,7 @@
                   </div>
 
                 <div class="modal-footer text-align-center">
-                <button type="button" class="btn boton1"  on-click="pedirCita(fecha.value, hora.value); pasarString()" data-dismiss="modal">Confirmar cita</button>
+                <button type="button" class="btn boton1"  on-click="pedirCita(fecha.value, hora.value)" data-dismiss="modal">Confirmar cita</button>
                 </div>
             </form>
         </div>
