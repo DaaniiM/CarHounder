@@ -6,20 +6,24 @@
     <div class="container">
         <h1>Mis citas</h1>
         <div class="d-flex justify-content-center row mt-4">
-            <div class="col-10 col-md-10 bg-white border rounded">
+            <div *ngFor="let cita of citas" class="col-10 col-md-10 bg-white border rounded mt-3">
                 <div class="row p-2">
                     <div class="col-md-10 mt-1 bordeTarjeta">
-                        <p>Fecha: <span>{{cita[0].fecha}}</span></p>
-                        <p>Taller: <span>{{cita[0].nombre}}</span></p>
-                        <p>Servicios: <span>Cambio de aceite&nbsp;&nbsp;&nbsp;/</span>
-                            <span>Cambio de neumáticos&nbsp;&nbsp;&nbsp;/</span>
-                            <span>Cambio de aceite&nbsp;&nbsp;&nbsp;/</span>
-                        </p>
-                        <p>Hora: <span>{{cita[0].hora}}</span></p>
+                        <p>Fecha: <span>{{cita.fecha | date: 'EEEE, d'}} de {{cita.fecha | date: 'MMMM'}} de {{cita.fecha | date: 'yyyy'}}</span></p>
+                        <p>Taller: <span>{{cita.nombre}}</span></p>
+                        <p>Dirección: <span>{{cita.direccion}}</span></p>
+                        <div id="iconosService" >
+                            <p>Servicios:</p>
+                            <div *ngFor="let servicio of servicios"> 
+                                <p *ngIf = "servicio.id_taller == cita.id_taller"><img class="icono mx-2" src="{{servicio.icono}}" title="{{servicio.descripcion}}">
+                                </p>
+                            </div>
+                        </div>
+                        <p>Hora: <span>{{cita.hora}}</span></p>
                     </div>
                     <div class="align-self-center col-md-2">
                         <div class="d-flex flex-column align-items-center botones">
-                            <button class="btn btn-danger btn-sm mt-3 p-2" type="button" data-toggle="modal" data-target="#cancelarCliente">Cancelar cita</button>
+                            <button class="btn btn-danger btn-sm mt-3 p-2" type="button" data-toggle="modal" data-target="#cancelarCliente" data-dismiss="modal">Cancelar cita</button>
                             <div class="modal fade" id="cancelarCliente" tabindex="-1" role="dialog" aria-labelledby="cancelarCliente" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                   <div class="modal-content">
@@ -31,7 +35,7 @@
                                     </div>
                                     <div class="modal-footer">
                                       <button type="button" class="btn btnEdit" data-dismiss="modal">No</button>
-                                      <button type="button" class="btn btn-danger">Cancelar cita</button>
+                                      <button type="button" class="btn btn-danger" on-click="borrarCitas(cita.id_taller, cita.id_reservas)" data-dismiss="modal">Cancelar cita</button>
                                     </div>
                                   </div>
                                 </div>

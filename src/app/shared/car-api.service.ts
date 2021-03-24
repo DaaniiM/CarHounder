@@ -25,6 +25,8 @@ export class CarApiService {
   // private url13 = "https://api-rest-carhounder.herokuapp.com/cliente";
   // private url14 = "https://api-rest-carhounder.herokuapp.com/taller";
   // private url15 = "https://api-rest-carhounder.herokuapp.com/login";
+  // private url18 = "https://api-rest-carhounder.herokuapp.com/citas";
+  // private url21 = "https://api-rest-carhounder.herokuapp.com/citas?id="
 
 
   private url="http://localhost:300";
@@ -45,6 +47,7 @@ export class CarApiService {
   private url15 = "http://localhost:300/login";
   private url18 = "http://localhost:300/citas";
   private url21 = "http://localhost:300/citas?id="
+  private url25 = "http://localhost:300/citas?id_taller="
 
 
   public talleres:Taller[];
@@ -174,6 +177,11 @@ export class CarApiService {
   public mostrarCita(id:number){
 
     return this.http.get(this.url21 + id)
+  }
+
+  public borrarCita(id_taller:number, id_cliente:number, id_reservas:number){
+
+    return this.http.delete(this.url25 + id_taller + "&id_cliente=" + id_cliente + "&id_reservas=" + id_reservas)
   }
 
 }

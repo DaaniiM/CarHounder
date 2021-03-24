@@ -39,7 +39,7 @@ export class ModalesComponent implements OnInit {
     else
       console.log("Error al insertar el login")
   })
- } 
+ }
 
 
 

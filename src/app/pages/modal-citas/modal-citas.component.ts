@@ -11,8 +11,25 @@ import { CarApiService } from 'src/app/shared/car-api.service';
 export class ModalCitasComponent implements OnInit {
 
   public cita: Cita;
+  public taller:Taller;
+  public servicios:any[];
   
   constructor(private carApiService:CarApiService) { 
+
+    this.taller = carApiService.taller
+  }
+
+  public detallesServicios() {
+  
+    
+    this.carApiService.buscarServicios().subscribe((data:any[]) => {
+      this.servicios=data
+      
+      console.log(this.servicios)
+    })
+
+    
+
   }
 
   public pedirCita(fecha:string, hora:string){
@@ -32,6 +49,7 @@ export class ModalCitasComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.detallesServicios()
   }
 
 }

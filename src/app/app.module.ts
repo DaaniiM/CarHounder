@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,7 +19,12 @@ import { CitasComponent } from './pages/citas/citas.component';
 import { ResultadoBusquedaComponent } from './pages/resultado-busqueda/resultado-busqueda.component';
 import { ModalCitasTallerComponent } from './pages/modal-citas-taller/modal-citas-taller.component';
 import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+
+import localeEs from '@angular/common/locales/es';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localeEs);
+
 
 
 @NgModule({
@@ -47,7 +52,7 @@ import { HttpClientModule } from '@angular/common/http'
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'es' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
