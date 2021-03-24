@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Login } from '../modules/login';
+import { Oferta } from '../modules/oferta';
 import { Servicio } from '../modules/servicio';
 import { Taller } from '../modules/taller';
+import { TalleresServicios } from '../modules/talleres-servicios';
 import { Usuario } from '../modules/usuario';
 
 @Injectable({
@@ -24,6 +26,10 @@ export class CarApiService {
   // private url13 = "https://api-rest-carhounder.herokuapp.com/cliente";
   // private url14 = "https://api-rest-carhounder.herokuapp.com/taller";
   // private url15 = "https://api-rest-carhounder.herokuapp.com/login";
+  // private url16 = "https://api-rest-carhounder.herokuapp.com/serviciosTalleres";
+  // private url17 = "https://api-rest-carhounder.herokuapp.com/borrarServicio?id_servicios=";
+
+  // private url24 = "https://api-rest-carhounder.herokuapp.com/serviciosLogin?id_taller="
 
 
   private url="http://localhost:300";
@@ -42,6 +48,11 @@ export class CarApiService {
   private url13 = "http://localhost:300/cliente";
   private url14 = "http://localhost:300/taller";
   private url15 = "http://localhost:300/login";
+  private url16 = "http://localhost:300/serviciosTalleres";
+  private url17 = "http://localhost:300/borrarServicio?id_servicios=";
+
+  private url24 = "http://localhost:300/serviciosLogin?id_taller="
+  
 
 
   public talleres:Taller[];
@@ -51,6 +62,7 @@ export class CarApiService {
   public tallerLogin: Taller;
   public clienteLogin:any;
   public tipoUsuario:String;
+  public ofertaTaller:any;
   
 
 
@@ -160,6 +172,33 @@ export class CarApiService {
   public editarLogin(login:Login){
 
     return this.http.put(this.url15, login)
+
+  }
+
+  public crearOferta(oferta:Oferta){
+
+    return this.http.post(this.url4,oferta)
+  }
+
+  public editarOferta(oferta:Oferta){
+
+    return this.http.put(this.url4, oferta)
+
+  }
+
+  public insertarServicio(tallerServicios:TalleresServicios){
+
+    return this.http.post(this.url16,tallerServicios)
+  }
+
+  public eliminarServicio(id_servicios:number,id_taller:number){
+
+    return this.http.delete(this.url17 + id_servicios + "&id_taller=" + id_taller) 
+  }
+
+  public detallesOfertaTaller(id_taller:number){
+
+    return this.http.get(this.url24 + id_taller);
 
   }
 

@@ -90,101 +90,105 @@
                   <div class="form-group row">
                     <label class="col col-form-label">Ofertas</label>
                     <div class="col-sm-9">
-                      <textarea class="form-control" id="ofertas" #ofertas value=""></textarea>
+                      <textarea #oferta class="form-control" id="ofertas" #ofertas value="{{oferta1.oferta}}"></textarea>
                     </div>
                   </div>
+                  <div>
                   <div class="form-group row">
                     <label class="col col-form-label">Servicios</label>
-                    <div class="col-sm-9">
-                      <div class="check1 form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="aceite">
+                    <div class="col-sm-9" >
+                      <div class="form-check" >
+                        <input class="form-check-input" type="checkbox" value="1" on-click="anyadirServicio(1,'1')" id="1">
                         <label class="form-check-label">
                           Cambio de aceite
                         </label>
-                      </div>
+                      </div>  
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="correa">
+                        <input class="form-check-input" type="checkbox" value="2" on-click="anyadirServicio(2,'2')" id="2">
                         <label class="form-check-label">
                           Sustitución de correa de distribución
                         </label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="embrague">
+                        <input class="form-check-input" type="checkbox" value="3" on-click="anyadirServicio(3,'3')" id="3">
                         <label class="form-check-label">
                           Sustitución de embrague
                         </label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="freno">
+                        <input class="form-check-input" type="checkbox" value="4"  on-click="anyadirServicio(4,'4')" id="4">
                         <label class="form-check-label">
                           Cambio de pastillas y discos de freno
                         </label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="neumaticos">
+                        <input class="form-check-input" type="checkbox" value="5"  on-click="anyadirServicio(5,'5')" id="5">
                         <label class="form-check-label">
                           Sustitución de neumáticos
                         </label>
                       </div>
 
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="pintura">
+                        <input class="form-check-input" type="checkbox" value="6"  on-click="anyadirServicio(6,'6')" id="6">
                         <label class="form-check-label">
                           Chapa y pintura
                         </label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="revision">
+                        <input class="form-check-input" type="checkbox" value="7" on-click="anyadirServicio(7,'7')" id="7">
                         <label class="form-check-label">
                           Revisión completa
                         </label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="diagnosis">
+                        <input class="form-check-input" type="checkbox" value="8" on-click="anyadirServicio(8,'8')" id="8">
                         <label class="form-check-label">
                           Diagnosis del vehículo
                         </label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="electrico">
+                        <input class="form-check-input" type="checkbox" value="9" on-click="anyadirServicio(9,'9')" id="9">
                         <label class="form-check-label">
                           Fallos eléctricos
                         </label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="motor">
+                        <input class="form-check-input" type="checkbox" value="10" on-click="anyadirServicio(10,'10')" id="10">
                         <label class="form-check-label">
                           Fallos de motor
                         </label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="amortiguadores">
+                        <input class="form-check-input" type="checkbox" value="11" on-click="anyadirServicio(11,'11')" id="11">
                         <label class="form-check-label">
                           Sustitución de amortiguadores
                         </label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="escape">
+                        <input class="form-check-input" type="checkbox" value="12" on-click="anyadirServicio(12,'12')" id="12">
                         <label class="form-check-label">
                           Sustitución de escape
                         </label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="turbo">
+                        <input class="form-check-input" type="checkbox" value="13" on-click="anyadirServicio(13,'13')" id="13">
                         <label class="form-check-label">
                           Sustitución del turbo
                         </label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="itv">
+                        <input class="form-check-input" type="checkbox" value="14" on-click="anyadirServicio(14,'14')" id="14">
                         <label class="form-check-label">
                           Revisión pre-ITV
                         </label>
                       </div>
-                    </div>
                   </div>
+                    
+
+                  </div>
+                </div>
                   <div class="d-flex flex-column align-items-center">
-                    <button type="button" class="btnEdit btn btn-sm mb-3" on-click="editarTaller(email.value, password.value, nombre.value, cif.value, direccion.value, cp.value, ciudad.value, provincia.value, telefono.value, foto.src)">Modificar perfil</button>
+                    <button type="button" class="btnEdit btn btn-sm mb-3" on-click="editarTaller(email.value, password.value, nombre.value, cif.value, direccion.value, cp.value, ciudad.value, provincia.value, telefono.value, foto.src, oferta.value)">Modificar perfil</button>
                 </div>
 
                 </form>

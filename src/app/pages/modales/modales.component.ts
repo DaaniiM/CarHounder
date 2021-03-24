@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Login } from 'src/app/modules/login';
+import { Oferta } from 'src/app/modules/oferta';
 import { Taller } from 'src/app/modules/taller';
 import { Usuario } from 'src/app/modules/usuario';
 import { CarApiService } from '../../shared/car-api.service';
@@ -61,11 +62,22 @@ public agregarTaller(email:string, password:string, nombre:string, cif:string, d
 
   this.apiService.registrarTaller(new Taller(0,email,password,nombre,cif,direccion,Number(cp),ciudad,provincia,Number(telefono),foto)).subscribe((data:any) =>{
     console.log(data);
-    if(data!="-1")
+    if(data!="-1"){
       console.log("Se anadio el taller " + data);
+      
+      this.apiService.crearOferta(new Oferta(0,data,"No hay ofertas")).subscribe((data1:any) =>{
+        console.log(data1);
+        if(data1!="-1")
+          console.log("Se anadio la oferta " + data1);
+    
+        else
+          console.log("Error al insertar la oferta")
+      })
 
-    else
+    }else{
       console.log("Error al insertar el taller")
+
+    }
   })
 
   this.apiService.registrarLogin(new Login(email,password,"taller")).subscribe((data1:any) =>{
