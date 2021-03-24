@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Cita } from 'src/app/modules/cita';
 import { Oferta } from 'src/app/modules/oferta';
 import { Taller } from 'src/app/modules/taller';
 import { CarApiService } from 'src/app/shared/car-api.service';
@@ -13,6 +14,7 @@ export class PaginaTallerComponent implements OnInit {
   public taller:Taller;
   public servicios: any[];
   public oferta: Oferta;
+  public cita: Cita;
 
   constructor(public carApiService:CarApiService) {
 

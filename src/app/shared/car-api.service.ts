@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Cita } from '../modules/cita';
 import { Login } from '../modules/login';
 import { Servicio } from '../modules/servicio';
 import { Taller } from '../modules/taller';
@@ -42,6 +43,8 @@ export class CarApiService {
   private url13 = "http://localhost:300/cliente";
   private url14 = "http://localhost:300/taller";
   private url15 = "http://localhost:300/login";
+  private url18 = "http://localhost:300/citas";
+  private url21 = "http://localhost:300/citas?id="
 
 
   public talleres:Taller[];
@@ -51,6 +54,7 @@ export class CarApiService {
   public tallerLogin: Taller;
   public clienteLogin:any;
   public tipoUsuario:String;
+  public cita:Cita;
   
 
 
@@ -161,6 +165,15 @@ export class CarApiService {
 
     return this.http.put(this.url15, login)
 
+  }
+
+  public pedirCita(cita:Cita){
+    return this.http.post(this.url18, cita)
+  }
+
+  public mostrarCita(id:number){
+
+    return this.http.get(this.url21 + id)
   }
 
 }

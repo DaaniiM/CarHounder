@@ -3,18 +3,19 @@
 
     <!-- Cita usuario -->
 
-    <!-- <div class="container">
+    <div class="container">
         <h1>Mis citas</h1>
         <div class="d-flex justify-content-center row mt-4">
             <div class="col-10 col-md-10 bg-white border rounded">
                 <div class="row p-2">
                     <div class="col-md-10 mt-1 bordeTarjeta">
-                        <p>Taller: <span>SalouMotor</span></p>
+                        <p>Fecha: <span>{{cita[0].fecha}}</span></p>
+                        <p>Taller: <span>{{cita[0].nombre}}</span></p>
                         <p>Servicios: <span>Cambio de aceite&nbsp;&nbsp;&nbsp;/</span>
                             <span>Cambio de neumáticos&nbsp;&nbsp;&nbsp;/</span>
                             <span>Cambio de aceite&nbsp;&nbsp;&nbsp;/</span>
                         </p>
-                        <p>Hora: <span>10:30</span></p>
+                        <p>Hora: <span>{{cita[0].hora}}</span></p>
                     </div>
                     <div class="align-self-center col-md-2">
                         <div class="d-flex flex-column align-items-center botones">
@@ -40,11 +41,11 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
 
     <!-- cita taller -->
 
-    <div class="container mt-10 mb-5">
+    <!-- <div class="container mt-10 mb-5">
         <h1>Mis citas</h1>
         <div class="d-flex justify-content-center row mt-4">
             <div class="col-10 col-md-10 col-sm-12">
@@ -97,7 +98,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
 
 <app-footer></app-footer>
