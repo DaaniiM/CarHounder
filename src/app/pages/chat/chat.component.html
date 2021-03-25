@@ -1,103 +1,103 @@
 <div id="imagenFondo">
-    <app-header></app-header>
-    <div class="sep">
-    </div>
-    <div class="container">
-        <div class="titulo">
-            <div class="col">
-                <h1>Mensajería <img src="../../assets/img/Logo/normal resolucion/carhounderLogo.png" id="logo"></h1>
-            </div>
-        </div>
-    </div>
-    <div class="container" id="alert1" [hidden]="alert1">
-        <boot-alerta mensaje="Debe seleccionar una conversación" color="alert-danger"></boot-alerta>
-    </div>
-    <div class="container" id="alert2" [hidden]="alert2">
-        <boot-alerta mensaje="Debe escribit un mensaje" color="alert-danger"></boot-alerta>
-    </div>
-    <div class="container">
-        <div class="">
-            <button type="button" class="btn boton1 btn-block" data-toggle="modal" data-target="#exampleModal" id="botonContactos">
-                Conversaciones
-              </button>
-              <!-- MODAL LISTADO DE CHATS RESPONSIVE -->
-              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Conversaciones</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body" *ngFor="let chat of chats">
-                        <div class="chat">
-                            <img src="{{chat.foto}}" class="foto" on-click="getMensaje(chat.id_chat)" id="fotoChat" data-dismiss="modal">
-                            <a class="a" on-click="getMensaje(chat.id_chat)" data-dismiss="modal"> {{chat.nombre}} </a>
-                            <button class="btn btn-danger" id="eliminar" type="button"> <img src="../../assets/img/iconos/papelera.png" value="eliminar chat" id="papelera"> </button>
-                            <br>
-                        </div>
-                    </div>
+  <app-header></app-header>
+  <div class="sep">
+  </div>
+  <div class="container">
+      <div class="titulo">
+          <div class="col">
+              <h1>Mensajería <img src="../../assets/img/Logo/normal resolucion/carhounderLogo.png" id="logo"></h1>
+          </div>
+      </div>
+  </div>
+  <div class="container" id="alert1" [hidden]="alert1">
+      <boot-alerta mensaje="Debe seleccionar una conversación" color="alert-danger"></boot-alerta>
+  </div>
+  <div class="container" id="alert2" [hidden]="alert2">
+      <boot-alerta mensaje="Debe escribit un mensaje" color="alert-danger"></boot-alerta>
+  </div>
+  <div class="container">
+      <div class="">
+          <button type="button" class="btn boton1 btn-block" data-toggle="modal" data-target="#exampleModal" id="botonContactos">
+              Conversaciones
+            </button>
+            <!-- MODAL LISTADO DE CHATS RESPONSIVE -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Conversaciones</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body" *ngFor="let chat of chats">
+                      <div class="chat">
+                          <img src="{{chat.foto}}" class="foto" on-click="getMensaje(chat.id_chat)" id="fotoChat" data-dismiss="modal">
+                          <a class="a" on-click="getMensaje(chat.id_chat)" data-dismiss="modal"> {{chat.nombre}} </a>
+                          <button class="btn btn-danger" id="eliminar" type="button"> <img src="../../assets/img/iconos/papelera.png" value="eliminar chat" id="papelera"> </button>
+                          <br>
+                      </div>
                   </div>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div  id="listado" class="form-control" >
-                <div *ngFor="let chat of chats">
-                    <hr>
-                    <img src="{{chat.foto}}" class="foto" on-click="getMensaje(chat.id_chat)" id="fotoChat">
-                     <a class="a" on-click="getMensaje(chat.id_chat)"> {{chat.nombre}} </a>
-                     <button class="btn btn-danger" id="eliminar" type="button" data-toggle="modal" data-target="#confirmarEliminar"> <img src="../../assets/img/iconos/papelera.png" value="eliminar chat" id="papelera"> </button>
-                     <!-- MODAL CONFIRMACION ELIMINAR CHAT -->
-                     <div class="modal fade" id="confirmarEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">Eliminar conversación</h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                            </div>
-                            <div class="modal-body">
-                              ¿Está seguro de que desea eliminar la conversación?
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn boton1" data-dismiss="modal">Cancelar</button>
-                              <button type="button" class="btn btn-danger" on-click="deleteChat(chat.id_chat)" data-dismiss="modal">Eliminar</button>
-                            </div>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+          <div  id="listado" class="form-control" >
+              <div *ngFor="let chat of chats">
+                  <hr>
+                  <img src="{{chat.foto}}" class="foto" on-click="getMensaje(chat.id_chat)" id="fotoChat">
+                    <a class="a" on-click="getMensaje(chat.id_chat)"> {{chat.nombre}} </a>
+                    <button class="btn btn-danger" id="eliminar" type="button" data-toggle="modal" data-target="#confirmarEliminar"> <img src="../../assets/img/iconos/papelera.png" value="eliminar chat" id="papelera"> </button>
+                    <!-- MODAL CONFIRMACION ELIMINAR CHAT -->
+                    <div class="modal fade" id="confirmarEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Eliminar conversación</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            ¿Está seguro de que desea eliminar la conversación?
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn boton1" data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-danger" on-click="deleteChat(chat.id_chat)" data-dismiss="modal">Eliminar</button>
                           </div>
                         </div>
                       </div>
-                    <hr>
-                </div>
-            </div>
-            <div class="col">
-                <div>
-                    <div class="form-control" id="mensajes" >
-                        <div *ngFor="let mensaje of mensajes" >
-                            <div *ngIf="mensaje.emisor == rol; else noEmisor">
-                                <p style="text-align: right;"> {{mensaje.mensaje}} </p>
-                            </div>
-                            <ng-template #noEmisor>
-                                <p style="text-align: left;"> {{mensaje.mensaje}} </p>
-                            </ng-template>
-                        </div>
                     </div>
-                </div>
-                <form >
-                    <div class="mb-3" >
-                        <label for="mensaje" class="form-label">Mensaje</label>
-                        <input class="form-control" #mensaje id="mensaje" required>   
+                  <hr>
+              </div>
+          </div>
+          <div class="col">
+              <div>
+                  <div class="form-control" id="mensajes" >
+                      <div *ngFor="let mensaje of mensajes" >
+                          <div *ngIf="mensaje.emisor == rol; else noEmisor">
+                              <p style="text-align: right;"> {{mensaje.mensaje}} </p>
+                          </div>
+                          <ng-template #noEmisor>
+                              <p style="text-align: left;"> {{mensaje.mensaje}} </p>
+                          </ng-template>
                       </div>
-                      <div id="boton">
-                        <button type="button" class="btn boton1"  on-click="postMensaje(mensaje.value)" >Enviar</button>
-                      </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <div class="separacion">
-    </div>
+                  </div>
+              </div>
+              <form >
+                  <div class="mb-3" >
+                      <label for="mensaje" class="form-label">Mensaje</label>
+                      <input class="form-control" #mensaje id="mensaje" required>   
+                    </div>
+                    <div id="boton">
+                      <button type="button" class="btn boton1"  on-click="postMensaje(mensaje.value)" >Enviar</button>
+                    </div>
+              </form>
+          </div>
+      </div>
+  </div>
+  <div class="separacion">
+  </div>
 </div>
 <app-footer></app-footer>
