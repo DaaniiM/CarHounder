@@ -16,6 +16,7 @@ export class ChatComponent implements OnInit {
   public id_chat: number;
   public alert1: boolean;
   public alert2: boolean;
+  public chatEliminar:number;
 
   constructor(public apiService:CarApiService, private _router: Router) {
 
@@ -69,13 +70,16 @@ export class ChatComponent implements OnInit {
     }
   }
 
-  public deleteChat(id_chat:number){
-    this.apiService.deleteChat(id_chat).subscribe((data:any) =>{
+  public deleteChat(){
+    this.apiService.deleteChat(this.chatEliminar).subscribe((data:any) =>{
       console.log(data);
-      console.log(id_chat);
       this.getChat();
-      this.getMensaje(id_chat);
+      
     });
+  }
+
+  public chatElimina(id_chat:number){
+    this.chatEliminar = id_chat;
   }
 
   ngOnInit(): void {

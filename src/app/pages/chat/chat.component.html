@@ -48,7 +48,7 @@
                   <hr>
                   <img src="{{chat.foto}}" class="foto" on-click="getMensaje(chat.id_chat)" id="fotoChat">
                     <a class="a" on-click="getMensaje(chat.id_chat)"> {{chat.nombre}} </a>
-                    <button class="btn btn-danger" id="eliminar" type="button" data-toggle="modal" data-target="#confirmarEliminar"> <img src="../../assets/img/iconos/papelera.png" value="eliminar chat" id="papelera"> </button>
+                    <button class="btn btn-danger" id="eliminar" type="button" data-toggle="modal" data-target="#confirmarEliminar" on-click="chatElimina(chat.id_chat)"> <img src="../../assets/img/iconos/papelera.png" value="eliminar chat" id="papelera"> </button>
                     <!-- MODAL CONFIRMACION ELIMINAR CHAT -->
                     <div class="modal fade" id="confirmarEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog" role="document">
@@ -64,7 +64,7 @@
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn boton1" data-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-danger" on-click="deleteChat(chat.id_chat)" data-dismiss="modal">Eliminar</button>
+                            <button type="button" class="btn btn-danger" on-click="deleteChat()" data-dismiss="modal">Eliminar</button>
                           </div>
                         </div>
                       </div>
