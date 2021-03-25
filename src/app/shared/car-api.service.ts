@@ -45,10 +45,13 @@ export class CarApiService {
   private url13 = "http://localhost:300/cliente";
   private url14 = "http://localhost:300/taller";
   private url15 = "http://localhost:300/login";
-  private url18 = "http://localhost:300/citas";
+  private url18 = "http://localhost:300/citas/cliente";
   private url21 = "http://localhost:300/citas?id="
-  private url25 = "http://localhost:300/citas?id_taller="
-  private url26 = "http://localhost:300/citas/servicios"
+  private url25 = "http://localhost:300/citas/cliente?id_taller=";
+  private url45 = "http://localhost:300/citas/taller?id_taller=";
+  private url38 = "http://localhost:300/citas/cliente?id_cliente=";
+  private url39 = "http://localhost:300/citas/taller?id_taller=";
+
 
 
   public talleres:Taller[];
@@ -58,8 +61,9 @@ export class CarApiService {
   public tallerLogin: Taller;
   public clienteLogin:any;
   public tipoUsuario:String;
-  public cita:Cita;
-  
+  public citaCliente:any;
+  public citaTaller:any;
+
   
 
 
@@ -176,14 +180,24 @@ export class CarApiService {
     return this.http.post(this.url18, cita)
   }
 
-  public mostrarCita(id:number){
+  public mostrarCitaCliente(id:number){
 
-    return this.http.get(this.url21 + id)
+    return this.http.get(this.url38 + id)
   }
 
-  public borrarCita(id_taller:number, id_cliente:number, id_reservas:number){
+  public mostrarCitaTaller(id:number){
+
+    return this.http.get(this.url39 + id)
+  }
+
+  public borrarCitaCliente(id_taller:number, id_cliente:number, id_reservas:number){
 
     return this.http.delete(this.url25 + id_taller + "&id_cliente=" + id_cliente + "&id_reservas=" + id_reservas)
+  }
+
+  public borrarCitaTaller(id_taller:number, id_cliente:number, id_reservas:number){
+
+    return this.http.delete(this.url45 + id_taller + "&id_cliente=" + id_cliente + "&id_reservas=" + id_reservas)
   }
 
 }

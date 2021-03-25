@@ -2,42 +2,57 @@
     <app-header></app-header>
 
     <!-- Cita usuario -->
+    <div *ngIf="login != undefined && login.rol == 'cliente'">
+        <div class="container">
+            <h1>Mis citas</h1>
+            <div class="d-flex justify-content-center row mt-4">
+                <div *ngFor="let cita of citas" class="col-10 col-md-10 bg-white border rounded mt-3">
+                    <div class="row p-2">
+                        <div class="col-md-10 mt-1 bordeTarjeta">
+                            <p>Fecha:
+                                <span>{{cita.fecha | date: 'EEEE, d'}} de {{cita.fecha | date: 'MMMM'}} de {{cita.fecha | date: 'yyyy'}}</span>
+                            </p>
+                            <p>Taller:
+                                <span>{{cita.nombre}}</span>
+                            </p>
+                            <p>Dirección:
+                                <span>{{cita.direccion}}</span>
+                            </p>
+                            <!-- <div id="iconosService" > -->
+                            <p>Servicios:
+                                <span>
+                                    {{cita.servicios}}
+                                </span>
+                            </p>
 
-    <div class="container">
-        <h1>Mis citas</h1>
-        <div class="d-flex justify-content-center row mt-4">
-            <div *ngFor="let cita of citas" class="col-10 col-md-10 bg-white border rounded mt-3">
-                <div class="row p-2">
-                    <div class="col-md-10 mt-1 bordeTarjeta">
-                        <p>Fecha: <span>{{cita.fecha | date: 'EEEE, d'}} de {{cita.fecha | date: 'MMMM'}} de {{cita.fecha | date: 'yyyy'}}</span></p>
-                        <p>Taller: <span>{{cita.nombre}}</span></p>
-                        <p>Dirección: <span>{{cita.direccion}}</span></p>
-                        <div id="iconosService" >
-                            <p>Servicios:</p>
-                            <div *ngFor="let servicio of servicios"> 
-                                <p *ngIf = "servicio.id_taller == cita.id_taller"><img class="icono mx-2" src="{{servicio.icono}}" title="{{servicio.descripcion}}">
+                            <!-- <div *ngFor="let servicio of servicios"> 
+                                <p *ngIf = "servicio.id_taller == cita.id_taller">
+                                    <img class="icono mx-2" src="{{servicio.icono}}" title="{{servicio.descripcion}}">
                                 </p>
-                            </div>
+                            </div> -->
+                            <!-- </div> -->
+                            <p>Hora:
+                                <span>{{cita.hora}}</span>
+                            </p>
                         </div>
-                        <p>Hora: <span>{{cita.hora}}</span></p>
-                    </div>
-                    <div class="align-self-center col-md-2">
-                        <div class="d-flex flex-column align-items-center botones">
-                            <button class="btn btn-danger btn-sm mt-3 p-2" type="button" data-toggle="modal" data-target="#cancelarCliente" data-dismiss="modal">Cancelar cita</button>
-                            <div class="modal fade" id="cancelarCliente" tabindex="-1" role="dialog" aria-labelledby="cancelarCliente" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h5 class="modal-title" id="exampleModalLabel">¿Estás seguro?</h5>
-                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                      </button>
+                        <div class="align-self-center col-md-2">
+                            <div class="d-flex flex-column align-items-center botones">
+                                <button class="btn btn-danger btn-sm mt-3 p-2" type="button" data-toggle="modal" data-target="#cancelarCliente" data-dismiss="modal">Cancelar cita</button>
+                                <div class="modal fade" id="cancelarCliente" tabindex="-1" role="dialog" aria-labelledby="cancelarCliente" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">¿Estás seguro?</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btnEdit" data-dismiss="modal">No</button>
+                                                <button type="button" class="btn btn-danger" on-click="borrarCitasCliente(cita.id_taller, cita.id_reservas)" data-dismiss="modal">Cancelar cita</button>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="modal-footer">
-                                      <button type="button" class="btn btnEdit" data-dismiss="modal">No</button>
-                                      <button type="button" class="btn btn-danger" on-click="borrarCitas(cita.id_taller, cita.id_reservas)" data-dismiss="modal">Cancelar cita</button>
-                                    </div>
-                                  </div>
                                 </div>
                             </div>
                         </div>
@@ -48,61 +63,124 @@
     </div>
 
     <!-- cita taller -->
-
-    <!-- <div class="container mt-10 mb-5">
-        <h1>Mis citas</h1>
-        <div class="d-flex justify-content-center row mt-4">
-            <div class="col-10 col-md-10 col-sm-12">
-                <label>Seleccionar día</label>
-                <div class="d-flex form-group filtro">
-                    <input type="date" class="form-control" id="fechaCita">
-                    <app-modal-citas-taller></app-modal-citas-taller>
-                    <button class="btn btn-sm btnEdit2 p-2" data-toggle="modal" data-target="#anyadirCita">Añadir
-                        Cita</button>
+    <div *ngIf="login != undefined && login.rol == 'taller'">
+        <div class="container mt-10 mb-5">
+            <h1>Mis citas</h1>
+            <div class="d-flex justify-content-center row mt-4">
+                <div class="col-10 col-md-10 col-sm-12">
+                    <label>Seleccionar día</label>
+                    <div class="d-flex form-group filtro">
+                        <input type="date" class="form-control" id="fechaCita" [(ngModel)]="fechacita" #fechaCitas>
+                        <app-modal-citas-taller></app-modal-citas-taller>
+                        <button class="btn btn-sm btnEdit2 p-2" data-toggle="modal" data-target="#anyadirCita">Añadir Cita</button>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="d-flex justify-content-center row mt-4">
-            <div class="col-10 col-md-10 col-sm-12">
-                <div class="row p-2 bg-white border rounded">
-                    <div class="col-md-10 mt-1 bordeTarjeta">
-                        <p>Cliente: <span>Manuel Gomez</span></p>
-                        <p>Servicios: <span>Cambio de aceite&nbsp;&nbsp;&nbsp;/</span>
-                            <span>Cambio de neumáticos&nbsp;&nbsp;&nbsp;/</span>
-                            <span>Cambio de aceite&nbsp;&nbsp;&nbsp;/</span>
-                        </p>
-                        <p>Hora: <span>10:30</span></p>
-                    </div>
-                    <div class="align-self-center col-md-2">
-                        <div class="d-flex flex-column align-items-center botones">
-                            <button class="btn btnEdit btn-sm p-2" data-toggle="modal"
-                                data-target="#modificarCita">Modificar cita</button>
-                            <button class="btn btn-danger btn-sm mt-3 p-2" type="button" data-toggle="modal"
-                                data-target="#cancelarTaller">Cancelar cita</button>
-                            <div class="modal fade" id="cancelarTaller" tabindex="-1" role="dialog"
-                                aria-labelledby="cancelarTaller" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">¿Estás seguro?</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btnEdit" data-dismiss="modal">No</button>
-                                            <button type="button" class="btn btn-danger">Cancelar cita</button>
+            <div class="d-flex justify-content-center row mt-4">
+                <div *ngFor="let cita of citas" class="col-10 col-md-10 col-sm-12">
+                    <input id="fechaFormateada" #fechaFormateada value="{{cita.fecha | date: 'yyyy-MM-dd'}}">
+                    <div *ngIf="fechaCitas.value == ''; else elseBlock">
+                        <div class="row p-2 bg-white border rounded mt-3">
+                            <div class="col-md-10 mt-1 bordeTarjeta">
+                                <p>Fecha:
+                                    <span>{{cita.fecha | date: 'EEEE, d'}} de {{cita.fecha | date: 'MMMM'}} de {{cita.fecha | date: 'yyyy'}}</span>
+                                </p>
+                                <p>Cliente:
+                                    <span>{{cita.nombre}} {{cita.apellidos}}</span>
+                                </p>
+                                <p>Teléfono:
+                                    <span>
+                                        {{cita.telefono}}
+                                    </span>
+                                </p>
+                                <p>Servicios:
+                                    <span>
+                                        {{cita.servicios}}
+                                    </span>
+                                </p>
+                                <p>Hora:
+                                    <span>{{cita.hora}}</span>
+                                </p>
+                            </div>
+                            <div class="align-self-center col-md-2">
+                                <div class="d-flex flex-column align-items-center botones">
+                                    <button class="btn btnEdit btn-sm p-2" data-toggle="modal" data-target="#modificarCita">Modificar cita</button>
+                                    <button class="btn btn-danger btn-sm mt-3 p-2" type="button" data-toggle="modal" data-target="#cancelarTaller">Cancelar cita</button>
+                                    <div class="modal fade" id="cancelarTaller" tabindex="-1" role="dialog" aria-labelledby="cancelarTaller" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">¿Estás seguro?</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btnEdit" data-dismiss="modal">No</button>
+                                                    <button type="button" class="btn btn-danger" on-click="borrarCitasTaller(cita.id_cliente, cita.id_reservas)" data-dismiss="modal">Cancelar cita</button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <ng-template #elseBlock>
+                        <ng-container *ngIf="fechaCitas.value == fechaFormateada.value">
+                            <div class="row p-2 bg-white border rounded mt-3">
+                                <div class="col-md-10 mt-1 bordeTarjeta">
+                                    <p>Fecha:
+                                        <span>{{cita.fecha | date: 'EEEE, d'}} de {{cita.fecha | date: 'MMMM'}} de {{cita.fecha | date: 'yyyy'}}</span>
+                                    </p>
+                                    <p>Cliente:
+                                        <span>{{cita.nombre}} {{cita.apellidos}}</span>
+                                    </p>
+                                    <p>Teléfono:
+                                        <span>
+                                            {{cita.telefono}}
+                                        </span>
+                                    </p>
+                                    <p>Servicios:
+                                        <span>
+                                            {{cita.servicios}}
+                                        </span>
+                                    </p>
+                                    <p>Hora:
+                                        <span>{{cita.hora}}</span>
+                                    </p>
+                                </div>
+                                <div class="align-self-center col-md-2">
+                                    <div class="d-flex flex-column align-items-center botones">
+                                        <button class="btn btnEdit btn-sm p-2" data-toggle="modal" data-target="#modificarCita">Modificar cita</button>
+                                        <button class="btn btn-danger btn-sm mt-3 p-2" type="button" data-toggle="modal" data-target="#cancelarTaller">Cancelar cita</button>
+                                        <div class="modal fade" id="cancelarTaller" tabindex="-1" role="dialog" aria-labelledby="cancelarTaller" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">¿Estás seguro?</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btnEdit" data-dismiss="modal">No</button>
+                                                        <button type="button" class="btn btn-danger" on-click="borrarCitasTaller(cita.id_cliente, cita.id_reservas)" data-dismiss="modal">Cancelar cita</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                        
+                    </ng-template>
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
 </div>
 
 <app-footer></app-footer>

@@ -24,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
 registerLocaleData(localeEs);
+import { FormsModule } from '@angular/forms'
 
 
 
@@ -50,7 +51,8 @@ registerLocaleData(localeEs);
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'es' }],
   bootstrap: [AppComponent]

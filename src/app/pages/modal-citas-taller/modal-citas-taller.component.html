@@ -46,6 +46,20 @@
                 <br>
                 <div class="form-group">
                     Servicios
+                    <div *ngFor="let servicio of servicios; let i = index">
+
+                        <div *ngIf = "servicio.id_taller == carApiService.citaTaller[0].id_taller">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" on-click="anyadirServicio(servicio.descripcion, prueba.value)" value={{i}} id={{i}} #prueba>
+                                <label class="form-check-label" for="aceite">
+                                    {{servicio.descripcion}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="form-group">
+                    Servicios
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="aceite">
                         <label class="form-check-label" for="aceite">
@@ -131,10 +145,10 @@
                         </label>
                     </div>
 
-                  </div>
+                  </div> -->
 
                 <div class="modal-footer text-align-center">
-                <button type="submit" class="btn boton1">Añadir cita</button>
+                <button type="button" class="btn boton1">Añadir cita</button>
                 </div>
             </form>
         </div>
