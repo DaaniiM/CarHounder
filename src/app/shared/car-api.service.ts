@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Chat } from '../modules/chat';
 import { Login } from '../modules/login';
+import { Mensaje } from '../modules/mensaje';
 import { Servicio } from '../modules/servicio';
 import { Taller } from '../modules/taller';
 import { Usuario } from '../modules/usuario';
@@ -10,9 +12,9 @@ import { Usuario } from '../modules/usuario';
 })
 export class CarApiService {
 
-  // private url="https://api-rest-carhounder.herokuapp.com";
+  // private url = "https://api-rest-carhounder.herokuapp.com";
   // private url1 = "https://api-rest-carhounder.herokuapp.com/talleres?cp=" ;
-  // private url2= "https://api-rest-carhounder.herokuapp.com/servicios?id=" ;
+  // private url2 = "https://api-rest-carhounder.herokuapp.com/servicios?id=" ;
   // private url3 = "https://api-rest-carhounder.herokuapp.com/talleresDetalles?id=" ;  
   // private url4 = "https://api-rest-carhounder.herokuapp.com/oferta?id=" ;
   // private url7 = "https://api-rest-carhounder.herokuapp.com/login";
@@ -24,15 +26,15 @@ export class CarApiService {
   // private url13 = "https://api-rest-carhounder.herokuapp.com/cliente";
   // private url14 = "https://api-rest-carhounder.herokuapp.com/taller";
   // private url15 = "https://api-rest-carhounder.herokuapp.com/login";
-
+  // private url19 = "https://api-rest-carhounder.herokuapp.com/chat";
+  // private url20 = "https://api-rest-carhounder.herokuapp.com/mensaje";
+  // private url425 = "https://api-rest-carhounder.herokuapp.com/comprobarChat";
 
   private url="http://localhost:300";
   private url1 = "http://localhost:300/talleres?cp=" ;
   private url2= "http://localhost:300/servicios" ;
   private url3 = "http://localhost:300/talleresDetalles?id=" ;
   private url4 = "http://localhost:300/oferta?id=" ;
-  // private url5 = "http://localhost:300/loginCliente"; ---- 
-  // private url6 = "http://localhost:300/loginTaller"; ---
   private url7 = "http://localhost:300/login";
   private url8 = "http://localhost:300/talleresLogin?email=";
   private url9 = "http://localhost:300/clientesLogin?email=";
@@ -42,7 +44,9 @@ export class CarApiService {
   private url13 = "http://localhost:300/cliente";
   private url14 = "http://localhost:300/taller";
   private url15 = "http://localhost:300/login";
-
+  private url19 = "http://localhost:300/chat";
+  private url20= "http://localhost:300/mensaje";
+  private url425 = "http://localhost:300/comprobarChat";
 
   public talleres:Taller[];
   public servicios:any[];
@@ -51,116 +55,106 @@ export class CarApiService {
   public tallerLogin: Taller;
   public clienteLogin:any;
   public tipoUsuario:String;
+  public chat: Chat;
   
-
-
   constructor(private http:HttpClient) { }
   
-
-
-
-  public registrarCliente(cliente:Usuario) {
-
-    return this.http.post(this.url + "/registrar/usuario" ,cliente)
-
-  }
-
-  
-  public registrarTaller(taller:Taller) {
-
-    return this.http.post(this.url + "/registrar/taller",taller)
-
-    
-
-  }
-
   public buscarTalleres(cp:number) {
     console.log(this.talleres)
     console.log(cp)
-
     if(cp != 0 ) {
       return this.http.get(this.url1 + cp);
     } else {
       return this.http.get(this.url + "/talleres");
     }
-    
+  }
+
+  public registrarCliente(cliente:Usuario) {
+    return this.http.post(this.url + "/registrar/usuario" ,cliente)
+  }
+  
+  public registrarTaller(taller:Taller) {
+    return this.http.post(this.url + "/registrar/taller",taller)
   }
 
   public buscarServicios() {
-
     return this.http.get(this.url2);
-
   }
 
   public detallesTaller(id:number){
-
     return this.http.get(this.url3 + id);
-
   }
 
   public oferta(id:number){
-
     return this.http.get(this.url4 + id)
   }
 
-
   public registrarLogin(login:Login){
-
     return this.http.post(this.url7,login)
   }
 
   public loguearse(login:Login){
-
     return this.http.post(this.url7 + "/usuario",login)
-
-
   }
 
   public loginTaller(email:string){
-
     return this.http.get(this.url8 + email);
-
   }
 
   public loginCliente(email:string){
-
     return this.http.get(this.url9 + email);
-
   }
 
   public eliminarTaller(id:number){
-
     return this.http.delete(this.url10 + id);
   }
-
   
   public eliminarCliente(id:number){
-
     return this.http.delete(this.url11 + id);
   }
 
   public eliminarLogin(email:string){
-
     return this.http.delete(this.url12 + email)
-
   }
 
   public editarTaller(taller:Taller){
-
     return this.http.put(this.url14, taller)
-
   }
   
   public editarCliente(cliente:Usuario){
-
     return this.http.put(this.url13, cliente)
-
   }
 
   public editarLogin(login:Login){
-
     return this.http.put(this.url15, login)
+  }
 
+  public postChat(chat:Chat){
+    return this.http.post(this.url19, chat);
+  }
+
+  public postMensaje(mensaje:Mensaje){
+    return this.http.post(this.url20, mensaje);
+  }
+
+  public getChat(email:string, rol:string){
+    return this.http.get(this.url19 + "?email=" + email + "&rol=" + rol);
+  }
+
+  public getMensaje(id_chat:number){
+    return this.http.get(this.url20 + "?id_chat=" + id_chat);
+  }
+
+  public deleteChat(id_chat:number){
+    return this.http.delete(this.url19 + "?id_chat=" + id_chat);
+  }
+
+  public deleteMensaje(id_chat:number){
+    return this.http.delete(this.url20 + "?id_chat=" + id_chat);
+  }
+
+  public getComprobarChat(id_cliente:number, id_taller:number){
+    return this.http.get(this.url425 + "?id_cliente=" + id_cliente + "&id_taller=" + id_taller);
   }
 
 }
