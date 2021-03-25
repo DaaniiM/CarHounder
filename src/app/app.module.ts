@@ -20,6 +20,8 @@ import { ResultadoBusquedaComponent } from './pages/resultado-busqueda/resultado
 import { ModalCitasTallerComponent } from './pages/modal-citas-taller/modal-citas-taller.component';
 import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.component';
 import { HttpClientModule } from '@angular/common/http'
+import { FormsModule } from '@angular/forms';
+import { AlertaComponent } from './pages/alerta/alerta.component';
 
 
 @NgModule({
@@ -41,11 +43,13 @@ import { HttpClientModule } from '@angular/common/http'
     ResultadoBusquedaComponent,
     ModalCitasTallerComponent,
     PerfilUsuarioComponent,
+    AlertaComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

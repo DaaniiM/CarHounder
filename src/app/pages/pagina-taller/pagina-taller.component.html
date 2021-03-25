@@ -1,87 +1,63 @@
-
-
-
-
 <div id="imagenFondo">
-
-    <app-header></app-header>
-
-    <div id="all">
-
-      <div class="container">
-        <div id= "frontal"class="card h-100">
-          <img src="{{taller.foto}}" class="card-img-top img-fluid" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Información</h5>
-            <p class="card-text">
-                {{taller.nombre}}<br>
-                {{taller.direccion}} - {{taller.cp}} {{taller.ciudad}} - {{taller.provincia}}<br>
-                {{taller.telefono}}<br>
-                {{taller.email}}
-                </p>
-
-            <h5 class="card-title">Servicios</h5>
-            <p class="card-text"> 
-              <div *ngFor="let servicio of servicios">
-
-                <div *ngIf = "servicio.id_taller == taller.id_taller">
-                    <p  class="serviciosIconos" >
-                        <img class="icono" src="{{servicio.icono}}" title="{{servicio.descripcion}}"> {{servicio.descripcion}}
-                    </p>
-                </div>
+  <app-header></app-header>
+  <div id="all">
+    <div class="container" id="alert1" [hidden]="alert1">
+      <boot-alerta mensaje="Error al crear el chat" color="alert-danger"></boot-alerta>
+    </div>
+    <div class="container">
+      <div id="frontal" class="card h-100">
+        <img src="{{taller.foto}}" class="card-img-top img-fluid" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Información</h5>
+          <p class="card-text">
+            {{taller.nombre}}<br>
+            {{taller.direccion}} - {{taller.cp}} {{taller.ciudad}} - {{taller.provincia}}<br>
+            {{taller.telefono}}<br>
+            {{taller.email}}
+          </p>
+          <h5 class="card-title">Servicios</h5>
+          <p class="card-text">
+          <div *ngFor="let servicio of servicios">
+            <div *ngIf="servicio.id_taller == taller.id_taller">
+              <p class="serviciosIconos">
+                <img class="icono" src="{{servicio.icono}}" title="{{servicio.descripcion}}"> {{servicio.descripcion}}
+              </p>
             </div>
-            
-            <h5 class="card-title">Ofertas</h5>
-            <div *ngIf = "oferta != null">
+          </div>
+          <h5 class="card-title">Ofertas</h5>
+          <div *ngIf="oferta != null">
             <p class="card-text">
-
               {{oferta.oferta}}
-
             </p>
           </div>
-
-          <div *ngIf = "oferta == null">
+          <div *ngIf="oferta == null">
             <p class="card-text">
-
-              <h5>No hay ofertas disponibles</h5>
-
-            
+            <h5>No hay ofertas disponibles</h5>
           </div>
-
-
-          </div>
-
-          <div id="botonInfo">
-
-
-            <app-modal-citas></app-modal-citas>
-
-            <button type="submit" class="btn btn-primary" routerLink="/chat">Chat</button>
-
-            <button class="btn btn-primary" data-toggle="modal" data-target="#citas">Pedir Cita</button>
-
-
-          </div>
-
+        </div>
+        <div id="botonInfo">
+          <app-modal-citas></app-modal-citas>
+          <button type="submit" class="btn btn-primary" on-click="postChat()">Chat</button>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#citas">Pedir Cita</button>
         </div>
       </div>
     </div>
-
-    <div id="all1">
-
-      <div class="container">
-        <div class="card h-20">
-          <div class="card-body">
-            <h5 class="card-title">Reseñas</h5>
-            <p class="card-text"> 
-              <div class="card " >
-                <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
+  </div>
+  <div id="all1">
+    <div class="container">
+      <div class="card h-20">
+        <div class="card-body">
+          <h5 class="card-title">Reseñas</h5>
+          <p class="card-text">
+          <div class="card ">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
             </div>
-            <p></p>
+          </div>
+          <p></p>
         </div>
       </div>
     </div>
