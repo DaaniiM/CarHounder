@@ -21,6 +21,18 @@
     
 }
 
+/* #botonesAll{
+
+    width: 200px;
+} */
+
+.btn-lg{
+
+    height: 40px;
+    font-size: 15px;
+    width: 200px;
+}
+
 #iconosService{
 
     display: flex;

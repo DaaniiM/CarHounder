@@ -239,11 +239,11 @@
                                 </div>
                             </div>
                         </div>
-                            <div class="d-flex flex-column mt-2 ">
-                                <button id="botonTaller" on-click="detallesTaller(taller.id_taller)" class="btn btn-primary btn-sm" type="button">Mas detalles</button>
+                            <div class="d-flex flex-column mt-2" id="botonesAll">
+                                <button id="botonTaller" on-click="detallesTaller(taller.id_taller)" class="btn btn-primary btn-lg " type="button">Mas detalles</button>
                                 <button id="botonTaller" on-click="postChat(taller.id_taller)" class="btn btn-outline-primary btn-sm mt-2" type="button">Chat</button>
-                                <button [ngStyle]="{'display': talleresFav.includes(taller.id_taller) ? 'none' : 'block' }" on-click="anyadirFavoritos(taller.id_taller)" class="btn btn-outline-primary mt-2" type="button">Añadir a favoritos</button>  
-                                <button [ngStyle]="{'display': talleresFav.includes(taller.id_taller) ? 'block' : 'none' }" on-click="eliminarFavorito(taller.id_taller)" class="btn btn-outline-primary mt-2" type="button">Eliminar de favoritos</button>
+                                <button [ngStyle]="{'display': talleresFav.includes(taller.id_taller) ? 'none' : 'block' }" on-click="anyadirFavoritos(taller.id_taller)" class="btn btn-outline-primary btn-sm  mt-2" type="button">Añadir a favoritos</button>  
+                                <button [ngStyle]="{'display': talleresFav.includes(taller.id_taller) ? 'block' : 'none' }" on-click="eliminarFavorito(taller.id_taller)" class="btn ..btn-sm  mt-2 btn-danger" type="button">Eliminar de favoritos</button>
                             </div>  
                     </div>
                 </div>
