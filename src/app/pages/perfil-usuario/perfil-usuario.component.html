@@ -63,15 +63,12 @@
                                         <input class="form-control" type="password" value="{{apiService.clienteLogin.password}}" #password>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label class="col col-form-label">Mis talleres</label>
+                                <div class="form-group row" >
+                                    <label id ="talleresMis" class="col col-form-label">Mis talleres</label>
                                     <div class="col-sm-9 pt-2">
-                                        <p>Taller 1</p>
-                                        <p>Taller 1</p>
-                                        <p>Taller 1</p>
-                                        <p>Taller 1</p>
-                                        <p>Taller 1</p>
-                                        <p>Taller 1</p>
+                                        <div  *ngFor="let favorito of favoritos">
+                                            <p>{{favorito.nombre}}<button type="button" class="btn btn-danger" on-click="eliminarFavorito(favorito.id_taller)">Eliminar favorito</button></p>
+                                        </div>
                                     </div>
                                 </div>
 

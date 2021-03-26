@@ -22,6 +22,11 @@ h1{
     color: #F1F1F2;
 }
 
+#talleresMis{
+
+    height: auto;
+}
+
 .container{
     padding-top: 140px;
     padding-bottom: 80px;
