@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { FavoritosCliente } from '../modules/favoritos-cliente';
 import { Login } from '../modules/login';
 import { Oferta } from '../modules/oferta';
 import { Servicio } from '../modules/servicio';
@@ -52,6 +53,10 @@ export class CarApiService {
   private url17 = "http://localhost:300/borrarServicio?id_servicios=";
 
   private url24 = "http://localhost:300/serviciosLogin?id_taller="
+
+
+  private url189="http://localhost:300/favoritos"
+  private url289="http://localhost:300/favoritos?id_cliente="
   
 
 
@@ -63,6 +68,7 @@ export class CarApiService {
   public clienteLogin:any;
   public tipoUsuario:String;
   public ofertaTaller:any;
+  public favoritosCliente:any[];
   
 
 
@@ -201,5 +207,22 @@ export class CarApiService {
     return this.http.get(this.url24 + id_taller);
 
   }
+
+  public anyadirFavorito(favorito:FavoritosCliente){
+
+    return this.http.post(this.url189,favorito)
+  }
+
+  public detallesFavoritos(id_cliente:number){
+
+    return this.http.get(this.url289 + id_cliente);
+
+  }
+
+  public eliminarFavorito(id_cliente:number,id_taller:number){
+
+    return this.http.delete(this.url289 + id_cliente + "&id_taller=" + id_taller) 
+  }
+  
 
 }

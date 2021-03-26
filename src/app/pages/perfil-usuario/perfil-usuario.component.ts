@@ -11,10 +11,41 @@ import { CarApiService } from 'src/app/shared/car-api.service';
 })
 export class PerfilUsuarioComponent implements OnInit {
 
+  public favoritos:any[];
 
   constructor(public apiService:CarApiService,private _router: Router) {
 
+    
+
    }
+
+  public verFavoritos(){
+
+    this.apiService.detallesFavoritos(this.apiService.clienteLogin.id_cliente).subscribe((data:any[]) => {
+      this.favoritos=data
+      this.apiService.favoritosCliente = this.favoritos;
+      
+      console.log(this.apiService.favoritosCliente)
+    })
+
+  }
+
+  public eliminarFavorito(id_taller:number){
+
+
+    this.apiService.eliminarFavorito(this.apiService.clienteLogin.id_cliente,id_taller).subscribe((data3:any) =>{
+      if(data3!="-1"){
+
+        console.log(data3);
+        this.verFavoritos();
+
+      }else
+        console.log("Error al intentar eliminar el favorito")
+  
+    })
+  }
+    
+
 
   public eliminarCliente(){
 
@@ -76,6 +107,7 @@ export class PerfilUsuarioComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.verFavoritos();
 
   }
 
