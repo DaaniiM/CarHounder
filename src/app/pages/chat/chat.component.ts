@@ -25,7 +25,6 @@ export class ChatComponent implements OnInit {
 
    }
 
-
   public getChat(){
     this.apiService.getChat(this.apiService.login.email, this.rol).subscribe((data:any) =>{
       console.log(data);
@@ -70,12 +69,37 @@ export class ChatComponent implements OnInit {
     }
   }
 
+  public deleteChatResponsive(id_chat:number){
+    if(this.rol == "cliente"){
+      this.apiService.eliminarChatCliente(1, id_chat).subscribe((data:any) => {
+        console.log(data);
+        this.mensajes = null
+        this.ngOnInit();
+      });
+    }
+    else if(this.rol == "taller"){
+      this.apiService.eliminarChatTaller(1, id_chat).subscribe((data:any) => {
+        console.log(data);
+        this.ngOnInit();
+      });
+    }
+  }
+
   public deleteChat(){
-    this.apiService.deleteChat(this.chatEliminar).subscribe((data:any) =>{
-      console.log(data);
-      this.getChat();
-      
-    });
+    if(this.rol == "cliente"){
+      this.apiService.eliminarChatCliente(1, this.chatEliminar).subscribe((data:any) => {
+        console.log(data);
+        this.mensajes = null
+        this.ngOnInit();
+      });
+    }
+    else if(this.rol == "taller"){
+      this.apiService.eliminarChatTaller(1, this.chatEliminar).subscribe((data:any) => {
+        console.log(data);
+        this.mensajes = null
+        this.ngOnInit();
+      });
+    }
   }
 
   public chatElimina(id_chat:number){

@@ -112,23 +112,56 @@ h5{
 }
 
 #papelera{
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
 }
 
 #eliminar{
     border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    padding: 0;
 }
 
 #fotoChat:hover{
     cursor: pointer;
 }
 
+#rol{
+    padding-right: 10px;
+    padding-left: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    width: 500px;
+    background-color: rgb(250, 250, 195);
+    margin-left: auto;
+}
+
+#noRol{
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    width: 500px;
+    background-color: rgb(169, 241, 169);
+}
+
 @media screen and (min-width: 320px){
 
     #imagenFondo{
         height: 650px;
+    }
+
+}
+
+@media screen and (max-width: 990px){
+
+    #rol{
+        width: 200px;
+    }
+    #noRol{
+        width: 200px;
     }
 
 }
@@ -141,7 +174,7 @@ h5{
 
 }
 
-@media screen and (max-width: 580px){
+@media screen and (max-width: 770px){
 
     .row{
         flex-direction: column;
@@ -160,6 +193,17 @@ h5{
 
     #logo{
         display: none;
+    }
+
+}
+
+@media screen and (max-width: 990px){
+
+    #rol{
+        width: 300px;
+    }
+    #noRol{
+        width: 300px;
     }
 
 }
@@ -205,6 +249,12 @@ h5{
     #mensajes{
         height: 600px;
     }
+    #rol{
+        width: 500px;
+    }
+    #noRol{
+        width: 500px;
+    }
 
 }
 
@@ -218,6 +268,12 @@ h5{
     }
     #mensajes{
         height: 900px;
+    }
+    #rol{
+        width: 500px;
+    }
+    #noRol{
+        width: 500px;
     }
 
 }

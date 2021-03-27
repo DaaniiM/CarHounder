@@ -35,6 +35,8 @@ export class CarApiService {
   // private url19 = "https://api-rest-carhounder.herokuapp.com/chat";
   // private url20 = "https://api-rest-carhounder.herokuapp.com/mensaje";
   // private url425 = "https://api-rest-carhounder.herokuapp.com/comprobarChat";
+  // private url426="https://api-rest-carhounder.herokuapp.com/eliminarChatCliente";
+  // private url427="https://api-rest-carhounder.herokuapp.com/eliminarChatTaller";
 
   private url="http://localhost:300";
   private url1 = "http://localhost:300/talleres?cp=" ;
@@ -56,11 +58,10 @@ export class CarApiService {
   private url19 = "http://localhost:300/chat";
   private url20= "http://localhost:300/mensaje";
   private url425 = "http://localhost:300/comprobarChat";
-
-
   private url189="http://localhost:300/favoritos"
   private url289="http://localhost:300/favoritos?id_cliente="
-  
+  private url426="http://localhost:300/eliminarChatCliente";
+  private url427="http://localhost:300/eliminarChatTaller";
 
 
   public talleres:Taller[];
@@ -107,7 +108,7 @@ export class CarApiService {
   }
 
   public registrarLogin(login:Login){
-    return this.http.post(this.url7,login);
+    return this.http.post(this.url7, login);
   }
 
   public loguearse(login:Login){
@@ -162,6 +163,14 @@ export class CarApiService {
     return this.http.get(this.url20 + "?id_chat=" + id_chat);
   }
 
+    public eliminarChatCliente(del_cliente:number, id_chat:number){
+    return this.http.delete(this.url426 + "?del_cliente=" + del_cliente + "&id_chat=" + id_chat);
+  }
+  
+  public eliminarChatTaller(del_taller:number, id_chat:number){
+    return this.http.delete(this.url427 + "?del_taller=" + del_taller + "&id_chat=" + id_chat);
+  }
+
   public deleteChat(id_chat:number){
     return this.http.delete(this.url19 + "?id_chat=" + id_chat);
   }
@@ -195,20 +204,15 @@ export class CarApiService {
   }
 
   public anyadirFavorito(favorito:FavoritosCliente){
-
     return this.http.post(this.url189,favorito)
   }
 
   public detallesFavoritos(id_cliente:number){
-
     return this.http.get(this.url289 + id_cliente);
-
   }
 
   public eliminarFavorito(id_cliente:number,id_taller:number){
-
     return this.http.delete(this.url289 + id_cliente + "&id_taller=" + id_taller) 
   }
-  
 
 }
