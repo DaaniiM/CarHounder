@@ -11,16 +11,24 @@
             <form>
                 <div class="form-group">
                     <label>Nombre del cliente</label>
-                    <input type="text" class="form-control" id="nombre">
-                  </div>
+                    <input type="text" class="form-control" id="nombreA" #nombreA>
+                </div>
+                <div class="form-group">
+                    <label>Apellidos</label>
+                    <input type="text" class="form-control" id="apellidosA" #apellidosA>
+                </div>
+                <div class="form-group">
+                    <label>Teléfono</label>
+                    <input type="text" class="form-control" id="telefonoA" #telefonoA>
+                </div>
                 <div class="form-group">
                   <label>Fecha</label>
-                  <input type="date" class="form-control" id="fecha">
+                  <input type="date" class="form-control" id="fechaA" #fechaA>
                 </div>
                 <br>
                 <div class="form-group">
                     <label for="hora">Hora</label>
-                    <select class="form-control" id="hora">
+                    <select class="form-control" id="horaA" #horaA>
                       <option>9:00</option>
                       <option>9:30</option>
                       <option>10:00</option>
@@ -148,8 +156,9 @@
                   </div> -->
 
                 <div class="modal-footer text-align-center">
-                <button type="button" class="btn boton1">Añadir cita</button>
-                </div>
+                <button type="button" class="btn boton1" on-click="registrarCliente(nombreA.value, apellidosA.value, telefonoA.value)">Añadir cliente</button>
+                <button type="button" class="btn boton1" data-dismiss="modal" on-click="anyadirCita(fechaA.value, horaA.value)" routerLink="/citas">Añadir cita</button>    
+            </div>
             </form>
         </div>
     </div>
@@ -169,12 +178,12 @@
             <form>
                 <div class="form-group">
                   <label>Fecha</label>
-                  <input type="date" class="form-control" id="fecha">
+                  <input type="date" class="form-control" id="fechaM" value="{{carApiService.fechaP | date: 'dd/MM/yyyy'}}" #fechaM>
                 </div>
                 <br>
                 <div class="form-group">
-                    <label for="hora">Hora</label>
-                    <select class="form-control" id="hora">
+                    <label for="hora">Hora {{carApiService.fechaP | date: 'dd/MM/yyyy'}}</label>
+                    <select class="form-control" id="hora" value="{{carApiService.horaP}}" #horaM>
                       <option>9:00</option>
                       <option>9:30</option>
                       <option>10:00</option>
@@ -198,97 +207,22 @@
                     </select>
                 </div>
                 <br>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     Servicios
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="aceite">
-                        <label class="form-check-label" for="aceite">
-                            Cambio de aceite
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="correa">
-                        <label class="form-check-label" for="correa">
-                            Sustitución de correa distribución
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="embrague">
-                        <label class="form-check-label" for="embrague">
-                            Sustitución de embrague
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="frenos">
-                        <label class="form-check-label" for="frenos">
-                            Cambio de pastillas y discos de frenos
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="neumaticos">
-                        <label class="form-check-label" for="neumaticos">
-                            Sustitución de neumáticos
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="chapa">
-                        <label class="form-check-label" for="chapa">
-                            Chapa y pintura
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="completa">
-                        <label class="form-check-label" for="completa">
-                            Revisión Completa
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="diagnosis">
-                        <label class="form-check-label" for="diagnosis">
-                            Diagnosis del vehículo
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="electricos">
-                        <label class="form-check-label" for="electricos">
-                            Fallos eléctricos
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="motor">
-                        <label class="form-check-label" for="motor">
-                            Fallos de motor
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="amortiguadores">
-                        <label class="form-check-label" for="amortiguadores">
-                            Sustitución de amortiguadores
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="escape">
-                        <label class="form-check-label" for="escape">
-                            Sustitución de escape
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="turbo">
-                        <label class="form-check-label" for="turbo">
-                            Sustitución del turbo
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="itv">
-                        <label class="form-check-label" for="itv">
-                            Revisión pre-ITV
-                        </label>
-                    </div>
+                    <div *ngFor="let servicio of servicios; let i = index">
 
-                  </div>
-
+                        <div *ngIf = "servicio.id_taller == carApiService.citaTaller[0].id_taller">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" on-click="anyadirServicio(servicio.descripcion, prueba.value)" value={{i}} id={{i}} #prueba>
+                                <label class="form-check-label" for="aceite">
+                                    {{servicio.descripcion}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                  </div> -->
                 <div class="modal-footer text-align-center">
-                <button type="submit" class="btn boton1">Modificar cita</button>
+                <button type="button" class="btn boton1" data-dismiss="modal" on-click="modificarCita(fechaM.value, horaM.value)">Modificar cita</button>
                 </div>
             </form>
         </div>
