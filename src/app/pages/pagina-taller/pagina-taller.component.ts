@@ -16,6 +16,8 @@ export class PaginaTallerComponent implements OnInit {
   public servicios: any[];
   public oferta: Oferta;
   public alert1: boolean;
+  public rol = this.carApiService.login.rol;
+  public chatReaparecer:number;
 
   constructor(public carApiService:CarApiService,  private _router: Router) {
 
@@ -38,24 +40,42 @@ export class PaginaTallerComponent implements OnInit {
     })
   }
 
-  public postChat(){
+  public chatReaparece(id_chat:number){
+    this.chatReaparecer = id_chat;
+  }
+
+  public reapareceChat(){
+    if(this.rol == "cliente"){
+      this.carApiService.eliminarChatCliente(0, this.chatReaparecer).subscribe((data:any) => {
+        console.log(data);
+      });
+      this.carApiService.eliminarChatTaller(0, this.chatReaparecer).subscribe((data:any) => {
+        console.log(data);
+      });
+    }
+  }
+
+  public postChat(id_taller){
     console.log(this.carApiService.clienteLogin);
     console.log(this.taller);
-    this.carApiService.getComprobarChat(this.carApiService.clienteLogin.id_cliente, this.taller.id_taller).subscribe((data:any) =>{
+    this.carApiService.getComprobarChat(this.carApiService.clienteLogin.id_cliente, id_taller).subscribe((data:any) =>{
       console.log(data);
       if(data == ""){
-        this.carApiService.postChat(new Chat(this.carApiService.clienteLogin.id_cliente,this.taller.id_taller)).subscribe((data:any) =>{
-          console.log(data);
-          if(data!="-1"){
-            console.log("Se añadio el chat " + data);
+        this.carApiService.postChat(new Chat(this.carApiService.clienteLogin.id_cliente,id_taller)).subscribe((data1:any) =>{
+          console.log(data1);
+          if(data1!="-1"){
+            console.log("Se añadio el chat " + data1);
             this._router.navigate(['/chat']);
           }
-          else
+          else{
             console.log("Error al crear el chat");
-            this.alert1 = false
+            this.alert1 = false;
+          }
         });
       }
       else{
+        this.chatReaparece(data[0].id_chat);
+        this.reapareceChat();
         this._router.navigate(['/chat']);
       }
     });
