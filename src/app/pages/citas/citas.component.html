@@ -1,11 +1,162 @@
 <div class="fondo">
     <app-header></app-header>
 
+    <!-- Modal añadir -->
+
+    <div class="modal fade" id="anyadirCita" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Añadir cita</h5>
+            <button type="button" class="close btn" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label>Nombre del cliente</label>
+                        <input type="text" class="form-control" id="nombreA" #nombreA>
+                    </div>
+                    <div class="form-group">
+                        <label>Apellidos</label>
+                        <input type="text" class="form-control" id="apellidosA" #apellidosA>
+                    </div>
+                    <div class="form-group">
+                        <label>Teléfono</label>
+                        <input type="text" class="form-control" id="telefonoA" #telefonoA>
+                    </div>
+                    <div class="form-group">
+                      <label>Fecha</label>
+                      <input type="date" class="form-control" id="fechaA" #fechaA>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="hora">Hora</label>
+                        <select class="form-control" id="horaA" #horaA>
+                          <option>9:00</option>
+                          <option>9:30</option>
+                          <option>10:00</option>
+                          <option>10:30</option>
+                          <option>11:00</option>
+                          <option>11:30</option>
+                          <option>12:00</option>
+                          <option>12:30</option>
+                          <option>13:00</option>
+                          <option>13:30</option>
+                          <option>14:00</option>
+                          <option>16:00</option>
+                          <option>16:30</option>
+                          <option>17:00</option>
+                          <option>17:30</option>
+                          <option>18:00</option>
+                          <option>18:30</option>
+                          <option>19:00</option>
+                          <option>19:30</option>
+                          <option>20:00</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        Servicios
+                        <div *ngFor="let servicio of servicios; let i = index">
+    
+                            <div *ngIf = "servicio.id_taller == carApiService.tallerLogin.id_taller">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" on-click="anyadirServicio(servicio.descripcion, prueba.value)" value={{i}} id={{i}} #prueba>
+                                    <label class="form-check-label" for="aceite">
+                                        {{servicio.descripcion}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-footer text-align-center">
+                    <button type="button" class="btn boton1" on-click="registrarCliente(nombreA.value, apellidosA.value, telefonoA.value)">Añadir cliente</button>
+                    <button type="button" class="btn boton1" data-dismiss="modal" on-click="anyadirCita(fechaA.value, horaA.value)" routerLink="/citas">Añadir cita</button>    
+                </div>
+                </form>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Modal modificar -->
+
+    <div class="modal fade" id="modificarCita" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Modificar cita</h5>
+                                            <button type="button" class="close btn" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+                                                    <div class="form-group">
+                                                      <label>Fecha</label>
+                                                      <input type="date" class="form-control" id="fechaM" value="{{carApiService.fechaP | date: 'dd/MM/yyyy'}}" #fechaM>
+                                                    </div>
+                                                    <br>
+                                                    <div class="form-group">
+                                                        <label for="hora">Hora</label>
+                                                        <select class="form-control" id="hora" value="{{carApiService.horaP}}" #horaM>
+                                                          <option>9:00</option>
+                                                          <option>9:30</option>
+                                                          <option>10:00</option>
+                                                          <option>10:30</option>
+                                                          <option>11:00</option>
+                                                          <option>11:30</option>
+                                                          <option>12:00</option>
+                                                          <option>12:30</option>
+                                                          <option>13:00</option>
+                                                          <option>13:30</option>
+                                                          <option>14:00</option>
+                                                          <option>16:00</option>
+                                                          <option>16:30</option>
+                                                          <option>17:00</option>
+                                                          <option>17:30</option>
+                                                          <option>18:00</option>
+                                                          <option>18:30</option>
+                                                          <option>19:00</option>
+                                                          <option>19:30</option>
+                                                          <option>20:00</option>
+                                                        </select>
+                                                    </div>
+                                                    <br>
+                                                    <!-- <div class="form-group">
+                                                        Servicios
+                                                        <div *ngFor="let servicio of servicios; let i = index">
+                                    
+                                                            <div *ngIf = "servicio.id_taller == carApiService.citaTaller[0].id_taller">
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" on-click="anyadirServicio(servicio.descripcion, prueba.value)" value={{i}} id={{i}} #prueba>
+                                                                    <label class="form-check-label" for="aceite">
+                                                                        {{servicio.descripcion}}
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                      </div> -->
+                                                    <div class="modal-footer text-align-center">
+                                                    <button type="button" class="btn boton1" data-dismiss="modal" on-click="modificarCita(fechaM.value, horaM.value)">Modificar cita</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+
     <!-- Cita usuario -->
     <div *ngIf="login != undefined && login.rol == 'cliente'">
         <div class="container">
             <h1>Mis citas</h1>
             <div class="d-flex justify-content-center row mt-4">
+                <div class="sinCitas" *ngIf="citas == ''">
+                    No hay citas disponibles
+                </div>
                 <div *ngFor="let cita of citas" class="col-10 col-md-10 bg-white border rounded mt-3">
                     <div class="row p-2">
                         <div class="col-md-10 mt-1 bordeTarjeta">
@@ -71,12 +222,15 @@
                     <label>Seleccionar día</label>
                     <div class="d-flex form-group filtro">
                         <input type="date" class="form-control" id="fechaCita" [(ngModel)]="fechacita" #fechaCitas>
-                        <app-modal-citas-taller></app-modal-citas-taller>
+                        
                         <button class="btn btn-sm btnEdit2 p-2" data-toggle="modal" data-target="#anyadirCita">Añadir Cita</button>
+                        
                     </div>
                 </div>
             </div>
-
+            <div class="sinCitas" *ngIf="citas == ''">
+                No hay citas disponibles
+            </div>
             <div class="d-flex justify-content-center row mt-4">
                 <div *ngFor="let cita of citas" class="col-10 col-md-10 col-sm-12">
                     <input id="fechaFormateada" #fechaFormateada value="{{cita.fecha | date: 'yyyy-MM-dd'}}">
@@ -106,6 +260,9 @@
                             <div class="align-self-center col-md-2">
                                 <div class="d-flex flex-column align-items-center botones">
                                     <button class="btn btnEdit btn-sm p-2" data-toggle="modal" data-target="#modificarCita" on-click="prueba(cita.fecha, cita.hora); capturar(cita.id_reservas)">Modificar cita</button>
+                                    
+                                    
+                                    
                                     <button class="btn btn-danger btn-sm mt-3 p-2" type="button" data-toggle="modal" data-target="#cancelarTaller" on-click="capturar(cita.id_reservas)">Cancelar cita</button>
                                     <div class="modal fade" id="cancelarTaller" tabindex="-1" role="dialog" aria-labelledby="cancelarTaller" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -118,7 +275,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btnEdit" data-dismiss="modal">No</button>
-                                                    <button type="button" class="btn btn-danger" on-click="borrarCitasTaller()" data-dismiss="modal">Cancelar cita</button>
+                                                    <button type="submit" class="btn btn-danger" on-click="borrarCitasTaller()" data-dismiss="modal">Cancelar cita</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -166,7 +323,7 @@
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btnEdit" data-dismiss="modal">No</button>
-                                                        <button type="button" class="btn btn-danger" on-click="borrarCitasTaller()" data-dismiss="modal">Cancelar cita</button>
+                                                        <button type="submit" class="btn btn-danger" on-click="borrarCitasTaller()" data-dismiss="modal">Cancelar cita</button>
                                                     </div>
                                                 </div>
                                             </div>

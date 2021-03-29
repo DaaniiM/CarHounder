@@ -15,7 +15,10 @@ export class ModalCitasComponent implements OnInit {
   public servicios: any[];
   public serviciosCitas: string[];
   public AServicios: string;
-  public horas: string[]
+  public horasReservadas: any[];
+  public horas: any[];
+  public fechaFiltrada: any;
+  public mostrarHoras:any[];
  
 
   constructor(private carApiService: CarApiService) {
@@ -23,15 +26,42 @@ export class ModalCitasComponent implements OnInit {
     this.taller = carApiService.taller;
     this.serviciosCitas = [];
     this.AServicios;
+    this.fechaFiltrada;
+    this.horas = ["9:00", "9:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "14:00",
+                  "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00"];
+    this.mostrarHoras = [];
 
   }
 
-  public detallesServicios() {
+  public filtrarHoras(){
+    console.log("entra en el método filtrarhoras");
+    console.log(this.carApiService.horasReservadas);
+    let i;
+    for(i=0; i<this.horas.length; i++){
+      for(i=0; i<this.carApiService.horasReservadas.length; i++){
+        if(this.horas[i] != this.carApiService.horasReservadas[i]){
+          this.mostrarHoras.push(this.horas[i]);
+        }
+      }
+    }
+    console.log(this.mostrarHoras);
+    return this.mostrarHoras;
+    
+    // for(let hora of this.horas){
+    //   for (let horaReservada of this.horasReservadas){
+    //     if(hora != horaReservada.hora){
+    //       this.mostrarHoras.push(hora)
+    //     }
+    //   }
+    // }
+    
+  }
 
+
+  public detallesServicios() {
 
     this.carApiService.buscarServicios().subscribe((data: any[]) => {
       this.servicios = data
-
       console.log(this.servicios)
     })
   }
@@ -73,6 +103,8 @@ export class ModalCitasComponent implements OnInit {
   }
 
   public pedirCita(fecha: string, hora: string) {
+    console.log(fecha);
+    
     console.log(this.carApiService.taller)
     console.log(this.carApiService.clienteLogin);
 
@@ -91,6 +123,7 @@ export class ModalCitasComponent implements OnInit {
     })
   };
 
+
 public calendario(){
   var today: any = new Date();
   var dd: any = today.getDate()+1;
@@ -107,12 +140,12 @@ public calendario(){
   document.getElementById("fecha").setAttribute("min", today);
 };
 
-  public filtrarHoras(){
-    this.carApiService.mostrarHoras(this.carApiService.taller.id_taller).subscribe((data: any[]) => {
-      this.horas = data;
-      console.log(data)
-    })
-  }
+  // public mostrarHorasReservadas(){
+  //   this.carApiService.mostrarHoras(this.carApiService.taller.id_taller).subscribe((data: any[]) => {
+  //     this.horasReservadas = data;
+  //     console.log(data)
+  //   })
+  // }
 
   ngOnInit(): void {
     this.detallesServicios()

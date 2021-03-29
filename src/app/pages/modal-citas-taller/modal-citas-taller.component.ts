@@ -16,10 +16,11 @@ export class ModalCitasTallerComponent implements OnInit {
   public serviciosCitas: string[];
   public AServicios: string;
   public IdclienteNuevo: any;
-
+  
   public nombreP: string;
   public fechaP: string;
   public horaP: string;
+  public horas: string[]
 
   constructor(public carApiService: CarApiService, private _router: Router) {
 
@@ -117,9 +118,6 @@ export class ModalCitasTallerComponent implements OnInit {
     })
   }
   
-  public prueba(nombre, fecha, hora){
-    console.log(nombre, fecha, hora)
-  }
 
   public modificarCita(fecha:any, hora: string){
     this.AServicios = this.serviciosCitas.toString();
@@ -128,13 +126,23 @@ export class ModalCitasTallerComponent implements OnInit {
       if (data != "-1") {
         console.log(data)
         console.log("Error al pedir la cita");
-        
+        this._router.navigateByUrl('/perfilUsuario', { skipLocationChange: true });
+        this._router.navigate(["/citas"]);
         
       }
       else {
         console.log(data)
         console.log("Cita reservada con éxito");
+        this._router.navigateByUrl('/perfilUsuario', { skipLocationChange: true });
+        this._router.navigate(["/citas"]);    
       }
+    })
+  }
+
+  public horasReservadas(){
+    this.carApiService.mostrarHoras(this.carApiService.tallerLogin.id_taller).subscribe((data:string[]) => {
+      this.horas = data;
+      console.log(data)
     })
   }
 
@@ -160,7 +168,7 @@ export class ModalCitasTallerComponent implements OnInit {
 
     this.calendario();
 
-    
+    this.horasReservadas();
 
     
     
