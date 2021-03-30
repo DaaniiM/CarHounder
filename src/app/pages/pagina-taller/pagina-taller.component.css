@@ -28,6 +28,11 @@
 
 }
 
+#tarjetaRes{
+
+    margin-bottom: 20px;
+}
+
 #all1{
 
         width: 100%; 
@@ -36,6 +41,7 @@
         justify-content: center;
         align-items: center;
         padding-bottom: 100px;
+        
     
     
         
@@ -49,6 +55,21 @@
 
 }
 
+#fondoResenya{
+
+    background-color: #F1F1F2;
+}
+
+
+.imagenCab{
+
+    display: block;
+    width: auto;
+    height: auto;
+    margin: auto;
+    position: relative;
+
+} 
 
 button{
 

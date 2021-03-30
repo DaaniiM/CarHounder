@@ -21,9 +21,9 @@ export class ModalesComponent implements OnInit {
 
 
   
- public agregarUsuario(email:string, password:string, nombre:string, apellidos:string, telefono:string, foto:string){
+ public agregarUsuario(email:string, password:string, nombre:string, apellidos:string, telefono:string){
 
-  this.apiService.registrarCliente(new Usuario(0,email,password,nombre,apellidos,Number(telefono),foto)).subscribe((data:any) =>{
+  this.apiService.registrarCliente(new Usuario(0,email,password,nombre,apellidos,Number(telefono),"assets/img/fotoFondos/usuario.png")).subscribe((data:any) =>{
     console.log(data);
     if(data!="-1")
       console.log("Se anadio el usuario: " + data);
@@ -58,9 +58,9 @@ export class ModalesComponent implements OnInit {
     
 // }
 
-public agregarTaller(email:string, password:string, nombre:string, cif:string, direccion:string, cp:string, ciudad:string, provincia:string, telefono:string, foto:string){
+public agregarTaller(email:string, password:string, nombre:string, cif:string, direccion:string, cp:string, ciudad:string, provincia:string, telefono:string){
 
-  this.apiService.registrarTaller(new Taller(0,email,password,nombre,cif,direccion,Number(cp),ciudad,provincia,Number(telefono),foto)).subscribe((data:any) =>{
+  this.apiService.registrarTaller(new Taller(0,email,password,nombre,cif,direccion,Number(cp),ciudad,provincia,Number(telefono),"../../assets/img/fotoFondos/perfilTaller.jpg")).subscribe((data:any) =>{
     console.log(data);
     if(data!="-1"){
       console.log("Se anadio el taller " + data);
@@ -97,7 +97,7 @@ public agregarTaller(email:string, password:string, nombre:string, cif:string, d
 
 public loguearPagina(email:string,password:string){
 
-  this.apiService.loguearse(new Login(email,password,"")).subscribe((data:any) =>{
+  this.apiService.loguearse(new Login(email,password)).subscribe((data:any) =>{
     if(data!="-1" && data.length != 0){
       console.log(data);
       this.apiService.login = data[0];

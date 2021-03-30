@@ -9,6 +9,8 @@ import { Servicio } from '../modules/servicio';
 import { Taller } from '../modules/taller';
 import { TalleresServicios } from '../modules/talleres-servicios';
 import { Usuario } from '../modules/usuario';
+import { ResClientes } from '../modules/res-clientes';
+import { FiltarServicios } from '../modules/filtar-servicios';
 
 @Injectable({
   providedIn: 'root'
@@ -60,12 +62,17 @@ export class CarApiService {
 
   private url189="http://localhost:300/favoritos"
   private url289="http://localhost:300/favoritos?id_cliente="
+  private url280="http://localhost:300/resenyas"
+  private url281="http://localhost:300/resenyasTaller?id_taller="
+  private url282="http://localhost:300/ultimasResenyas"
+  private url283="http://localhost:300/filtrarPorServicio"
+  private url284="http://localhost:300/filtrarPorPuntuacion?puntuacion="
   
 
 
   public talleres:Taller[];
   public servicios:any[];
-  public taller: Taller;
+  public taller: any;
   public login: any;
   public tallerLogin: Taller;
   public clienteLogin:any;
@@ -73,6 +80,7 @@ export class CarApiService {
   public ofertaTaller:any;
   public chat: Chat;
   public favoritosCliente:any[];
+  public cpTalleresFiltros:number = 0;
   
   constructor(private http:HttpClient) { }
   
@@ -210,5 +218,38 @@ export class CarApiService {
     return this.http.delete(this.url289 + id_cliente + "&id_taller=" + id_taller) 
   }
   
+  
+  public postResenya(ResClientes:ResClientes){
+    return this.http.post(this.url280, ResClientes);
+  }
+
+  public resenyaTaller(id_taller:number){
+
+    return this.http.get(this.url281 + id_taller);
+
+  }
+
+  public ultimasResenyas(){
+
+    return this.http.get(this.url282);
+
+  }
+  
+  public filtrarPorServicio(FiltarServicios:FiltarServicios){
+
+    return this.http.post(this.url283,FiltarServicios)
+  }
+
+  public filtrarPorPuntuacion(puntuacion:number){
+
+    return this.http.get(this.url284 + puntuacion);
+
+  }
+
+  public filtrarPorPuntuacionCp(puntuacion:number,cp:number){
+
+    return this.http.get(this.url284 + puntuacion + "&cp=" + cp);
+
+  }
 
 }

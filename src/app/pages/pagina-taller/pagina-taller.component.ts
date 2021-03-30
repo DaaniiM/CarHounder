@@ -16,6 +16,7 @@ export class PaginaTallerComponent implements OnInit {
   public servicios: any[];
   public oferta: Oferta;
   public alert1: boolean;
+  public resenyas:any;
 
   constructor(public carApiService:CarApiService,  private _router: Router) {
 
@@ -61,9 +62,22 @@ export class PaginaTallerComponent implements OnInit {
     });
   }
 
+  public resenyasTaller(id_taller:number){
+    this.carApiService.resenyaTaller(id_taller).subscribe((data:any[]) => {
+      this.resenyas=data
+      console.log(this.resenyas)
+    })
+  }
+
+
+
+
+
+
   ngOnInit(): void {
     this.detallesServicios()
     this.ofertas(this.taller.id_taller)
+    this.resenyasTaller(this.taller.id_taller)
   }
 
 }

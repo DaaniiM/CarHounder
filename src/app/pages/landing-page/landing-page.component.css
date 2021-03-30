@@ -319,7 +319,13 @@ ul {
    }
 } 
 
+@media screen and ( max-width: 1300px ){
 
+    #parteAbajo{
+        display: none;
+    }
+
+}
 
 @media screen and ( max-width: 850px ){
 
