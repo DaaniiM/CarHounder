@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Chat } from 'src/app/modules/chat';
+import { Cita } from 'src/app/modules/cita';
 import { Oferta } from 'src/app/modules/oferta';
 import { Taller } from 'src/app/modules/taller';
 import { CarApiService } from 'src/app/shared/car-api.service';
@@ -19,12 +20,20 @@ export class PaginaTallerComponent implements OnInit {
   public rol = this.carApiService.login.rol;
   public chatReaparecer:number;
   public resenyas:any;
+  public cita: Cita;
+  public mostrarHoras: any;
+  public horas: any[];
+
+  
 
   constructor(public carApiService:CarApiService,  private _router: Router) {
 
     this.taller = carApiService.taller;
     this.alert1 = true;
 
+    this.horas = ["9:00", "9:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00",
+                  "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00"];
+    this.mostrarHoras = [];
    }
 
    public detallesServicios() {
@@ -88,6 +97,40 @@ export class PaginaTallerComponent implements OnInit {
       console.log(this.resenyas)
     })
   }
+
+  // public mostrarHorasReservadas(){
+  //   this.carApiService.mostrarHoras(this.carApiService.taller.id_taller).subscribe((data: any[]) => {
+  //     this.carApiService.horasReservadas = data;
+  //     console.log(data)
+  //   })
+  // }
+
+  // public filtrarHoras(){
+  //   console.log("entra en el método filtrarhoras");
+  //   console.log(this.carApiService.horasReservadas);
+  //   console.log(this.carApiService.fechaFiltrada);
+    
+    
+  //   for (let i = 0; i < this.horas.length; i++) {
+  //     // we want to know if a[i] is found in b
+  //     let match = false; // we haven't found it yet
+  //     for (let j = 0; j < this.carApiService.horasReservadas.length; j++) {
+  //         if (this.horas[i] == this.carApiService.horasReservadas[j].hora && this.carApiService.fechaFiltrada == this.carApiService.horasReservadas[j].fecha) {
+  //             // we have found a[i] in b, so we can stop searching
+  //             match = true;
+  //             break;
+  //         }
+  //         // if we never find a[i] in b, the for loop will simply end,
+  //         // and match will remain false
+  //     }
+  //     // add a[i] to newArray only if we didn't find a match.
+  //     if (!match) {
+  //         this.mostrarHoras.push(this.horas[i]);
+  //     }
+  // }
+  //   this.carApiService.horasFiltradas = this.mostrarHoras;
+  //   console.log(this.mostrarHoras);
+  // }
 
 
 

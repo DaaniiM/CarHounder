@@ -32,7 +32,13 @@ span{
     font-weight: 300;
 }
 
-label{
+/* .modal label{
+    color: black;
+    font-weight: 400;
+    font-size: 18px;
+} */
+
+.container label{
     color: #F1F1F2;
     font-weight: 600;
     font-size: 20px;
@@ -69,12 +75,43 @@ label{
     font-size: 20px;
 }
 
+.boton1{
 
+    background-color: #0466C8;
+    color: #F1F1F2;
+    
+}
 
 .bordeTarjeta{
     border-right-color: #e4e1e1;
     border-right-style:solid;
     border-right-width: 1px;
+}
+
+.icono {
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+
+}
+
+#iconosService{
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+#fechaFormateada{
+    display: none;
+}
+
+.sinCitas{
+    text-align: center;
+    color: #F1F1F2;
+    font-size: 50px;
+    margin-top: 40px;
 }
 
 

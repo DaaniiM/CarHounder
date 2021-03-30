@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Chat } from '../modules/chat';
 import { FavoritosCliente } from '../modules/favoritos-cliente';
+import { Cita } from '../modules/cita';
 import { Login } from '../modules/login';
 import { Oferta } from '../modules/oferta';
 import { Mensaje } from '../modules/mensaje';
@@ -11,6 +12,9 @@ import { TalleresServicios } from '../modules/talleres-servicios';
 import { Usuario } from '../modules/usuario';
 import { ResClientes } from '../modules/res-clientes';
 import { FiltarServicios } from '../modules/filtar-servicios';
+
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -45,6 +49,8 @@ export class CarApiService {
   // private url283= "https://api-rest-carhounder.herokuapp.com/filtrarPorServicio"
   // private url284= "https://api-rest-carhounder.herokuapp.com/filtrarPorPuntuacion?puntuacion="
   
+  // private url18 = "https://api-rest-carhounder.herokuapp.com/citas";
+  // private url21 = "https://api-rest-carhounder.herokuapp.com/citas?id="
 
   private url ="http://localhost:300";
   private url1 = "http://localhost:300/talleres?cp=" ;
@@ -79,6 +85,15 @@ export class CarApiService {
   private url283="http://localhost:300/filtrarPorServicio"
   private url284="http://localhost:300/filtrarPorPuntuacion?puntuacion="
   
+  private url18 = "http://localhost:300/citas/cliente";
+  private url21 = "http://localhost:300/citas?id="
+  private url25 = "http://localhost:300/citas/cliente?id_cliente=";
+  private url45 = "http://localhost:300/citas/taller?id_taller=";
+  private url38 = "http://localhost:300/citas/cliente?id_cliente=";
+  private url39 = "http://localhost:300/citas/taller?id_taller=";
+  private url59 = "http://localhost:300/citas/clienteNuevo?nombre=";
+  private url89 = "http://localhost:300/citas/taller"
+  private url90 = "http://localhost:300/citas/horas?id_taller="
 
 
   public talleres:Taller[];
@@ -93,8 +108,27 @@ export class CarApiService {
   public favoritosCliente:any[];
   public cpTalleresFiltros:number = 0;
   
-  constructor(private http:HttpClient) { }
   
+  
+  public citaCliente:any;
+  public citaTaller:any;
+
+  public nombreP: string;
+  public fechaP: string;
+  public horaP: string;
+  public idReserva: number;
+
+  public horasReservadas:any[]
+  public horasFiltradas: any[]
+ 
+
+  
+  // public modalCita:CitasComponent
+
+  constructor(private http:HttpClient) { }
+
+
+
   public buscarTalleres(cp:number) {
     console.log(this.talleres)
     console.log(cp)
@@ -265,6 +299,45 @@ export class CarApiService {
 
     return this.http.get(this.url284 + puntuacion + "&cp=" + cp);
 
+  }
+
+  public pedirCita(cita:Cita){
+    return this.http.post(this.url18, cita)
+  }
+
+  public mostrarCitaCliente(id:number){
+
+    return this.http.get(this.url38 + id)
+  }
+
+  public mostrarCitaTaller(id:number){
+
+    return this.http.get(this.url39 + id)
+  }
+
+  public borrarCitaCliente(id_cliente:number, id_reservas:number){
+
+    return this.http.delete(this.url25 + id_cliente + "&id_reservas=" + id_reservas)
+  }
+
+  public borrarCitaTaller(id_taller:number, id_reservas:number){
+
+    return this.http.delete(this.url45 + id_taller + "&id_reservas=" + id_reservas)
+  }
+
+  public mostrarClienteNuevo(nombre: string, telefono:number){
+
+    return this.http.get(this.url59 + nombre + "&telefono=" + telefono)
+  }
+
+  public modificarCita(cita: Cita){
+
+    return this.http.put(this.url89, cita)
+  }
+
+  public mostrarHoras(idTaller: number){
+
+    return this.http.get(this.url90 + idTaller)
   }
 
 }
