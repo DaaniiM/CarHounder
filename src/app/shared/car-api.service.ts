@@ -338,6 +338,10 @@ export class CarApiService {
   public mostrarHoras(idTaller: number){
 
     return this.http.get(this.url90 + idTaller)
+
+  }
+  public contacto(json) {
+    return this.http.post(this.url + "/contacto", json)
   }
 
 }

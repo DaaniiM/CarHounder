@@ -84,6 +84,94 @@ textarea{
 
 }
 
+
+/* TOAST -----------------*/
+.notify {
+  /* defaults */
+  --notify-error: #eb5757;
+  --notify-success: #6fcf97;
+  --notify-warning: #f2c94c;
+  --notify-gray: #333333;
+  --notify-gray-2: #4d4d4d;
+  --notify-gray-3: #828282;
+  --notify-white: #fff;
+  --notify-white-2: rgba(255, 255, 255, 0.8);
+  --notify-padding: 0.75rem;
+  --notify-icon-size: 32px;
+  --notify-close-icon-size: 16px;
+  
+}
+
+
+.toast-header{
+    padding: 12px;
+    color: #f1f1f2;
+    backdrop-filter: none;
+    border-radius: 5px;
+    background-color: #0466C8;
+  
+}
+
+#mitoast {
+    visibility: hidden;
+    position: fixed;
+    z-index: 1;
+    /* right: 300px;
+    top: 16px%; */
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 5px;
+    /* box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,.1); */
+    /* max-width: 310px; */
+    width: 335px;
+    /* background-color: #ffffff; */
+    opacity: 1;
+
+
+  }
+   
+  #mitoast.mostrar {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 4.6s;
+    animation: fadein 0.5s, fadeout 0.5s 4.6s;
+  }
+   
+  @-webkit-keyframes fadein {
+    from {opacity: 0;} 
+    to { opacity: 1;}
+  }
+   
+  @keyframes fadein {
+    from { opacity: 0;}
+    to { opacity: 1;}
+  }
+   
+  @-webkit-keyframes fadeout {
+    from { opacity: 1;} 
+    to { opacity: 0;}
+  }
+   
+  @keyframes fadeout {
+    from {opacity: 1;}
+    to {opacity: 0;}
+  }
+
+  #mitoast.cerrar {
+    /* visibility: visible; */
+    -webkit-animation: fadeout 0.5s 4.8s;
+    animation: fadeout 0.5s 4.8s;
+  }
+   
+  @-webkit-keyframes fadeout {
+    from {opacity: 1;} 
+    to {opacity: 0;}
+  }
+   
+  @keyframes fadeout {
+    from { opacity: 1;}
+    to {opacity: 0;}
+  }
+
+/* --------MEDIA QUERY-------------------- */
 @media screen and (min-height: 1020px){
 
     #all{
@@ -99,3 +187,6 @@ textarea{
 
     }
 }
+
+
+

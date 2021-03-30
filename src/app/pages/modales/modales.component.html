@@ -26,12 +26,65 @@
                         <!-- Modal registro taller -->
                         <div class="modal fade" id="registroTaller" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Regístrate</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Regístrate</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="form-group">
+                                            <label>Email</label>
+                                            <input #email1 type="email" class="form-control" id="emailTaller" aria-describedby="emailHelp" required placeholder="Introduzca email">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Nombre</label>
+                                                <input #nombre1 class="form-control" type="text" placeholder="Introduzca nombre" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>CIF</label>
+                                                <input #cif1 class="form-control" type="text" placeholder="Introduzca CIF" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Dirección</label>
+                                                <input #direccion1 class="form-control" type="text" placeholder="Introduzca dirección" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Código postal</label>
+                                                <input #cp1 class="form-control" type="number" placeholder="Introduzca código postal" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Ciudad</label>
+                                                <input #ciudad1 class="form-control" type="text" placeholder="Introduzca ciudad" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Provincia</label>
+                                                <input #provincia1 class="form-control" type="text" placeholder="Introduzca provincia" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Teléfono</label>
+                                                <input #telefono1 class="form-control" type="number" placeholder="Introduzca teléfono" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Contraseña</label>
+                                                <input #password1 type="password" class="form-control" id="contTaller1" placeholder="Introduzca contraseña" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Repita la contraseña</label>
+                                                <input  type="password" class="form-control" id="contTaller2" placeholder="Repita la contraseña" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Foto perfil</label>
+                                                <input #foto1 class="form-control" type="file" placeholder="Introduzca foto perfil">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn boton1" data-dismiss="modal" on-click="agregarTaller(email1.value,password1.value,nombre1.value,cif1.value,direccion1.value,cp1.value,ciudad1.value,provincia1.value,telefono1.value,foto1.value)">Registrarse</button>
+                                                <button type="button" class="btn boton2" data-dismiss="modal">Cerrar</button>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
                                 <div class="modal-body">
                                     <form>
@@ -129,7 +182,6 @@
                                       </form>
                                 </div>
                             </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -143,29 +195,29 @@
     <!-- Modal Inicio Sesión-->
     <div class="modal fade" id="iniciarSesion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Iniciar sesión</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Iniciar sesión</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                        <label>Email</label>
+                        <input #email2 type="email" class="form-control" id="emailInicio" aria-describedby="emailHelp" placeholder="Introduzca su email" required>
+                        </div>
+                        <div class="form-group">
+                        <label for="exampleInputPassword1">Contraseña</label>
+                        <input #password2 type="password" class="form-control" id="contInicio" placeholder="Introduzca su contraseña" required>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn boton1" on-click="loguearPagina(email2.value,password2.value)" data-dismiss="modal" >Iniciar sesión</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                      <label>Email</label>
-                      <input #email2 type="email" class="form-control" id="emailInicio" aria-describedby="emailHelp" placeholder="Introduzca su email" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">Contraseña</label>
-                      <input #password2 type="password" class="form-control" id="contInicio" placeholder="Introduzca su contraseña" required>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn boton1" on-click="loguearPagina(email2.value,password2.value)" data-dismiss="modal" >Iniciar sesión</button>
-                    </div>
-                </form>
-            </div>
-        </div>
         </div>
     </div>
 </div>
