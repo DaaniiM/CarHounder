@@ -8,7 +8,7 @@
         <div class="modal-content">
             <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLongTitle">Añadir cita</h5>
-            <button type="button" class="close btn" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close btn" data-dismiss="modal" aria-label="Close" on-click="mostrarHorasReservadas()">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
@@ -28,13 +28,18 @@
                     </div>
                     <div class="form-group">
                       <label>Fecha</label>
-                      <input type="date" class="form-control" id="fechaA" #fechaA>
+                      <input type="date" class="form-control" id="fechaA" [(ngModel)]="fechaFiltrada" [ngModelOptions]="{standalone: true}" #fechaA>
                     </div>
+                    <button type="button" class="btn btn-sm boton1 actualizar" on-click="actualizarHoras()">Actualizar horas</button>
+                    <br>
                     <br>
                     <div class="form-group">
                         <label for="hora">Hora</label>
                         <select class="form-control" id="horaA" #horaA>
-                          <option>09:00</option>
+                            <option *ngFor="let hora of mostrarHoras">
+                                {{hora}}
+                            </option>
+                          <!-- <option>09:00</option>
                           <option>09:30</option>
                           <option>10:00</option>
                           <option>10:30</option>
@@ -53,7 +58,7 @@
                           <option>18:30</option>
                           <option>19:00</option>
                           <option>19:30</option>
-                          <option>20:00</option>
+                          <option>20:00</option> -->
                         </select>
                     </div>
                     <br>
@@ -89,7 +94,7 @@
                                         <div class="modal-content">
                                             <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLongTitle">Modificar cita</h5>
-                                            <button type="button" class="close btn" data-dismiss="modal" aria-label="Close">
+                                            <button type="button" class="close btn" data-dismiss="modal" aria-label="Close" on-click="mostrarHorasReservadas()">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                             </div>
@@ -97,13 +102,18 @@
                                                 <form>
                                                     <div class="form-group">
                                                       <label>Fecha</label>
-                                                      <input type="date" class="form-control" id="fechaM" value="{{carApiService.fechaP | date: 'dd/MM/yyyy'}}" #fechaM>
+                                                      <input type="date" class="form-control" id="fechaM" value="{{carApiService.fechaP | date: 'dd/MM/yyyy'}}" [(ngModel)]="fechaFiltrada" [ngModelOptions]="{standalone: true}" #fechaM>
                                                     </div>
+                                                    <button type="button" class="btn btn-sm boton1 actualizar" on-click="actualizarHoras()">Actualizar horas</button>
+                                                    <br>
                                                     <br>
                                                     <div class="form-group">
                                                         <label for="hora">Hora</label>
                                                         <select class="form-control" id="hora" value="{{carApiService.horaP}}" #horaM>
-                                                          <option>09:00</option>
+                                                            <option *ngFor="let hora of mostrarHoras">
+                                                                {{hora}}
+                                                            </option>
+                                                          <!-- <option>09:00</option>
                                                           <option>09:30</option>
                                                           <option>10:00</option>
                                                           <option>10:30</option>
@@ -122,7 +132,7 @@
                                                           <option>18:30</option>
                                                           <option>19:00</option>
                                                           <option>19:30</option>
-                                                          <option>20:00</option>
+                                                          <option>20:00</option> -->
                                                         </select>
                                                     </div>
                                                     <br>
