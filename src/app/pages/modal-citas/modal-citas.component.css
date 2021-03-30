@@ -4,6 +4,7 @@
     background-color: #0466C8;
     color: #F1F1F2;
     
+    
 }
 
 .disabled{
@@ -12,5 +13,9 @@
 
 .nodisabled{
     pointer-events: visible;
+}
+
+.actualizar{
+    margin-bottom: 20px;
 }
 

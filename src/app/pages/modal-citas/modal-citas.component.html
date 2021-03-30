@@ -14,13 +14,15 @@
             <form>
                 <div class="form-group">
                   <label>Fecha</label>
-                  <input type="date" class="form-control" id="fecha" [(ngModel)]="fechaFiltrada" #fecha>
+                  <input type="date" class="form-control" id="fecha" [(ngModel)]="fechaFiltrada" [ngModelOptions]="{standalone: true}" #fecha>
                 </div>
                 {{fechaFiltrada}}
                 <br>
+                <button type="button" class="btn btn-sm boton1 actualizar" on-click="actualizarHoras()">Actualizar horas</button>
+                <br>
                 <div class="form-group">
                     <label for="hora">Hora</label>
-                    <select class="form-control" id="hora" #hora>
+                    <select class="form-control" id="horaMod" #horaMod>
                         <option *ngFor="let hora of mostrarHoras">
                           {{hora}}
                         </option>
@@ -128,7 +130,7 @@
                   </div>
 
                 <div class="modal-footer text-align-center">
-                <button type="button" class="btn boton1"  on-click="pedirCita(fecha.value, hora.value)" data-dismiss="modal">Confirmar cita</button>
+                <button type="button" class="btn boton1"  on-click="pedirCita(fecha.value, horaMod.value)" data-dismiss="modal">Confirmar cita</button>
                 </div>
             </form>
         </div>

@@ -74,6 +74,8 @@ export class CarApiService {
   public idReserva: number;
 
   public horasReservadas:any[]
+  public horasFiltradas: any[]
+ 
 
   
   // public modalCita:CitasComponent

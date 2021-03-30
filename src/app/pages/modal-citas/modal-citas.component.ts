@@ -19,42 +19,23 @@ export class ModalCitasComponent implements OnInit {
   public horas: any[];
   public fechaFiltrada: any;
   public mostrarHoras:any[];
+  
+  public clicked: boolean;
  
 
-  constructor(private carApiService: CarApiService) {
+  constructor(public carApiService: CarApiService) {
 
     this.taller = carApiService.taller;
     this.serviciosCitas = [];
     this.AServicios;
     this.fechaFiltrada;
-    this.horas = ["9:00", "9:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "14:00",
+    this.horas = ["9:00", "9:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00",
                   "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00"];
+    this.horasReservadas;
     this.mostrarHoras = [];
 
-  }
+    this.clicked = false;
 
-  public filtrarHoras(){
-    console.log("entra en el método filtrarhoras");
-    console.log(this.carApiService.horasReservadas);
-    let i;
-    for(i=0; i<this.horas.length; i++){
-      for(i=0; i<this.carApiService.horasReservadas.length; i++){
-        if(this.horas[i] != this.carApiService.horasReservadas[i]){
-          this.mostrarHoras.push(this.horas[i]);
-        }
-      }
-    }
-    console.log(this.mostrarHoras);
-    return this.mostrarHoras;
-    
-    // for(let hora of this.horas){
-    //   for (let horaReservada of this.horasReservadas){
-    //     if(hora != horaReservada.hora){
-    //       this.mostrarHoras.push(hora)
-    //     }
-    //   }
-    // }
-    
   }
 
 
@@ -140,17 +121,40 @@ public calendario(){
   document.getElementById("fecha").setAttribute("min", today);
 };
 
-  // public mostrarHorasReservadas(){
-  //   this.carApiService.mostrarHoras(this.carApiService.taller.id_taller).subscribe((data: any[]) => {
-  //     this.horasReservadas = data;
-  //     console.log(data)
-  //   })
-  // }
+public mostrarHorasReservadas(){
+  this.carApiService.mostrarHoras(this.carApiService.taller.id_taller).subscribe((data: any[]) => {
+    this.horasReservadas = data;
+    console.log(data)
+  })
+}
+
+  public actualizarHoras(){
+    this.mostrarHoras = []
+    for (let i = 0; i < this.horas.length; i++) {
+      let match = false;
+      for (let j = 0; j < this.horasReservadas.length; j++) {
+          if (this.horas[i] == this.horasReservadas[j].hora && this.fechaFiltrada == this.horasReservadas[j].fecha) {
+              match = true;
+              break;
+          }
+      }
+      if (!match) {
+          this.mostrarHoras.push(this.horas[i]);
+      }
+    }
+    console.log(this.horasReservadas[0].fecha)
+    console.log(this.mostrarHoras)
+    console.log(this.fechaFiltrada)
+  }
 
   ngOnInit(): void {
     this.detallesServicios()
 
     this.calendario();
+
+    this.mostrarHorasReservadas();
+
+    console.log(this.carApiService.horasFiltradas)
   }
 
 }
