@@ -81,9 +81,7 @@ span{
     color: #F1F1F2;
 }
 
-.botonCambio:focus{
-    background-color: #001233;
-}
+
 
 .bordeTarjeta{
     border-right-color: #e4e1e1;
@@ -116,7 +114,6 @@ span{
     font-size: 50px;
     margin-top: 40px;
 }
-
 
 
 
