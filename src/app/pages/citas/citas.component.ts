@@ -29,7 +29,9 @@ export class CitasComponent implements OnInit {
   public horaP: string;
   public horas: any[]
   public horasRes: any[]
-  public fechaFiltro: any;
+  public mostrarHoras: any[];
+  public fechaFiltrada: any;
+
 
   constructor(public carApiService:CarApiService, private _router: Router) { 
 
@@ -41,9 +43,10 @@ export class CitasComponent implements OnInit {
     this.AServicios;
     this.IdclienteNuevo = null;
 
-    this.fechaFiltro;
-    this.horas=["9:00", "9:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00",
+    this.fechaFiltrada;
+    this.horas=["09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00",
                 "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00"]
+    this.mostrarHoras = [];
   }
 
 
@@ -173,23 +176,32 @@ export class CitasComponent implements OnInit {
   //   })
   // }
 
-  public registrarCliente(nombre: string, apellidos: string, telefono: string){
-    this.carApiService.registrarCliente(new Usuario(0, null, null, nombre, apellidos, Number(telefono), null)).subscribe((data:any) =>{
+  public registrarCliente(nombre: string, apellidos: string, telefono: string, fecha: string, hora: string){
+    this.carApiService.registrarCliente(new Usuario(0, null, "1", nombre, apellidos, Number(telefono), null)).subscribe((data:any) =>{
       console.log(data);
-      this.IdclienteNuevo = data;
+      // this.IdclienteNuevo = data;
       if(data!="-1"){
         console.log("Se anadio el cliente: " + data);
+        this.AServicios = this.serviciosCitas.toString();
+    // console.log(this.IdclienteNuevo)
+    this.carApiService.pedirCita(new Cita(this.AServicios, fecha, hora, this.carApiService.tallerLogin.id_taller, data)).subscribe((data: any) => {
+      if (data != "-1") {
+        console.log(data)
+        alert("Error al pedir la cita");
+        this.ngOnInit();
+      }
+      else {
+        // this.IdclienteNuevo = null;
+        console.log(data)
+        alert("Cita reservada con éxito");
+        this.ngOnInit();
+      }
+    })
       }
       else{
         console.log("Error al insertar el cliente")
       }
     })
-
-    // this.carApiService.mostrarClienteNuevo(nombre, Number(telefono)).subscribe((data:any) =>{
-    //   this.IdclienteNuevo = data;
-    //   console.log(data);
-      
-    // })
   }
 
   public anyadirCita(fecha:string, hora:string){
@@ -231,13 +243,6 @@ export class CitasComponent implements OnInit {
     })
   }
 
-  public horasReservadas(){
-    this.carApiService.mostrarHoras(this.carApiService.tallerLogin.id_taller).subscribe((data:string[]) => {
-      this.horasRes = data;
-      console.log(data)
-    })
-  }
-
   public calendarioM(){
     var today: any = new Date();
     var dd: any = today.getDate()+1;
@@ -270,6 +275,34 @@ export class CitasComponent implements OnInit {
     document.getElementById("fechaA").setAttribute("min", today);
   }
 
+  public mostrarHorasReservadas(){
+    this.carApiService.mostrarHoras(this.carApiService.tallerLogin.id_taller).subscribe((data: any[]) => {
+      this.carApiService.horasReservadas = data;
+      console.log(data)
+    })
+  }
+
+  public actualizarHoras(){
+    this.mostrarHoras = []
+    for (let i = 0; i < this.horas.length; i++) {
+      let match = false;
+      for (let j = 0; j < this.carApiService.horasReservadas.length; j++) {
+          if (this.horas[i] == this.carApiService.horasReservadas[j].hora && this.fechaFiltrada == this.carApiService.horasReservadas[j].fecha) {
+              match = true;
+              break;
+          }
+      }
+      if (!match) {
+          this.mostrarHoras.push(this.horas[i]);
+      }
+    }
+    console.log(this.carApiService.horasReservadas[0].fecha)
+    console.log(this.mostrarHoras)
+    console.log(this.fechaFiltrada)
+  }
+
+
+
   
 
 
@@ -297,7 +330,7 @@ export class CitasComponent implements OnInit {
     this.calendarioM();
     this.calendarioA();
 
-    this.horasReservadas();
+    this.mostrarHorasReservadas();
     
     
   }

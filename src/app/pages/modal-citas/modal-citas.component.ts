@@ -15,7 +15,6 @@ export class ModalCitasComponent implements OnInit {
   public servicios: any[];
   public serviciosCitas: string[];
   public AServicios: string;
-  public horasReservadas: any[];
   public horas: any[];
   public fechaFiltrada: any;
   public mostrarHoras:any[];
@@ -29,11 +28,10 @@ export class ModalCitasComponent implements OnInit {
     this.serviciosCitas = [];
     this.AServicios;
     this.fechaFiltrada;
-    this.horas = ["9:00", "9:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00",
+    this.horas = ["09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00",
                   "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00"];
-    this.horasReservadas;
+    
     this.mostrarHoras = [];
-
     this.clicked = false;
 
   }
@@ -123,7 +121,7 @@ public calendario(){
 
 public mostrarHorasReservadas(){
   this.carApiService.mostrarHoras(this.carApiService.taller.id_taller).subscribe((data: any[]) => {
-    this.horasReservadas = data;
+    this.carApiService.horasReservadas = data;
     console.log(data)
   })
 }
@@ -132,8 +130,8 @@ public mostrarHorasReservadas(){
     this.mostrarHoras = []
     for (let i = 0; i < this.horas.length; i++) {
       let match = false;
-      for (let j = 0; j < this.horasReservadas.length; j++) {
-          if (this.horas[i] == this.horasReservadas[j].hora && this.fechaFiltrada == this.horasReservadas[j].fecha) {
+      for (let j = 0; j < this.carApiService.horasReservadas.length; j++) {
+          if (this.horas[i] == this.carApiService.horasReservadas[j].hora && this.fechaFiltrada == this.carApiService.horasReservadas[j].fecha) {
               match = true;
               break;
           }
@@ -142,7 +140,7 @@ public mostrarHorasReservadas(){
           this.mostrarHoras.push(this.horas[i]);
       }
     }
-    console.log(this.horasReservadas[0].fecha)
+    console.log(this.carApiService.horasReservadas[0].fecha)
     console.log(this.mostrarHoras)
     console.log(this.fechaFiltrada)
   }
@@ -151,8 +149,6 @@ public mostrarHorasReservadas(){
     this.detallesServicios()
 
     this.calendario();
-
-    this.mostrarHorasReservadas();
 
     console.log(this.carApiService.horasFiltradas)
   }

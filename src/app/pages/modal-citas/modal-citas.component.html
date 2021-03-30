@@ -16,13 +16,10 @@
                   <label>Fecha</label>
                   <input type="date" class="form-control" id="fecha" [(ngModel)]="fechaFiltrada" [ngModelOptions]="{standalone: true}" #fecha>
                 </div>
-                {{fechaFiltrada}}
-                <br>
-                <button type="button" class="btn btn-sm boton1 actualizar" on-click="actualizarHoras()">Actualizar horas</button>
                 <br>
                 <div class="form-group">
                     <label for="hora">Hora</label>
-                    <select class="form-control" id="horaMod" #horaMod>
+                    <select class="form-control" id="horaMod" on-click="actualizarHoras()" #horaMod>
                         <option *ngFor="let hora of mostrarHoras">
                           {{hora}}
                         </option>

@@ -38,7 +38,7 @@
         <div id="botonInfo">
           <app-modal-citas></app-modal-citas>
           <button type="submit" class="btn btn-primary" on-click="postChat(taller.id_taller)" [hidden]="invisible">Chat</button>
-          <button class="btn btn-primary" data-toggle="modal" data-target="#citas" [hidden]="invisible">Pedir Cita</button>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#citas" [hidden]="invisible" on-click="mostrarHorasReservadas()">Pedir Cita</button>
         </div>
       </div>
     </div>
