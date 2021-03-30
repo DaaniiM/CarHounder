@@ -47,40 +47,13 @@
 
         <div id="resenias1" class="container">
             <div class="carousel slide" id="main-carousel" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="card  " >
+                <div class="carousel-inner" >
+                    <div class="carousel-item " *ngFor="let res of ultimasRes;let isFirst = first" [ngClass]="{active:isFirst}">
+                        <div class="card">
                             <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="card  " >
-                            <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="card  " >
-                            <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="card  " >
-                            <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <h5 class="card-title">{{res.clienteNombre}} {{res.apellidos}}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{res.tallerNombre}} - {{res.nota}} estrella/s</h6>
+                            <p class="card-text">{{res.comentario}}</p>
                             </div>
                         </div>
                     </div>

@@ -6,7 +6,7 @@
     </div>
     <div class="container">
       <div id="frontal" class="card h-100">
-        <img src="{{taller.foto}}" class="card-img-top img-fluid" alt="...">
+        <img src="{{taller.foto}}" class="card-img-top img-fluid imagenCab" alt="...">
         <div class="card-body">
           <h5 class="card-title">Información</h5>
           <p class="card-text">
@@ -43,19 +43,23 @@
       </div>
     </div>
   </div>
-  <div id="all1">
-    <div class="container">
-      <div class="card h-20">
-        <div class="card-body">
+  <div id="all1" >
+    <div class="container"  >
+      <div class="card h-20" id="fondoResenya" >
+        <div class="card-body" >
           <h5 class="card-title">Reseñas</h5>
-          <p class="card-text">
-          <div class="card ">
+          <p class="card-text ">
+          <div *ngIf="resenyas.length !== 0">
+          <div class="card " id="tarjetaRes" *ngFor="let resenya of resenyas">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
+              <h5 class="card-title">{{resenya.nombre}} {{resenya.apellidos}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{resenya.nota}} estrella/s</h6>
+              <p class="card-text">{{resenya.comentario}}.</p>
             </div>
+          </div>
+        </div>
+          <div *ngIf="resenyas.length == 0">
+            No hay reseñas
           </div>
           <p></p>
         </div>

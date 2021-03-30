@@ -11,6 +11,7 @@ import { Router } from '@angular/router'
 export class LandingPageComponent implements OnInit {
 
   public talleres:Taller[];
+  public ultimasRes:any;
 
   constructor(public carApiService:CarApiService, private _router: Router) { }
 
@@ -21,6 +22,7 @@ export class LandingPageComponent implements OnInit {
     this.carApiService.buscarTalleres(Number(cp)).subscribe((data:Taller[]) => {
       this.talleres=data
       this.carApiService.talleres = this.talleres;
+      this.carApiService.cpTalleresFiltros = Number(cp);
       this._router.navigate(['/resultadoBusqueda']);
 
     })
@@ -29,8 +31,23 @@ export class LandingPageComponent implements OnInit {
 
   }
 
+  public ultimasResenyas() {
+    
+    this.carApiService.ultimasResenyas().subscribe((data:any) => {
+      this.ultimasRes=data
+
+    })
+
+    
+
+  }
+
+
+
 
   ngOnInit(): void {
+
+    this.ultimasResenyas();
   }
 
 }

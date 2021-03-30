@@ -33,6 +33,11 @@
     width: 200px;
 }
 
+a:hover{
+
+    cursor: pointer;
+}
+
 #iconosService{
 
     display: flex;
@@ -94,6 +99,21 @@ textarea{
     background-color: #0466c8;
     color: #F1F1F2;
     width: 650px;
+}
+
+.botonFiltros1{
+    background-color: #0466c8;
+    color: #F1F1F2;
+    width: 150px;
+    margin-bottom: 10px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    
+}
+
+.btn-link:link, .btn-link:visited, .btn-link:active,.btn-link:hover,.btn-link:focus {
+
+    text-decoration:none;
 }
 
 .filtroSelecciones{

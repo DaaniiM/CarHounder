@@ -15,8 +15,15 @@ export class ModalesComponent implements OnInit {
 
   constructor(private apiService:CarApiService,private _router: Router) { }
 
- public agregarUsuario(email:string, password:string, nombre:string, apellidos:string, telefono:string, foto:string){
-  this.apiService.registrarCliente(new Usuario(0,email,password,nombre,apellidos,Number(telefono),foto)).subscribe((data:any) =>{
+
+
+
+
+
+  
+ public agregarUsuario(email:string, password:string, nombre:string, apellidos:string, telefono:string){
+
+  this.apiService.registrarCliente(new Usuario(0,email,password,nombre,apellidos,Number(telefono),"assets/img/fotoFondos/usuario.png")).subscribe((data:any) =>{
     console.log(data);
     if(data!="-1")
       console.log("Se anadio el usuario: " + data);
@@ -33,8 +40,11 @@ export class ModalesComponent implements OnInit {
   });
  } 
 
-public agregarTaller(email:string, password:string, nombre:string, cif:string, direccion:string, cp:string, ciudad:string, provincia:string, telefono:string, foto:string){
-  this.apiService.registrarTaller(new Taller(0,email,password,nombre,cif,direccion,Number(cp),ciudad,provincia,Number(telefono),foto)).subscribe((data:any) =>{
+
+
+public agregarTaller(email:string, password:string, nombre:string, cif:string, direccion:string, cp:string, ciudad:string, provincia:string, telefono:string){
+
+  this.apiService.registrarTaller(new Taller(0,email,password,nombre,cif,direccion,Number(cp),ciudad,provincia,Number(telefono),"../../assets/img/fotoFondos/perfilTaller.jpg")).subscribe((data:any) =>{
     console.log(data);
     if(data!="-1"){
       console.log("Se anadio el taller " + data);
