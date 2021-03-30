@@ -22,7 +22,6 @@ export class ResultadoBusquedaComponent implements OnInit {
   public alert1: boolean;
   public favoritosCliente:any[];
   public talleresFav:any[] = [];
-  public rol = this.carApiService.login.rol;
   public chatReaparecer:number;
   public invisible:boolean;
   public login:any;
@@ -30,15 +29,13 @@ export class ResultadoBusquedaComponent implements OnInit {
   public serviciosFiltro:any[] = [];
   public puntuacion:number;
 
-
-
-
   constructor(private carApiService:CarApiService, private _router: Router) { 
     this.talleres = carApiService.talleres;
     this.taller = carApiService.taller;
     this.alert1 = true;
     this.favoritosCliente = carApiService.favoritosCliente;
     this.login = carApiService.login;
+    this.invisible = true;
   }
 
   public verFavoritos(){
@@ -52,8 +49,6 @@ export class ResultadoBusquedaComponent implements OnInit {
     });
   }
 
-
-  
   public verFavoritos1(){
     this.carApiService.detallesFavoritos(this.carApiService.clienteLogin.id_cliente).subscribe((data:any[]) => {
       this.favoritosCliente=data;
@@ -93,22 +88,12 @@ export class ResultadoBusquedaComponent implements OnInit {
   public publicarRes(id_taller:number){
     this.tallerRes = id_taller;
   }
-
-
-  public anyadirResenya(comentario:string,nota:number) {
-  
-    
+  public anyadirResenya(comentario:string,nota:number) { 
     this.carApiService.postResenya(new ResClientes(0,this.tallerRes,this.carApiService.clienteLogin.id_cliente,comentario,nota)).subscribe((data:any[]) => {
-      
-     
       console.log(data)
     })
-
   }
 
-  
-
-  
   public detallesTaller(id:number) {
     this.carApiService.detallesTaller(id).subscribe((data:any) => {
       this.carApiService.taller=data[0];
@@ -121,7 +106,7 @@ export class ResultadoBusquedaComponent implements OnInit {
   }
 
   public reapareceChat(){
-    if(this.rol == "cliente"){
+    if(this.carApiService.login.rol == "cliente"){
       this.carApiService.eliminarChatCliente(0, this.chatReaparecer).subscribe((data:any) => {
         console.log(data);
       });
@@ -158,170 +143,100 @@ export class ResultadoBusquedaComponent implements OnInit {
   }
 
   public noCliente(){
-    if(this.rol == "cliente"){
+    console.log(this.carApiService.login.rol);
+    if(this.carApiService.login.rol === "cliente"){
       this.invisible = false;
     }
-    else{
+    else if(this.carApiService.login.rol === "taller" || this.carApiService.login.rol === undefined){
       this.invisible = true;
     }
   }
   
   public anyadirServicioFiltro(id_servicio:string,idHtml:string){
-
-    var checkBox = document.getElementById(idHtml) as HTMLInputElement;
-
-    
+    var checkBox = document.getElementById(idHtml) as HTMLInputElement;   
     if (checkBox.checked == true){
-
       this.serviciosFiltro.push(Number(id_servicio));
-
     } else {
-
       let i = this.serviciosFiltro.indexOf(Number(id_servicio));
-
       this.serviciosFiltro.splice(i,1);
-
-
-
     }
   }
 
-
-  public filtrarPorServicio() {
-  
+  public filtrarPorServicio() { 
     if(this.serviciosFiltro.length != 0){
-
       if(this.carApiService.cpTalleresFiltros != 0){
-
         this.carApiService.filtrarPorServicio(new FiltarServicios(this.serviciosFiltro,this.carApiService.cpTalleresFiltros)).subscribe((data:any) => {
-
           if(data!="-1"){
-
-            this.talleres=data
-          
-            console.log(data)
-            this.ngOnInit()
-    
+            this.talleres=data;     
+            console.log(data);
+            this.ngOnInit();
           }
           else
-
-          this.talleres = []
-        
+          this.talleres = [];
         });
-
-     
-
       }else{
-
         this.carApiService.filtrarPorServicio(new FiltarServicios(this.serviciosFiltro)).subscribe((data:any) => {
-
           if(data!="-1"){
-
-            this.talleres=data
-          
-            console.log(data)
-            this.ngOnInit()
-    
+            this.talleres=data;
+            console.log(data);
+            this.ngOnInit();
           }
           else
-
-          this.talleres = []
-        
+          this.talleres = [];
         });
-
       }
-
-
     }else{
-
       this.talleres=this.carApiService.talleres;
-      this.ngOnInit()
-      
+      this.ngOnInit();
     }
-
   }
 
   public anyadirPuntuacionFiltro(puntuacion1:string,idHtml:string){
-
     var checkBox = document.getElementById(idHtml) as HTMLInputElement;
-
-    
     if (checkBox.checked == true){
-
       this.puntuacion = Number(puntuacion1);
-      console.log(this.puntuacion)
-
+      console.log(this.puntuacion);
     } else {
-
-
       this.puntuacion = 0;
-
-
-
     }
   }
 
-  public filtrarPorPuntuacion(){
-
-  
+  public filtrarPorPuntuacion(){ 
   if(this.carApiService.cpTalleresFiltros == 0){
-
     if(this.puntuacion != 0 ){
-    
     this.carApiService.filtrarPorPuntuacion(this.puntuacion).subscribe((data:any[]) => {
-      this.talleres = data
-      this.ngOnInit()
-  
+      this.talleres = data;
+      this.ngOnInit();
     })
-
     }else{  
-
       this.talleres = this.carApiService.talleres;
-
-      this.ngOnInit()
-
+      this.ngOnInit();
     }
-
   }else{
-
     if(this.puntuacion != 0 ){
-    
       this.carApiService.filtrarPorPuntuacionCp(this.puntuacion,this.carApiService.cpTalleresFiltros).subscribe((data:any[]) => {
-        this.talleres = data
-        this.ngOnInit()
-    
-      })
-  
+        this.talleres = data;
+        this.ngOnInit();
+      });
       }else{  
-  
         this.talleres = this.carApiService.talleres;
-  
-        this.ngOnInit()
+        this.ngOnInit();
       }
+    }
   }
 
-}
+  public conseguirTalleres(cp:string) {  
+    this.carApiService.buscarTalleres(Number(cp)).subscribe((data:Taller[]) => {
+      this.talleres=data;
+      this.carApiService.talleres = this.talleres;
+      this.carApiService.cpTalleresFiltros = Number(cp);
+      this.ngOnInit();
+    })
+  }
 
-public conseguirTalleres(cp:string) {
-    
-  this.carApiService.buscarTalleres(Number(cp)).subscribe((data:Taller[]) => {
-    this.talleres=data
-    this.carApiService.talleres = this.talleres;
-    this.carApiService.cpTalleresFiltros = Number(cp);
-    this.ngOnInit()
-  })
-
-  
-
-}
-
-
-  
   ngOnInit(): void {
-    this.detallesServicios()
-    this.verFavoritos()
+    this.detallesServicios();
+    this.verFavoritos();
     this.noCliente();
-
   }
-
 }
