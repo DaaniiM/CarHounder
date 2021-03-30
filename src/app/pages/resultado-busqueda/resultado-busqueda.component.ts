@@ -22,7 +22,7 @@ export class ResultadoBusquedaComponent implements OnInit {
   public alert1: boolean;
   public favoritosCliente:any[];
   public talleresFav:any[] = [];
-  public rol = this.carApiService.login.rol;
+  // public rol = this.carApiService.login.rol;
   public chatReaparecer:number;
   public invisible:boolean;
   public login:any;
@@ -121,7 +121,7 @@ export class ResultadoBusquedaComponent implements OnInit {
   }
 
   public reapareceChat(){
-    if(this.rol == "cliente"){
+    if(this.carApiService.login.rol == "cliente"){
       this.carApiService.eliminarChatCliente(0, this.chatReaparecer).subscribe((data:any) => {
         console.log(data);
       });
@@ -157,14 +157,14 @@ export class ResultadoBusquedaComponent implements OnInit {
     });
   }
 
-  public noCliente(){
-    if(this.rol == "cliente"){
-      this.invisible = false;
-    }
-    else{
-      this.invisible = true;
-    }
-  }
+  // public noCliente(){
+  //   if(this.rol == "cliente"){
+  //     this.invisible = false;
+  //   }
+  //   else{
+  //     this.invisible = true;
+  //   }
+  // }
   
   public anyadirServicioFiltro(id_servicio:string,idHtml:string){
 
@@ -320,7 +320,7 @@ public conseguirTalleres(cp:string) {
   ngOnInit(): void {
     this.detallesServicios()
     this.verFavoritos()
-    this.noCliente();
+    // this.noCliente();
 
   }
 

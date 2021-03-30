@@ -13,9 +13,6 @@
                             </button>
                         </h5>
                     </div>
-                    <div class="container" id="alert1" [hidden]="alert1">
-                        <boot-alerta mensaje="Error al crear el chat" color="alert-danger"></boot-alerta>
-                    </div>
                     <div id="collapseOne" class="collapse hide" aria-labelledby="headingOne"
                         data-parent="#accordionExample">
                         <div class="card-body">
@@ -210,14 +207,14 @@
                             <h4 class="mr-1">Valoración</h4><span class="strike-text"></span>
                         </div>
                         <div>
-                            <input type="text" class="numberValue" id="servicios" readonly value="{{taller.notaMedia}}">
+                            <input type="text" class="numberValue" id="servicios" maxlength="3" value="{{taller.notaMedia}}" readonly >
                         </div>
                         <div *ngIf="taller.notaMedia == null">
                             <h5>No hay valoraciones</h5>
                         </div>
                         <div class="ec-stars-wrapper">
-                            <div class="modal fade" id="votacion" tabindex="-1" role="dialog" aria-labelledby="votacion">
-                            <a on-click="publicarRes(taller.id_taller)"  [hidden]="invisible" data-value="1" data-toggle="modal" data-target="#votacion1"
+                            <!-- <div class="modal fade" id="votacion" tabindex="-1" role="dialog" aria-labelledby="votacion"> -->
+                            <a on-click="publicarRes(taller.id_taller)"  data-value="1" data-toggle="modal" data-target="#votacion1"
                                 title="Votar con 1 estrellas">&#9733;</a>
                                 <div class="modal fade" id="votacion1" tabindex="-1" role="dialog" aria-labelledby="votacion1"
                                 aria-hidden="true">
@@ -244,7 +241,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <a on-click="publicarRes(taller.id_taller)"  [hidden]="invisible" data-value="2" data-toggle="modal" data-target="#votacion2"
+                            <!-- </div> -->
+                            <a on-click="publicarRes(taller.id_taller)" data-value="2" data-toggle="modal" data-target="#votacion2"
                                 title="Votar con 2 estrellas">&#9733;</a>
                                 <div class="modal fade" id="votacion2" tabindex="-1" role="dialog" aria-labelledby="votacion2"
                                 aria-hidden="true">
@@ -271,7 +269,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a on-click="publicarRes(taller.id_taller)"   [hidden]="invisible" data-value="3" data-toggle="modal" data-target="#votacion3"
+                            <a on-click="publicarRes(taller.id_taller)"  data-value="3" data-toggle="modal" data-target="#votacion3"
                                 title="Votar con 3 estrellas">&#9733;</a>
                                 <div class="modal fade" id="votacion3" tabindex="-1" role="dialog" aria-labelledby="votacion3"
                                 aria-hidden="true">
@@ -298,7 +296,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a on-click="publicarRes(taller.id_taller)"  [hidden]="invisible" data-value="4" data-toggle="modal" data-target="#votacion4"
+                            <a on-click="publicarRes(taller.id_taller)"  data-value="4" data-toggle="modal" data-target="#votacion4"
                                 title="Votar con 4 estrellas">&#9733;</a>
                                 <div class="modal fade" id="votacion4" tabindex="-1" role="dialog" aria-labelledby="votacion4"
                                 aria-hidden="true">
@@ -325,7 +323,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a on-click="publicarRes(taller.id_taller)"  [hidden]="invisible" data-value="5" data-toggle="modal" data-target="#votacion5"
+                            <a on-click="publicarRes(taller.id_taller)"  data-value="5" data-toggle="modal" data-target="#votacion5"
                                 title="Votar con 5 estrellas">&#9733;</a>
                             <div class="modal fade" id="votacion5" tabindex="-1" role="dialog" aria-labelledby="votacion5"
                                 aria-hidden="true">
@@ -355,9 +353,9 @@
                         </div>
                             <div class="d-flex flex-column mt-2" id="botonesAll">
                                 <button id="botonTaller" on-click="detallesTaller(taller.id_taller)" class="btn btn-primary btn-lg " type="button">Mas detalles</button>
-                                <button id="botonTaller" on-click="postChat(taller.id_taller)" class="btn btn-outline-primary btn-sm mt-2" type="button" [hidden]="invisible">Chat</button>
-                                <button [ngStyle]="{'display': talleresFav.includes(taller.id_taller) ? 'none' : 'block' }" on-click="anyadirFavoritos(taller.id_taller)" class="btn btn-outline-primary btn-sm  mt-2" type="button" [hidden]="invisible">Añadir a favoritos</button>  
-                                <button [ngStyle]="{'display': talleresFav.includes(taller.id_taller) ? 'block' : 'none' }" on-click="eliminarFavorito(taller.id_taller)" class="btn ..btn-sm  mt-2 btn-danger" type="button" ngHide="invisible">Eliminar de favoritos</button>
+                                <button id="botonTaller" on-click="postChat(taller.id_taller)" class="btn btn-outline-primary btn-sm mt-2" type="button" >Chat</button>
+                                <button [ngStyle]="{'display': talleresFav.includes(taller.id_taller) ? 'none' : 'block' }" on-click="anyadirFavoritos(taller.id_taller)" class="btn btn-outline-primary btn-sm  mt-2" type="button" >Añadir a favoritos</button>  
+                                <button [ngStyle]="{'display': talleresFav.includes(taller.id_taller) ? 'block' : 'none' }" on-click="eliminarFavorito(taller.id_taller)" class="btn ..btn-sm  mt-2 btn-danger" type="button" >Eliminar de favoritos</button>
                             </div>  
                     </div>
                 </div>
@@ -371,6 +369,7 @@
         <div *ngIf="talleres.length == 0 ">
             <h1 id="fraseSinTaller"> Lo sentimos, no se han encontrado talleres en su zona. </h1>
         </div>
+
     </div>
     <app-footer></app-footer>
 </div>
