@@ -124,7 +124,7 @@ export class ResultadoBusquedaComponent implements OnInit {
       if(data == ""){
         this.carApiService.postChat(new Chat(this.carApiService.clienteLogin.id_cliente,id_taller)).subscribe((data1:any) =>{
           console.log(data1);
-          if(data1!="-1"){
+          if(data1!="-1" && data1!="-2"){
             console.log("Se añadio el chat " + data1);
             this._router.navigate(['/chat']);
           }
@@ -166,7 +166,7 @@ export class ResultadoBusquedaComponent implements OnInit {
     if(this.serviciosFiltro.length != 0){
       if(this.carApiService.cpTalleresFiltros != 0){
         this.carApiService.filtrarPorServicio(new FiltarServicios(this.serviciosFiltro,this.carApiService.cpTalleresFiltros)).subscribe((data:any) => {
-          if(data!="-1"){
+          if(data!="-1" && data!="-2"){
             this.talleres=data;     
             console.log(data);
             this.ngOnInit();
@@ -176,7 +176,7 @@ export class ResultadoBusquedaComponent implements OnInit {
         });
       }else{
         this.carApiService.filtrarPorServicio(new FiltarServicios(this.serviciosFiltro)).subscribe((data:any) => {
-          if(data!="-1"){
+          if(data!="-1" && data!="-2"){
             this.talleres=data;
             console.log(data);
             this.ngOnInit();
