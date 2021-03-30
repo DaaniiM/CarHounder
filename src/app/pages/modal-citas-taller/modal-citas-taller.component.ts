@@ -80,7 +80,7 @@ export class ModalCitasTallerComponent implements OnInit {
   //   })
   // }
 
-  public registrarCliente(nombre: string, apellidos: string, telefono: string){
+  public registrarCliente(nombre: string, apellidos: string, telefono: string, fecha:string, hora:string){
     this.carApiService.registrarCliente(new Usuario(0, null, null, nombre, apellidos, Number(telefono), null)).subscribe((data:any) =>{
       console.log(data);
       this.IdclienteNuevo = data;
@@ -91,16 +91,6 @@ export class ModalCitasTallerComponent implements OnInit {
         console.log("Error al insertar el cliente")
       }
     })
-
-    // this.carApiService.mostrarClienteNuevo(nombre, Number(telefono)).subscribe((data:any) =>{
-    //   this.IdclienteNuevo = data;
-    //   console.log(data);
-      
-    // })
-  }
-
-  public anyadirCita(fecha:string, hora:string){
-    
     this.AServicios = this.serviciosCitas.toString();
     console.log(this.IdclienteNuevo)
     this.carApiService.pedirCita(new Cita(this.AServicios, fecha, hora, this.carApiService.tallerLogin.id_taller, this.IdclienteNuevo)).subscribe((data: any) => {
@@ -117,6 +107,26 @@ export class ModalCitasTallerComponent implements OnInit {
       }
     })
   }
+  
+
+  // public anyadirCita(fecha:string, hora:string){
+    
+  //   this.AServicios = this.serviciosCitas.toString();
+  //   console.log(this.IdclienteNuevo)
+  //   this.carApiService.pedirCita(new Cita(this.AServicios, fecha, hora, this.carApiService.tallerLogin.id_taller, this.IdclienteNuevo)).subscribe((data: any) => {
+  //     if (data != "-1") {
+  //       console.log(data)
+  //       alert("Error al pedir la cita");
+  //       this.ngOnInit();
+  //     }
+  //     else {
+  //       this.IdclienteNuevo = null;
+  //       console.log(data)
+  //       alert("Cita reservada con éxito");
+  //       this.ngOnInit();
+  //     }
+  //   })
+  // }
   
 
   public modificarCita(fecha:any, hora: string){

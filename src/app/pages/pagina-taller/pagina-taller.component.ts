@@ -98,39 +98,13 @@ export class PaginaTallerComponent implements OnInit {
     })
   }
 
-  // public mostrarHorasReservadas(){
-  //   this.carApiService.mostrarHoras(this.carApiService.taller.id_taller).subscribe((data: any[]) => {
-  //     this.carApiService.horasReservadas = data;
-  //     console.log(data)
-  //   })
-  // }
+  public mostrarHorasReservadas(){
+    this.carApiService.mostrarHoras(this.carApiService.taller.id_taller).subscribe((data: any[]) => {
+      this.carApiService.horasReservadas = data;
+      console.log(data)
+    })
+  }
 
-  // public filtrarHoras(){
-  //   console.log("entra en el método filtrarhoras");
-  //   console.log(this.carApiService.horasReservadas);
-  //   console.log(this.carApiService.fechaFiltrada);
-    
-    
-  //   for (let i = 0; i < this.horas.length; i++) {
-  //     // we want to know if a[i] is found in b
-  //     let match = false; // we haven't found it yet
-  //     for (let j = 0; j < this.carApiService.horasReservadas.length; j++) {
-  //         if (this.horas[i] == this.carApiService.horasReservadas[j].hora && this.carApiService.fechaFiltrada == this.carApiService.horasReservadas[j].fecha) {
-  //             // we have found a[i] in b, so we can stop searching
-  //             match = true;
-  //             break;
-  //         }
-  //         // if we never find a[i] in b, the for loop will simply end,
-  //         // and match will remain false
-  //     }
-  //     // add a[i] to newArray only if we didn't find a match.
-  //     if (!match) {
-  //         this.mostrarHoras.push(this.horas[i]);
-  //     }
-  // }
-  //   this.carApiService.horasFiltradas = this.mostrarHoras;
-  //   console.log(this.mostrarHoras);
-  // }
 
 
 

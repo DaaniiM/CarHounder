@@ -31,6 +31,7 @@ export class CitasComponent implements OnInit {
   public horasRes: any[]
   public fechaFiltro: any;
 
+
   constructor(public carApiService:CarApiService, private _router: Router) { 
 
     this.login = carApiService.login;
@@ -44,6 +45,7 @@ export class CitasComponent implements OnInit {
     this.fechaFiltro;
     this.horas=["9:00", "9:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00",
                 "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00"]
+    
   }
 
 
@@ -174,7 +176,7 @@ export class CitasComponent implements OnInit {
   // }
 
   public registrarCliente(nombre: string, apellidos: string, telefono: string){
-    this.carApiService.registrarCliente(new Usuario(0, null, null, nombre, apellidos, Number(telefono), null)).subscribe((data:any) =>{
+    this.carApiService.registrarCliente(new Usuario(0, null, "1", nombre, apellidos, Number(telefono), null)).subscribe((data:any) =>{
       console.log(data);
       this.IdclienteNuevo = data;
       if(data!="-1"){
@@ -184,12 +186,6 @@ export class CitasComponent implements OnInit {
         console.log("Error al insertar el cliente")
       }
     })
-
-    // this.carApiService.mostrarClienteNuevo(nombre, Number(telefono)).subscribe((data:any) =>{
-    //   this.IdclienteNuevo = data;
-    //   console.log(data);
-      
-    // })
   }
 
   public anyadirCita(fecha:string, hora:string){
@@ -269,6 +265,8 @@ export class CitasComponent implements OnInit {
     today = yyyy+'-'+mm+'-'+dd;
     document.getElementById("fechaA").setAttribute("min", today);
   }
+
+
 
   
 

@@ -123,7 +123,7 @@ public calendario(){
 
 public mostrarHorasReservadas(){
   this.carApiService.mostrarHoras(this.carApiService.taller.id_taller).subscribe((data: any[]) => {
-    this.horasReservadas = data;
+    this.carApiService.horasReservadas = data;
     console.log(data)
   })
 }
@@ -132,8 +132,8 @@ public mostrarHorasReservadas(){
     this.mostrarHoras = []
     for (let i = 0; i < this.horas.length; i++) {
       let match = false;
-      for (let j = 0; j < this.horasReservadas.length; j++) {
-          if (this.horas[i] == this.horasReservadas[j].hora && this.fechaFiltrada == this.horasReservadas[j].fecha) {
+      for (let j = 0; j < this.carApiService.horasReservadas.length; j++) {
+          if (this.horas[i] == this.carApiService.horasReservadas[j].hora && this.fechaFiltrada == this.carApiService.horasReservadas[j].fecha) {
               match = true;
               break;
           }
@@ -142,7 +142,7 @@ public mostrarHorasReservadas(){
           this.mostrarHoras.push(this.horas[i]);
       }
     }
-    console.log(this.horasReservadas[0].fecha)
+    console.log(this.carApiService.horasReservadas[0].fecha)
     console.log(this.mostrarHoras)
     console.log(this.fechaFiltrada)
   }
@@ -151,8 +151,6 @@ public mostrarHorasReservadas(){
     this.detallesServicios()
 
     this.calendario();
-
-    this.mostrarHorasReservadas();
 
     console.log(this.carApiService.horasFiltradas)
   }
