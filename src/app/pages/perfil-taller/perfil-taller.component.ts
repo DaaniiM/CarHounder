@@ -69,7 +69,7 @@ export class PerfilTallerComponent implements OnInit {
   public eliminarTaller(){
 
 
-    this.apiService.eliminarTaller(this.apiService.taller.id_taller).subscribe((data3:any) =>{
+    this.apiService.eliminarTaller(this.apiService.tallerLogin.id_taller).subscribe((data3:any) =>{
       if(data3!="-1"){
 
         this.apiService.tallerLogin = undefined;

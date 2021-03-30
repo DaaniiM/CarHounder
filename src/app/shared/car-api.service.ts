@@ -35,10 +35,10 @@ export class CarApiService {
   // private url19 = "https://api-rest-carhounder.herokuapp.com/chat";
   // private url20 = "https://api-rest-carhounder.herokuapp.com/mensaje";
   // private url425 = "https://api-rest-carhounder.herokuapp.com/comprobarChat";
-  // private url426="https://api-rest-carhounder.herokuapp.com/eliminarChatCliente";
-  // private url427="https://api-rest-carhounder.herokuapp.com/eliminarChatTaller";
+  // private url426 = "https://api-rest-carhounder.herokuapp.com/eliminarChatCliente";
+  // private url427 = "https://api-rest-carhounder.herokuapp.com/eliminarChatTaller";
 
-  private url="http://localhost:300";
+  private url ="http://localhost:300";
   private url1 = "http://localhost:300/talleres?cp=" ;
   private url2= "http://localhost:300/servicios" ;
   private url3 = "http://localhost:300/talleresDetalles?id=" ;
@@ -56,12 +56,12 @@ export class CarApiService {
   private url17 = "http://localhost:300/borrarServicio?id_servicios=";
   private url24 = "http://localhost:300/serviciosLogin?id_taller="
   private url19 = "http://localhost:300/chat";
-  private url20= "http://localhost:300/mensaje";
+  private url20 = "http://localhost:300/mensaje";
   private url425 = "http://localhost:300/comprobarChat";
-  private url189="http://localhost:300/favoritos"
-  private url289="http://localhost:300/favoritos?id_cliente="
-  private url426="http://localhost:300/eliminarChatCliente";
-  private url427="http://localhost:300/eliminarChatTaller";
+  private url189 = "http://localhost:300/favoritos"
+  private url289 = "http://localhost:300/favoritos?id_cliente="
+  private url426 = "http://localhost:300/eliminarChatCliente";
+  private url427 = "http://localhost:300/eliminarChatTaller";
 
 
   public talleres:Taller[];
@@ -112,7 +112,7 @@ export class CarApiService {
   }
 
   public loguearse(login:Login){
-    return this.http.post(this.url7 + "/usuario",login);
+    return this.http.post(this.url7 + "/usuario", login);
   }
 
   public loginTaller(email:string){
@@ -163,7 +163,7 @@ export class CarApiService {
     return this.http.get(this.url20 + "?id_chat=" + id_chat);
   }
 
-    public eliminarChatCliente(del_cliente:number, id_chat:number){
+  public eliminarChatCliente(del_cliente:number, id_chat:number){
     return this.http.delete(this.url426 + "?del_cliente=" + del_cliente + "&id_chat=" + id_chat);
   }
   
