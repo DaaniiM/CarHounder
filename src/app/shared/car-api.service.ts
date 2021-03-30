@@ -210,5 +210,8 @@ export class CarApiService {
     return this.http.delete(this.url289 + id_cliente + "&id_taller=" + id_taller) 
   }
   
+  public contacto(json) {
+    return this.http.post(this.url + "/contacto", json)
+  }
 
 }
