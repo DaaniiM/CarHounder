@@ -10,6 +10,7 @@
                             <input type="file"><img #foto src="{{apiService.clienteLogin.foto}}">
                         </span>
                         <br>
+                        <button type="button" class="btn btnEdit1 btn-sm" data-dismiss="modal" data-toggle="modal" data-target="#cambiarPassword">Modificar contraseña</button>
                         <button type="button" class="btnDel btn btn-danger btn-sm" data-toggle="modal"
                             data-target="#perfilUsuarioEliminar">Eliminar perfil</button>
                         <div class="modal fade" id="perfilUsuarioEliminar" tabindex="-1" role="dialog"
@@ -57,25 +58,53 @@
                                         <input class="form-control" value="{{apiService.clienteLogin.telefono}}" #telefono>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label class="col col-form-label">Contraseña</label>
-                                    <div class="col-sm-9">
-                                        <input class="form-control" type="password" value="{{apiService.clienteLogin.password}}" #password>
-                                    </div>
-                                </div>
                                 <div class="form-group row" >
                                     <label id ="talleresMis" class="col col-form-label">Mis talleres</label>
                                     <div class="col-sm-9 pt-2">
                                         <div  *ngFor="let favorito of favoritos">
-                                            <p>{{favorito.nombre}}<button type="button" class="btn btn-danger" on-click="eliminarFavorito(favorito.id_taller)">Eliminar favorito</button></p>
+                                            <p>{{favorito.nombre}}<button class="btn btn-danger" id="eliminar" type="button" data-toggle="modal" data-target="#confirmarEliminar" on-click="eliminarFavorito(favorito.id_taller)"> <img src="../../assets/img/iconos/papelera.png" value="eliminar chat" id="papelera"> </button></p>
+
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="d-flex flex-column align-items-center">
-                                    <button type="button" class="btnEdit btn btn-sm mb-3" on-click="editarCliente(email.value, password.value, nombre.value, apellidos.value, telefono.value, foto.src)">Modificar perfil</button>
+                                    <button type="submit" class="btnEdit btn btn-sm mb-3" on-click="editarCliente(email.value, nombre.value, apellidos.value, telefono.value, foto.src)">Modificar perfil</button>
                                 </div>
                             </form>
+                              <!-- modal password -->
+                            <div class="modal fade" id="cambiarPassword" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Modificar contraseña</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form>
+                                                <div class="form-group">
+                                                <label for="exampleInputPassword1">Contraseña Anterior</label>
+                                                <input #passwordAnterior type="password" class="form-control" id="contInicio" placeholder="Introduzca su contraseña anterior" required>
+                                                </div>
+                                                <div class="form-group">
+                                                <label for="exampleInputPassword1">Contraseña Nueva</label>
+                                                <input #passwordNuevo type="password" class="form-control" id="contInicio" placeholder="Introduzca su contraseña nueva" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="exampleInputPassword1">Repita contraseña nueva</label>
+                                                    <input #passwordRepetir type="password" class="form-control" id="contInicio" placeholder="Repita su contraseña nueva" required>
+                                                    </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn boton1" on-click="password_Anterior(passwordAnterior.value,passwordNuevo.value, passwordRepetir.value)" data-dismiss="modal" >Modificar</button>
+                                                    <button type="submit" class="btn boton2" data-dismiss="modal" >Cancelar</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
 

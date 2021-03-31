@@ -8,6 +8,8 @@ import { Chat } from 'src/app/modules/chat';
 import { FavoritosCliente } from 'src/app/modules/favoritos-cliente';
 import { ResClientes } from 'src/app/modules/res-clientes';
 import { FiltarServicios } from 'src/app/modules/filtar-servicios';
+import Notify from 'simple-notify'
+import 'simple-notify/dist/simple-notify.min.css'
 
 @Component({
   selector: 'app-resultado-busqueda',
@@ -231,6 +233,46 @@ export class ResultadoBusquedaComponent implements OnInit {
       this.carApiService.talleres = this.talleres;
       this.carApiService.cpTalleresFiltros = Number(cp);
       this.ngOnInit();
+    })
+  }
+
+  public pushNotify() {
+    new Notify({
+      status: 'success',
+      title: '',
+      text: 'Taller añadido a favoritos.',
+      effect: 'fade',
+      speed: 300,
+      customClass: null,
+      customIcon: null,
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top'
+    })
+  }
+
+  public pushNotify1() {
+    new Notify({
+      status: 'warning',
+      title: '',
+      text: 'Taller eliminado de favoritos.',
+      effect: 'fade',
+      speed: 300,
+      customClass: null,
+      customIcon: null,
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top'
     })
   }
 

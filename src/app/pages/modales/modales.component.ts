@@ -5,6 +5,8 @@ import { Oferta } from 'src/app/modules/oferta';
 import { Taller } from 'src/app/modules/taller';
 import { Usuario } from 'src/app/modules/usuario';
 import { CarApiService } from '../../shared/car-api.service';
+import Notify from 'simple-notify'
+import 'simple-notify/dist/simple-notify.min.css'
 
 @Component({
   selector: 'app-modales',
@@ -80,7 +82,9 @@ public loguearPagina(email:string,password:string){
         this.loginTaller(this.apiService.login.email);
       }
       this._router.navigate(['']);
+      this.pushNotify1();
     }else{
+      this.pushNotify2();
       console.log("Error al intentar loguearte");
     }
   });
@@ -97,8 +101,7 @@ public loguearPagina(email:string,password:string){
   });
  }
 
- 
- public loginCliente(email:string){
+  public loginCliente(email:string){
   this.apiService.loginCliente(email).subscribe((data4:any) =>{
     if(data4!="-1"){
       console.log(data4);
@@ -108,6 +111,67 @@ public loguearPagina(email:string,password:string){
     }
   });
  }
+
+ public pushNotify() {
+  new Notify({
+    status: 'success',
+    title: '',
+    text: 'Se ha registrado satisfactoriamente.',
+    effect: 'fade',
+    speed: 300,
+    customClass: null,
+    customIcon: null,
+    showIcon: true,
+    showCloseButton: true,
+    autoclose: true,
+    autotimeout: 3000,
+    gap: 60,
+    distance: 20,
+    type: 1,
+    position: 'right top'
+  })
+}
+
+public pushNotify1() {
+  new Notify({
+    status: 'success',
+    title: '',
+    text: 'Se ha iniciado sesión correctamente',
+    effect: 'fade',
+    speed: 300,
+    customClass: null,
+    customIcon: null,
+    showIcon: true,
+    showCloseButton: true,
+    autoclose: true,
+    autotimeout: 3000,
+    gap: 60,
+    distance: 20,
+    type: 1,
+    position: 'right top'
+  })
+}
+
+public pushNotify2() {
+  new Notify({
+    status: 'error',
+    title: '',
+    text: 'Correo y contraseña no coinciden',
+    effect: 'fade',
+    speed: 300,
+    customClass: null,
+    customIcon: null,
+    showIcon: true,
+    showCloseButton: true,
+    autoclose: true,
+    autotimeout: 3000,
+    gap: 60,
+    distance: 20,
+    type: 1,
+    position: 'right top'
+  })
+}
+
 
   ngOnInit(): void {
   }

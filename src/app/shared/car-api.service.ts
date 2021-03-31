@@ -16,6 +16,7 @@ import { FiltarServicios } from '../modules/filtar-servicios';
 
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -92,8 +93,13 @@ export class CarApiService {
   private url38 = "http://localhost:300/citas/cliente?id_cliente=";
   private url39 = "http://localhost:300/citas/taller?id_taller=";
   private url59 = "http://localhost:300/citas/clienteNuevo?nombre=";
-  private url89 = "http://localhost:300/citas/taller"
-  private url90 = "http://localhost:300/citas/horas?id_taller="
+  private url89 = "http://localhost:300/citas/taller";
+  private url90 = "http://localhost:300/citas/horas?id_taller=";
+
+  private url500 = "http://localhost:300/cambiarPassword";
+  private url501 = "http://localhost:300/passwordAnterior?password=";
+  // private url550 = "http://localhost:300/cambiarFotoTaller?foto="
+  private url503 = "http://localhost:300/passwordAnteriorCliente?password="
 
 
   public talleres:Taller[];
@@ -343,5 +349,29 @@ export class CarApiService {
   public contacto(json) {
     return this.http.post(this.url + "/contacto", json)
   }
+
+  public editarPassword(taller: Taller) {
+    return this.http.put(this.url500, taller)
+  }
+
+  public passwordAnterior(passwordAnterior: string, id_taller: number) {
+    
+    return this.http.get(this.url501 + passwordAnterior + "&id_taller=" + id_taller)
+  }
+
+  public editarPasswordCliente(cliente: Usuario) {
+    return this.http.put(this.url13, cliente)
+  }
+
+  public passwordAnteriorCliente(passwordAnterior: string, id_cliente: number) {
+    
+    return this.http.get(this.url503 + passwordAnterior + "&id_cliente=" + id_cliente)
+  }
+
+
+
+  // public cambiarFotoTaller(foto:string,id_taller:number) {
+  //   return this.http.get(this.url550 + foto + "&id_taller=" + id_taller)
+  // }
 
 }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Mensaje } from 'src/app/modules/mensaje';
 import { CarApiService } from 'src/app/shared/car-api.service';
 import { Router } from '@angular/router';
+import Notify from 'simple-notify'
+import 'simple-notify/dist/simple-notify.min.css'
 
 @Component({
   selector: 'app-chat',
@@ -61,11 +63,11 @@ export class ChatComponent implements OnInit {
         });
       }
       else{
-        this.alert2 = false;
+        this.pushNotify2();
       }
     }
     else{
-      this.alert1 = false;
+      this.pushNotify();
     }
   }
 
@@ -74,12 +76,14 @@ export class ChatComponent implements OnInit {
       this.apiService.eliminarChatCliente(1, id_chat).subscribe((data:any) => {
         console.log(data);
         this.mensajes = null
+        this.pushNotify3();
         this.ngOnInit();
       });
     }
     else if(this.rol == "taller"){
       this.apiService.eliminarChatTaller(1, id_chat).subscribe((data:any) => {
         console.log(data);
+        this.pushNotify3();
         this.ngOnInit();
       });
     }
@@ -90,6 +94,7 @@ export class ChatComponent implements OnInit {
       this.apiService.eliminarChatCliente(1, this.chatEliminar).subscribe((data:any) => {
         console.log(data);
         this.mensajes = null
+        this.pushNotify3();
         this.ngOnInit();
       });
     }
@@ -97,6 +102,7 @@ export class ChatComponent implements OnInit {
       this.apiService.eliminarChatTaller(1, this.chatEliminar).subscribe((data:any) => {
         console.log(data);
         this.mensajes = null
+        this.pushNotify3();
         this.ngOnInit();
       });
     }
@@ -105,6 +111,70 @@ export class ChatComponent implements OnInit {
   public chatElimina(id_chat:number){
     this.chatEliminar = id_chat;
   }
+
+  
+
+  public pushNotify() {
+    new Notify({
+      status: 'error',
+      title: '',
+      text: 'Debe seleccionar una conversación',
+      effect: 'fade',
+      speed: 300,
+      customClass: null,
+      customIcon: null,
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top'
+    })
+  }
+
+  public pushNotify2() {
+    new Notify({
+      status: 'error',
+      title: '',
+      text: 'Debe escribir un mensaje',
+      effect: 'fade',
+      speed: 300,
+      customClass: null,
+      customIcon: null,
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top'
+    })
+  }
+
+  public pushNotify3() {
+    new Notify({
+      status: 'success',
+      title: '',
+      text: 'Chat eliminado',
+      effect: 'fade',
+      speed: 300,
+      customClass: null,
+      customIcon: null,
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top'
+    })
+  }
+  
+
 
   ngOnInit(): void {
    this.getChat();

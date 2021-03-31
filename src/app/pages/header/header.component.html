@@ -51,7 +51,7 @@
                 <li><a class="a" routerLink="/perfilUsuario">Mi Perfil</a></li>
                 <li><a class="a" routerLink="/citas">Mis Citas</a></li>
                 <li><a class="a" routerLink="/chat">Mis Mensajes</a></li>
-                <li><a class="a"  on-click= "cerrarSesion()">Cerrar sesión</a></li>
+                <li><a class="a" on-click= "cerrarSesion()">Cerrar sesión</a></li>
             </ul>
         </div>
         <div *ngIf = "apiService.login != undefined && apiService.login.rol == 'taller' ">
@@ -62,7 +62,7 @@
                 <li><a class="a" routerLink="/perfilTaller">Mi Perfil</a></li>
                 <li><a class="a" routerLink="/citas">Mis Citas</a></li>
                 <li><a class="a" routerLink="/chat">Mis Mensajes</a></li>
-                <li><a class="a"  on-click= "cerrarSesion()">Cerrar sesión</a></li>
+                <li><a class="a" on-click= "cerrarSesion()">Cerrar sesión</a></li>
             </ul>
         </div>
     </div>

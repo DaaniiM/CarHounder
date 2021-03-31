@@ -5,6 +5,8 @@ import { Oferta } from 'src/app/modules/oferta';
 import { Taller } from 'src/app/modules/taller';
 import { TalleresServicios } from 'src/app/modules/talleres-servicios';
 import { CarApiService } from 'src/app/shared/car-api.service';
+import Notify from 'simple-notify'
+import 'simple-notify/dist/simple-notify.min.css'
 
 @Component({
   selector: 'app-perfil-taller',
@@ -39,9 +41,16 @@ export class PerfilTallerComponent implements OnInit {
 
     if (checkBox.checked == true){
 
-      this.apiService.insertarServicio(new TalleresServicios(this.apiService.tallerLogin.id_taller,id_servicios)).subscribe((data:any[]) => {
-      
-        console.log(data)
+      this.apiService.insertarServicio(new TalleresServicios(this.apiService.tallerLogin.id_taller,id_servicios)).subscribe((data:any) => {
+        if(data!="-1"){
+
+          this.pushNotify();
+          
+          
+        }else{
+          this.pushNotify3();
+        }
+             
       })
 
     } else {
@@ -50,11 +59,11 @@ export class PerfilTallerComponent implements OnInit {
         
         if(data3!="-1"){
 
-          console.log(data3)
+          this.pushNotify2();
           
           
         }else{
-          console.log("Error al intentar eliminar el taller")
+          this.pushNotify4();
         }
       })
   
@@ -93,39 +102,60 @@ export class PerfilTallerComponent implements OnInit {
 
    }
 
-   public editarTaller(email:string, password: string, nombre:string, cif:string, direccion:string, cp:any, ciudad:string, provincia:string, telefono:any, foto:string, nuevaOferta:string){
+   public editarTaller(email:string, nombre:string, cif:string, direccion:string, cp:any, ciudad:string, provincia:string, telefono:any, foto:string, nuevaOferta:string){
 
   
-    this.apiService.editarTaller(new Taller(this.apiService.tallerLogin.id_taller, email, password, nombre, cif, direccion, Number(cp), ciudad, provincia,Number(telefono), foto)).subscribe((data:any) =>{
-      if(data!="-1"){
+    this.apiService.editarTaller(new Taller(this.apiService.tallerLogin.id_taller, email, "", nombre, cif, direccion, Number(cp), ciudad, provincia,Number(telefono), foto)).subscribe((data:any) =>{
+      if(data!="-1" && data!="-2"){
 
-        this.apiService.tallerLogin = new Taller(this.apiService.tallerLogin.id_taller, email, password, nombre, cif, direccion, Number(cp), ciudad, provincia,Number(telefono), foto);
+        this.apiService.tallerLogin = new Taller(this.apiService.tallerLogin.id_taller, email, "", nombre, cif, direccion, Number(cp), ciudad, provincia,Number(telefono), foto);
 
-        this.apiService.editarLogin(new Login(email, password)).subscribe((data1) =>{
-          if(data1){
-            console.log(data1);
-          }
-          else{
-            console.log("Error al intentar modificar el taller");
-          }
-        })
 
         this.apiService.editarOferta(new Oferta(0,this.apiService.tallerLogin.id_taller,nuevaOferta)).subscribe((data1) =>{
           if(data1){
             console.log(data1);
           }
           else{
-            console.log("Error al intentar modificar la oferta");
+            this.pushNotify10();
           }
         })
 
-        console.log(data)
+        this.pushNotify9();
         
       }else{
-        console.log("Error al intentar modificar el taller");
+        
+       this.pushNotify10();
       }
     })
 
+   }
+   public password_Anterior(passwordAnterior:string, passwordNuevo:string, passwordRepetido:string) {
+     this.apiService.passwordAnterior(passwordAnterior,this.apiService.tallerLogin.id_taller).subscribe((data) => {
+       if (data != "-1" && data != "-2") {
+         this.editarPassword(passwordNuevo, passwordRepetido);
+
+       } else {
+         this.pushNotify6();
+       }
+     })
+   }
+
+   public editarPassword(passwordNuevo:string, passwordRepetido:string) {
+    if(passwordNuevo == passwordRepetido) {
+      this.apiService.editarPassword(new Taller(this.apiService.tallerLogin.id_taller, "", passwordNuevo, "", "", "", 0, "", "",0, "")).subscribe((data:any) =>  {
+        this.apiService.editarLogin(new Login(this.apiService.tallerLogin.email, passwordNuevo)).subscribe((data1) =>{
+          if(data1 != "-1" && data1 != "-2"){
+            this.pushNotify5();
+          }
+          else{
+            this.pushNotify6();
+            
+          }
+        })
+      })
+    }else {
+      this.pushNotify6();
+    }
    }
 
 
@@ -150,8 +180,220 @@ export class PerfilTallerComponent implements OnInit {
     })
 
     
-
   }
+
+  // public cambiarFoto(foto:string) {
+  //   this.apiService.cambiarFotoTaller(foto,this.apiService.tallerLogin.id_taller).subscribe((data:any) => {
+  //     if(data !="-1" && data !="-2") {
+  //       this.pushNotify7();
+  //     }else {
+  //       this.pushNotify8();
+  //     }
+  //   })
+  // }
+
+  public pushNotify() {
+    new Notify({
+      status: 'success',
+      title: '',
+      text: 'Se ha añadido este servicio a su taller',
+      effect: 'fade',
+      speed: 300,
+      customClass: null,
+      customIcon: null,
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top'
+    })
+  }
+
+  public pushNotify2() {
+    new Notify({
+      status: 'warning',
+      title: '',
+      text: 'Se ha eliminado este servicio de su taller',
+      effect: 'fade',
+      speed: 300,
+      customClass: null,
+      customIcon: null,
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top'
+    })
+  }
+ 
+  
+  public pushNotify3() {
+    new Notify({
+      status: 'error',
+      title: '',
+      text: 'Error al añadir el servicio',
+      effect: 'fade',
+      speed: 300,
+      customClass: null,
+      customIcon: null,
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top'
+    })
+  }
+ 
+  
+  public pushNotify4() {
+    new Notify({
+      status: 'error',
+      title: '',
+      text: 'Error al eliminar el servicio',
+      effect: 'fade',
+      speed: 300,
+      customClass: null,
+      customIcon: null,
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top'
+    })
+  }
+
+  public pushNotify5() {
+    new Notify({
+      status: 'success',
+      title: '',
+      text: 'Contraseña modificada correctamente',
+      effect: 'fade',
+      speed: 300,
+      customClass: null,
+      customIcon: null,
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top'
+    })
+  }
+
+  public pushNotify6() {
+    new Notify({
+      status: 'error',
+      title: '',
+      text: 'Error al modificar la contraseña',
+      effect: 'fade',
+      speed: 300,
+      customClass: null,
+      customIcon: null,
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top'
+    })
+  }
+
+  public pushNotify7() {
+    new Notify({
+      status: 'success',
+      title: '',
+      text: 'Foto modificada correctamente',
+      effect: 'fade',
+      speed: 300,
+      customClass: null,
+      customIcon: null,
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top'
+    })
+  }
+
+  public pushNotify8() {
+    new Notify({
+      status: 'error',
+      title: '',
+      text: 'Error al cambiar la foto',
+      effect: 'fade',
+      speed: 300,
+      customClass: null,
+      customIcon: null,
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top'
+    })
+  }
+
+  public pushNotify9() {
+    new Notify({
+      status: 'success',
+      title: '',
+      text: 'Perfil modificado correctamente',
+      effect: 'fade',
+      speed: 300,
+      customClass: null,
+      customIcon: null,
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top'
+    })
+  }
+
+  public pushNotify10() {
+    new Notify({
+      status: 'error',
+      title: '',
+      text: 'Error al modificar su perfil',
+      effect: 'fade',
+      speed: 300,
+      customClass: null,
+      customIcon: null,
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top'
+    })
+  }
+ 
  
 
   

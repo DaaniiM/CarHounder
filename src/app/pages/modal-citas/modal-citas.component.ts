@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Cita } from 'src/app/modules/cita';
 import { Taller } from 'src/app/modules/taller';
 import { CarApiService } from 'src/app/shared/car-api.service';
+import Notify from 'simple-notify'
+import 'simple-notify/dist/simple-notify.min.css'
 
 @Component({
   selector: 'app-modal-citas',
@@ -93,11 +95,11 @@ export class ModalCitasComponent implements OnInit {
     this.carApiService.pedirCita(new Cita(this.AServicios, fecha, hora, this.carApiService.taller.id_taller, this.carApiService.clienteLogin.id_cliente)).subscribe((data: any) => {
       if (data != "-1") {
         console.log(data)
-        alert("Error al pedir la cita");
+        this.pushNotify();
       }
       else {
         console.log(data)
-        alert("Cita reservada con éxito");
+        this.pushNotify2();
       }
     })
   };
@@ -108,13 +110,28 @@ public calendario(){
   var dd: any = today.getDate()+1;
   var mm: any = today.getMonth()+1; //January is 0 so need to add 1 to make it 1!
   var yyyy = today.getFullYear();
+  if((mm==1||3||5||7||8||10||12) && dd==32){
+    dd=+1;
+    mm = mm+1;
+  }
+  else if((mm==4||6||9||11) && dd==31){
+    dd=+1;
+    mm = mm+1;
+  }
+  else if(mm==2 && dd==29){
+    dd=+1;
+    mm = mm+1;
+  }
+  else if(mm==2 && dd==30){
+    dd=+1;
+    mm = mm+1;
+  }
   if(dd<10){
     dd='0'+dd
-  } 
+  }
   if(mm<10){
     mm='0'+mm
-  } 
-  
+  }
   today = yyyy+'-'+mm+'-'+dd;
   document.getElementById("fecha").setAttribute("min", today);
 };
@@ -143,6 +160,46 @@ public mostrarHorasReservadas(){
     console.log(this.carApiService.horasReservadas[0].fecha)
     console.log(this.mostrarHoras)
     console.log(this.fechaFiltrada)
+  }
+
+  public pushNotify() {
+    new Notify({
+      status: 'success',
+      title: '',
+      text: 'Cita reservada correctamente',
+      effect: 'fade',
+      speed: 300,
+      customClass: null,
+      customIcon: null,
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top'
+    })
+  }
+
+  public pushNotify2() {
+    new Notify({
+      status: 'error',
+      title: '',
+      text: 'Error al reservar su cita',
+      effect: 'fade',
+      speed: 300,
+      customClass: null,
+      customIcon: null,
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top'
+    })
   }
 
   ngOnInit(): void {

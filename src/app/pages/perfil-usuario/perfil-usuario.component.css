@@ -84,16 +84,59 @@ h3{
     width:120px;
 }
 
+.boton1{
+    background-color: #0466c8;
+    color: #F1F1F2;
+}
+
+.boton2{
+    background-color: #8d9cac;
+    color: #F1F1F2;
+}
+
+#eliminar{
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    margin-left: 5px;
+}
+
+#papelera{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+.notify {
+    /* defaults */
+    --notify-error: #eb5757;
+    --notify-success: #6fcf97;
+    --notify-warning: #f2c94c;
+    --notify-gray: #333333;
+    --notify-gray-2: #4d4d4d;
+    --notify-gray-3: #828282;
+    --notify-white: #fff;
+    --notify-white-2: rgba(255, 255, 255, 0.8);
+    --notify-padding: 0.75rem;
+    --notify-icon-size: 32px;
+    --notify-close-icon-size: 16px;
+  }
+  
+
+
 .btnEdit{
     color:white;
     background-color: #0466C8;
     margin-top: 10px;
-    width: 180px
+    width: 180px;
+    margin-top: 10px;
 }
 
 .btnEdit1{
     color:white;
     background-color: #0466C8;
+    margin-bottom: 5px;
 }
 
 

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import Notify from 'simple-notify';
+import 'simple-notify/dist/simple-notify.min.css'
 import { Cita } from 'src/app/modules/cita';
 import { Usuario } from 'src/app/modules/usuario';
 import { CarApiService } from 'src/app/shared/car-api.service';
@@ -82,13 +84,13 @@ export class CitasComponent implements OnInit {
     this.carApiService.borrarCitaCliente(this.carApiService.clienteLogin.id_cliente, this.idCapturadanumber).subscribe((data:any) => {
       console.log(data);
       console.log(this.citas.id_taller, this.carApiService.clienteLogin.id_cliente, this.idCapturadanumber)
-      if(data=="-1"){
-        console.log("La cita ha sido cancelada");
+      if(data!="-1"){
+        this.pushNotify2();
         this.ngOnInit();
       }
       
       else{
-        console.log("Error al cancelar la cita");
+        this.pushNotify6();
         this.ngOnInit();
       }
     });
@@ -98,13 +100,13 @@ export class CitasComponent implements OnInit {
     console.log(this.carApiService.tallerLogin)
     this.carApiService.borrarCitaTaller(this.carApiService.tallerLogin.id_taller, this.idCapturadanumber).subscribe((data:any) => {
       console.log(data);
-      if(data=="-1"){
-        console.log("La cita ha sido cancelada");
+      if(data!="-1"){
+        this.pushNotify2();
         this.ngOnInit();
       }
       
       else{
-        console.log("Error al cancelar la cita");
+        this.pushNotify6();
         this.ngOnInit();
       }
     });
@@ -187,13 +189,13 @@ export class CitasComponent implements OnInit {
     this.carApiService.pedirCita(new Cita(this.AServicios, fecha, hora, this.carApiService.tallerLogin.id_taller, data)).subscribe((data: any) => {
       if (data != "-1") {
         console.log(data)
-        alert("Error al pedir la cita");
+        this.pushNotify();
         this.ngOnInit();
       }
       else {
         // this.IdclienteNuevo = null;
         console.log(data)
-        alert("Cita reservada con éxito");
+        this.pushNotify4();
         this.ngOnInit();
       }
     })
@@ -204,25 +206,6 @@ export class CitasComponent implements OnInit {
     })
   }
 
-  public anyadirCita(fecha:string, hora:string){
-    
-    this.AServicios = this.serviciosCitas.toString();
-    console.log(this.IdclienteNuevo)
-    this.carApiService.pedirCita(new Cita(this.AServicios, fecha, hora, this.carApiService.tallerLogin.id_taller, this.IdclienteNuevo)).subscribe((data: any) => {
-      if (data != "-1") {
-        console.log(data)
-        alert("Error al pedir la cita");
-        this.ngOnInit();
-      }
-      else {
-        this.IdclienteNuevo = null;
-        console.log(data)
-        alert("Cita reservada con éxito");
-        this.ngOnInit();
-      }
-    })
-  }
-  
 
   public modificarCita(fecha:any, hora: string){
     this.AServicios = this.serviciosCitas.toString();
@@ -230,13 +213,13 @@ export class CitasComponent implements OnInit {
     this.carApiService.modificarCita(new Cita(this.AServicios, fecha, hora, 0, 0, this.carApiService.idReserva)).subscribe((data: any) => {
       if (data != "-1") {
         console.log(data)
-        console.log("Error al pedir la cita");
+        this.pushNotify3();
         this.ngOnInit();
         
       }
       else {
         console.log(data)
-        console.log("Cita reservada con éxito");
+        this.pushNotify5();
         this.ngOnInit();
        
       }
@@ -248,12 +231,28 @@ export class CitasComponent implements OnInit {
     var dd: any = today.getDate()+1;
     var mm: any = today.getMonth()+1; //January is 0 so need to add 1 to make it 1!
     var yyyy = today.getFullYear();
+    if((mm==1||3||5||7||8||10||12) && dd==32){
+      dd=+1;
+      mm = mm+1;
+    }
+    else if((mm==4||6||9||11) && dd==31){
+      dd=+1;
+      mm = mm+1;
+    }
+    else if(mm==2 && dd==29){
+      dd=+1;
+      mm = mm+1;
+    }
+    else if(mm==2 && dd==30){
+      dd=+1;
+      mm = mm+1;
+    }
     if(dd<10){
       dd='0'+dd
-    } 
+    }
     if(mm<10){
       mm='0'+mm
-    } 
+    }
     
     today = yyyy+'-'+mm+'-'+dd;
     document.getElementById("fechaM").setAttribute("min", today);
@@ -264,9 +263,25 @@ export class CitasComponent implements OnInit {
     var dd: any = today.getDate()+1;
     var mm: any = today.getMonth()+1; //January is 0 so need to add 1 to make it 1!
     var yyyy = today.getFullYear();
+    if((mm==1||3||5||7||8||10||12) && dd==32){
+      dd=+1;
+      mm = mm+1;
+    }
+    else if((mm==4||6||9||11) && dd==31){
+      dd=+1;
+      mm = mm+1;
+    }
+    else if(mm==2 && dd==29){
+      dd=+1;
+      mm = mm+1;
+    }
+    else if(mm==2 && dd==30){
+      dd=+1;
+      mm = mm+1;
+    }
     if(dd<10){
       dd='0'+dd
-    } 
+    }
     if(mm<10){
       mm='0'+mm
     } 
@@ -299,6 +314,127 @@ export class CitasComponent implements OnInit {
     console.log(this.carApiService.horasReservadas[0].fecha)
     console.log(this.mostrarHoras)
     console.log(this.fechaFiltrada)
+  }
+
+
+  public pushNotify() {
+    new Notify({
+      status: 'success',
+      title: '',
+      text: 'Cita reservada correctamente',
+      effect: 'fade',
+      speed: 300,
+      customClass: null,
+      customIcon: null,
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top'
+    })
+  }
+
+  public pushNotify2() {
+    new Notify({
+      status: 'success',
+      title: '',
+      text: 'Cita cancelada correctamente',
+      effect: 'fade',
+      speed: 300,
+      customClass: null,
+      customIcon: null,
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top'
+    })
+  }
+
+  public pushNotify3() {
+    new Notify({
+      status: 'success',
+      title: '',
+      text: 'Cita modificada correctamente',
+      effect: 'fade',
+      speed: 300,
+      customClass: null,
+      customIcon: null,
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top'
+    })
+  }
+
+  public pushNotify4() {
+    new Notify({
+      status: 'error',
+      title: '',
+      text: 'Error al reservar su cita',
+      effect: 'fade',
+      speed: 300,
+      customClass: null,
+      customIcon: null,
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top'
+    })
+  }
+
+  public pushNotify5() {
+    new Notify({
+      status: 'error',
+      title: '',
+      text: 'Error al modificar su cita',
+      effect: 'fade',
+      speed: 300,
+      customClass: null,
+      customIcon: null,
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top'
+    })
+  }
+
+  public pushNotify6() {
+    new Notify({
+      status: 'error',
+      title: '',
+      text: 'Error al cancelar su cita',
+      effect: 'fade',
+      speed: 300,
+      customClass: null,
+      customIcon: null,
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top'
+    })
   }
 
 
