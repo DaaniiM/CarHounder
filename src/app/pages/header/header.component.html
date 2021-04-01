@@ -8,7 +8,16 @@
     <div class="btn-group">
         <button type="button" class="btn btn-default "
                 data-toggle="dropdown" id="desp">
-                <img src="../../assets/img/iconos/lista.png" id="desplegable"><span class="caret"></span>
+                <div *ngIf = "apiService.login == undefined">
+                    <img src="../../assets/img/iconos/lista.png" id="desplegable"><span class="caret"></span>
+                </div>
+                <div *ngIf = "apiService.login != undefined && apiService.login.rol == 'cliente' ">
+                    <img src="{{apiService.clienteLogin.foto}}" id="desplegableCliente"><span class="caret"></span>
+                </div>
+                <div *ngIf = "apiService.login != undefined && apiService.login.rol == 'taller' ">
+                    <img src="{{apiService.tallerLogin.foto}}" id="desplegableTaller"><span class="caret"></span>
+                </div>
+                
         </button>
         <ul class="dropdown-menu dropdown-menu-right" role="menu" id="menu">
             <div  *ngIf = "apiService.login == undefined">
