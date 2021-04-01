@@ -57,7 +57,6 @@
                     
                     <div class="modal-footer text-align-center">
                     <button type="button" class="btn boton1 botonCambio" data-dismiss="modal" on-click="registrarCliente(nombreA.value, apellidosA.value, telefonoA.value, fechaA.value, horaA.value)">Añadir cita</button>
-                    <!-- <button type="button" class="btn boton1" data-dismiss="modal" on-click="anyadirCita(fechaA.value, horaA.value)" routerLink="/citas">Añadir cita</button>     -->
                 </div>
                 </form>
             </div>
@@ -92,20 +91,6 @@
                                                         </select>
                                                     </div>
                                                     <br>
-                                                    <!-- <div class="form-group">
-                                                        Servicios
-                                                        <div *ngFor="let servicio of servicios; let i = index">
-                                    
-                                                            <div *ngIf = "servicio.id_taller == carApiService.citaTaller[0].id_taller">
-                                                                <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox" on-click="anyadirServicio(servicio.descripcion, prueba.value)" value={{i}} id={{i}} #prueba>
-                                                                    <label class="form-check-label" for="aceite">
-                                                                        {{servicio.descripcion}}
-                                                                    </label>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                      </div> -->
                                                     <div class="modal-footer text-align-center">
                                                     <button type="button" class="btn boton1" data-dismiss="modal" on-click="modificarCita(fechaM.value, horaM.value)">Modificar cita</button>
                                                     </div>
@@ -135,19 +120,11 @@
                             <p>Dirección:
                                 <span>{{cita.direccion}}</span>
                             </p>
-                            <!-- <div id="iconosService" > -->
                             <p>Servicios:
                                 <span>
                                     {{cita.servicios}}
                                 </span>
                             </p>
-
-                            <!-- <div *ngFor="let servicio of servicios"> 
-                                <p *ngIf = "servicio.id_taller == cita.id_taller">
-                                    <img class="icono mx-2" src="{{servicio.icono}}" title="{{servicio.descripcion}}">
-                                </p>
-                            </div> -->
-                            <!-- </div> -->
                             <p>Hora:
                                 <span>{{cita.hora}}</span>
                             </p>

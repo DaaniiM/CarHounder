@@ -17,65 +17,41 @@ export class PerfilUsuarioComponent implements OnInit {
 
   constructor(public apiService:CarApiService,private _router: Router) {
 
-    
-
    }
 
   public verFavoritos(){
-
     this.apiService.detallesFavoritos(this.apiService.clienteLogin.id_cliente).subscribe((data:any[]) => {
-      this.favoritos=data
+      this.favoritos=data;
       this.apiService.favoritosCliente = this.favoritos;
-      
-      console.log(this.apiService.favoritosCliente)
-    })
-
+    });
   }
 
   public eliminarFavorito(id_taller:number){
-
-
     this.apiService.eliminarFavorito(this.apiService.clienteLogin.id_cliente,id_taller).subscribe((data3:any) =>{
-      if(data3!="-1"){
-
-        console.log(data3);
+      if(data3!="-1" && data3!="-2"){
         this.verFavoritos();
-
+        this.pushNotify();
       }else
-        console.log("Error al intentar eliminar el favorito")
-  
-    })
+      this.pushNotify1();
+    });
   }
-    
-
 
   public eliminarCliente(){
-
-
     this.apiService.eliminarCliente(this.apiService.clienteLogin.id_cliente).subscribe((data3:any) =>{
-      if(data3!="-1"){
-
+      if(data3!="-1" && data3!="-2"){
         this.apiService.clienteLogin = undefined;
         this.apiService.eliminarLogin(this.apiService.login.email).subscribe((data3:any) =>{
-          if(data3!="-1"){
-                
+          if(data3!="-1" && data3!="-2"){
             this.apiService.login = undefined;
             this._router.navigate(['']);
-    
-    
             }else{
             console.log("Error al intentar eliminar el usuario")
           }
-        })
-        
-        
+        });
       }else{
         console.log("Error al intentar eliminar el cliente")
       }
-    })
-    
-
-
+    });
    }
 
    public editarCliente(email:string, nombre:string,apellidos:string, telefono:any, foto:string){
@@ -129,7 +105,7 @@ export class PerfilUsuarioComponent implements OnInit {
     new Notify({
       status: 'success',
       title: '',
-      text: 'Contraseña modificada correctamente',
+      text: 'Contraseña modificada correctamente.',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -142,14 +118,14 @@ export class PerfilUsuarioComponent implements OnInit {
       distance: 20,
       type: 1,
       position: 'right top'
-    })
+    });
   }
 
   public pushNotify6() {
     new Notify({
       status: 'error',
       title: '',
-      text: 'Error al modificar la contraseña',
+      text: 'Error al modificar la contraseña.',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -162,14 +138,14 @@ export class PerfilUsuarioComponent implements OnInit {
       distance: 20,
       type: 1,
       position: 'right top'
-    })
+    });
   }
 
   public pushNotify9() {
     new Notify({
       status: 'success',
       title: '',
-      text: 'Perfil modificado correctamente',
+      text: 'Perfil modificado correctamente.',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -182,14 +158,14 @@ export class PerfilUsuarioComponent implements OnInit {
       distance: 20,
       type: 1,
       position: 'right top'
-    })
+    });
   }
 
   public pushNotify10() {
     new Notify({
       status: 'error',
       title: '',
-      text: 'Error al modificar su perfil',
+      text: 'Error al modificar su perfil.',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -202,9 +178,48 @@ export class PerfilUsuarioComponent implements OnInit {
       distance: 20,
       type: 1,
       position: 'right top'
-    })
+    });
   }
 
+  public pushNotify() {
+    new Notify({
+      status: 'success',
+      title: '',
+      text: 'Favorito eliminado.',
+      effect: 'fade',
+      speed: 300,
+      customClass: null,
+      customIcon: null,
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top'
+    });
+  }
+
+  public pushNotify1() {
+    new Notify({
+      status: 'error',
+      title: '',
+      text: 'Error al eliminar favorito.',
+      effect: 'fade',
+      speed: 300,
+      customClass: null,
+      customIcon: null,
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top'
+    });
+  }
 
   ngOnInit(): void {
     

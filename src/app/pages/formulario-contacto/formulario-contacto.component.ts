@@ -9,10 +9,8 @@ import 'simple-notify/dist/simple-notify.min.css'
   styleUrls: ['./formulario-contacto.component.css']
 })
 export class FormularioContactoComponent implements OnInit {
-  public alert1:boolean=true
 
   constructor(private apiService: CarApiService) { }
-
 
   public recogerdatos(nombre:string, correo:string, asunto:string, mensaje:string) {
     let json =
@@ -21,25 +19,10 @@ export class FormularioContactoComponent implements OnInit {
         correo:correo,
         asunto:asunto,
         mensaje:mensaje
-        
       }
       this.apiService.contacto(json).subscribe((data)=>{
-        console.log(data);
-      })
-      this.alert1=false;
-
-
-
+    });
   } 
-
-//   // Con esta función se muestra el Toast 
-//   public mostrarToast() {
-//     let toast = document.getElementById("mitoast");
-//     toast.className = "mostrar";
-//     setTimeout(function(){ toast.className = toast.className.replace("mostrar", ""); }, 5000);
-    
-    
-// }
 
 public pushNotify() {
   new Notify({
@@ -58,13 +41,8 @@ public pushNotify() {
     distance: 20,
     type: 1,
     position: 'right top'
-  })
+  });
 }
-
-
-
-
-
   ngOnInit(): void {
   }
 

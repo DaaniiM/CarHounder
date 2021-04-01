@@ -20,9 +20,7 @@ export class ModalCitasComponent implements OnInit {
   public horas: any[];
   public fechaFiltrada: any;
   public mostrarHoras:any[];
-  
   public clicked: boolean;
- 
 
   constructor(public carApiService: CarApiService) {
 
@@ -32,7 +30,6 @@ export class ModalCitasComponent implements OnInit {
     this.fechaFiltrada;
     this.horas = ["09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00",
                   "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00"];
-    
     this.mostrarHoras = [];
     this.clicked = false;
 
@@ -40,70 +37,32 @@ export class ModalCitasComponent implements OnInit {
 
 
   public detallesServicios() {
-
     this.carApiService.buscarServicios().subscribe((data: any[]) => {
-      this.servicios = data
-      console.log(this.servicios)
-    })
+      this.servicios = data;
+    });
   }
-
-  // public anyadirServicio(servicio: string, idHtml: string) {
-  //   var checkBox = document.getElementById(idHtml) as HTMLInputElement;
-  //   console.log(idHtml)
-
-  //   if (checkBox.checked == true) {
-  //     console.log(servicio)
-  //     this.serviciosCitas.push(" " + servicio);
-  //     console.log(this.serviciosCitas);
-
-  //   }
-  //   else {
-  //     console.log(servicio, this.serviciosCitas.indexOf(" " + servicio));
-  //     this.serviciosCitas.splice(this.serviciosCitas.indexOf(" " + servicio), 1);
-  //     console.log(this.serviciosCitas);
-
-  //   }
-  // }
 
   public anyadirServicio(icono: string, idHtml: string) {
     var checkBox = document.getElementById(idHtml) as HTMLInputElement;
-    console.log(idHtml)
-
     if (checkBox.checked == true) {
-      console.log(icono)
       this.serviciosCitas.push(" " + icono);
-      console.log(this.serviciosCitas);
-
     }
     else {
-      console.log(icono, this.serviciosCitas.indexOf(" " + icono));
       this.serviciosCitas.splice(this.serviciosCitas.indexOf(" " + icono), 1);
-      console.log(this.serviciosCitas);
-
     }
   }
 
   public pedirCita(fecha: string, hora: string) {
-    console.log(fecha);
-    
-    console.log(this.carApiService.taller)
-    console.log(this.carApiService.clienteLogin);
-
     this.AServicios = this.serviciosCitas.toString();
-    console.log(this.AServicios, typeof this.AServicios)
-
     this.carApiService.pedirCita(new Cita(this.AServicios, fecha, hora, this.carApiService.taller.id_taller, this.carApiService.clienteLogin.id_cliente)).subscribe((data: any) => {
-      if (data != "-1") {
-        console.log(data)
+      if (data != "-1" && data != "-2") {
         this.pushNotify();
       }
       else {
-        console.log(data)
         this.pushNotify2();
       }
-    })
+    });
   };
-
 
 public calendario(){
   var today: any = new Date();
@@ -139,12 +98,11 @@ public calendario(){
 public mostrarHorasReservadas(){
   this.carApiService.mostrarHoras(this.carApiService.taller.id_taller).subscribe((data: any[]) => {
     this.carApiService.horasReservadas = data;
-    console.log(data)
-  })
+  });
 }
 
   public actualizarHoras(){
-    this.mostrarHoras = []
+    this.mostrarHoras = [];
     for (let i = 0; i < this.horas.length; i++) {
       let match = false;
       for (let j = 0; j < this.carApiService.horasReservadas.length; j++) {
@@ -157,16 +115,13 @@ public mostrarHorasReservadas(){
           this.mostrarHoras.push(this.horas[i]);
       }
     }
-    console.log(this.carApiService.horasReservadas[0].fecha)
-    console.log(this.mostrarHoras)
-    console.log(this.fechaFiltrada)
   }
 
   public pushNotify() {
     new Notify({
       status: 'success',
       title: '',
-      text: 'Cita reservada correctamente',
+      text: 'Cita reservada correctamente.',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -179,14 +134,14 @@ public mostrarHorasReservadas(){
       distance: 20,
       type: 1,
       position: 'right top'
-    })
+    });
   }
 
   public pushNotify2() {
     new Notify({
       status: 'error',
       title: '',
-      text: 'Error al reservar su cita',
+      text: 'Error al reservar su cita.',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -199,15 +154,12 @@ public mostrarHorasReservadas(){
       distance: 20,
       type: 1,
       position: 'right top'
-    })
+    });
   }
 
   ngOnInit(): void {
     this.detallesServicios()
-
     this.calendario();
-
-    console.log(this.carApiService.horasFiltradas)
   }
 
 }

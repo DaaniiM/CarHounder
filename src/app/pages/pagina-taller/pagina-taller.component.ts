@@ -27,8 +27,6 @@ export class PaginaTallerComponent implements OnInit {
   constructor(public carApiService:CarApiService,  private _router: Router) {
 
     this.taller = carApiService.taller;
-    this.alert1 = true;
-
     this.horas = ["09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00",
                   "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00"];
     this.mostrarHoras = [];
@@ -39,14 +37,12 @@ export class PaginaTallerComponent implements OnInit {
    public detallesServicios() {
     this.carApiService.buscarServicios().subscribe((data:any[]) => {
       this.servicios=data
-      console.log(this.servicios)
     });
   }
 
   public ofertas(id:number){
     this.carApiService.oferta(id).subscribe((data:any[]) => {
       this.oferta=data[0]
-      console.log(this.oferta)
     })
   }
 
@@ -57,28 +53,23 @@ export class PaginaTallerComponent implements OnInit {
   public reapareceChat(){
     if(this.carApiService.login.rol == "cliente"){
       this.carApiService.eliminarChatCliente(0, this.chatReaparecer).subscribe((data:any) => {
-        console.log(data);
       });
       this.carApiService.eliminarChatTaller(0, this.chatReaparecer).subscribe((data:any) => {
-        console.log(data);
       });
     }
   }
 
   public postChat(id_taller){
-    console.log(this.carApiService.clienteLogin);
-    console.log(this.taller);
     this.carApiService.getComprobarChat(this.carApiService.clienteLogin.id_cliente, id_taller).subscribe((data:any) =>{
-      console.log(data);
       if(data == ""){
         this.carApiService.postChat(new Chat(this.carApiService.clienteLogin.id_cliente,id_taller)).subscribe((data1:any) =>{
           console.log(data1);
-          if(data1!="-1"){
-            console.log("Se añadio el chat " + data1);
+          if(data1!="-1" && data!="-2"){
+            console.log("chat ok");
             this._router.navigate(['/chat']);
           }
           else{
-            console.log("Error al crear el chat");
+            console.log("Error chat");
             this.alert1 = false;
           }
         });
@@ -94,7 +85,6 @@ export class PaginaTallerComponent implements OnInit {
   public resenyasTaller(id_taller:number){
     this.carApiService.resenyaTaller(id_taller).subscribe((data:any[]) => {
       this.resenyas=data
-      console.log(this.resenyas)
     })
   }
 
@@ -110,15 +100,8 @@ export class PaginaTallerComponent implements OnInit {
   public mostrarHorasReservadas(){
     this.carApiService.mostrarHoras(this.carApiService.taller.id_taller).subscribe((data: any[]) => {
       this.carApiService.horasReservadas = data;
-      console.log(data)
     })
   }
-
-
-
-
-
-
 
   ngOnInit(): void {
     this.detallesServicios();

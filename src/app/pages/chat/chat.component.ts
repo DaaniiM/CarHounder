@@ -16,20 +16,14 @@ export class ChatComponent implements OnInit {
   public mensajes: any[];
   public rol = this.apiService.login.rol;
   public id_chat: number;
-  public alert1: boolean;
-  public alert2: boolean;
   public chatEliminar:number;
 
   constructor(public apiService:CarApiService, private _router: Router) {
-
-    this.alert1 = true;
-    this.alert2 = true;
 
    }
 
   public getChat(){
     this.apiService.getChat(this.apiService.login.email, this.rol).subscribe((data:any) =>{
-      console.log(data);
       this.chats = data;
     });
   }
@@ -37,12 +31,8 @@ export class ChatComponent implements OnInit {
   public getMensaje(id_chat:number){
     if(id_chat != undefined){
       this.apiService.getMensaje(Number(id_chat)).subscribe((data:any[]) =>{
-        console.log(data);
-        this.alert1 = true;
-        this.alert2 = true;
         this.mensajes = data;
         this.id_chat = id_chat;
-        console.log(this.mensajes);
         let objDiv = document.getElementById("mensajes");
         objDiv.scrollTop = objDiv.scrollHeight;
       });
@@ -53,13 +43,14 @@ export class ChatComponent implements OnInit {
     if(this.id_chat != null){
       if(mensaje != ""){
         this.apiService.postMensaje(new Mensaje( this.id_chat, this.rol, mensaje)).subscribe((data:any) =>{
-          console.log(data);
-          let msj = document.getElementById("mensaje") as HTMLInputElement;
-          msj.value = "";
-          let objDiv = document.getElementById("mensajes");
-          objDiv.scrollTop = objDiv.scrollHeight;
-          this.getMensaje(this.id_chat);
-          this._router.navigate(['/chat']);
+          if(data != "-1" && data != "-2"){
+            let msj = document.getElementById("mensaje") as HTMLInputElement;
+            msj.value = "";
+            let objDiv = document.getElementById("mensajes");
+            objDiv.scrollTop = objDiv.scrollHeight;
+            this.getMensaje(this.id_chat);
+            this._router.navigate(['/chat']);
+          }
         });
       }
       else{
@@ -74,7 +65,6 @@ export class ChatComponent implements OnInit {
   public deleteChatResponsive(id_chat:number){
     if(this.rol == "cliente"){
       this.apiService.eliminarChatCliente(1, id_chat).subscribe((data:any) => {
-        console.log(data);
         this.mensajes = null
         this.pushNotify3();
         this.ngOnInit();
@@ -82,7 +72,6 @@ export class ChatComponent implements OnInit {
     }
     else if(this.rol == "taller"){
       this.apiService.eliminarChatTaller(1, id_chat).subscribe((data:any) => {
-        console.log(data);
         this.pushNotify3();
         this.ngOnInit();
       });
@@ -92,7 +81,6 @@ export class ChatComponent implements OnInit {
   public deleteChat(){
     if(this.rol == "cliente"){
       this.apiService.eliminarChatCliente(1, this.chatEliminar).subscribe((data:any) => {
-        console.log(data);
         this.mensajes = null
         this.pushNotify3();
         this.ngOnInit();
@@ -118,7 +106,7 @@ export class ChatComponent implements OnInit {
     new Notify({
       status: 'error',
       title: '',
-      text: 'Debe seleccionar una conversación',
+      text: 'Debe seleccionar una conversación.',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -131,14 +119,14 @@ export class ChatComponent implements OnInit {
       distance: 20,
       type: 1,
       position: 'right top'
-    })
+    });
   }
 
   public pushNotify2() {
     new Notify({
       status: 'error',
       title: '',
-      text: 'Debe escribir un mensaje',
+      text: 'Debe escribir un mensaje.',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -151,14 +139,14 @@ export class ChatComponent implements OnInit {
       distance: 20,
       type: 1,
       position: 'right top'
-    })
+    });
   }
 
   public pushNotify3() {
     new Notify({
       status: 'success',
       title: '',
-      text: 'Chat eliminado',
+      text: 'Chat eliminado.',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -171,7 +159,7 @@ export class ChatComponent implements OnInit {
       distance: 20,
       type: 1,
       position: 'right top'
-    })
+    });
   }
   
 

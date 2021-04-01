@@ -22,10 +22,8 @@ export class CitasComponent implements OnInit {
   public idCapturadanumber:number;
   public arrayServicios: string[];
   public arrayIconos: any[];
-
   public AServicios: string;
   public IdclienteNuevo: any;
-  
   public nombreP: string;
   public fechaP: string;
   public horaP: string;
@@ -40,55 +38,41 @@ export class CitasComponent implements OnInit {
     this.login = carApiService.login;
     this.fechacita;
     this.idCapturadanumber = null;
-
     this.serviciosCitas = [];
     this.AServicios;
     this.IdclienteNuevo = null;
-
     this.fechaFiltrada;
     this.horas=["09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00",
                 "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00"]
     this.mostrarHoras = [];
   }
 
-
   public filtrarHoras(){
 
   }
 
   public mostrarCitasCliente() {
-    
     this.carApiService.mostrarCitaCliente(this.carApiService.clienteLogin.id_cliente).subscribe((data:any) => {
-      console.log(data);
       this.citas = data;
-      // this.carApiService.citaCliente = data;
       for(let i=0; this.citas.length; i++){
-        this.arrayServicios += this.citas[i].servicios
+        this.arrayServicios += this.citas[i].servicios;
       }
-      console.log(this.arrayServicios)
       this.arrayServicios = this.citas.servicios.split(",")
-      console.log(this.arrayServicios)
     })
   }
 
   public mostrarCitasTaller() {
-    
     this.carApiService.mostrarCitaTaller(this.carApiService.tallerLogin.id_taller).subscribe((data:any) => {
-      console.log(data);
       this.citas = data;
-      // this.carApiService.citaTaller = data;
     })
   }
 
   public borrarCitasCliente() {
     this.carApiService.borrarCitaCliente(this.carApiService.clienteLogin.id_cliente, this.idCapturadanumber).subscribe((data:any) => {
-      console.log(data);
-      console.log(this.citas.id_taller, this.carApiService.clienteLogin.id_cliente, this.idCapturadanumber)
-      if(data!="-1"){
+      if(data!="-1" && data != "-2"){
         this.pushNotify2();
         this.ngOnInit();
       }
-      
       else{
         this.pushNotify6();
         this.ngOnInit();
@@ -97,133 +81,82 @@ export class CitasComponent implements OnInit {
   }
 
   public borrarCitasTaller() {
-    console.log(this.carApiService.tallerLogin)
     this.carApiService.borrarCitaTaller(this.carApiService.tallerLogin.id_taller, this.idCapturadanumber).subscribe((data:any) => {
-      console.log(data);
-      if(data!="-1"){
+      if(data!="-1" && data !="-2"){
         this.pushNotify2();
         this.ngOnInit();
       }
-      
       else{
         this.pushNotify6();
         this.ngOnInit();
       }
     });
-
   }
 
   public capturar(id:any){
-    console.log(id)
     this.idCapturadanumber = id;
     this.carApiService.idReserva = id;
-    console.log(id)
-    console.log(this.idCapturadanumber);
-    
   }
 
   public prueba(fecha: string, hora: string){
-    
     this.carApiService.fechaP = fecha;
     this.carApiService.horaP = hora;
-    console.log("arranca la prueba")
-    console.log(fecha, hora)
   }
 
   // Modal citas del taller (Añadir y modificar)
 
   public detallesServicios() {
-
     this.carApiService.buscarServicios().subscribe((data: any[]) => {
-      this.servicios = data
-
-      console.log(this.servicios)
-    })
+      this.servicios = data;
+    });
   }
 
   public anyadirServicio(servicio: string, idHtml: string) {
     var checkBox = document.getElementById(idHtml) as HTMLInputElement;
-    console.log(idHtml)
-
     if (checkBox.checked == true) {
-      console.log(servicio)
       this.serviciosCitas.push(" " + servicio);
-      console.log(this.serviciosCitas);
-
     }
     else {
-      console.log(servicio, this.serviciosCitas.indexOf(" " + servicio));
       this.serviciosCitas.splice(this.serviciosCitas.indexOf(" " + servicio), 1);
-      console.log(this.serviciosCitas);
 
     }
   }
-
-  // public pedirCita(fecha: string, hora: string) {
-  //   console.log(this.carApiService.taller)
-  //   console.log(this.carApiService.clienteLogin);
-
-  //   this.AServicios = this.serviciosCitas.toString();
-  //   console.log(this.AServicios, typeof this.AServicios)
-
-  //   this.carApiService.pedirCita(new Cita(this.AServicios, fecha, hora, this.carApiService.tallerLogin.id_taller, this.carApiService.citaCliente.id_cliente)).subscribe((data: any) => {
-  //     if (data != "-1") {
-  //       console.log(data)
-  //       alert("Error al pedir la cita");
-  //     }
-  //     else {
-  //       console.log(data)
-  //       alert("Cita reservada con éxito");
-  //     }
-  //   })
-  // }
 
   public registrarCliente(nombre: string, apellidos: string, telefono: string, fecha: string, hora: string){
     this.carApiService.registrarCliente(new Usuario(0, null, "1", nombre, apellidos, Number(telefono), null)).subscribe((data:any) =>{
-      console.log(data);
-      // this.IdclienteNuevo = data;
-      if(data!="-1"){
-        console.log("Se anadio el cliente: " + data);
+      if(data!="-1" && data != "-2"){
         this.AServicios = this.serviciosCitas.toString();
-    // console.log(this.IdclienteNuevo)
-    this.carApiService.pedirCita(new Cita(this.AServicios, fecha, hora, this.carApiService.tallerLogin.id_taller, data)).subscribe((data: any) => {
-      if (data != "-1") {
-        console.log(data)
-        this.pushNotify();
-        this.ngOnInit();
-      }
-      else {
-        // this.IdclienteNuevo = null;
-        console.log(data)
-        this.pushNotify4();
-        this.ngOnInit();
-      }
-    })
+        this.carApiService.pedirCita(new Cita(this.AServicios, fecha, hora, this.carApiService.tallerLogin.id_taller, data)).subscribe((data: any) => {
+          if (data != "-1" && data != "-2") {
+            console.log(data)
+            this.pushNotify();
+            this.ngOnInit();
+          }
+          else {
+            this.pushNotify4();
+            this.ngOnInit();
+          }
+       });
       }
       else{
-        console.log("Error al insertar el cliente")
+        this,this.pushNotify7();
       }
-    })
+    });
   }
-
 
   public modificarCita(fecha:any, hora: string){
     this.AServicios = this.serviciosCitas.toString();
     console.log(this.carApiService.idReserva)
     this.carApiService.modificarCita(new Cita(this.AServicios, fecha, hora, 0, 0, this.carApiService.idReserva)).subscribe((data: any) => {
-      if (data != "-1") {
-        console.log(data)
+      if (data != "-1" && data != "-2") {
         this.pushNotify3();
         this.ngOnInit();
-        
       }
       else {
-        console.log(data)
         this.pushNotify5();
         this.ngOnInit();
-       
       }
-    })
+    });
   }
 
   public calendarioM(){
@@ -253,7 +186,6 @@ export class CitasComponent implements OnInit {
     if(mm<10){
       mm='0'+mm
     }
-    
     today = yyyy+'-'+mm+'-'+dd;
     document.getElementById("fechaM").setAttribute("min", today);
   }
@@ -285,7 +217,6 @@ export class CitasComponent implements OnInit {
     if(mm<10){
       mm='0'+mm
     } 
-    
     today = yyyy+'-'+mm+'-'+dd;
     document.getElementById("fechaA").setAttribute("min", today);
   }
@@ -294,7 +225,7 @@ export class CitasComponent implements OnInit {
     this.carApiService.mostrarHoras(this.carApiService.tallerLogin.id_taller).subscribe((data: any[]) => {
       this.carApiService.horasReservadas = data;
       console.log(data)
-    })
+    });
   }
 
   public actualizarHoras(){
@@ -311,9 +242,6 @@ export class CitasComponent implements OnInit {
           this.mostrarHoras.push(this.horas[i]);
       }
     }
-    console.log(this.carApiService.horasReservadas[0].fecha)
-    console.log(this.mostrarHoras)
-    console.log(this.fechaFiltrada)
   }
 
 
@@ -321,7 +249,7 @@ export class CitasComponent implements OnInit {
     new Notify({
       status: 'success',
       title: '',
-      text: 'Cita reservada correctamente',
+      text: 'Cita reservada correctamente.',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -334,14 +262,14 @@ export class CitasComponent implements OnInit {
       distance: 20,
       type: 1,
       position: 'right top'
-    })
+    });
   }
 
   public pushNotify2() {
     new Notify({
       status: 'success',
       title: '',
-      text: 'Cita cancelada correctamente',
+      text: 'Cita cancelada correctamente.',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -354,14 +282,14 @@ export class CitasComponent implements OnInit {
       distance: 20,
       type: 1,
       position: 'right top'
-    })
+    });
   }
 
   public pushNotify3() {
     new Notify({
       status: 'success',
       title: '',
-      text: 'Cita modificada correctamente',
+      text: 'Cita modificada correctamente.',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -374,14 +302,14 @@ export class CitasComponent implements OnInit {
       distance: 20,
       type: 1,
       position: 'right top'
-    })
+    });
   }
 
   public pushNotify4() {
     new Notify({
       status: 'error',
       title: '',
-      text: 'Error al reservar su cita',
+      text: 'Error al reservar su cita.',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -394,14 +322,14 @@ export class CitasComponent implements OnInit {
       distance: 20,
       type: 1,
       position: 'right top'
-    })
+    });
   }
 
   public pushNotify5() {
     new Notify({
       status: 'error',
       title: '',
-      text: 'Error al modificar su cita',
+      text: 'Error al modificar su cita.',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -414,14 +342,14 @@ export class CitasComponent implements OnInit {
       distance: 20,
       type: 1,
       position: 'right top'
-    })
+    });
   }
 
   public pushNotify6() {
     new Notify({
       status: 'error',
       title: '',
-      text: 'Error al cancelar su cita',
+      text: 'Error al cancelar su cita.',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -434,14 +362,28 @@ export class CitasComponent implements OnInit {
       distance: 20,
       type: 1,
       position: 'right top'
-    })
+    });
   }
 
-
-
-  
-
-
+  public pushNotify7() {
+    new Notify({
+      status: 'error',
+      title: '',
+      text: 'Error al insertar el cliente.',
+      effect: 'fade',
+      speed: 300,
+      customClass: null,
+      customIcon: null,
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top'
+    });
+  }
 
   ngOnInit(): void {
 
@@ -457,18 +399,10 @@ export class CitasComponent implements OnInit {
     }
     
     this.detallesServicios()
-
-    console.log(this.login)
-    console.log(this.carApiService.tallerLogin)
-
-    // this.array()
-
     this.calendarioM();
     this.calendarioA();
-
     this.mostrarHorasReservadas();
-    
-    
+   
   }
 
 }
