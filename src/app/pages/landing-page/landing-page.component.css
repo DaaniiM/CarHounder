@@ -1,5 +1,4 @@
 #imagenFondo{
-
     background-image: url("src/assets/img/fotoFondos/principal.png");
     background-position: center center;
     position: absolute;
@@ -8,9 +7,6 @@
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
-   
-
-
 }
 
 #primeraParte {
@@ -20,10 +16,7 @@
    flex-direction: column;
    justify-content: space-evenly;
    align-items: center;
-
-
 }
-
 
 .fraseTop{
     color: #f1f1f2;
@@ -34,16 +27,17 @@
     justify-content: center;
     align-items: center;
     font-weight: bold;
-
+    text-align: center;
+    margin-top: -100px;
+    padding-bottom: 100px;
 }
-
 
 #busquedaCentral{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-
+    padding-bottom: 100px;
 }
 
 input{
@@ -52,9 +46,8 @@ input{
     border-radius: 10px;
     font-size: 35px;
     background-color: #F1F1F2;
-    
-    
 }
+
 input:focus{
     background-color: #F1F1F2;
 }
@@ -71,59 +64,65 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     flex-direction: row;
     text-align: left;
     align-items: center;
-
-    
  }
 
+.boton2{
+    display: none;
+    background-color : #0466c8;
+    color: #f1f1f2;
+    width: 120px;
+    height: 40px;
+    margin-top: 10px;
+ }
  
 button {
-
-    display                : block;
-    position       : relative;
-    padding        : 10px 0;
-    margin-left        : 10px;
-    font-family      : sans-serif;
-    font-size      : 14px;
-    font-weight    : bold;
-    text-transform : uppercase;
-    text-align         : center;
-    color          : white;
+    display: block;
+    position: relative;
+    padding: 10px 0;
+    margin-left: 10px;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    color: white;
     letter-spacing : 1px;
-    border         : none;
-    border-radius  : 10px;
-    cursor         : pointer;
-    width          : 180px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 180px;
     height: 60px;
-    outline             : none;
-    overflow             : hidden;
-    box-sizing                  : border-box;
-    -moz-box-sizing         : border-box;
-    -webkit-box-sizing : border-box;
-        
+    outline: none;
+    overflow: hidden;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 
 #sec1 {
     background : #82B1FF;
 }
 
-
 .btn-4 {
     background-color : #0466c8;
 }
+
 .btn-4:active {
     background-color : #0353a4;
     color            : #0353a4;
     transform        : translateY(3px);
 }
+
 .btn-4 p {
     transition : all 0.3s ease;
     padding-top: 3px;
     font-family: 'Poppins', sans-serif;
     font-size: 25px;
 }
+
 .btn-4:hover p{
     transform: translateY(320%);
 }
+
 .btn-4:before {
     content     : "\f002";
     font-family : FontAwesome;
@@ -136,9 +135,7 @@ button {
 
 .btn-4:hover:before {
     transform: translateY(120%);
-
 }
-
 
 .descripcion {
     display: flex;
@@ -147,16 +144,12 @@ button {
     width: 100%;
 }
 
-
 h1 {
-    
     font-family: 'Poppins', sans-serif;
     color: #f1f1f2;
     font-size: 40px;
     font-weight: 600;
     padding-top: 10px;
-    
-
 }
 
 .descriptionBase{
@@ -178,8 +171,6 @@ h1 {
 .iconos2{
     width: 75px;
     height: 75px;
-
-
     margin-bottom: 14px;
 }
 
@@ -187,27 +178,10 @@ h1 {
     padding-top: 15px;
 }
 
-
 .carousel-inner img {
     width: 100%;
     height: 100%;
-  }
-
-
-  #demo {
-        width: 945px;
-        height: 820px;
-        
-       
-        
-  }
-
-
- 
-
-
-
-
+}
 
 #parteAbajo{
     width: 100%;
@@ -223,35 +197,23 @@ h1 {
     font-family: 'Poppins', sans-serif;
 }
 
-
 ul {
     list-style:none;
     padding-top: 70px;
     padding-left: 150px;
 }
 
-
-
-
 .card {
-   
     font-family: 'Poppins', sans-serif;
     border: none;
     padding:  0px 300px 0px 300px;
     background-color: #f1f1f2;
-    
-    
-   
 }
-
-
- 
 
 /* CAROUSEL NUEVO */
 .container {
     margin-top: 150px;
 }
-
 
 .carousel-control-next-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='grey' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
@@ -260,9 +222,6 @@ ul {
 .carousel-control-prev-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='grey' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
 }
-
-
-
 
 /* MEDIA QUERY */
 
@@ -278,19 +237,14 @@ ul {
     }
 }
 
-
-
 @media screen and ( max-width: 1226px ){
 
    .fraseTop {
        font-size: 40px;
-
    }
 
    h1{
-  
     font-size:30px;
-   
    }
 
    .iconos1 {
@@ -302,8 +256,6 @@ ul {
     width: 40px;
     height: 40px;
     margin-bottom: 1px;
-
-
    }
 
    .wrapper{
@@ -314,9 +266,8 @@ ul {
        border: solid 1px black;
        width: 300px;
        margin-left: -50px;
-       
-
    }
+
 } 
 
 @media screen and ( max-width: 1300px ){
@@ -324,6 +275,15 @@ ul {
     #parteAbajo{
         display: none;
     }
+    .fraseTop{
+        margin-top: 0px;
+        padding-bottom: 0px;
+    }
+
+    #primeraParte {
+        justify-content: space-around;
+     }
+     
 
 }
 
@@ -332,6 +292,10 @@ ul {
     .descripcion {
         display: none;
     }
+    #espacio{
+        display: block;
+    }
+
 }
 
 
@@ -348,26 +312,56 @@ ul {
 
     #busquedaCentral{
         flex-direction: column;
-
     }
+
+    .fraseTop{
+        font-size: 30px;
+    }
+
+    input{
+        width: 260px;
+        height: 40px;
+        border-radius: 10px;
+        font-size: 20px;
+    }
+
+    ::-webkit-input-placeholder {
+        font-size: 20px;
+     }
+    
+
+    .btn-4{
+        display: none;
+    }
+
+    .boton2{
+        display: block;
+    }
+
+    /* #espacio{
+        display: block;
+    } */
 
 }
 
-
 @media screen and ( max-width: 659px ){
-
 
     .fraseTop {
         text-align: center;
     }
 }
 
-@media screen and ( max-width: 380px ){
+@media screen and ( max-width: 420px ){
 
     input {
-        width: 300px;
-
+        width: 260px;
     }
 }
 
+@media screen and ( height: 768px ){
 
+   .descripcion{
+       margin-bottom: 50px;
+   }
+
+}

@@ -1,5 +1,4 @@
 #imagenFondo{
-
     background-image: url("src/assets/img/fotoFondos/busquedatallerfondo.png");
     background-position: center center;
     position: absolute;
@@ -9,40 +8,28 @@
     background-size: cover;
     background-repeat: no-repeat;
     overflow: auto;
-
-
 }
-
 
 #filtroResponsive{
     position: absolute;
-    width: 650px;
-    
-    
+    width: 650px;   
 }
 
-/* #botonesAll{
-
-    width: 200px;
-} */
-
 .btn-lg{
-
     height: 40px;
     font-size: 15px;
     width: 200px;
 }
 
 a:hover{
-
     cursor: pointer;
 }
 
-#iconosService{
-
+.iconosService{
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
 }
+
 #parteAbajo {
     display: flex;
     flex-direction: row;
@@ -51,47 +38,37 @@ a:hover{
     margin-bottom: 250px;
     margin-top: 100px;
     font-family: 'Poppins', sans-serif;
-   
 }
 
 #filtros{
-
     width: 1010px;
     background-color: #F1F1F2;
     font-family: 'Poppins', sans-serif;
     text-align: center;
     display: flex;
     flex-direction: column;
-
 }
 
 .accordion{
-
     width: 400px;
     padding-top: 18px;
 }
 
 #filtrosAll{
-
     margin-top: -40px;
 }
 
 #demo{
-
   color: #16181b;
   text-decoration: none;
   background-color: #F1F1F2;
   position: absolute;
   padding: 20px;
   z-index: 100;
-
-   
 }
 
 textarea{
-
     resize: none;
-
 }
 
 
@@ -108,21 +85,15 @@ textarea{
     margin-bottom: 10px;
     margin-left: 50%;
     transform: translateX(-50%);
-    
 }
 
 .btn-link:link, .btn-link:visited, .btn-link:active,.btn-link:hover,.btn-link:focus {
-
     text-decoration:none;
 }
 
 .filtroSelecciones{
     font-family: 'Poppins', sans-serif;
     font-size: 25px;
-   
-    
-
-
 }
 
 .talleres {
@@ -130,27 +101,18 @@ textarea{
     height: 30px;
     padding: 10px;
     margin-bottom:180px;
-   
 }
 
-
 /* TARJETA TALLER */
-
-
-
-
 
 .product-image {
     width: 200px;
     height: 200px;
 }
 
-
-
 h5 {
     font-weight: 400px;
 }
-
 
 h2 {
     font-size: 30px;
@@ -160,19 +122,14 @@ h2 {
     width: 40px;
     height: 40px;
     padding: 5px;
-
 }
-
 
 #valoraciones{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-
 }
-
 
 .numberValue{
     font-family: 'Poppins', sans-serif;
@@ -181,7 +138,6 @@ h2 {
     border: none;
     outline: none;
     width: 200px;
-    
 }   
 
 .btnEdit1{
@@ -194,21 +150,18 @@ h2 {
 	font-size: 0;
 	display: inline-block;
 }
+
 .ec-stars-wrapper a {
 	text-decoration: none;
 	display: inline-block;
 	font-size: 32px;
 	font-size: 2rem;
-	
 	color: #888;
-
 }
 
 h3{
-
     color: #F1F1F2;
     font-family: 'Poppins', sans-serif;
-
 }
 
 .ec-stars-wrapper:hover a {
@@ -216,9 +169,7 @@ h3{
 }
 .ec-stars-wrapper > a:hover ~ a {
 	color: #888;
-
 }
-
 
 #espacioAbajo{
     width: 100px;
@@ -231,8 +182,21 @@ h3{
     padding: 30px;
 }
 
+.botones{
+    width: 190px;
+}
+
+#masDetalles{
+    height: 40px;
+}
+
+.bordeTarjeta{
+    border-left-color: #E4E1E1;
+    border-left-style: solid;
+    border-left-width: 1px;
+}
+
 .notify {
-    /* defaults */
     --notify-error: #eb5757;
     --notify-success: #6fcf97;
     --notify-warning: #f2c94c;
@@ -246,17 +210,13 @@ h3{
     --notify-close-icon-size: 16px;
   }
 
-
-
 /* Media Query */
 @media only screen and (max-width: 1500px) {
 
     #parteAbajo {
-
         flex-direction: column;
         align-items: center;
     }
-    
 
 }
 
@@ -265,27 +225,19 @@ h3{
     .talleres {
         width: 800px;
         height: 20px;
-       
     }
 
     .accordion{
-
         width: 352px;
-        
     }
 
-    
-
 }
-
 
 @media only screen and (max-width: 850px) {
 
     .talleres {
         width: 700px;
         height: 5px;
-        
-       
     }
 
     .product-image {
@@ -296,17 +248,19 @@ h3{
     .numberValue{
         width: 150px;
         font-size: 15px;
-
-
     }
 
+    .botones{
+        font-size: small;
+        width: 160px;
+    }
 
-    
+    #masDetalles{
+        height: 40px;
+        font-size: medium;
+    }
 
 }
-
-
-
 
 @media only screen and (max-width: 767px) {
 
@@ -316,18 +270,12 @@ h3{
     }
 
     #filtroResponsive{
-       /* margin-top: 400px; */
         width: 300px;
-        
-        
     }
-
-   
 
     #collapseExample{
         margin: 0px 30px 0px 30px;
     }
-
 
     .fichaTaller {
         margin-left: 160px;
@@ -337,34 +285,28 @@ h3{
         flex-direction: row;
         align-items: center center;
         margin-left: 163px;
-
-        
-       
     }
-
 
     .product-image {
        margin-left: 60px;
-    }
-    
-  
-
-
-    #botonTaller{
-        width: 300px;
     }
 
     #valoraciones {
         width: 250px;
         margin-left: 30px;
-
     }
 
-    .servicios{
-        display: none;
+    .tarjeta{
+        height: 750px;
     }
 
-  
-    
+    .botones{
+        font-size: medium;
+        width: 190px;
+    }
+
+    .bordeTarjeta{
+    border-left-style: none;
+}
 
 }

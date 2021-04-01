@@ -86,8 +86,8 @@ export class PerfilTallerComponent implements OnInit {
        this.pushNotify10();
       }
     });
-
    }
+   
    public password_Anterior(passwordAnterior:string, passwordNuevo:string, passwordRepetido:string) {
      this.apiService.passwordAnterior(passwordAnterior,this.apiService.tallerLogin.id_taller).subscribe((data) => {
        if (data != "-1" && data != "-2") {
@@ -139,7 +139,7 @@ export class PerfilTallerComponent implements OnInit {
     new Notify({
       status: 'success',
       title: '',
-      text: 'Se ha añadido este servicio a su taller.',
+      text: 'Se ha añadido este servicio a su taller',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -159,7 +159,7 @@ export class PerfilTallerComponent implements OnInit {
     new Notify({
       status: 'warning',
       title: '',
-      text: 'Se ha eliminado este servicio de su taller.',
+      text: 'Se ha eliminado este servicio de su taller',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -180,7 +180,7 @@ export class PerfilTallerComponent implements OnInit {
     new Notify({
       status: 'error',
       title: '',
-      text: 'Error al añadir el servicio.',
+      text: 'Error al añadir el servicio',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -201,7 +201,7 @@ export class PerfilTallerComponent implements OnInit {
     new Notify({
       status: 'error',
       title: '',
-      text: 'Error al eliminar el servicio.',
+      text: 'Error al eliminar el servicio',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -221,7 +221,7 @@ export class PerfilTallerComponent implements OnInit {
     new Notify({
       status: 'success',
       title: '',
-      text: 'Contraseña modificada correctamente.',
+      text: 'Contraseña modificada correctamente',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -241,7 +241,7 @@ export class PerfilTallerComponent implements OnInit {
     new Notify({
       status: 'error',
       title: '',
-      text: 'Error al modificar la contraseña.',
+      text: 'Error al modificar la contraseña',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -261,7 +261,7 @@ export class PerfilTallerComponent implements OnInit {
     new Notify({
       status: 'success',
       title: '',
-      text: 'Foto modificada correctamente.',
+      text: 'Foto modificada correctamente',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -281,7 +281,7 @@ export class PerfilTallerComponent implements OnInit {
     new Notify({
       status: 'error',
       title: '',
-      text: 'Error al modificar la foto.',
+      text: 'Error al modificar la foto',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -301,7 +301,7 @@ export class PerfilTallerComponent implements OnInit {
     new Notify({
       status: 'success',
       title: '',
-      text: 'Perfil modificado correctamente.',
+      text: 'Perfil modificado correctamente',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -321,7 +321,7 @@ export class PerfilTallerComponent implements OnInit {
     new Notify({
       status: 'error',
       title: '',
-      text: 'Error al modificar su perfil.',
+      text: 'Error al modificar su perfil',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -341,7 +341,7 @@ export class PerfilTallerComponent implements OnInit {
     new Notify({
       status: 'error',
       title: '',
-      text: 'Error al elimirar su perfil.',
+      text: 'Error al elimirar su perfil',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -361,7 +361,7 @@ export class PerfilTallerComponent implements OnInit {
     new Notify({
       status: 'success',
       title: '',
-      text: 'Perfil eliminado correctamente.',
+      text: 'Perfil eliminado correctamente',
       effect: 'fade',
       speed: 300,
       customClass: null,

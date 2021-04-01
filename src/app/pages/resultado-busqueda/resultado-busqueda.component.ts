@@ -215,7 +215,7 @@ export class ResultadoBusquedaComponent implements OnInit {
     new Notify({
       status: 'success',
       title: '',
-      text: 'Taller añadido a favoritos.',
+      text: 'Taller añadido a favoritos',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -235,7 +235,7 @@ export class ResultadoBusquedaComponent implements OnInit {
     new Notify({
       status: 'warning',
       title: '',
-      text: 'Taller eliminado de favoritos.',
+      text: 'Taller eliminado de favoritos',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -255,7 +255,7 @@ export class ResultadoBusquedaComponent implements OnInit {
     new Notify({
       status: 'error',
       title: '',
-      text: 'Error al eliminado de favoritos.',
+      text: 'Error al eliminado de favoritos',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -275,7 +275,7 @@ export class ResultadoBusquedaComponent implements OnInit {
     new Notify({
       status: 'error',
       title: '',
-      text: 'Error al abrir el chat.',
+      text: 'Error al abrir el chat',
       effect: 'fade',
       speed: 300,
       customClass: null,

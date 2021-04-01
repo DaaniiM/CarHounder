@@ -121,7 +121,7 @@ public mostrarHorasReservadas(){
     new Notify({
       status: 'success',
       title: '',
-      text: 'Cita reservada correctamente.',
+      text: 'Cita reservada correctamente',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -141,7 +141,7 @@ public mostrarHorasReservadas(){
     new Notify({
       status: 'error',
       title: '',
-      text: 'Error al reservar su cita.',
+      text: 'Error al reservar su cita',
       effect: 'fade',
       speed: 300,
       customClass: null,

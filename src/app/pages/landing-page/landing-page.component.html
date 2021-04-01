@@ -4,13 +4,16 @@
     <app-header></app-header>
     <div id="primeraParte">
         <h3 class="fraseTop" >
-            Encuentra tu taller más cercano
+            <div class="container">
+                Encuentra tu taller más cercano
+            </div>          
         </h3>
         <div id="busquedaCentral">
                 <input #buscarTaller class="input" type="number" class="form-control"  placeholder="Código Postal" min="10000" max="99999">
-                <button  type="button"  on-click="conseguirTalleres(buscarTaller.value)" class="btn-4" > <p>BUSCAR</p> </button>
+                <button  type="button" on-click="conseguirTalleres(buscarTaller.value)" class="btn-4" > <p>BUSCAR</p> </button>
+                <button  type="button" on-click="conseguirTalleres(buscarTaller.value)" class="boton2" > <p>BUSCAR</p> </button>
         </div>
-        <div class="descripcion " >
+        <div class="descripcion" >
             <div class="descriptionBase" >
                 <img  class="iconos1" src="assets/img/iconos/loupe.png" alt="">   
                 <h1 class="">
@@ -35,6 +38,9 @@
                     Valora tu reparación
                 </h1>
             </div>   
+        </div>
+        <div id="espacio">
+
         </div>
     </div>
     <div class="col-sm"></div>

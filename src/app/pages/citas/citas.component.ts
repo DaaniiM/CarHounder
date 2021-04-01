@@ -47,24 +47,16 @@ export class CitasComponent implements OnInit {
     this.mostrarHoras = [];
   }
 
-  public filtrarHoras(){
-
-  }
-
   public mostrarCitasCliente() {
     this.carApiService.mostrarCitaCliente(this.carApiService.clienteLogin.id_cliente).subscribe((data:any) => {
       this.citas = data;
-      for(let i=0; this.citas.length; i++){
-        this.arrayServicios += this.citas[i].servicios;
-      }
-      this.arrayServicios = this.citas.servicios.split(",")
-    })
+    });
   }
 
   public mostrarCitasTaller() {
     this.carApiService.mostrarCitaTaller(this.carApiService.tallerLogin.id_taller).subscribe((data:any) => {
       this.citas = data;
-    })
+    });
   }
 
   public borrarCitasCliente() {
@@ -249,7 +241,7 @@ export class CitasComponent implements OnInit {
     new Notify({
       status: 'success',
       title: '',
-      text: 'Cita reservada correctamente.',
+      text: 'Cita reservada correctamente',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -269,7 +261,7 @@ export class CitasComponent implements OnInit {
     new Notify({
       status: 'success',
       title: '',
-      text: 'Cita cancelada correctamente.',
+      text: 'Cita cancelada correctamente',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -289,7 +281,7 @@ export class CitasComponent implements OnInit {
     new Notify({
       status: 'success',
       title: '',
-      text: 'Cita modificada correctamente.',
+      text: 'Cita modificada correctamente',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -309,7 +301,7 @@ export class CitasComponent implements OnInit {
     new Notify({
       status: 'error',
       title: '',
-      text: 'Error al reservar su cita.',
+      text: 'Error al reservar su cita',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -329,7 +321,7 @@ export class CitasComponent implements OnInit {
     new Notify({
       status: 'error',
       title: '',
-      text: 'Error al modificar su cita.',
+      text: 'Error al modificar su cita',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -349,7 +341,7 @@ export class CitasComponent implements OnInit {
     new Notify({
       status: 'error',
       title: '',
-      text: 'Error al cancelar su cita.',
+      text: 'Error al cancelar su cita',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -369,7 +361,7 @@ export class CitasComponent implements OnInit {
     new Notify({
       status: 'error',
       title: '',
-      text: 'Error al insertar el cliente.',
+      text: 'Error al insertar el cliente',
       effect: 'fade',
       speed: 300,
       customClass: null,

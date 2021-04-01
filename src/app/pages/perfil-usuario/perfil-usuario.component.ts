@@ -145,7 +145,7 @@ export class PerfilUsuarioComponent implements OnInit {
     new Notify({
       status: 'success',
       title: '',
-      text: 'Perfil modificado correctamente.',
+      text: 'Perfil modificado correctamente',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -165,7 +165,7 @@ export class PerfilUsuarioComponent implements OnInit {
     new Notify({
       status: 'error',
       title: '',
-      text: 'Error al modificar su perfil.',
+      text: 'Error al modificar su perfil',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -185,7 +185,7 @@ export class PerfilUsuarioComponent implements OnInit {
     new Notify({
       status: 'success',
       title: '',
-      text: 'Favorito eliminado.',
+      text: 'Favorito eliminado',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -205,7 +205,7 @@ export class PerfilUsuarioComponent implements OnInit {
     new Notify({
       status: 'error',
       title: '',
-      text: 'Error al eliminar favorito.',
+      text: 'Error al eliminar favorito',
       effect: 'fade',
       speed: 300,
       customClass: null,

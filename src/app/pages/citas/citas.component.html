@@ -1,105 +1,5 @@
 <div class="fondo">
     <app-header></app-header>
-
-    <!-- Modal añadir -->
-
-    <div class="modal fade modalAnyadir" id="anyadirCita" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Añadir cita</h5>
-            <button type="button" class="close btn" data-dismiss="modal" aria-label="Close" on-click="mostrarHorasReservadas()">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label>Fecha</label>
-                        <input type="date" class="form-control" id="fechaA" [(ngModel)]="fechaFiltrada" [ngModelOptions]="{standalone: true}" #fechaA>
-                      </div>
-                      
-                    <div class="form-group">
-                        <label for="hora">Hora</label>
-                        <select class="form-control" id="hora" value="{{carApiService.horaP}}" on-click="actualizarHoras()" #horaA>
-                            <option *ngFor="let hora of mostrarHoras">
-                                {{hora}}
-                            </option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Nombre del cliente</label>
-                        <input type="text" class="form-control" id="nombreA" #nombreA>
-                    </div>
-                    <div class="form-group">
-                        <label>Apellidos</label>
-                        <input type="text" class="form-control" id="apellidosA" #apellidosA>
-                    </div>
-                    <div class="form-group">
-                        <label>Teléfono</label>
-                        <input type="text" class="form-control" id="telefonoA" #telefonoA>
-                    </div>
-                    
-                    <div class="form-group">
-                        Servicios
-                        <div *ngFor="let servicio of servicios; let i = index">
-    
-                            <div *ngIf = "servicio.id_taller == carApiService.tallerLogin.id_taller">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" on-click="anyadirServicio(servicio.descripcion, prueba.value)" value={{i}} id={{i}} #prueba>
-                                    <label class="form-check-label" for="aceite">
-                                        {{servicio.descripcion}}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="modal-footer text-align-center">
-                    <button type="button" class="btn boton1 botonCambio" data-dismiss="modal" on-click="registrarCliente(nombreA.value, apellidosA.value, telefonoA.value, fechaA.value, horaA.value)">Añadir cita</button>
-                </div>
-                </form>
-            </div>
-        </div>
-        </div>
-    </div>
-
-    <!-- Modal modificar -->
-
-    <div class="modal fade" id="modificarCita" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLongTitle">Modificar cita</h5>
-                                            <button type="button" class="close btn" data-dismiss="modal" aria-label="Close" on-click="mostrarHorasReservadas()">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form>
-                                                    <div class="form-group">
-                                                      <label>Fecha</label>
-                                                      <input type="date" class="form-control" id="fechaM" value="{{carApiService.fechaP | date: 'dd/MM/yyyy'}}" [(ngModel)]="fechaFiltrada" [ngModelOptions]="{standalone: true}" #fechaM>
-                                                    </div>
-                                                    <br>
-                                                    <div class="form-group">
-                                                        <label for="hora">Hora</label>
-                                                        <select class="form-control" id="hora" value="{{carApiService.horaP}}" on-click="actualizarHoras()" #horaM>
-                                                            <option *ngFor="let hora of mostrarHoras">
-                                                                {{hora}}
-                                                            </option>
-                                                        </select>
-                                                    </div>
-                                                    <br>
-                                                    <div class="modal-footer text-align-center">
-                                                    <button type="button" class="btn boton1" data-dismiss="modal" on-click="modificarCita(fechaM.value, horaM.value)">Modificar cita</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                        </div>
-                                    </div>
-
     <!-- Cita usuario -->
     <div *ngIf="login != undefined && login.rol == 'cliente'">
         <div class="container">
@@ -155,7 +55,6 @@
             </div>
         </div>
     </div>
-
     <!-- cita taller -->
     <div *ngIf="login != undefined && login.rol == 'taller'">
         <div class="container mt-10 mb-5">
@@ -165,9 +64,7 @@
                     <label>Seleccionar día</label>
                     <div class="d-flex form-group filtro">
                         <input type="date" class="form-control" id="fechaCita" [(ngModel)]="fechacita" #fechaCitas>
-                        
                         <button class="btn btn-sm btnEdit2 p-2" data-toggle="modal" data-target="#anyadirCita">Añadir Cita</button>
-                        
                     </div>
                 </div>
             </div>
@@ -203,9 +100,6 @@
                             <div class="align-self-center col-md-2">
                                 <div class="d-flex flex-column align-items-center botones">
                                     <button class="btn btnEdit btn-sm p-2" data-toggle="modal" data-target="#modificarCita" on-click="prueba(cita.fecha, cita.hora); capturar(cita.id_reservas); mostrarHorasReservadas()">Modificar cita</button>
-                                    
-                                    
-                                    
                                     <button class="btn btn-danger btn-sm mt-3 p-2" type="button" data-toggle="modal" data-target="#cancelarTaller" on-click="capturar(cita.id_reservas)">Cancelar cita</button>
                                     <div class="modal fade" id="cancelarTaller" tabindex="-1" role="dialog" aria-labelledby="cancelarTaller" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -275,11 +169,102 @@
                                 </div>
                             </div>
                         </ng-container>
-                        
                     </ng-template>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+<!-- Modal modificar -->
+<div class="modal fade" id="modificarCita" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modificar cita</h5>
+        <button type="button" class="close btn" data-dismiss="modal" aria-label="Close" on-click="mostrarHorasReservadas()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                <label>Fecha</label>
+                <input type="date" class="form-control" id="fechaM" value="{{carApiService.fechaP | date: 'dd/MM/yyyy'}}" [(ngModel)]="fechaFiltrada" [ngModelOptions]="{standalone: true}" #fechaM>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="hora">Hora</label>
+                    <select class="form-control" id="hora" value="{{carApiService.horaP}}" on-click="actualizarHoras()" #horaM>
+                        <option *ngFor="let hora of mostrarHoras">
+                            {{hora}}
+                        </option>
+                    </select>
+                </div>
+                <br>
+                <div class="modal-footer text-align-center">
+                <button type="button" class="btn boton1" data-dismiss="modal" on-click="modificarCita(fechaM.value, horaM.value)">Modificar cita</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+</div>
+<!-- Modal añadir -->
+<div class="modal fade modalAnyadir" id="anyadirCita" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Añadir cita</h5>
+        <button type="button" class="close btn" data-dismiss="modal" aria-label="Close" on-click="mostrarHorasReservadas()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                    <label>Fecha</label>
+                    <input type="date" class="form-control" id="fechaA" [(ngModel)]="fechaFiltrada" [ngModelOptions]="{standalone: true}" #fechaA>
+                </div>
+                <div class="form-group">
+                    <label for="hora">Hora</label>
+                    <select class="form-control" id="hora" value="{{carApiService.horaP}}" on-click="actualizarHoras()" #horaA>
+                        <option *ngFor="let hora of mostrarHoras">
+                            {{hora}}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Nombre del cliente</label>
+                    <input type="text" class="form-control" id="nombreA" #nombreA>
+                </div>
+                <div class="form-group">
+                    <label>Apellidos</label>
+                    <input type="text" class="form-control" id="apellidosA" #apellidosA>
+                </div>
+                <div class="form-group">
+                    <label>Teléfono</label>
+                    <input type="text" class="form-control" id="telefonoA" #telefonoA>
+                </div>
+                <div class="form-group">
+                    Servicios
+                    <div *ngFor="let servicio of servicios; let i = index">
+
+                        <div *ngIf = "servicio.id_taller == carApiService.tallerLogin.id_taller">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" on-click="anyadirServicio(servicio.descripcion, prueba.value)" value={{i}} id={{i}} #prueba>
+                                <label class="form-check-label" for="aceite">
+                                    {{servicio.descripcion}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer text-align-center">
+                <button type="button" class="btn boton1 botonCambio" data-dismiss="modal" on-click="registrarCliente(nombreA.value, apellidosA.value, telefonoA.value, fechaA.value, horaA.value)">Añadir cita</button>
+            </div>
+            </form>
+        </div>
+    </div>
     </div>
 </div>
 

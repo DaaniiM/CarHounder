@@ -13,7 +13,10 @@ export class FormularioContactoComponent implements OnInit {
   constructor(private apiService: CarApiService) { }
 
   public recogerdatos(nombre:string, correo:string, asunto:string, mensaje:string) {
-    let json =
+    if(nombre == "" || correo == "" || asunto == "" || mensaje == ""){
+      this.pushNotify2();
+    }else{
+      let json =
       {
         nombre:nombre,
         correo:correo,
@@ -22,13 +25,15 @@ export class FormularioContactoComponent implements OnInit {
       }
       this.apiService.contacto(json).subscribe((data)=>{
     });
+    this.pushNotify();
+    }
   } 
 
 public pushNotify() {
   new Notify({
     status: 'success',
     title: '',
-    text: 'Mensaje enviado.',
+    text: 'Mensaje enviado',
     effect: 'fade',
     speed: 300,
     customClass: null,
@@ -43,6 +48,27 @@ public pushNotify() {
     position: 'right top'
   });
 }
+
+public pushNotify2() {
+  new Notify({
+    status: 'error',
+    title: '',
+    text: 'Debe rellenar todos los campos',
+    effect: 'fade',
+    speed: 300,
+    customClass: null,
+    customIcon: null,
+    showIcon: true,
+    showCloseButton: true,
+    autoclose: true,
+    autotimeout: 2000,
+    gap: 70,
+    distance: 20,
+    type: 1,
+    position: 'right top'
+  });
+}
+
   ngOnInit(): void {
   }
 

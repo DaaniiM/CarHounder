@@ -18,41 +18,50 @@ export class ModalesComponent implements OnInit {
   constructor(private apiService:CarApiService,private _router: Router) { }
   
  public agregarUsuario(email:string, password:string, nombre:string, apellidos:string, telefono:string){
-  this.apiService.registrarCliente(new Usuario(0,email,password,nombre,apellidos,Number(telefono),"assets/img/fotoFondos/usuario.png")).subscribe((data:any) =>{
-    console.log(data);
-    if(data!="-1" && data!="-2")
-      this.pushNotify();
-    else
-      this.pushNotify3();
-  });
-  this.apiService.registrarLogin(new Login(email,password,"cliente")).subscribe((data1:any) =>{
-    if(data1!="-1" && data1!="-2")
-      console.log("login ok");
-    else
-      console.log("Error login");
-  });
+   if(email.length == 0 || password.length == 0 || nombre.length == 0 || apellidos.length == 0 || telefono.length == 0){
+    this.pushNotify4();
+   }else{
+    this.apiService.registrarCliente(new Usuario(0,email,password,nombre,apellidos,Number(telefono),"assets/img/fotoFondos/usuario.png")).subscribe((data:any) =>{
+      console.log(data);
+      if(data!="-1" && data!="-2"){
+        this.pushNotify();
+      }
+      else
+        this.pushNotify3();
+    });
+    this.apiService.registrarLogin(new Login(email,password,"cliente")).subscribe((data1:any) =>{
+      if(data1!="-1" && data1!="-2")
+        console.log("login ok");
+      else
+        console.log("Error login");
+    });
+   }
  } 
 
 public agregarTaller(email:string, password:string, nombre:string, cif:string, direccion:string, cp:string, ciudad:string, provincia:string, telefono:string){
-  this.apiService.registrarTaller(new Taller(0,email,password,nombre,cif,direccion,Number(cp),ciudad,provincia,Number(telefono),"../../assets/img/fotoFondos/perfilTaller.jpg")).subscribe((data:any) =>{
-    if(data!="-1" && data!="-2"){
-      this.pushNotify();
-      this.apiService.crearOferta(new Oferta(0,data,"No hay ofertas")).subscribe((data1:any) =>{
-        if(data1!="-1" && data!="-2")
-          console.log("oferta ok");
-        else
-          console.log("Error oferta");
-      });
-    }else{
-      this.pushNotify3();
-    }
-  });
-  this.apiService.registrarLogin(new Login(email,password,"taller")).subscribe((data1:any) =>{
-    if(data1!="-1" && data1!="-2")
-      console.log("login ok");
-    else
-      console.log("Error login");
-  });
+  if(email == "" || password == "" || nombre == "" || cif == "" || direccion == "" || cp == "" || ciudad == "" || provincia == "" || telefono == ""){
+    this.pushNotify4();
+  }else{
+    this.apiService.registrarTaller(new Taller(0,email,password,nombre,cif,direccion,Number(cp),ciudad,provincia,Number(telefono),"../../assets/img/fotoFondos/perfilTaller.jpg")).subscribe((data:any) =>{
+      if(data!="-1" && data!="-2"){
+        this.pushNotify();
+        this.apiService.crearOferta(new Oferta(0,data,"No hay ofertas")).subscribe((data1:any) =>{
+          if(data1!="-1" && data!="-2")
+            console.log("oferta ok");
+          else
+            console.log("Error oferta");
+        });
+      }else{
+        this.pushNotify3();
+      }
+    });
+    this.apiService.registrarLogin(new Login(email,password,"taller")).subscribe((data1:any) =>{
+      if(data1!="-1" && data1!="-2")
+        console.log("login ok");
+      else
+        console.log("Error login");
+    });
+  }
  } 
 
 public loguearPagina(email:string,password:string){
@@ -97,7 +106,7 @@ public loguearPagina(email:string,password:string){
   new Notify({
     status: 'success',
     title: '',
-    text: 'Se ha registrado satisfactoriamente.',
+    text: 'Se ha registrado satisfactoriamente',
     effect: 'fade',
     speed: 300,
     customClass: null,
@@ -117,7 +126,7 @@ public pushNotify1() {
   new Notify({
     status: 'success',
     title: '',
-    text: 'Se ha iniciado sesión correctamente.',
+    text: 'Se ha iniciado sesión correctamente',
     effect: 'fade',
     speed: 300,
     customClass: null,
@@ -137,7 +146,7 @@ public pushNotify2() {
   new Notify({
     status: 'error',
     title: '',
-    text: 'Correo y contraseña no coinciden.',
+    text: 'Correo y contraseña no coinciden',
     effect: 'fade',
     speed: 300,
     customClass: null,
@@ -157,7 +166,7 @@ public pushNotify3() {
   new Notify({
     status: 'error',
     title: '',
-    text: 'Error al intentar registrarse.',
+    text: 'Error al intentar registrarse',
     effect: 'fade',
     speed: 300,
     customClass: null,
@@ -173,6 +182,25 @@ public pushNotify3() {
   });
 }
 
+public pushNotify4() {
+  new Notify({
+    status: 'error',
+    title: '',
+    text: 'Debe rellenar todos los campos',
+    effect: 'fade',
+    speed: 300,
+    customClass: null,
+    customIcon: null,
+    showIcon: true,
+    showCloseButton: true,
+    autoclose: true,
+    autotimeout: 3000,
+    gap: 60,
+    distance: 20,
+    type: 1,
+    position: 'right top'
+  });
+}
 
   ngOnInit(): void {
   }

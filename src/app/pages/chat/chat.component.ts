@@ -106,7 +106,7 @@ export class ChatComponent implements OnInit {
     new Notify({
       status: 'error',
       title: '',
-      text: 'Debe seleccionar una conversación.',
+      text: 'Debe seleccionar una conversación',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -126,7 +126,7 @@ export class ChatComponent implements OnInit {
     new Notify({
       status: 'error',
       title: '',
-      text: 'Debe escribir un mensaje.',
+      text: 'Debe escribir un mensaje',
       effect: 'fade',
       speed: 300,
       customClass: null,
@@ -146,7 +146,7 @@ export class ChatComponent implements OnInit {
     new Notify({
       status: 'success',
       title: '',
-      text: 'Chat eliminado.',
+      text: 'Chat eliminado',
       effect: 'fade',
       speed: 300,
       customClass: null,

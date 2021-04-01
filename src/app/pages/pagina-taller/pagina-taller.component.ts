@@ -32,17 +32,17 @@ export class PaginaTallerComponent implements OnInit {
     this.mostrarHoras = [];
     this.invisible = true;
 
-   }
+  }
 
-   public detallesServicios() {
+  public detallesServicios() {
     this.carApiService.buscarServicios().subscribe((data:any[]) => {
-      this.servicios=data
+      this.servicios=data;
     });
   }
 
   public ofertas(id:number){
     this.carApiService.oferta(id).subscribe((data:any[]) => {
-      this.oferta=data[0]
+      this.oferta=data[0];
     })
   }
 
@@ -84,7 +84,7 @@ export class PaginaTallerComponent implements OnInit {
 
   public resenyasTaller(id_taller:number){
     this.carApiService.resenyaTaller(id_taller).subscribe((data:any[]) => {
-      this.resenyas=data
+      this.resenyas=data;
     })
   }
 
