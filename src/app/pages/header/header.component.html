@@ -11,21 +11,47 @@
                 <img src="../../assets/img/iconos/lista.png" id="desplegable"><span class="caret"></span>
         </button>
         <ul class="dropdown-menu dropdown-menu-right" role="menu" id="menu">
-            <div *ngIf = "apiService.login != undefined">
-                <li><a class="a" routerLink="/perfilUsuario">Mi Perfil</a></li>
-                <li ><a class="a" routerLink="/citas">Mis Citas</a></li> 
-                <li><a class="a" routerLink="/chat">Mis Mensajes</a></li>
-            </div>
-            <li><a class="a" routerLink="/servicios" >Servicios</a></li>
-            <li><a class="a" routerLink="/comoFunciona">Cómo funciona</a></li>
-            <div *ngIf = "apiService.login != undefined">
-                <li ><a class="a"  on-click= "cerrarSesion()">Cerrar sesión</a></li>
-            </div>
             <div  *ngIf = "apiService.login == undefined">
+                <li><a class="a" routerLink="/servicios" >Servicios</a></li>
+                <li><a class="a" routerLink="/comoFunciona">Cómo funciona</a></li>
                 <li ><a class="a" data-toggle="modal" data-target="#registro">Regístrate</a></li>
-            </div>
-            <div  *ngIf = "apiService.login == undefined">
                 <li ><a class="a" data-toggle="modal" data-target="#iniciarSesion">Iniciar sesión</a></li>
+            </div>
+            <div *ngIf = "apiService.login != undefined && apiService.login.rol == 'cliente' ">
+                <div *ngIf = "apiService.login != undefined">
+                    <li><a class="a" routerLink="/perfilUsuario">Mi Perfil</a></li>
+                    <li ><a class="a" routerLink="/citas">Mis Citas</a></li> 
+                    <li><a class="a" routerLink="/chat">Mis Mensajes</a></li>
+                </div>
+                <li><a class="a" routerLink="/servicios" >Servicios</a></li>
+                <li><a class="a" routerLink="/comoFunciona">Cómo funciona</a></li>
+                <div *ngIf = "apiService.login != undefined">
+                    <li ><a class="a"  on-click= "cerrarSesion()">Cerrar sesión</a></li>
+                </div>
+                <div  *ngIf = "apiService.login == undefined">
+                    <li ><a class="a" data-toggle="modal" data-target="#registro">Regístrate</a></li>
+                </div>
+                <div  *ngIf = "apiService.login == undefined">
+                    <li ><a class="a" data-toggle="modal" data-target="#iniciarSesion">Iniciar sesión</a></li>
+                </div>  
+            </div>
+            <div *ngIf = "apiService.login != undefined && apiService.login.rol == 'taller' ">
+                <div *ngIf = "apiService.login != undefined">
+                    <li><a class="a" routerLink="/perfilTaller">Mi Perfil</a></li>
+                    <li ><a class="a" routerLink="/citas">Mis Citas</a></li> 
+                    <li><a class="a" routerLink="/chat">Mis Mensajes</a></li>
+                </div>
+                <li><a class="a" routerLink="/servicios" >Servicios</a></li>
+                <li><a class="a" routerLink="/comoFunciona">Cómo funciona</a></li>
+                <div *ngIf = "apiService.login != undefined">
+                    <li ><a class="a"  on-click= "cerrarSesion()">Cerrar sesión</a></li>
+                </div>
+                <div  *ngIf = "apiService.login == undefined">
+                    <li ><a class="a" data-toggle="modal" data-target="#registro">Regístrate</a></li>
+                </div>
+                <div  *ngIf = "apiService.login == undefined">
+                    <li ><a class="a" data-toggle="modal" data-target="#iniciarSesion">Iniciar sesión</a></li>
+                </div>  
             </div>
         </ul>
     </div>
