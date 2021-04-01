@@ -122,8 +122,6 @@ span{
     --notify-close-icon-size: 16px;
   }
 
-
-
 @media screen and (max-width: 767px){
     .col-md-10{
         border-right-style: none;
@@ -150,3 +148,20 @@ span{
     }
 }
 
+@media screen and (max-width: 390px){
+    .filtro{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        text-align: center;
+    }
+    .filtro button {
+        margin-left: 0px;
+        margin-top: 15px;
+    }
+    .filtro input {
+        margin-left: 0px;
+    }
+}
