@@ -55,28 +55,21 @@ export class PerfilUsuarioComponent implements OnInit {
    }
 
    public editarCliente(email:string, nombre:string,apellidos:string, telefono:any, foto:string){
-
-  
     this.apiService.editarCliente(new Usuario(this.apiService.clienteLogin.id_cliente, email,"", nombre, apellidos,Number(telefono),foto)).subscribe((data:any) =>{
       console.log(this.apiService.clienteLogin)
       if(data!="-1" && data!="-2"){
-
         this.apiService.clienteLogin = new Usuario(this.apiService.clienteLogin.id_cliente, email, "", nombre, apellidos,Number(telefono),foto);
-        
         this.pushNotify9();
-
       }else{
         this.pushNotify10();
       }
     })
-
    }
 
    public password_Anterior(passwordAnterior:string, passwordNuevo:string, passwordRepetido:string) {
     this.apiService.passwordAnteriorCliente(passwordAnterior,this.apiService.clienteLogin.id_cliente).subscribe((data) => {
       if (data != "-1" && data != "-2") {
         this.editarPassword(passwordNuevo, passwordRepetido);
-
       } else {
         this.pushNotify6();
       }
@@ -92,7 +85,6 @@ export class PerfilUsuarioComponent implements OnInit {
          }
          else{
            this.pushNotify6();
-           
          }
        })
      })
@@ -222,9 +214,7 @@ export class PerfilUsuarioComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
     this.verFavoritos();
-
   }
 
 }

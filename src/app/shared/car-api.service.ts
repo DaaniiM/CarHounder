@@ -62,6 +62,7 @@ export class CarApiService {
   private url501 = "https://api-rest-carhounder.herokuapp.com/passwordAnterior?password=";
   private url503 = "https://api-rest-carhounder.herokuapp.com/passwordAnteriorCliente?password="
   private url699 = "https://api-rest-carhounder.herokuapp.com/contacto";
+  private url700 = "https://api-rest-carhounder.herokuapp.com/cambiarPasswordCliente";
 
   // private url = "http://localhost:300";
   // private url1 = "http://localhost:300/talleres?cp=" ;
@@ -103,6 +104,7 @@ export class CarApiService {
   // private url501 = "http://localhost:300/passwordAnterior?password=";
   // private url503 = "http://localhost:300/passwordAnteriorCliente?password="
   // private url699 = "http://localhost:300/contacto";
+  // private url700 = "http://localhost:300/cambiarPasswordCliente";
 
   public talleres:Taller[];
   public servicios:any[];
@@ -333,7 +335,7 @@ export class CarApiService {
   }
 
   public editarPasswordCliente(cliente: Usuario) {
-    return this.http.put(this.url13, cliente);
+    return this.http.put(this.url700, cliente);
   }
 
   public passwordAnteriorCliente(passwordAnterior: string, id_cliente: number) {
