@@ -259,6 +259,13 @@ h3{
         height: 40px;
         font-size: medium;
     }
+    .ec-stars-wrapper a {
+        font-size: 25px;
+    }
+
+    #valoraciones p{
+        font-size: 13px;
+    }
 
 }
 

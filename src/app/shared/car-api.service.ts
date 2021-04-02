@@ -61,10 +61,11 @@ export class CarApiService {
   private url500 = "https://api-rest-carhounder.herokuapp.com/cambiarPassword";
   private url501 = "https://api-rest-carhounder.herokuapp.com/passwordAnterior?password=";
   private url503 = "https://api-rest-carhounder.herokuapp.com/passwordAnteriorCliente?password="
+  private url699 = "https://api-rest-carhounder.herokuapp.com/contacto";
 
-  // private url ="http://localhost:300";
+  // private url = "http://localhost:300";
   // private url1 = "http://localhost:300/talleres?cp=" ;
-  // private url2= "http://localhost:300/servicios" ;
+  // private url2 = "http://localhost:300/servicios" ;
   // private url3 = "http://localhost:300/talleresDetalles?id=" ;
   // private url4 = "http://localhost:300/oferta?id=" ;
   // private url7 = "http://localhost:300/login";
@@ -85,11 +86,11 @@ export class CarApiService {
   // private url289 = "http://localhost:300/favoritos?id_cliente="
   // private url426 = "http://localhost:300/eliminarChatCliente";
   // private url427 = "http://localhost:300/eliminarChatTaller";
-  // private url280="http://localhost:300/resenyas"
-  // private url281="http://localhost:300/resenyasTaller?id_taller="
-  // private url282="http://localhost:300/ultimasResenyas"
-  // private url283="http://localhost:300/filtrarPorServicio"
-  // private url284="http://localhost:300/filtrarPorPuntuacion?puntuacion="
+  // private url280 = "http://localhost:300/resenyas"
+  // private url281 = "http://localhost:300/resenyasTaller?id_taller="
+  // private url282 = "http://localhost:300/ultimasResenyas"
+  // private url283 = "http://localhost:300/filtrarPorServicio"
+  // private url284 = "http://localhost:300/filtrarPorPuntuacion?puntuacion="
   // private url18 = "http://localhost:300/citas/cliente";
   // private url25 = "http://localhost:300/citas/cliente?id_cliente=";
   // private url45 = "http://localhost:300/citas/taller?id_taller=";
@@ -101,6 +102,7 @@ export class CarApiService {
   // private url500 = "http://localhost:300/cambiarPassword";
   // private url501 = "http://localhost:300/passwordAnterior?password=";
   // private url503 = "http://localhost:300/passwordAnteriorCliente?password="
+  // private url699 = "http://localhost:300/contacto";
 
   public talleres:Taller[];
   public servicios:any[];
@@ -113,7 +115,7 @@ export class CarApiService {
   public chat: Chat;
   public favoritosCliente:any[];
   public cpTalleresFiltros:number = 0;
- public citaCliente:any;
+  public citaCliente:any;
   public citaTaller:any;
   public nombreP: string;
   public fechaP: string;
@@ -319,7 +321,7 @@ export class CarApiService {
 
   }
   public contacto(json) {
-    return this.http.post(this.url + "/contacto", json);
+    return this.http.post(this.url699, json);
   }
 
   public editarPassword(taller: Taller) {
@@ -336,6 +338,10 @@ export class CarApiService {
 
   public passwordAnteriorCliente(passwordAnterior: string, id_cliente: number) {
     return this.http.get(this.url503 + passwordAnterior + "&id_cliente=" + id_cliente);
+  }
+
+  public verificarCorreo(email: string){
+    return this.http.get(this.url7 + "?email=" + email);
   }
 
   // public cambiarFotoTaller(foto:string,id_taller:number) {

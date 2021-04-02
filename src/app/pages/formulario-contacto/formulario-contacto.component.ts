@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CarApiService } from '../../shared/car-api.service';
 import Notify from 'simple-notify'
 import 'simple-notify/dist/simple-notify.min.css'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-formulario-contacto',
@@ -10,7 +11,7 @@ import 'simple-notify/dist/simple-notify.min.css'
 })
 export class FormularioContactoComponent implements OnInit {
 
-  constructor(private apiService: CarApiService) { }
+  constructor(private apiService: CarApiService, private _router: Router) { }
 
   public recogerdatos(nombre:string, correo:string, asunto:string, mensaje:string) {
     if(nombre == "" || correo == "" || asunto == "" || mensaje == ""){
@@ -26,6 +27,7 @@ export class FormularioContactoComponent implements OnInit {
       this.apiService.contacto(json).subscribe((data)=>{
     });
     this.pushNotify();
+    this._router.navigate(['']);
     }
   } 
 

@@ -117,7 +117,7 @@
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                         <div class="card-body">
                             <div class="form-check">
-                                <input #valor1 class="form-check-input" type="radio" name="flexRadioDefault" value="0" id="estrella0" on-click="anyadirPuntuacionFiltro(valor1.value,'estrella0')" checked>
+                                <input #valor0 class="form-check-input" type="radio" name="flexRadioDefault" value="0" id="estrella0" on-click="anyadirPuntuacionFiltro(valor0.value,'estrella0')" checked>
                                 <label class="form-check-label" for="estrella0">
                                     Todas las puntuaciones
                                 </label>
@@ -210,10 +210,10 @@
                             <h4> {{taller.notaMedia}} </h4> 
                         </div>
                         <div *ngIf="taller.notaMedia == null">
-                            <h5>No hay valoraciones</h5>
+                            <p>No hay valoraciones</p>
                         </div>
                         <div class="ec-stars-wrapper" [hidden]="invisible">
-                            <a on-click="publicarRes(taller.id_taller)"  data-value="1" data-toggle="modal" data-target="#votacion1"
+                            <a class="estrella" on-click="publicarRes(taller.id_taller)"  data-value="1" data-toggle="modal" data-target="#votacion1"
                                 title="Votar con 1 estrellas">&#9733;</a>
                                 <div class="modal fade" id="votacion1" tabindex="-1" role="dialog" aria-labelledby="votacion1"
                                 aria-hidden="true">
@@ -241,7 +241,7 @@
                                 </div>
                             </div>
                             <!-- </div> -->
-                            <a on-click="publicarRes(taller.id_taller)" data-value="2" data-toggle="modal" data-target="#votacion2"
+                            <a class="estrella" on-click="publicarRes(taller.id_taller)" data-value="2" data-toggle="modal" data-target="#votacion2"
                                 title="Votar con 2 estrellas">&#9733;</a>
                                 <div class="modal fade" id="votacion2" tabindex="-1" role="dialog" aria-labelledby="votacion2"
                                 aria-hidden="true">
@@ -268,7 +268,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a on-click="publicarRes(taller.id_taller)"  data-value="3" data-toggle="modal" data-target="#votacion3"
+                            <a class="estrella" on-click="publicarRes(taller.id_taller)"  data-value="3" data-toggle="modal" data-target="#votacion3"
                                 title="Votar con 3 estrellas">&#9733;</a>
                                 <div class="modal fade" id="votacion3" tabindex="-1" role="dialog" aria-labelledby="votacion3"
                                 aria-hidden="true">
@@ -295,7 +295,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a on-click="publicarRes(taller.id_taller)"  data-value="4" data-toggle="modal" data-target="#votacion4"
+                            <a class="estrella" on-click="publicarRes(taller.id_taller)"  data-value="4" data-toggle="modal" data-target="#votacion4"
                                 title="Votar con 4 estrellas">&#9733;</a>
                                 <div class="modal fade" id="votacion4" tabindex="-1" role="dialog" aria-labelledby="votacion4"
                                 aria-hidden="true">
@@ -322,7 +322,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a on-click="publicarRes(taller.id_taller)"  data-value="5" data-toggle="modal" data-target="#votacion5"
+                            <a class="estrella" on-click="publicarRes(taller.id_taller)"  data-value="5" data-toggle="modal" data-target="#votacion5"
                                 title="Votar con 5 estrellas">&#9733;</a>
                             <div class="modal fade" id="votacion5" tabindex="-1" role="dialog" aria-labelledby="votacion5"
                                 aria-hidden="true">

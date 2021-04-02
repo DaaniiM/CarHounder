@@ -21,19 +21,25 @@ export class ModalesComponent implements OnInit {
    if(email.length == 0 || password.length == 0 || nombre.length == 0 || apellidos.length == 0 || telefono.length == 0){
     this.pushNotify4();
    }else{
-    this.apiService.registrarCliente(new Usuario(0,email,password,nombre,apellidos,Number(telefono),"assets/img/fotoFondos/usuario.png")).subscribe((data:any) =>{
-      console.log(data);
-      if(data!="-1" && data!="-2"){
-        this.pushNotify();
+    this.apiService.verificarCorreo(email).subscribe((data:any) =>{
+      if(data.length==0){
+        this.apiService.registrarCliente(new Usuario(0,email,password,nombre,apellidos,Number(telefono),"assets/img/fotoFondos/usuario.png")).subscribe((data:any) =>{
+          if(data!="-1" && data!="-2"){
+            this.pushNotify();
+          }
+          else
+            this.pushNotify3();
+        });
+        this.apiService.registrarLogin(new Login(email,password,"cliente")).subscribe((data1:any) =>{
+          if(data1!="-1" && data1!="-2")
+            console.log("login ok");
+          else
+            console.log("Error login");
+        });
       }
-      else
-        this.pushNotify3();
-    });
-    this.apiService.registrarLogin(new Login(email,password,"cliente")).subscribe((data1:any) =>{
-      if(data1!="-1" && data1!="-2")
-        console.log("login ok");
-      else
-        console.log("Error login");
+      else{
+        this.pushNotify5();
+      }
     });
    }
  } 
@@ -42,27 +48,34 @@ public agregarTaller(email:string, password:string, nombre:string, cif:string, d
   if(email == "" || password == "" || nombre == "" || cif == "" || direccion == "" || cp == "" || ciudad == "" || provincia == "" || telefono == ""){
     this.pushNotify4();
   }else{
-    this.apiService.registrarTaller(new Taller(0,email,password,nombre,cif,direccion,Number(cp),ciudad,provincia,Number(telefono),"../../assets/img/fotoFondos/perfilTaller.jpg")).subscribe((data:any) =>{
-      if(data!="-1" && data!="-2"){
-        this.pushNotify();
-        this.apiService.crearOferta(new Oferta(0,data,"No hay ofertas")).subscribe((data1:any) =>{
-          if(data1!="-1" && data!="-2")
-            console.log("oferta ok");
-          else
-            console.log("Error oferta");
+    this.apiService.verificarCorreo(email).subscribe((data:any) =>{
+      if(data.length==0){
+        this.apiService.registrarTaller(new Taller(0,email,password,nombre,cif,direccion,Number(cp),ciudad,provincia,Number(telefono),"../../assets/img/fotoFondos/perfilTaller.jpg")).subscribe((data:any) =>{
+          if(data!="-1" && data!="-2"){
+            this.pushNotify();
+            this.apiService.crearOferta(new Oferta(0,data,"No hay ofertas")).subscribe((data1:any) =>{
+              if(data1!="-1" && data!="-2")
+                console.log("oferta ok");
+              else
+                console.log("Error oferta");
+            });
+          }else{
+            this.pushNotify3();
+          }
         });
-      }else{
-        this.pushNotify3();
+        this.apiService.registrarLogin(new Login(email,password,"taller")).subscribe((data1:any) =>{
+          if(data1!="-1" && data1!="-2")
+            console.log("login ok");
+          else
+            console.log("Error login");
+        });
       }
-    });
-    this.apiService.registrarLogin(new Login(email,password,"taller")).subscribe((data1:any) =>{
-      if(data1!="-1" && data1!="-2")
-        console.log("login ok");
-      else
-        console.log("Error login");
-    });
-  }
+      else{
+        this.pushNotify5();
+      }
+  });
  } 
+}
 
 public loguearPagina(email:string,password:string){
   this.apiService.loguearse(new Login(email,password,"")).subscribe((data:any) =>{
@@ -187,6 +200,26 @@ public pushNotify4() {
     status: 'error',
     title: '',
     text: 'Debe rellenar todos los campos',
+    effect: 'fade',
+    speed: 300,
+    customClass: null,
+    customIcon: null,
+    showIcon: true,
+    showCloseButton: true,
+    autoclose: true,
+    autotimeout: 3000,
+    gap: 60,
+    distance: 20,
+    type: 1,
+    position: 'right top'
+  });
+}
+
+public pushNotify5() {
+  new Notify({
+    status: 'error',
+    title: '',
+    text: 'El correo introducido ya existe',
     effect: 'fade',
     speed: 300,
     customClass: null,

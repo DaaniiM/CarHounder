@@ -6,7 +6,7 @@
             <h1>Mis citas</h1>
             <div class="d-flex justify-content-center row mt-4">
                 <div class="sinCitas" *ngIf="citas == ''">
-                    No hay citas disponibles
+                    <h3>  No hay citas disponibles </h3>
                 </div>
                 <div *ngFor="let cita of citas" class="col-10 col-md-10 bg-white border rounded mt-3">
                     <div class="row p-2">
@@ -98,9 +98,9 @@
                                 </p>
                             </div>
                             <div class="align-self-center col-md-2">
-                                <div class="d-flex flex-column align-items-center botones">
-                                    <button class="btn btnEdit btn-sm p-2" data-toggle="modal" data-target="#modificarCita" on-click="prueba(cita.fecha, cita.hora); capturar(cita.id_reservas); mostrarHorasReservadas()">Modificar cita</button>
-                                    <button class="btn btn-danger btn-sm mt-3 p-2" type="button" data-toggle="modal" data-target="#cancelarTaller" on-click="capturar(cita.id_reservas)">Cancelar cita</button>
+                                <div class="botones">
+                                    <button class="btn btnEdit py-2 px-2" data-toggle="modal" data-target="#modificarCita" on-click="prueba(cita.fecha, cita.hora); capturar(cita.id_reservas); mostrarHorasReservadas()">Modificar</button>
+                                    <button class="btn btn-danger py-2 px-2" type="button" data-toggle="modal" data-target="#cancelarTaller" on-click="capturar(cita.id_reservas)">Cancelar</button>
                                     <div class="modal fade" id="cancelarTaller" tabindex="-1" role="dialog" aria-labelledby="cancelarTaller" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
@@ -146,9 +146,9 @@
                                     </p>
                                 </div>
                                 <div class="align-self-center col-md-2">
-                                    <div class="d-flex flex-column align-items-center botones">
-                                        <button class="btn btnEdit btn-sm p-2" data-toggle="modal" data-target="#modificarCita" on-click="prueba(cita.fecha, cita.hora); capturar(cita.id_reservas); mostrarHorasReservadas()">Modificar cita</button>
-                                        <button class="btn btn-danger btn-sm mt-3 p-2" type="button" data-toggle="modal" data-target="#cancelarTaller" on-click="capturar(cita.id_reservas)">Cancelar cita</button>
+                                    <div class="botones">
+                                        <button class="btn btnEdit p-2" data-toggle="modal" data-target="#modificarCita" on-click="prueba(cita.fecha, cita.hora); capturar(cita.id_reservas); mostrarHorasReservadas()">Modificar</button>
+                                        <button class="btn btn-danger p-2" type="button" data-toggle="modal" data-target="#cancelarTaller" on-click="capturar(cita.id_reservas)">Cancelar</button>
                                         <div class="modal fade" id="cancelarTaller" tabindex="-1" role="dialog" aria-labelledby="cancelarTaller" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
@@ -194,7 +194,7 @@
                 <br>
                 <div class="form-group">
                     <label for="hora">Hora</label>
-                    <select class="form-control" id="hora" value="{{carApiService.horaP}}" on-click="actualizarHoras()" #horaM>
+                    <select class="form-control" id="horaM" value="{{carApiService.horaP}}" on-click="actualizarHoras()" #horaM>
                         <option *ngFor="let hora of mostrarHoras">
                             {{hora}}
                         </option>
@@ -227,7 +227,7 @@
                 </div>
                 <div class="form-group">
                     <label for="hora">Hora</label>
-                    <select class="form-control" id="hora" value="{{carApiService.horaP}}" on-click="actualizarHoras()" #horaA>
+                    <select class="form-control" id="horaA" value="{{carApiService.horaP}}" on-click="actualizarHoras()" #horaA>
                         <option *ngFor="let hora of mostrarHoras">
                             {{hora}}
                         </option>

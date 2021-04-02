@@ -49,9 +49,24 @@ p {
 
 }
 
-@media screen and (max-width: 340px){
+@media screen and (min-height: 1024px){
+
+    p {
+        text-align: left;
+        padding: 0px 20px 0px 20px;
+    }
+    .separacion{
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 411px){
     h1{
-        font-size: 20px;
+        font-size: 25px;
+    }
+    p {
+        text-align: left;
+        padding: 0px 20px 0px 20px;
     }
 }
 

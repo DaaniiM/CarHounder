@@ -81,7 +81,14 @@ export class ResultadoBusquedaComponent implements OnInit {
     this.tallerRes = id_taller;
   }
   public anyadirResenya(comentario:string,nota:number) { 
-    this.carApiService.postResenya(new ResClientes(0,this.tallerRes,this.carApiService.clienteLogin.id_cliente,comentario,nota)).subscribe((data:any[]) => {
+    this.carApiService.postResenya(new ResClientes(0,this.tallerRes,this.carApiService.clienteLogin.id_cliente,comentario,nota)).subscribe((data:any) => {
+      if(data!="-1" && data!="-2"){
+        this.pushNotify4();
+      }
+      else{
+        this.pushNotify5();
+      }
+
     });
   }
 
@@ -149,7 +156,7 @@ export class ResultadoBusquedaComponent implements OnInit {
       if(this.carApiService.cpTalleresFiltros != 0){
         this.carApiService.filtrarPorServicio(new FiltarServicios(this.serviciosFiltro,this.carApiService.cpTalleresFiltros)).subscribe((data:any) => {
           if(data!="-1" && data!="-2"){
-            this.talleres=data;     
+            this.talleres=data;
             this.ngOnInit();
           }
           else
@@ -184,6 +191,7 @@ export class ResultadoBusquedaComponent implements OnInit {
   if(this.carApiService.cpTalleresFiltros == 0){
     if(this.puntuacion != 0 ){
     this.carApiService.filtrarPorPuntuacion(this.puntuacion).subscribe((data:any[]) => {
+      this.talleres = data
       this.ngOnInit();
     })
     }else{  
@@ -193,6 +201,7 @@ export class ResultadoBusquedaComponent implements OnInit {
   }else{
     if(this.puntuacion != 0 ){
       this.carApiService.filtrarPorPuntuacionCp(this.puntuacion,this.carApiService.cpTalleresFiltros).subscribe((data:any[]) => {
+        this.talleres = data
         this.ngOnInit();
       });
       }else{  
@@ -230,7 +239,7 @@ export class ResultadoBusquedaComponent implements OnInit {
       position: 'right top'
     });
   }
-
+  
   public pushNotify1() {
     new Notify({
       status: 'warning',
@@ -276,6 +285,46 @@ export class ResultadoBusquedaComponent implements OnInit {
       status: 'error',
       title: '',
       text: 'Error al abrir el chat',
+      effect: 'fade',
+      speed: 300,
+      customClass: null,
+      customIcon: null,
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top'
+    });
+  }
+
+  public pushNotify4() {
+    new Notify({
+      status: 'success',
+      title: '',
+      text: 'Reseña enviada',
+      effect: 'fade',
+      speed: 300,
+      customClass: null,
+      customIcon: null,
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top'
+    });
+  }
+
+  public pushNotify5() {
+    new Notify({
+      status: 'error',
+      title: '',
+      text: 'Error al enviar la reseña',
       effect: 'fade',
       speed: 300,
       customClass: null,

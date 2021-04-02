@@ -223,6 +223,12 @@ ul {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='grey' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
 }
 
+.card-title img{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
 /* MEDIA QUERY */
 
 @media only screen and (min-width: 1200px) {
