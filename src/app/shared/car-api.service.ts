@@ -22,91 +22,93 @@ import { FiltarServicios } from '../modules/filtar-servicios';
 })
 export class CarApiService {
 
-  // private url ="https://api-rest-carhounder.herokuapp.com";
-  // private url1 = "https://api-rest-carhounder.herokuapp.com/talleres?cp=" ;
-  // private url2= "https://api-rest-carhounder.herokuapp.com/servicios" ;
-  // private url3 = "https://api-rest-carhounder.herokuapp.com/talleresDetalles?id=" ;
-  // private url4 = "https://api-rest-carhounder.herokuapp.com/oferta?id=" ;
-  // private url7 = "https://api-rest-carhounder.herokuapp.com/login";
-  // private url8 = "https://api-rest-carhounder.herokuapp.com/talleresLogin?email=";
-  // private url9 = "https://api-rest-carhounder.herokuapp.com/clientesLogin?email=";
-  // private url10 = "https://api-rest-carhounder.herokuapp.com/borrarTaller?id=";
-  // private url11 = "https://api-rest-carhounder.herokuapp.com/borrarCliente?id=";
-  // private url12 = "https://api-rest-carhounder.herokuapp.com/borrarLogin?email=";
-  // private url13 = "https://api-rest-carhounder.herokuapp.com/cliente";
-  // private url14 = "https://api-rest-carhounder.herokuapp.com/taller";
-  // private url16 = "https://api-rest-carhounder.herokuapp.com/serviciosTalleres";
-  // private url17 = "https://api-rest-carhounder.herokuapp.com/borrarServicio?id_servicios=";
-  // private url24 = "https://api-rest-carhounder.herokuapp.com/serviciosLogin?id_taller="
-  // private url19 = "https://api-rest-carhounder.herokuapp.com/chat";
-  // private url20 = "https://api-rest-carhounder.herokuapp.com/mensaje";
-  // private url425 = "https://api-rest-carhounder.herokuapp.com/comprobarChat";
-  // private url189 = "https://api-rest-carhounder.herokuapp.com/favoritos"
-  // private url289 = "https://api-rest-carhounder.herokuapp.com/favoritos?id_cliente="
-  // private url426 = "https://api-rest-carhounder.herokuapp.com/eliminarChatCliente";
-  // private url427 = "https://api-rest-carhounder.herokuapp.com/eliminarChatTaller";
-  // private url280 = "https://api-rest-carhounder.herokuapp.com/resenyas"
-  // private url281 = "https://api-rest-carhounder.herokuapp.com/resenyasTaller?id_taller="
-  // private url282 = "https://api-rest-carhounder.herokuapp.com/ultimasResenyas"
-  // private url283 = "https://api-rest-carhounder.herokuapp.com/filtrarPorServicio"
-  // private url284 = "https://api-rest-carhounder.herokuapp.com/filtrarPorPuntuacion?puntuacion="
-  // private url18 = "https://api-rest-carhounder.herokuapp.com/citas/cliente";
-  // private url25 = "https://api-rest-carhounder.herokuapp.com/citas/cliente?id_cliente=";
-  // private url45 = "https://api-rest-carhounder.herokuapp.com/citas/taller?id_taller=";
-  // private url38 = "https://api-rest-carhounder.herokuapp.com/citas/cliente?id_cliente=";
-  // private url39 = "https://api-rest-carhounder.herokuapp.com/citas/taller?id_taller=";
-  // private url59 = "https://api-rest-carhounder.herokuapp.com/citas/clienteNuevo?nombre=";
-  // private url89 = "https://api-rest-carhounder.herokuapp.com/citas/taller";
-  // private url90 = "https://api-rest-carhounder.herokuapp.com/citas/horas?id_taller=";
-  // private url500 = "https://api-rest-carhounder.herokuapp.com/cambiarPassword";
-  // private url501 = "https://api-rest-carhounder.herokuapp.com/passwordAnterior?password=";
-  // private url503 = "https://api-rest-carhounder.herokuapp.com/passwordAnteriorCliente?password="
-  // private url699 = "https://api-rest-carhounder.herokuapp.com/contacto";
-  // private url700 = "https://api-rest-carhounder.herokuapp.com/cambiarPasswordCliente";
+  private url ="https://api-rest-carhounder.herokuapp.com";
+  private url1 = "https://api-rest-carhounder.herokuapp.com/talleres?cp=" ;
+  private url2= "https://api-rest-carhounder.herokuapp.com/servicios" ;
+  private url3 = "https://api-rest-carhounder.herokuapp.com/talleresDetalles?id=" ;
+  private url4 = "https://api-rest-carhounder.herokuapp.com/oferta?id=" ;
+  private url7 = "https://api-rest-carhounder.herokuapp.com/login";
+  private url8 = "https://api-rest-carhounder.herokuapp.com/talleresLogin?email=";
+  private url9 = "https://api-rest-carhounder.herokuapp.com/clientesLogin?email=";
+  private url10 = "https://api-rest-carhounder.herokuapp.com/borrarTaller?id=";
+  private url11 = "https://api-rest-carhounder.herokuapp.com/borrarCliente?id=";
+  private url12 = "https://api-rest-carhounder.herokuapp.com/borrarLogin?email=";
+  private url13 = "https://api-rest-carhounder.herokuapp.com/cliente";
+  private url14 = "https://api-rest-carhounder.herokuapp.com/taller";
+  private url16 = "https://api-rest-carhounder.herokuapp.com/serviciosTalleres";
+  private url17 = "https://api-rest-carhounder.herokuapp.com/borrarServicio?id_servicios=";
+  private url24 = "https://api-rest-carhounder.herokuapp.com/serviciosLogin?id_taller="
+  private url19 = "https://api-rest-carhounder.herokuapp.com/chat";
+  private url20 = "https://api-rest-carhounder.herokuapp.com/mensaje";
+  private url425 = "https://api-rest-carhounder.herokuapp.com/comprobarChat";
+  private url189 = "https://api-rest-carhounder.herokuapp.com/favoritos"
+  private url289 = "https://api-rest-carhounder.herokuapp.com/favoritos?id_cliente="
+  private url426 = "https://api-rest-carhounder.herokuapp.com/eliminarChatCliente";
+  private url427 = "https://api-rest-carhounder.herokuapp.com/eliminarChatTaller";
+  private url280 = "https://api-rest-carhounder.herokuapp.com/resenyas"
+  private url281 = "https://api-rest-carhounder.herokuapp.com/resenyasTaller?id_taller="
+  private url282 = "https://api-rest-carhounder.herokuapp.com/ultimasResenyas"
+  private url283 = "https://api-rest-carhounder.herokuapp.com/filtrarPorServicio"
+  private url284 = "https://api-rest-carhounder.herokuapp.com/filtrarPorPuntuacion?puntuacion="
+  private url18 = "https://api-rest-carhounder.herokuapp.com/citas/cliente";
+  private url25 = "https://api-rest-carhounder.herokuapp.com/citas/cliente?id_cliente=";
+  private url45 = "https://api-rest-carhounder.herokuapp.com/citas/taller?id_taller=";
+  private url38 = "https://api-rest-carhounder.herokuapp.com/citas/cliente?id_cliente=";
+  private url39 = "https://api-rest-carhounder.herokuapp.com/citas/taller?id_taller=";
+  private url59 = "https://api-rest-carhounder.herokuapp.com/citas/clienteNuevo?nombre=";
+  private url89 = "https://api-rest-carhounder.herokuapp.com/citas/taller";
+  private url90 = "https://api-rest-carhounder.herokuapp.com/citas/horas?id_taller=";
+  private url500 = "https://api-rest-carhounder.herokuapp.com/cambiarPassword";
+  private url501 = "https://api-rest-carhounder.herokuapp.com/passwordAnterior?password=";
+  private url503 = "https://api-rest-carhounder.herokuapp.com/passwordAnteriorCliente?password="
+  private url699 = "https://api-rest-carhounder.herokuapp.com/contacto";
+  private url700 = "https://api-rest-carhounder.herokuapp.com/cambiarPasswordCliente";
+  private url701 ="https://api-rest-carhounder.herokuapp.com/cambiarFotoCliente?foto="
+  private url702 ="https://api-rest-carhounder.herokuapp.com/cambiarFotoTaller?foto="
 
-  private url = "http://localhost:300";
-  private url1 = "http://localhost:300/talleres?cp=" ;
-  private url2 = "http://localhost:300/servicios" ;
-  private url3 = "http://localhost:300/talleresDetalles?id=" ;
-  private url4 = "http://localhost:300/oferta?id=" ;
-  private url7 = "http://localhost:300/login";
-  private url8 = "http://localhost:300/talleresLogin?email=";
-  private url9 = "http://localhost:300/clientesLogin?email=";
-  private url10 = "http://localhost:300/borrarTaller?id=";
-  private url11 = "http://localhost:300/borrarCliente?id=";
-  private url12 = "http://localhost:300/borrarLogin?email=";
-  private url13 = "http://localhost:300/cliente";
-  private url14 = "http://localhost:300/taller";
-  private url16 = "http://localhost:300/serviciosTalleres";
-  private url17 = "http://localhost:300/borrarServicio?id_servicios=";
-  private url24 = "http://localhost:300/serviciosLogin?id_taller="
-  private url19 = "http://localhost:300/chat";
-  private url20 = "http://localhost:300/mensaje";
-  private url425 = "http://localhost:300/comprobarChat";
-  private url189 = "http://localhost:300/favoritos"
-  private url289 = "http://localhost:300/favoritos?id_cliente="
-  private url426 = "http://localhost:300/eliminarChatCliente";
-  private url427 = "http://localhost:300/eliminarChatTaller";
-  private url280 = "http://localhost:300/resenyas"
-  private url281 = "http://localhost:300/resenyasTaller?id_taller="
-  private url282 = "http://localhost:300/ultimasResenyas"
-  private url283 = "http://localhost:300/filtrarPorServicio"
-  private url284 = "http://localhost:300/filtrarPorPuntuacion?puntuacion="
-  private url18 = "http://localhost:300/citas/cliente";
-  private url25 = "http://localhost:300/citas/cliente?id_cliente=";
-  private url45 = "http://localhost:300/citas/taller?id_taller=";
-  private url38 = "http://localhost:300/citas/cliente?id_cliente=";
-  private url39 = "http://localhost:300/citas/taller?id_taller=";
-  private url59 = "http://localhost:300/citas/clienteNuevo?nombre=";
-  private url89 = "http://localhost:300/citas/taller";
-  private url90 = "http://localhost:300/citas/horas?id_taller=";
-  private url500 = "http://localhost:300/cambiarPassword";
-  private url501 = "http://localhost:300/passwordAnterior?password=";
-  private url503 = "http://localhost:300/passwordAnteriorCliente?password="
-  private url699 = "http://localhost:300/contacto";
-  private url700 = "http://localhost:300/cambiarPasswordCliente";
-  private url701 ="http://localhost:300/cambiarFotoCliente?foto="
-  private url702 ="http://localhost:300/cambiarFotoTaller?foto="
+  // private url = "http://localhost:300";
+  // private url1 = "http://localhost:300/talleres?cp=" ;
+  // private url2 = "http://localhost:300/servicios" ;
+  // private url3 = "http://localhost:300/talleresDetalles?id=" ;
+  // private url4 = "http://localhost:300/oferta?id=" ;
+  // private url7 = "http://localhost:300/login";
+  // private url8 = "http://localhost:300/talleresLogin?email=";
+  // private url9 = "http://localhost:300/clientesLogin?email=";
+  // private url10 = "http://localhost:300/borrarTaller?id=";
+  // private url11 = "http://localhost:300/borrarCliente?id=";
+  // private url12 = "http://localhost:300/borrarLogin?email=";
+  // private url13 = "http://localhost:300/cliente";
+  // private url14 = "http://localhost:300/taller";
+  // private url16 = "http://localhost:300/serviciosTalleres";
+  // private url17 = "http://localhost:300/borrarServicio?id_servicios=";
+  // private url24 = "http://localhost:300/serviciosLogin?id_taller="
+  // private url19 = "http://localhost:300/chat";
+  // private url20 = "http://localhost:300/mensaje";
+  // private url425 = "http://localhost:300/comprobarChat";
+  // private url189 = "http://localhost:300/favoritos"
+  // private url289 = "http://localhost:300/favoritos?id_cliente="
+  // private url426 = "http://localhost:300/eliminarChatCliente";
+  // private url427 = "http://localhost:300/eliminarChatTaller";
+  // private url280 = "http://localhost:300/resenyas"
+  // private url281 = "http://localhost:300/resenyasTaller?id_taller="
+  // private url282 = "http://localhost:300/ultimasResenyas"
+  // private url283 = "http://localhost:300/filtrarPorServicio"
+  // private url284 = "http://localhost:300/filtrarPorPuntuacion?puntuacion="
+  // private url18 = "http://localhost:300/citas/cliente";
+  // private url25 = "http://localhost:300/citas/cliente?id_cliente=";
+  // private url45 = "http://localhost:300/citas/taller?id_taller=";
+  // private url38 = "http://localhost:300/citas/cliente?id_cliente=";
+  // private url39 = "http://localhost:300/citas/taller?id_taller=";
+  // private url59 = "http://localhost:300/citas/clienteNuevo?nombre=";
+  // private url89 = "http://localhost:300/citas/taller";
+  // private url90 = "http://localhost:300/citas/horas?id_taller=";
+  // private url500 = "http://localhost:300/cambiarPassword";
+  // private url501 = "http://localhost:300/passwordAnterior?password=";
+  // private url503 = "http://localhost:300/passwordAnteriorCliente?password="
+  // private url699 = "http://localhost:300/contacto";
+  // private url700 = "http://localhost:300/cambiarPasswordCliente";
+  // private url701 ="http://localhost:300/cambiarFotoCliente?foto="
+  // private url702 ="http://localhost:300/cambiarFotoTaller?foto="
 
   public talleres:Taller[];
   public servicios:any[];
