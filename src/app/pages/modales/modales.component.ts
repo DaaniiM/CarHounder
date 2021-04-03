@@ -23,7 +23,7 @@ export class ModalesComponent implements OnInit {
    }else{
     this.apiService.verificarCorreo(email).subscribe((data:any) =>{
       if(data.length==0){
-        this.apiService.registrarCliente(new Usuario(0,email,password,nombre,apellidos,Number(telefono),"assets/img/fotoFondos/usuario.png")).subscribe((data:any) =>{
+        this.apiService.registrarCliente(new Usuario(0,email,password,nombre,apellidos,Number(telefono),"usuario.png")).subscribe((data:any) =>{
           if(data!="-1" && data!="-2"){
             this.pushNotify();
           }
@@ -50,7 +50,7 @@ public agregarTaller(email:string, password:string, nombre:string, cif:string, d
   }else{
     this.apiService.verificarCorreo(email).subscribe((data:any) =>{
       if(data.length==0){
-        this.apiService.registrarTaller(new Taller(0,email,password,nombre,cif,direccion,Number(cp),ciudad,provincia,Number(telefono),"../../assets/img/fotoFondos/perfilTaller.jpg")).subscribe((data:any) =>{
+        this.apiService.registrarTaller(new Taller(0,email,password,nombre,cif,direccion,Number(cp),ciudad,provincia,Number(telefono),"perfilTaller.jpg")).subscribe((data:any) =>{
           if(data!="-1" && data!="-2"){
             this.pushNotify();
             this.apiService.crearOferta(new Oferta(0,data,"No hay ofertas")).subscribe((data1:any) =>{

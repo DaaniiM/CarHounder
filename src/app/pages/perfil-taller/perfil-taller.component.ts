@@ -125,15 +125,19 @@ export class PerfilTallerComponent implements OnInit {
     });
   }
 
-  // public cambiarFoto(foto:string) {
-  //   this.apiService.cambiarFotoTaller(foto,this.apiService.tallerLogin.id_taller).subscribe((data:any) => {
-  //     if(data !="-1" && data !="-2") {
-  //       this.pushNotify7();
-  //     }else {
-  //       this.pushNotify8();
-  //     }
-  //   })
-  // }
+
+  public editarFotoTaller(foto:string){
+    this.apiService.cambiarFotoTaller(foto.replace(/^.*\\/, ""),this.apiService.tallerLogin.id_taller).subscribe((data:any) =>{
+      console.log(data)
+      if(data!="-1" && data!="-2"){
+        this.apiService.tallerLogin.foto = foto.replace(/^.*\\/, "");        
+        this.pushNotify13();
+      }else{
+        this.pushNotify14();
+      }
+    })
+   }
+
 
   public pushNotify() {
     new Notify({
@@ -376,6 +380,47 @@ export class PerfilTallerComponent implements OnInit {
       position: 'right top'
     });
   }
+
+  public pushNotify13() {
+    new Notify({
+      status: 'success',
+      title: '',
+      text: 'Foto modificada correctamente',
+      effect: 'fade',
+      speed: 300,
+      customClass: null,
+      customIcon: null,
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top'
+    });
+  }
+
+  public pushNotify14() {
+    new Notify({
+      status: 'error',
+      title: '',
+      text: 'Error al modificar la foto',
+      effect: 'fade',
+      speed: 300,
+      customClass: null,
+      customIcon: null,
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top'
+    });
+  }
+
 
   ngOnInit(): void {
 

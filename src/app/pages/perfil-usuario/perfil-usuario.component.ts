@@ -93,6 +93,18 @@ export class PerfilUsuarioComponent implements OnInit {
    }
   }
 
+  public editarFotoCliente(foto:string){
+    this.apiService.cambiarFotoCliente(foto.replace(/^.*\\/, ""),this.apiService.clienteLogin.id_cliente).subscribe((data:any) =>{
+      console.log(data)
+      if(data!="-1" && data!="-2"){
+        this.apiService.clienteLogin.foto = foto.replace(/^.*\\/, "");        
+        this.pushNotify11();
+      }else{
+        this.pushNotify12();
+      }
+    })
+   }
+
   public pushNotify5() {
     new Notify({
       status: 'success',
@@ -198,6 +210,46 @@ export class PerfilUsuarioComponent implements OnInit {
       status: 'error',
       title: '',
       text: 'Error al eliminar favorito',
+      effect: 'fade',
+      speed: 300,
+      customClass: null,
+      customIcon: null,
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top'
+    });
+  }
+
+  public pushNotify11() {
+    new Notify({
+      status: 'success',
+      title: '',
+      text: 'Foto modificada correctamente',
+      effect: 'fade',
+      speed: 300,
+      customClass: null,
+      customIcon: null,
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top'
+    });
+  }
+
+  public pushNotify12() {
+    new Notify({
+      status: 'error',
+      title: '',
+      text: 'Error al modificar la foto',
       effect: 'fade',
       speed: 300,
       customClass: null,

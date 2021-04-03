@@ -7,7 +7,7 @@
           <div class="row mt-3">
             <div class="col-md-3 imagenPerfil d-flex flex-column align-items-center mt-3">
               <span class="btn btn-file">
-                <input type="file" ><img  #foto  src="{{apiService.tallerLogin.foto}}">
+                <input #fotoPerfil type="file" on-change="editarFotoTaller(fotoPerfil.value)"><img  #foto  src="../../assets/img/fotoFondos/{{apiService.tallerLogin.foto}}">
               </span>
               <br>
               <button type="button" class="btn btnEdit1 btn-sm" data-dismiss="modal" data-toggle="modal" data-target="#cambiarPassword">Modificar contraseña</button>
