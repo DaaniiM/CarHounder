@@ -63,7 +63,6 @@ export class PaginaTallerComponent implements OnInit {
     this.carApiService.getComprobarChat(this.carApiService.clienteLogin.id_cliente, id_taller).subscribe((data:any) =>{
       if(data == ""){
         this.carApiService.postChat(new Chat(this.carApiService.clienteLogin.id_cliente,id_taller)).subscribe((data1:any) =>{
-          console.log(data1);
           if(data1!="-1" && data!="-2"){
             console.log("chat ok");
             this._router.navigate(['/chat']);
@@ -89,7 +88,6 @@ export class PaginaTallerComponent implements OnInit {
   }
 
   public noCliente(){
-    console.log(this.carApiService.login.rol);
     if(this.carApiService.login.rol === "cliente"){
       this.invisible = false;
     }

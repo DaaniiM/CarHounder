@@ -54,11 +54,10 @@ export class PerfilUsuarioComponent implements OnInit {
     });
    }
 
-   public editarCliente(email:string, nombre:string,apellidos:string, telefono:any, foto:string){
-    this.apiService.editarCliente(new Usuario(this.apiService.clienteLogin.id_cliente, email,"", nombre, apellidos,Number(telefono),foto)).subscribe((data:any) =>{
-      console.log(this.apiService.clienteLogin)
+   public editarCliente(email:string, nombre:string,apellidos:string, telefono:any){
+    this.apiService.editarCliente(new Usuario(this.apiService.clienteLogin.id_cliente, email,"", nombre, apellidos,Number(telefono),"")).subscribe((data:any) =>{
       if(data!="-1" && data!="-2"){
-        this.apiService.clienteLogin = new Usuario(this.apiService.clienteLogin.id_cliente, email, "", nombre, apellidos,Number(telefono),foto);
+        this.apiService.clienteLogin = new Usuario(this.apiService.clienteLogin.id_cliente, email, "", nombre, apellidos,Number(telefono),this.apiService.clienteLogin.foto);
         this.pushNotify9();
       }else{
         this.pushNotify10();
@@ -95,7 +94,6 @@ export class PerfilUsuarioComponent implements OnInit {
 
   public editarFotoCliente(foto:string){
     this.apiService.cambiarFotoCliente(foto.replace(/^.*\\/, ""),this.apiService.clienteLogin.id_cliente).subscribe((data:any) =>{
-      console.log(data)
       if(data!="-1" && data!="-2"){
         this.apiService.clienteLogin.foto = foto.replace(/^.*\\/, "");        
         this.pushNotify11();

@@ -120,7 +120,6 @@ export class CitasComponent implements OnInit {
         this.AServicios = this.serviciosCitas.toString();
         this.carApiService.pedirCita(new Cita(this.AServicios, fecha, hora, this.carApiService.tallerLogin.id_taller, data)).subscribe((data: any) => {
           if (data != "-1" && data != "-2") {
-            console.log(data)
             this.pushNotify();
             this.ngOnInit();
           }
@@ -138,7 +137,6 @@ export class CitasComponent implements OnInit {
 
   public modificarCita(fecha:any, hora: string){
     this.AServicios = this.serviciosCitas.toString();
-    console.log(this.carApiService.idReserva)
     this.carApiService.modificarCita(new Cita(this.AServicios, fecha, hora, 0, 0, this.carApiService.idReserva)).subscribe((data: any) => {
       if (data != "-1" && data != "-2") {
         this.pushNotify3();
@@ -216,8 +214,7 @@ export class CitasComponent implements OnInit {
   public mostrarHorasReservadas(){
     this.carApiService.mostrarHoras(this.carApiService.tallerLogin.id_taller).subscribe((data: any[]) => {
       this.carApiService.horasReservadas = data;
-      console.log(data)
-    });
+      });
   }
 
   public actualizarHoras(){
@@ -381,14 +378,10 @@ export class CitasComponent implements OnInit {
 
     if (this.carApiService.login.rol == "cliente"){
       this.mostrarCitasCliente()
-      console.log(this.carApiService.login.rol);
-      console.log(this.carApiService.clienteLogin.id_cliente);
     }
     else{
       this.mostrarCitasTaller()
-      console.log(this.carApiService.login.rol)
-      console.log(this.carApiService.tallerLogin.id_taller);
-    }
+      }
     
     this.detallesServicios()
     this.calendarioM();

@@ -88,7 +88,6 @@ export class ChatComponent implements OnInit {
     }
     else if(this.rol == "taller"){
       this.apiService.eliminarChatTaller(1, this.chatEliminar).subscribe((data:any) => {
-        console.log(data);
         this.mensajes = null
         this.pushNotify3();
         this.ngOnInit();

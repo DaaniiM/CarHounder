@@ -26,7 +26,6 @@ export class LandingPageComponent implements OnInit {
 
   public ultimasResenyas() {
     this.carApiService.ultimasResenyas().subscribe((data:any) => {
-      console.log(data)
       this.ultimasRes=data
     });
   }

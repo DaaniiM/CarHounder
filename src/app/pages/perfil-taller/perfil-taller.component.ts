@@ -69,10 +69,10 @@ export class PerfilTallerComponent implements OnInit {
     });
    }
 
-   public editarTaller(email:string, nombre:string, cif:string, direccion:string, cp:any, ciudad:string, provincia:string, telefono:any, foto:string, nuevaOferta:string){
-    this.apiService.editarTaller(new Taller(this.apiService.tallerLogin.id_taller, email, "", nombre, cif, direccion, Number(cp), ciudad, provincia,Number(telefono), foto)).subscribe((data:any) =>{
+   public editarTaller(email:string, nombre:string, cif:string, direccion:string, cp:any, ciudad:string, provincia:string, telefono:any, nuevaOferta:string){
+    this.apiService.editarTaller(new Taller(this.apiService.tallerLogin.id_taller, email, "", nombre, cif, direccion, Number(cp), ciudad, provincia,Number(telefono), "")).subscribe((data:any) =>{
       if(data!="-1" && data!="-2"){
-        this.apiService.tallerLogin = new Taller(this.apiService.tallerLogin.id_taller, email, "", nombre, cif, direccion, Number(cp), ciudad, provincia,Number(telefono), foto);
+        this.apiService.tallerLogin = new Taller(this.apiService.tallerLogin.id_taller, email, "", nombre, cif, direccion, Number(cp), ciudad, provincia,Number(telefono), this.apiService.tallerLogin.foto);
         this.apiService.editarOferta(new Oferta(0,this.apiService.tallerLogin.id_taller,nuevaOferta)).subscribe((data1) =>{
           if(data1!="-1" && data1!="-2"){
             console.log("oferta ok");
@@ -128,7 +128,6 @@ export class PerfilTallerComponent implements OnInit {
 
   public editarFotoTaller(foto:string){
     this.apiService.cambiarFotoTaller(foto.replace(/^.*\\/, ""),this.apiService.tallerLogin.id_taller).subscribe((data:any) =>{
-      console.log(data)
       if(data!="-1" && data!="-2"){
         this.apiService.tallerLogin.foto = foto.replace(/^.*\\/, "");        
         this.pushNotify13();

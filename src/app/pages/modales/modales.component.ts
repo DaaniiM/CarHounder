@@ -79,7 +79,6 @@ public agregarTaller(email:string, password:string, nombre:string, cif:string, d
 
 public loguearPagina(email:string,password:string){
   this.apiService.loguearse(new Login(email,password,"")).subscribe((data:any) =>{
-    console.log(data);
     if(data!="-1" && data!="-2" && data.length != 0){
       this.apiService.login = data[0];
       if(this.apiService.login.rol == "cliente"){

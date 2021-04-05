@@ -31,7 +31,7 @@
                         </div>
                         <div class="align-self-center col-md-2">
                             <div class="d-flex flex-column align-items-center botones">
-                                <button class="btn btn-danger btn-sm mt-3 p-2" type="button" data-toggle="modal" data-target="#cancelarCliente" data-dismiss="modal" on-click="capturar(cita.id_reservas)">Cancelar cita</button>
+                                <button class="btn btn-danger btn-sm mt-3 p-2" type="button" data-toggle="modal" data-target="#cancelarCliente" data-dismiss="modal" on-click="capturar(cita.id_reservas)">Cancelar</button>
                                 <div class="modal fade" id="cancelarCliente" tabindex="-1" role="dialog" aria-labelledby="cancelarCliente" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
@@ -43,7 +43,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btnEdit" data-dismiss="modal">No</button>
-                                                <button type="submit" class="btn btn-danger" on-click="borrarCitasCliente()" data-dismiss="modal">Cancelar cita</button>
+                                                <button type="submit" class="btn btn-danger" on-click="borrarCitasCliente()" data-dismiss="modal">Cancelar</button>
                                             </div>
                                         </div>
                                     </div>
@@ -100,7 +100,7 @@
                             <div class="align-self-center col-md-2">
                                 <div class="botones">
                                     <button class="btn btnEdit py-2 px-2" data-toggle="modal" data-target="#modificarCita" on-click="prueba(cita.fecha, cita.hora); capturar(cita.id_reservas); mostrarHorasReservadas()">Modificar</button>
-                                    <button class="btn btn-danger py-2 px-2" type="button" data-toggle="modal" data-target="#cancelarTaller" on-click="capturar(cita.id_reservas)">Cancelar</button>
+                                    <button class="btn btn-danger py-2 px-2 margin" type="button" data-toggle="modal" data-target="#cancelarTaller" on-click="capturar(cita.id_reservas)">Cancelar</button>
                                     <div class="modal fade" id="cancelarTaller" tabindex="-1" role="dialog" aria-labelledby="cancelarTaller" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
@@ -112,7 +112,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btnEdit" data-dismiss="modal">No</button>
-                                                    <button type="submit" class="btn btn-danger" on-click="borrarCitasTaller()" data-dismiss="modal">Cancelar cita</button>
+                                                    <button type="submit" class="btn btn-danger" on-click="borrarCitasTaller()" data-dismiss="modal">Cancelar</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -160,7 +160,7 @@
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btnEdit" data-dismiss="modal">No</button>
-                                                        <button type="submit" class="btn btn-danger" on-click="borrarCitasTaller()" data-dismiss="modal">Cancelar cita</button>
+                                                        <button type="submit" class="btn btn-danger" on-click="borrarCitasTaller()" data-dismiss="modal">Cancelar</button>
                                                     </div>
                                                 </div>
                                             </div>
