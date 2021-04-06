@@ -53,15 +53,21 @@ export class ModalCitasComponent implements OnInit {
   }
 
   public pedirCita(fecha: string, hora: string) {
-    this.AServicios = this.serviciosCitas.toString();
-    this.carApiService.pedirCita(new Cita(this.AServicios, fecha, hora, this.carApiService.taller.id_taller, this.carApiService.clienteLogin.id_cliente)).subscribe((data: any) => {
-      if (data != "-1" && data != "-2") {
-        this.pushNotify();
-      }
-      else {
-        this.pushNotify2();
-      }
-    });
+    if(fecha!=""&& hora != ""){
+      this.AServicios = this.serviciosCitas.toString();
+      this.carApiService.pedirCita(new Cita(this.AServicios, fecha, hora, this.carApiService.taller.id_taller, this.carApiService.clienteLogin.id_cliente)).subscribe((data: any) => {
+        if (data != "-1" && data != "-2") {
+          this.pushNotify();
+        }
+        else {
+          this.pushNotify2();
+        }
+      });
+    }
+    else{
+      this.pushNotify3();
+    }
+    
   };
 
 public calendario(){
@@ -142,6 +148,26 @@ public mostrarHorasReservadas(){
       status: 'error',
       title: '',
       text: 'Error al reservar su cita',
+      effect: 'fade',
+      speed: 300,
+      customClass: null,
+      customIcon: null,
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top'
+    });
+  }
+
+  public pushNotify3() {
+    new Notify({
+      status: 'error',
+      title: '',
+      text: 'Debe rellenar todos los campos',
       effect: 'fade',
       speed: 300,
       customClass: null,

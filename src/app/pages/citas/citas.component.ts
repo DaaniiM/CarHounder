@@ -115,24 +115,30 @@ export class CitasComponent implements OnInit {
   }
 
   public registrarCliente(nombre: string, apellidos: string, telefono: string, fecha: string, hora: string){
-    this.carApiService.registrarCliente(new Usuario(0, null, "1", nombre, apellidos, Number(telefono), null)).subscribe((data:any) =>{
-      if(data!="-1" && data != "-2"){
-        this.AServicios = this.serviciosCitas.toString();
-        this.carApiService.pedirCita(new Cita(this.AServicios, fecha, hora, this.carApiService.tallerLogin.id_taller, data)).subscribe((data: any) => {
-          if (data != "-1" && data != "-2") {
-            this.pushNotify();
-            this.ngOnInit();
-          }
-          else {
-            this.pushNotify4();
-            this.ngOnInit();
-          }
-       });
-      }
-      else{
-        this,this.pushNotify7();
-      }
-    });
+    if(nombre!="" && apellidos!="" && telefono!="" && fecha !="" && hora!=""){
+      this.carApiService.registrarCliente(new Usuario(0, null, "1", nombre, apellidos, Number(telefono), null)).subscribe((data:any) =>{
+        if(data!="-1" && data != "-2"){
+          this.AServicios = this.serviciosCitas.toString();
+          this.carApiService.pedirCita(new Cita(this.AServicios, fecha, hora, this.carApiService.tallerLogin.id_taller, data)).subscribe((data: any) => {
+            console.log(fecha)
+            if (data != "-1" && data != "-2" && fecha!="") {
+              this.pushNotify();
+              this.ngOnInit();
+            }
+            else {
+              this.pushNotify4();
+              this.ngOnInit();
+            }
+         });
+        }
+        else{
+          this.pushNotify7();
+        }
+      });
+    }
+    else{
+      this.pushNotify8();
+    }
   }
 
   public modificarCita(fecha:any, hora: string){
@@ -374,16 +380,36 @@ export class CitasComponent implements OnInit {
     });
   }
 
+  public pushNotify8() {
+    new Notify({
+      status: 'error',
+      title: '',
+      text: 'Debe rellenar todos los campos',
+      effect: 'fade',
+      speed: 300,
+      customClass: null,
+      customIcon: null,
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 3000,
+      gap: 60,
+      distance: 20,
+      type: 1,
+      position: 'right top'
+    });
+  }
+
   ngOnInit(): void {
 
     if (this.carApiService.login.rol == "cliente"){
-      this.mostrarCitasCliente()
+      this.mostrarCitasCliente();
     }
     else{
-      this.mostrarCitasTaller()
+      this.mostrarCitasTaller();
       }
     
-    this.detallesServicios()
+    this.detallesServicios();
     this.calendarioM();
     this.calendarioA();
     this.mostrarHorasReservadas();

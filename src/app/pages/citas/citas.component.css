@@ -71,10 +71,6 @@ span{
     font-size: 20px;
 }
 
-.margin {
-    margin-top: 10px;
-}
-
 .btn-danger{
     font-size:16px;
     font-weight: 300;
@@ -148,7 +144,6 @@ span{
     .btnEdit{
         width: 120px;
     }
-
 }
 
   @media screen and (max-width: 992px){
@@ -184,6 +179,10 @@ span{
     .btnEdit2{
         font-size: 15px;
         margin-left: 10px;
+    }
+
+    .btnEdit{
+        margin-top: 1rem;
     }
 
 }
