@@ -54,10 +54,20 @@ export class PerfilUsuarioComponent implements OnInit {
     });
    }
 
+   public loginCliente(email:string){
+    this.apiService.loginCliente(email).subscribe((data4:any) =>{
+      if(data4!="-1" && data4!="-2"){
+        this.apiService.clienteLogin = data4[0];
+      }else{
+        console.log("Error login cliente");
+      }
+    });
+   }
+
    public editarCliente(email:string, nombre:string,apellidos:string, telefono:any){
     this.apiService.editarCliente(new Usuario(this.apiService.clienteLogin.id_cliente, email,"", nombre, apellidos,Number(telefono),"")).subscribe((data:any) =>{
       if(data!="-1" && data!="-2"){
-        this.apiService.clienteLogin = new Usuario(this.apiService.clienteLogin.id_cliente, email, "", nombre, apellidos,Number(telefono),this.apiService.clienteLogin.foto);
+        this.loginCliente(email);
         this.pushNotify9();
       }else{
         this.pushNotify10();
