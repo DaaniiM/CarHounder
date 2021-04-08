@@ -27,7 +27,7 @@
             <div class="modal-body" *ngFor="let chat of chats">
               <div *ngIf="chat.del_cliente == 0 || chat.del_taller == 0">
                 <div class="chat">
-                  <img src="{{chat.foto}}" class="foto" on-click="getMensaje(chat.id_chat)" id="fotoChat"
+                  <img src="../../assets/img/fotoFondos/{{chat.foto}}" class="foto" on-click="getMensaje(chat.id_chat)" id="fotoChat"
                     data-dismiss="modal">
                   <a class="a" on-click="getMensaje(chat.id_chat)" data-dismiss="modal"> {{chat.nombre}} </a>
                   <button class="btn btn-danger" id="eliminar" type="button" on-click="deleteChatResponsive(chat.id_chat)"> <img src="../../assets/img/iconos/papelera.png" value="eliminar chat" id="papelera"> </button>
@@ -44,7 +44,7 @@
         <div *ngFor="let chat of chats">
           <div *ngIf="chat.del_cliente == 0 || chat.del_taller == 0">
             <hr>
-            <img src="{{chat.foto}}" class="foto" on-click="getMensaje(chat.id_chat)" id="fotoChat">
+            <img src="../../assets/img/fotoFondos/{{chat.foto}}" class="foto" on-click="getMensaje(chat.id_chat)" id="fotoChat">
             <a class="a" on-click="getMensaje(chat.id_chat)"> {{chat.nombre}} </a>
             <button class="btn btn-danger" id="eliminar" type="button" data-toggle="modal" data-target="#confirmarEliminar" on-click="chatElimina(chat.id_chat)"> <img src="../../assets/img/iconos/papelera.png" value="eliminar chat" id="papelera"> </button>
             <!-- MODAL CONFIRMACION ELIMINAR CHAT -->

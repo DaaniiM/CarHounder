@@ -25,6 +25,7 @@ export class ChatComponent implements OnInit {
   public getChat(){
     this.apiService.getChat(this.apiService.login.email, this.rol).subscribe((data:any) =>{
       this.chats = data;
+      console.log(data)
     });
   }
 
