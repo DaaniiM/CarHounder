@@ -351,7 +351,7 @@
                             </div>
                         </div>
                         <div class="d-flex flex-column mt-2" id="botonesAll">
-                            <button id="masDetalles" on-click="detallesTaller(taller.id_taller)" class="btn btn-primary  botones" type="button">Mas detalles</button>
+                            <button id="masDetalles" on-click="detallesTaller(taller.id_taller)" class="btn btn-primary  botones" type="button">Más detalles</button>
                             <button on-click="postChat(taller.id_taller)" class="btn btn-outline-primary  mt-2 botones" type="button" [hidden]="invisible">Chat</button>
                             <button [ngStyle]="{'display': talleresFav.includes(taller.id_taller) ? 'none' : 'block' }" on-click="anyadirFavoritos(taller.id_taller);pushNotify()" class="btn btn-outline-primary   mt-2 botones" type="button" [hidden]="invisible">Añadir a favoritos</button>  
                             <button [ngStyle]="{'display': talleresFav.includes(taller.id_taller) ? 'block' : 'none' }" on-click="eliminarFavorito(taller.id_taller);pushNotify1()" class="btn   mt-2 btn-danger botones" type="button" [hidden]="invisible">Eliminar de favoritos</button>
